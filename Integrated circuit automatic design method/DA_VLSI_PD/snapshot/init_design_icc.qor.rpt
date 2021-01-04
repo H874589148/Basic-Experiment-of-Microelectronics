@@ -1,0 +1,86 @@
+Information: Updating graph... (UID-83)
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Updating design information... (UID-85)
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : qor
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:33:12 2020
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:             21.000
+  Critical Path Length:         1.882
+  Critical Path Slack:          0.043
+  Critical Path Clk Period:     2.000
+  Total Negative Slack:         0.000
+  No. of Violating Paths:       0.000
+  Worst Hold Violation:         0.000
+  Total Hold Violation:         0.000
+  No. of Hold Violations:       0.000
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               9151
+  Buf/Inv Cell Count:            1088
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      7253
+  Sequential Cell Count:         1898
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:       18902.977
+  Noncombinational Area:    12805.300
+  Buf/Inv Area:              2189.705
+  Macro/Black Box Area:         0.000
+  Net Area:                     0.000
+  Net XLength        :          0.000
+  Net YLength        :          0.000
+  -----------------------------------
+  Cell Area:                31708.277
+  Design Area:              31708.277
+  Net Length        :           0.000
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          9334
+  Nets With Violations:             5
+  Max Trans Violations:             0
+  Max Cap Violations:               5
+  -----------------------------------
+
+
+  Hostname: mgt
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                   4.705
+  Logic Optimization:                20.919
+  Mapping Optimization:              23.646
+  -----------------------------------------
+  Overall Compile Time:             107.437
+  Overall Compile Wall Clock Time:  112.763
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.000  TNS: 0.000  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.000  TNS: 0.000  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1

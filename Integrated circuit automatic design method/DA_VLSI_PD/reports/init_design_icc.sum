@@ -1,0 +1,450 @@
+----------------------------------------
+Report  : report_design_physical
+          -all
+          -floorplan
+          -netlist
+          -route
+          -utilization
+          -design_setup
+Date    : Sun Dec 13 20:33:13 2020
+Version : H-2013.03-ICC-SP2
+--------------------------------------------------------------------------------
+                            DESIGN SETUP INFORMATION
+--------------------------------------------------------------------------------
+Host Name             : mgt
+Working Directory     : /bks2/PB17061127/DA_VLSI_PD
+Library Name          : picorv32_LIB
+Cell Name             : picorv32.CEL;1
+Library settings      :
+  Search Path      : .
+                     ./rm_icc_scripts
+                     ./rm_icc_zrt_scripts
+                     ./rm_icc_dp_scripts
+                     ./results
+                     /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm
+                     /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm
+                     /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm
+                     /js1/songch/SAED32_EDK/lib/sram/db_nldm
+                     /js1/songch/SAED32_EDK/lib/sram_lp/db_nldm
+                     /js1/songch/SAED32_EDK/lib/pll/db_nldm
+                     /js1/songch/SAED32_EDK/lib/io_std/db_nldm
+                     /js1/songch/SAED32_EDK/lib/io_sp/db_nldm
+                     ~/DA_VLSI_PD/results
+                     /js1/songch/SAED32_EDK/references/orca/dc/models
+                     ~/DA_VLSI_PD/verilog
+                     /js1/songch/SAED32_EDK/references/orca/icc/models
+                     /soft1/synopsys/iccompiler/H-2013.03-SP2/libraries/syn
+                     /soft1/synopsys/iccompiler/H-2013.03-SP2/minpower/syn
+                     /soft1/synopsys/iccompiler/H-2013.03-SP2/dw/syn_ver
+                     /soft1/synopsys/iccompiler/H-2013.03-SP2/dw/sim_ver
+  Target Libraries : saed32rvt_tt1p05v125c.db
+                     saed32hvt_tt1p05v125c.db
+                     saed32lvt_tt1p05v125c.db
+  Link Libraries   : *
+                     saed32rvt_tt1p05v125c.db
+                     saed32hvt_tt1p05v125c.db
+                     saed32lvt_tt1p05v125c.db
+  MW Ref Libraries : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
+                     /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+                     /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+
+Units                 :
+                   Library   Milkyway  TechFile
+    Time              ns        ns        ns
+    Capacitance       fF        -         pF
+    Resitance         MOhm      -         kOhm
+    Power             -         -         mW
+    Current           uA        -         mA
+    Voltage           V         V         V
+--------------------------------------------------------------------------------
+                              NETLIST INFORMATION
+--------------------------------------------------------------------------------
+
+CELL INSTANCE SECTION
+---------------------
+ Cell Instance Type       Count           Area     Sites
+TOTAL LEAF CELLS           9151       31708.28 unit:124765 
+  Standard  Cells          9151       31708.28 unit:124765 
+  Antenna Cells               0           0.00 --
+  STD Filler Cells            0           0.00 --
+  Macro Cells                 0           0.00 --
+    Block                     0           0.00 --
+    HardMacros                0           0.00 --
+    SoftMacros                0           0.00 --
+    physBlackBox              0           0.00 --
+    SoftFixed IO              0           0.00 --
+  IOPad  Cells                0           0.00 --
+    Pad Filler Cells          0           0.00 --
+    FC Pad                    0           0.00 --
+  Cover Cells                 0           0.00 --
+  FC Driver Cells             0           0.00 --
+  Chip Cells                  0           0.00 --
+  Tap Cells                   0           0.00 --
+  CornerPad Cells             0           0.00 --
+  SpecialVia Cells            0           0.00 --
+  StackVia Cells              0           0.00 --
+  Other  Cells                0           0.00 --
+
+  Spare Cells                 0           0.00 --
+  Special cells               0           0.00 --
+    Level Shifters            0           0.00 --
+    Isolation                 0           0.00 --
+    Switch                    0           0.00 --
+    AlwaysOn                  0           0.00 --
+    TieOff Cells              0           0.00 --
+
+  NORMAL CELLS             9151       31708.28 unit:124765 
+  PHYSONLY CELLS              0           0.00 --
+    STD Filler Cells          0           0.00 --
+    PGPin Only Cells          0           0.00 --
+
+  Combinational            7253       18902.98 unit:74379 
+  Sequential               1898       12805.30 unit:50386 
+  Others                      0           0.00 --
+
+  Buffers                   314        1135.26 unit:4467 
+  Inverters                 774        1054.44 unit:4149 
+  Inverters/Buffers        1088        2189.70 unit:8616 
+  Latches                    68         349.19 unit:1374 
+  Flipflops                1830       12456.11 unit:49012 
+
+  DoubleHeight                0           0.00 --
+  TripleHeight                0           0.00 --
+  MoreThanTriple              0           0.00 --
+
+LogicalBlackBox cells         0           0.00 --
+
+NET INFORMATION
+---------------
+NetType        Count FloatingNets      Vias  Nets/Cells
+Signal          9295           35         0      1.016
+Power              1            0         0      0.000
+Ground             1            0         0      0.000
+TieLow             0            0         0      0.000
+TieHigh            0            0         0      0.000
+Others             0            0         0      0.000
+Total           9297           35         0      1.016
+Feedthru           0            0         0      0.000
+
+NET FANOUT AND PINCOUNT STATISTICS
+----------------------------------
+FanOut         NetCount    NetPins        NetCount
+Less than 2        5637    Less than 2          35
+2                  1295    2                  5602
+3                  1429    3                  1295
+4                   365    4                  1429
+5                   111    5                   365
+6-10                220    6-10                311
+11-20                55    11-20                71
+21-30                58    21-30                57
+31-50               123    31-50               128
+51-100                1    51-100                1
+101-500               0    101-500               0
+501-1000              0    501-1000              0
+>1000                 1    >1000                 1
+
+PORT and PIN INFORMATION
+------------------------
+Type     Total    Input   Output    INOUT  3-st    Power   Ground  Uncon Pin/net Pin/STDcell
+Leaf     53500    24107    11091    18302     0     9151     9151  1898    5.75      5.85
+Macro        0        0        0        0     0        0        0     0    0.00      0.00
+Ports      411      102      307        2     0        1        1    36       -         -
+
+MASTER INSTANTIATION INFORMATION
+--------------------------------
+No. of Masters Used: 67
+Name                Type  InstCnt    LKgPwr  Height   Width     PinDens SiteName
+DFFX1_HVT           std      1472 562997.625
+                                               1.67    3.95      0.9080 unit
+AO22X1_HVT          std      1418 144857.703
+                                               1.67    1.52      2.7543 unit
+MUX21X1_HVT         std      1254 181047.797
+                                               1.67    1.98      1.8161 unit
+INVX1_HVT           std       706 106044.102
+                                               1.67    0.76      3.1478 unit
+NAND2X0_HVT         std       643 40755.629    1.67    0.91      3.2790 unit
+DFFX2_HVT           std       358 735657.188
+                                               1.67    4.56      0.7870 unit
+NOR4X1_HVT          std       317 274690.812
+                                               1.67    1.82      2.2953 unit
+AND2X1_HVT          std       298 135863.703
+                                               1.67    1.22      2.4592 unit
+NOR2X0_HVT          std       290 261994.797
+                                               1.67    1.52      1.9674 unit
+XOR2X1_HVT          std       196 199585.406
+                                               1.67    2.58      1.1573 unit
+OA22X1_HVT          std       188 139640.406
+                                               1.67    1.52      2.7543 unit
+OR2X1_HVT           std       148 136867.703
+                                               1.67    1.22      2.4592 unit
+NAND4X0_HVT         std       141 154111.906
+                                               1.67    1.22      3.4429 unit
+XNOR2X1_HVT         std       138 211335.406
+                                               1.67    2.58      1.1573 unit
+NBUFFX2_HVT         std       127 93250.688    1.67    1.22      1.9674 unit
+AO222X1_HVT         std       113 204297.906
+                                               1.67    1.98      2.7241 unit
+NAND3X0_HVT         std       109 122245.703
+                                               1.67    1.06      3.3727 unit
+NBUFFX8_HVT         std       105 1521468.000
+                                               1.67    2.28      1.0493 unit
+OAI21X1_HVT         std        96 203055.797
+                                               1.67    1.82      1.9674 unit
+OA21X1_HVT          std        88 134114.906
+                                               1.67    1.52      2.3609 unit
+AOI22X1_HVT         std        88 280798.094
+                                               1.67    1.82      2.2953 unit
+AOI21X1_HVT         std        80 225020.094
+                                               1.67    1.82      1.9674 unit
+AO21X1_HVT          std        74 137487.703
+                                               1.67    1.52      2.3609 unit
+OR3X1_HVT           std        70 142401.203
+                                               1.67    1.37      2.6232 unit
+LATCHX1_HVT         std        61 564934.188
+                                               1.67    3.04      1.1804 unit
+AND2X2_HVT          std        61 267867.500
+                                               1.67    1.37      2.1860 unit
+NBUFFX4_HVT         std        49 743324.000
+                                               1.67    1.52      1.5739 unit
+NAND2X4_HVT         std        40 644606.688
+                                               1.67    1.98      1.5134 unit
+INVX2_HVT           std        34 222869.000
+                                               1.67    0.91      2.6232 unit
+NBUFFX32_HVT        std        33 5346157.000
+                                               1.67    6.38      0.3747 unit
+AND3X1_HVT          std        32 139666.906
+                                               1.67    1.37      2.6232 unit
+NAND3X2_HVT         std        27 314235.500
+                                               1.67    1.82      1.9674 unit
+AO22X2_HVT          std        23 278230.312
+                                               1.67    1.67      2.5039 unit
+AND2X4_HVT          std        23 555848.875
+                                               1.67    1.67      1.7885 unit
+HADDX1_HVT          std        22 292098.312
+                                               1.67    1.98      1.8161 unit
+AND4X1_HVT          std        21 141929.297
+                                               1.67    1.52      2.7543 unit
+INVX8_HVT           std        21 1099552.000
+                                               1.67    1.82      1.3116 unit
+FADDX1_HVT          std        20 356976.000
+                                               1.67    2.89      1.4497 unit
+AO222X2_HVT         std        19 288559.094
+                                               1.67    2.13      2.5295 unit
+OR2X2_HVT           std        15 261767.703
+                                               1.67    1.37      2.1860 unit
+AO21X2_HVT          std        14 273529.594
+                                               1.67    1.67      2.1462 unit
+NAND2X2_HVT         std        14 343433.594
+                                               1.67    1.67      1.7885 unit
+AND3X2_HVT          std        11 271905.688
+                                               1.67    1.52      2.3609 unit
+INVX4_HVT           std        10 489081.000
+                                               1.67    1.22      1.9674 unit
+OR2X4_HVT           std         9 549745.625
+                                               1.67    1.67      1.7885 unit
+OA221X1_HVT         std         8 141122.094
+                                               1.67    1.82      2.6232 unit
+MUX21X2_HVT         std         7 345610.188
+                                               1.67    2.13      1.6863 unit
+AND4X4_HVT          std         7 640547.125
+                                               1.67    2.58      1.6202 unit
+OR3X2_HVT           std         7 264061.406
+                                               1.67    1.52      2.3609 unit
+LATCHX2_HVT         std         7 743696.875
+                                               1.67    3.34      1.0731 unit
+OAI22X1_HVT         std         5 308529.312
+                                               1.67    1.82      2.2953 unit
+NOR2X4_HVT          std         5 695057.688
+                                               1.67    1.98      1.5134 unit
+OAI21X2_HVT         std         4 353047.500
+                                               1.67    1.98      1.8161 unit
+AO221X1_HVT         std         4 142456.297
+                                               1.67    1.82      2.6232 unit
+NOR3X0_HVT          std         3 269292.000
+                                               1.67    1.67      2.1462 unit
+NOR2X2_HVT          std         3 399803.000
+                                               1.67    1.67      1.7885 unit
+OR4X1_HVT           std         2 308451.500
+                                               1.67    2.13      1.9674 unit
+OA21X2_HVT          std         2 270080.312
+                                               1.67    1.67      2.1462 unit
+AND4X2_HVT          std         2 336168.406
+                                               1.67    2.28      1.8362 unit
+AOI22X2_HVT         std         2 409453.094
+                                               1.67    1.98      2.1187 unit
+NOR3X2_HVT          std         1 408194.594
+                                               1.67    1.82      1.9674 unit
+AOI21X2_HVT         std         1 354138.812
+                                               1.67    1.98      1.8161 unit
+XOR2X2_HVT          std         1 494401.906
+                                               1.67    2.74      1.0930 unit
+NAND3X1_HVT         std         1 181673.703
+                                               1.67    1.67      2.1462 unit
+IBUFFX8_HVT         std         1 2911002.000
+                                               1.67    2.58      0.9258 unit
+INVX16_HVT          std         1 2391588.000
+                                               1.67    3.04      0.7870 unit
+IBUFFX32_HVT        std         1 12092540.000
+                                               1.67    6.99      0.3422 unit
+--------------------------------------------------------------------------------
+                             FLOORPLAN INFORMATION
+--------------------------------------------------------------------------------
+SITE ROW INFORMATION
+--------------------
+Site Type     Hrows     Vrows      Tiles        Width      Height   Row area
+unit            127         0     177800         0.15        1.67     45186.80
+
+CHIP AND CORE INFORMATION
+-------------------------
+               Width         Height               Area
+Core         212.800        212.344          45186.803
+Chip         272.800        272.344          74295.443
+
+ROUTE GUIDE SECTION
+-------------------
+No route guide exists
+
+VOLTAGE AREA SECTION
+--------------------
+No voltage area exists
+
+PLAN GROUP SECTION
+------------------
+No plan group exists
+
+EXCL MOVEBOUND SECTION
+----------------------
+No exclusive movebound exists
+
+HARD/SOFT MOVEBOUND SECTION
+---------------------------
+No hard/soft movebound exists
+
+GROUP BOUND SECTION
+-------------------
+No group bound exists
+
+RP GROUP SECTION
+----------------
+No rp group exists
+
+POWER DOMAIN SECTION
+--------------------
+No power domain exists
+
+LAYER SECTION
+-------------
+Name    Dir     Ign           Pitch   Spacing     Width
+M1      Hor     NO            0.130     0.050     0.050
+M2      Ver     NO            0.164     0.056     0.056
+M3      Ver     NO            0.164     0.056     0.056
+M4      Ver     NO            0.164     0.056     0.056
+M5      Hor     NO            0.164     0.056     0.056
+M6      Ver     NO            0.164     0.056     0.056
+M7      Ver     NO            0.164     0.056     0.056
+M8      Ver     NO            0.164     0.056     0.056
+M9      Hor     YES           1.740     0.160     0.160
+MRDL    Ver     YES           4.500     2.000     2.000
+--------------------------------------------------------------------------------
+                            UTILIZATION INFORMATION
+--------------------------------------------------------------------------------
+BLOCKAGES SECTION
+-----------------
+BLK Type           Count Islands  Area(um^2)    AreaOutsideCore(um^2)
+                                                         BlockedSites            BlockedSites(unit)
+Hard Placement Blockage
+                       0       0        0.00        0.00 ---                     0
+Soft Placement Blockage
+                       0       0        0.00        0.00 ---                     ---
+Partial Placement Blockage
+                       0       0        0.00        0.00 ---                     ---
+Macro Cell             0       0        0.00        0.00 ---                     0
+Pad Cell               0       0        0.00        0.00 ---                     0
+Fixed Standard Cell
+                       0       0        0.00        0.00 ---                     0
+Hard Keepout Margin Derived
+                       0       0        0.00        0.00 ---                     0
+Soft Keepout Margin Derived
+                       0       0        0.00        0.00 ---                     ---
+Complete PNet        ---     ---        0.00        0.00 ---                     0
+Partial PNet         ---     ---        0.00        0.00 ---                     ---
+Voltage Area Guardband
+                       0       0        0.00        0.00 ---                     0
+Exclusive Movebound Guardband
+                       0       0        0.00        0.00 ---                     ---
+Hard Keepout Distance Blockage
+                       0       0        0.00        0.00 ---                     0
+Chimney Area         ---     ---        0.00        0.00 ---                     0
+
+CELL INSTANCE SECTION
+---------------------
+
+ Cell Instance Type       Count           Area
+  Placed Cells                0           0.00
+    Fixed Cells               0           0.00
+    Soft Fixed Cells          0           0.00
+  Unplaced Cells           9151       31708.28
+
+UTILIZATION RATIOS
+------------------
+Chip area           : 74295.44
+Core area           : 45186.80
+  SiteRow area      : 45186.80
+Cell/Core Ratio     : 70.1715%
+Cell/Chip Ratio     : 42.6786%
+(A) Logical cell sites (non-fixed) :       124765
+(B) Logical cell sites (fixed) :            0
+(C) All blocked sites :            0
+(D) Total core sites :       177800
+Cell Utilization(non-fixed) = 70.17% (A) / (D - C)
+                                              (124765) / (177800 - 0)
+Cell Utilization(non-fixed + fixed) = 70.17% (A + B) / (D - (C - B))
+                                              (124765 + 0) / (177800 - (0 - 0))
+Blockage Percentage = 0.00% (C) / (D)
+                                              (0) / (177800)
+
+PNET OPTIONS INFORMATION
+------------------------
+Layer     Blockage MinWidth  MinHeight Via_additive    Density   DER minWidth
+                                                                            DER minHeight
+M1        none        ---       ---    Via additive     ---         ---        ---
+M2        none        ---       ---    Via additive     ---         ---        ---
+M3        none        ---       ---    Via additive     ---         ---        ---
+M4        none        ---       ---    Via additive     ---         ---        ---
+M5        none        ---       ---    Via additive     ---         ---        ---
+M6        none        ---       ---    Via additive     ---         ---        ---
+M7        none        ---       ---    Via additive     ---         ---        ---
+M8        none        ---       ---    Via additive     ---         ---        ---
+M9        none        ---       ---    Via additive     ---         ---        ---
+MRDL      none        ---       ---    Via additive     ---         ---        ---
+--------------------------------------------------------------------------------
+                               ROUTE INFORMATION
+--------------------------------------------------------------------------------
+
+Timing/Optimization Information:
+
+Global Routing Information:
+
+Track Assignment Information:
+
+Detailed Routing Information:
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+
+Stripe Wiring Statistics:
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+
+Signal Wiring Statistics:
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+  ==============================================================
+    Total              0.00                      0.00
+--------------------------------------------------------------------------------

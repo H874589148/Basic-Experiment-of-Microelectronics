@@ -1,0 +1,56 @@
+ 
+****************************************
+Report : constraint
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:42:35 2020
+****************************************
+
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    FEEDTHROUGH                  0.00      1.00      0.00
+    REGIN                        0.00      1.00      0.00
+    REGOUT                       0.00      1.00      0.00
+    clk                          0.00      1.00      0.00
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.00
+
+                              Total Neg  Critical
+    Group (critical_range)      Slack    Endpoints   Cost
+    -----------------------------------------------------
+    FEEDTHROUGH                  0.00         0      0.00
+    REGIN                        0.00         0      0.00
+    REGOUT                       0.00         0      0.00
+    clk                          0.00         0      0.00
+    default                      0.00         0      0.00
+    -----------------------------------------------------
+    critical_range                                   0.00
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    FEEDTHROUGH                  0.00      1.00      0.00
+    REGIN                        0.00      1.00      0.00
+    REGOUT                       0.00      1.00      0.00
+    clk                          0.00      1.00      0.00
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    sequential_clock_pulse_width                     0.00 (MET)
+    multiport_net                                    0.00 (MET)
+    max_delay/setup                                  0.00 (MET)
+    critical_range                                   0.00 (MET)
+    min_delay/hold                                   0.00 (MET)
+    max_transition                                   0.00 (MET)
+    max_capacitance                                  6.69 (VIOLATED)
+    min_capacitance                                  0.00 (MET)
+
+
+1

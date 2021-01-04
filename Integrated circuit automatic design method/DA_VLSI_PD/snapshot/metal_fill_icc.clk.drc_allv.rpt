@@ -1,0 +1,26 @@
+ 
+****************************************
+Report : clock tree
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:46:14 2020
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+------------------------------------------------------
+DRC violations on clock tree
+Clock Tree Name                   : clk
+Clock Root Pin                    : clk
+------------------------------------------------------
+Number of MaxTran Violators       : 0
+Number of MaxCap Violators        : 1
+Number of MaxFanout Violators     : 0
+
+Max Capacitance Violators:
+                             Actual         Required
+Net           Pin            Max            Constraint     Slack
+---------------------------------------------------------------------
+clk_G1B2I11   CTSINVX32_RVT_G1B1I11_1/Y
+                             175.3870       168.0000        -7.3870
+1

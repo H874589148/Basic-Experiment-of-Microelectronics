@@ -1,0 +1,2004 @@
+
+#BEGIN_XCHECK_LIBRARY
+
+Logic Library:    saed32rvt_tt1p05v125c 
+                  saed32hvt_tt1p05v125c 
+                  saed32lvt_tt1p05v125c 
+Physical Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m 
+                  /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m 
+                  /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m 
+check_library options: 	-cell_area -cell_footprint -bus_delimiter 
+Version: 				H-2013.03-ICC-SP2
+Check date and time:	Sun Dec 13 20:33:14 2020
+
+          List of logic library and file names
+------------------------------------------------------------------------------
+Logic library name           Logic library file name
+------------------------------------------------------------------------------
+saed32rvt_tt1p05v125c        /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+saed32hvt_tt1p05v125c        /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+saed32lvt_tt1p05v125c        /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+------------------------------------------------------------------------------
+
+#BEGIN_XCHECK_LOGICCELLS
+
+Number of cells missing in logic library:	168 (out of 882)
+
+Information: List of cells missing in logic library (LIBCHK-210)
+-------------------------------------------------------------------------
+Cell name                  Cell type             Physical library
+-------------------------------------------------------------------------
+LSUPX1_RVT                 Core                  saed32nm_rvt_1p9m
+LSUPX2_RVT                 Core                  saed32nm_rvt_1p9m
+LSUPX4_RVT                 Core                  saed32nm_rvt_1p9m
+LSUPX8_RVT                 Core                  saed32nm_rvt_1p9m
+LSDNSSX8_RVT               Core                  saed32nm_rvt_1p9m
+LSDNX1_RVT                 Core                  saed32nm_rvt_1p9m
+LSDNX2_RVT                 Core                  saed32nm_rvt_1p9m
+LSDNX4_RVT                 Core                  saed32nm_rvt_1p9m
+LSDNX8_RVT                 Core                  saed32nm_rvt_1p9m
+LSUPENCLX1_RVT             Core                  saed32nm_rvt_1p9m
+LSUPENCLX2_RVT             Core                  saed32nm_rvt_1p9m
+LSUPENCLX4_RVT             Core                  saed32nm_rvt_1p9m
+LSUPENCLX8_RVT             Core                  saed32nm_rvt_1p9m
+LSUPENX1_RVT               Core                  saed32nm_rvt_1p9m
+LSUPENX2_RVT               Core                  saed32nm_rvt_1p9m
+LSUPENX4_RVT               Core                  saed32nm_rvt_1p9m
+LSUPENX8_RVT               Core                  saed32nm_rvt_1p9m
+LSDNENCLX4_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENCLX8_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENSSX1_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENSSX2_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENSSX4_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENSSX8_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENX1_RVT               Core                  saed32nm_rvt_1p9m
+LSDNENX2_RVT               Core                  saed32nm_rvt_1p9m
+LSDNENX4_RVT               Core                  saed32nm_rvt_1p9m
+LSDNENX8_RVT               Core                  saed32nm_rvt_1p9m
+LSDNSSX1_RVT               Core                  saed32nm_rvt_1p9m
+LSDNSSX2_RVT               Core                  saed32nm_rvt_1p9m
+LSDNSSX4_RVT               Core                  saed32nm_rvt_1p9m
+LSDNENCLSSX1_RVT           Core                  saed32nm_rvt_1p9m
+LSDNENCLSSX2_RVT           Core                  saed32nm_rvt_1p9m
+LSDNENCLSSX4_RVT           Core                  saed32nm_rvt_1p9m
+LSDNENCLSSX8_RVT           Core                  saed32nm_rvt_1p9m
+LSDNENCLX1_RVT             Core                  saed32nm_rvt_1p9m
+LSDNENCLX2_RVT             Core                  saed32nm_rvt_1p9m
+HEADX2_RVT                 Core                  saed32nm_rvt_1p9m
+HEADX32_RVT                Core                  saed32nm_rvt_1p9m
+HEADX4_RVT                 Core                  saed32nm_rvt_1p9m
+HEADX8_RVT                 Core                  saed32nm_rvt_1p9m
+FOOTX16_RVT                Core                  saed32nm_rvt_1p9m
+FOOTX2_RVT                 Core                  saed32nm_rvt_1p9m
+FOOTX32_RVT                Core                  saed32nm_rvt_1p9m
+FOOTX4_RVT                 Core                  saed32nm_rvt_1p9m
+FOOTX8_RVT                 Core                  saed32nm_rvt_1p9m
+HEAD2X16_RVT               Core                  saed32nm_rvt_1p9m
+HEAD2X2_RVT                Core                  saed32nm_rvt_1p9m
+HEAD2X32_RVT               Core                  saed32nm_rvt_1p9m
+HEAD2X4_RVT                Core                  saed32nm_rvt_1p9m
+HEAD2X8_RVT                Core                  saed32nm_rvt_1p9m
+HEADX16_RVT                Core                  saed32nm_rvt_1p9m
+FOOT2X16_RVT               Core                  saed32nm_rvt_1p9m
+FOOT2X2_RVT                Core                  saed32nm_rvt_1p9m
+FOOT2X32_RVT               Core                  saed32nm_rvt_1p9m
+FOOT2X4_RVT                Core                  saed32nm_rvt_1p9m
+FOOT2X8_RVT                Core                  saed32nm_rvt_1p9m
+LSUPX1_LVT                 Core                  saed32nm_lvt_1p9m
+LSUPX2_LVT                 Core                  saed32nm_lvt_1p9m
+LSUPX4_LVT                 Core                  saed32nm_lvt_1p9m
+LSUPX8_LVT                 Core                  saed32nm_lvt_1p9m
+LSDNSSX8_LVT               Core                  saed32nm_lvt_1p9m
+LSDNX1_LVT                 Core                  saed32nm_lvt_1p9m
+LSDNX2_LVT                 Core                  saed32nm_lvt_1p9m
+LSDNX4_LVT                 Core                  saed32nm_lvt_1p9m
+LSDNX8_LVT                 Core                  saed32nm_lvt_1p9m
+LSUPENCLX1_LVT             Core                  saed32nm_lvt_1p9m
+LSUPENCLX2_LVT             Core                  saed32nm_lvt_1p9m
+LSUPENCLX4_LVT             Core                  saed32nm_lvt_1p9m
+LSUPENCLX8_LVT             Core                  saed32nm_lvt_1p9m
+LSUPENX1_LVT               Core                  saed32nm_lvt_1p9m
+LSUPENX2_LVT               Core                  saed32nm_lvt_1p9m
+LSUPENX4_LVT               Core                  saed32nm_lvt_1p9m
+LSUPENX8_LVT               Core                  saed32nm_lvt_1p9m
+LSDNENCLX4_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENCLX8_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENSSX1_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENSSX2_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENSSX4_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENSSX8_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENX1_LVT               Core                  saed32nm_lvt_1p9m
+LSDNENX2_LVT               Core                  saed32nm_lvt_1p9m
+LSDNENX4_LVT               Core                  saed32nm_lvt_1p9m
+LSDNENX8_LVT               Core                  saed32nm_lvt_1p9m
+LSDNSSX1_LVT               Core                  saed32nm_lvt_1p9m
+LSDNSSX2_LVT               Core                  saed32nm_lvt_1p9m
+LSDNSSX4_LVT               Core                  saed32nm_lvt_1p9m
+LSDNENCLSSX1_LVT           Core                  saed32nm_lvt_1p9m
+LSDNENCLSSX2_LVT           Core                  saed32nm_lvt_1p9m
+LSDNENCLSSX4_LVT           Core                  saed32nm_lvt_1p9m
+LSDNENCLSSX8_LVT           Core                  saed32nm_lvt_1p9m
+LSDNENCLX1_LVT             Core                  saed32nm_lvt_1p9m
+LSDNENCLX2_LVT             Core                  saed32nm_lvt_1p9m
+HEADX2_LVT                 Core                  saed32nm_lvt_1p9m
+HEADX32_LVT                Core                  saed32nm_lvt_1p9m
+HEADX4_LVT                 Core                  saed32nm_lvt_1p9m
+HEADX8_LVT                 Core                  saed32nm_lvt_1p9m
+FOOTX16_LVT                Core                  saed32nm_lvt_1p9m
+FOOTX2_LVT                 Core                  saed32nm_lvt_1p9m
+FOOTX32_LVT                Core                  saed32nm_lvt_1p9m
+FOOTX4_LVT                 Core                  saed32nm_lvt_1p9m
+FOOTX8_LVT                 Core                  saed32nm_lvt_1p9m
+HEAD2X16_LVT               Core                  saed32nm_lvt_1p9m
+HEAD2X2_LVT                Core                  saed32nm_lvt_1p9m
+HEAD2X32_LVT               Core                  saed32nm_lvt_1p9m
+HEAD2X4_LVT                Core                  saed32nm_lvt_1p9m
+HEAD2X8_LVT                Core                  saed32nm_lvt_1p9m
+HEADX16_LVT                Core                  saed32nm_lvt_1p9m
+FOOT2X16_LVT               Core                  saed32nm_lvt_1p9m
+FOOT2X2_LVT                Core                  saed32nm_lvt_1p9m
+FOOT2X32_LVT               Core                  saed32nm_lvt_1p9m
+FOOT2X4_LVT                Core                  saed32nm_lvt_1p9m
+FOOT2X8_LVT                Core                  saed32nm_lvt_1p9m
+LSUPX1_HVT                 Core                  saed32nm_hvt_1p9m
+LSUPX2_HVT                 Core                  saed32nm_hvt_1p9m
+LSUPX4_HVT                 Core                  saed32nm_hvt_1p9m
+LSUPX8_HVT                 Core                  saed32nm_hvt_1p9m
+LSDNSSX8_HVT               Core                  saed32nm_hvt_1p9m
+LSDNX1_HVT                 Core                  saed32nm_hvt_1p9m
+LSDNX2_HVT                 Core                  saed32nm_hvt_1p9m
+LSDNX4_HVT                 Core                  saed32nm_hvt_1p9m
+LSDNX8_HVT                 Core                  saed32nm_hvt_1p9m
+LSUPENCLX1_HVT             Core                  saed32nm_hvt_1p9m
+LSUPENCLX2_HVT             Core                  saed32nm_hvt_1p9m
+LSUPENCLX4_HVT             Core                  saed32nm_hvt_1p9m
+LSUPENCLX8_HVT             Core                  saed32nm_hvt_1p9m
+LSUPENX1_HVT               Core                  saed32nm_hvt_1p9m
+LSUPENX2_HVT               Core                  saed32nm_hvt_1p9m
+LSUPENX4_HVT               Core                  saed32nm_hvt_1p9m
+LSUPENX8_HVT               Core                  saed32nm_hvt_1p9m
+LSDNENCLX4_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENCLX8_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENSSX1_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENSSX2_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENSSX4_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENSSX8_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENX1_HVT               Core                  saed32nm_hvt_1p9m
+LSDNENX2_HVT               Core                  saed32nm_hvt_1p9m
+LSDNENX4_HVT               Core                  saed32nm_hvt_1p9m
+LSDNENX8_HVT               Core                  saed32nm_hvt_1p9m
+LSDNSSX1_HVT               Core                  saed32nm_hvt_1p9m
+LSDNSSX2_HVT               Core                  saed32nm_hvt_1p9m
+LSDNSSX4_HVT               Core                  saed32nm_hvt_1p9m
+LSDNENCLSSX1_HVT           Core                  saed32nm_hvt_1p9m
+LSDNENCLSSX2_HVT           Core                  saed32nm_hvt_1p9m
+LSDNENCLSSX4_HVT           Core                  saed32nm_hvt_1p9m
+LSDNENCLSSX8_HVT           Core                  saed32nm_hvt_1p9m
+LSDNENCLX1_HVT             Core                  saed32nm_hvt_1p9m
+LSDNENCLX2_HVT             Core                  saed32nm_hvt_1p9m
+HEADX2_HVT                 Core                  saed32nm_hvt_1p9m
+HEADX32_HVT                Core                  saed32nm_hvt_1p9m
+HEADX4_HVT                 Core                  saed32nm_hvt_1p9m
+HEADX8_HVT                 Core                  saed32nm_hvt_1p9m
+FOOTX16_HVT                Core                  saed32nm_hvt_1p9m
+FOOTX2_HVT                 Core                  saed32nm_hvt_1p9m
+FOOTX32_HVT                Core                  saed32nm_hvt_1p9m
+FOOTX4_HVT                 Core                  saed32nm_hvt_1p9m
+FOOTX8_HVT                 Core                  saed32nm_hvt_1p9m
+HEAD2X16_HVT               Core                  saed32nm_hvt_1p9m
+HEAD2X2_HVT                Core                  saed32nm_hvt_1p9m
+HEAD2X32_HVT               Core                  saed32nm_hvt_1p9m
+HEAD2X4_HVT                Core                  saed32nm_hvt_1p9m
+HEAD2X8_HVT                Core                  saed32nm_hvt_1p9m
+HEADX16_HVT                Core                  saed32nm_hvt_1p9m
+FOOT2X16_HVT               Core                  saed32nm_hvt_1p9m
+FOOT2X2_HVT                Core                  saed32nm_hvt_1p9m
+FOOT2X32_HVT               Core                  saed32nm_hvt_1p9m
+FOOT2X4_HVT                Core                  saed32nm_hvt_1p9m
+FOOT2X8_HVT                Core                  saed32nm_hvt_1p9m
+-------------------------------------------------------------------------
+
+#END_XCHECK_LOGICCELLS
+
+#BEGIN_XCHECK_PHYSICALCELLS
+
+Number of cells missing in physical library:	0 (out of 1050)
+
+#END_XCHECK_PHYSICALCELLS
+
+#BEGIN_XCHECK_PINS
+
+Number of cells with missing or mismatched pins in libraries:	0
+
+#END_XCHECK_PINS
+
+#BEGIN_XCHECK_BUS
+
+Information: List of bus naming styles (LIBCHK-214)
+-----------------------------------------------------------------
+Library name                 Library type        Bus naming style
+-----------------------------------------------------------------
+picorv32_LIB                 Design library      [%d]
+saed32nm_rvt_1p9m            Physical library    _<%d>
+saed32nm_lvt_1p9m            Physical library    _<%d>
+saed32nm_hvt_1p9m            Physical library    _<%d>
+saed32rvt_tt1p05v125c        Logic library       Undefined
+saed32hvt_tt1p05v125c        Logic library       Undefined
+saed32lvt_tt1p05v125c        Logic library       Undefined
+-----------------------------------------------------------------
+
+#END_XCHECK_BUS
+
+#BEGIN_XCHECK_FOOTPRINT
+
+Number of footprints:	112
+
+Warning: List of cells with cell_footprint attribute (LIBCHK-215)
+-------------------------------------------------------------------
+Footprint  Logic library name  Cell name           PR boundary
+-------------------------------------------------------------------
+AND2       saed32rvt_tt1p05v125c AND2X1_RVT        (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c AND2X2_RVT        (0,0)(1.368,1.672)
+           saed32rvt_tt1p05v125c AND2X4_RVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c AND2X1_HVT        (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c AND2X2_HVT        (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c AND2X4_HVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c AND2X1_LVT        (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c AND2X2_LVT        (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c AND2X4_LVT        (0,0)(1.672,1.672)
+AND3       saed32rvt_tt1p05v125c AND3X1_RVT        (0,0)(1.368,1.672)
+           saed32rvt_tt1p05v125c AND3X2_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c AND3X4_RVT        (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c AND3X1_HVT        (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c AND3X2_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c AND3X4_HVT        (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c AND3X1_LVT        (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c AND3X2_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c AND3X4_LVT        (0,0)(1.824,1.672)
+AND4       saed32rvt_tt1p05v125c AND4X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c AND4X2_RVT        (0,0)(2.28,1.672)
+           saed32rvt_tt1p05v125c AND4X4_RVT        (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c AND4X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c AND4X2_HVT        (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c AND4X4_HVT        (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c AND4X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c AND4X2_LVT        (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c AND4X4_LVT        (0,0)(2.584,1.672)
+ANTENNA    saed32rvt_tt1p05v125c ANTENNA_RVT       (0,0)(0.456,1.672)
+           saed32hvt_tt1p05v125c ANTENNA_HVT       (0,0)(0.456,1.672)
+           saed32lvt_tt1p05v125c ANTENNA_LVT       (0,0)(0.456,1.672)
+AO21       saed32rvt_tt1p05v125c AO21X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c AO21X2_RVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c AO21X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c AO21X2_HVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c AO21X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c AO21X2_LVT        (0,0)(1.672,1.672)
+AO22       saed32rvt_tt1p05v125c AO22X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c AO22X2_RVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c AO22X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c AO22X2_HVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c AO22X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c AO22X2_LVT        (0,0)(1.672,1.672)
+AO221      saed32rvt_tt1p05v125c AO221X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c AO221X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c AO221X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c AO221X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c AO221X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c AO221X2_LVT       (0,0)(1.976,1.672)
+AO222      saed32rvt_tt1p05v125c AO222X1_RVT       (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c AO222X2_RVT       (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c AO222X1_HVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c AO222X2_HVT       (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c AO222X1_LVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c AO222X2_LVT       (0,0)(2.128,1.672)
+AOAVX1     saed32rvt_tt1p05v125c AOINVX1_RVT       (0,0)(2.128,3.344)
+           saed32rvt_tt1p05v125c AOINVX2_RVT       (0,0)(2.28,3.344)
+           saed32rvt_tt1p05v125c AOINVX4_RVT       (0,0)(2.584,3.344)
+           saed32hvt_tt1p05v125c AOINVX1_HVT       (0,0)(2.128,3.344)
+           saed32hvt_tt1p05v125c AOINVX2_HVT       (0,0)(2.432,3.344)
+           saed32hvt_tt1p05v125c AOINVX4_HVT       (0,0)(2.736,3.344)
+           saed32lvt_tt1p05v125c AOINVX1_LVT       (0,0)(2.28,3.344)
+           saed32lvt_tt1p05v125c AOINVX2_LVT       (0,0)(2.28,3.344)
+           saed32lvt_tt1p05v125c AOINVX4_LVT       (0,0)(2.584,3.344)
+AOBUFX1    saed32rvt_tt1p05v125c AOBUFX1_RVT       (0,0)(2.128,3.344)
+           saed32rvt_tt1p05v125c AOBUFX2_RVT       (0,0)(1.976,3.344)
+           saed32rvt_tt1p05v125c AOBUFX4_RVT       (0,0)(2.432,3.344)
+           saed32hvt_tt1p05v125c AOBUFX1_HVT       (0,0)(2.128,3.344)
+           saed32hvt_tt1p05v125c AOBUFX2_HVT       (0,0)(2.28,3.344)
+           saed32hvt_tt1p05v125c AOBUFX4_HVT       (0,0)(2.584,3.344)
+           saed32lvt_tt1p05v125c AOBUFX1_LVT       (0,0)(2.28,3.344)
+           saed32lvt_tt1p05v125c AOBUFX2_LVT       (0,0)(2.432,3.344)
+           saed32lvt_tt1p05v125c AOBUFX4_LVT       (0,0)(2.432,3.344)
+AODFFARX1  saed32rvt_tt1p05v125c AODFFARX1_RVT     (0,0)(2.584,3.344)
+           saed32rvt_tt1p05v125c AODFFARX2_RVT     (0,0)(2.888,3.344)
+           saed32hvt_tt1p05v125c AODFFARX1_HVT     (0,0)(3.192,3.344)
+           saed32hvt_tt1p05v125c AODFFARX2_HVT     (0,0)(3.648,3.344)
+           saed32lvt_tt1p05v125c AODFFARX1_LVT     (0,0)(2.584,3.344)
+           saed32lvt_tt1p05v125c AODFFARX2_LVT     (0,0)(2.888,3.344)
+AODFFNARX1  saed32rvt_tt1p05v125c AODFFNARX1_RVT   (0,0)(2.584,3.344)
+           saed32rvt_tt1p05v125c AODFFNARX2_RVT    (0,0)(2.888,3.344)
+           saed32hvt_tt1p05v125c AODFFNARX1_HVT    (0,0)(2.584,3.344)
+           saed32hvt_tt1p05v125c AODFFNARX2_HVT    (0,0)(2.888,3.344)
+           saed32lvt_tt1p05v125c AODFFNARX1_LVT    (0,0)(2.584,3.344)
+           saed32lvt_tt1p05v125c AODFFNARX2_LVT    (0,0)(2.888,3.344)
+AOI21      saed32rvt_tt1p05v125c AOI21X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c AOI21X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c AOI21X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c AOI21X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c AOI21X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c AOI21X2_LVT       (0,0)(1.976,1.672)
+AOI22      saed32rvt_tt1p05v125c AOI22X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c AOI22X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c AOI22X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c AOI22X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c AOI22X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c AOI22X2_LVT       (0,0)(1.976,1.672)
+AOI221     saed32rvt_tt1p05v125c AOI221X1_RVT      (0,0)(2.128,1.672)
+           saed32rvt_tt1p05v125c AOI221X2_RVT      (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c AOI221X1_HVT      (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c AOI221X2_HVT      (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c AOI221X1_LVT      (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c AOI221X2_LVT      (0,0)(2.28,1.672)
+AOI222     saed32rvt_tt1p05v125c AOI222X1_RVT      (0,0)(2.28,1.672)
+           saed32rvt_tt1p05v125c AOI222X2_RVT      (0,0)(2.432,1.672)
+           saed32hvt_tt1p05v125c AOI222X1_HVT      (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c AOI222X2_HVT      (0,0)(2.432,1.672)
+           saed32lvt_tt1p05v125c AOI222X1_LVT      (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c AOI222X2_LVT      (0,0)(2.432,1.672)
+AV         saed32rvt_tt1p05v125c INVX0_RVT         (0,0)(0.76,1.672)
+           saed32rvt_tt1p05v125c INVX16_RVT        (0,0)(3.04,1.672)
+           saed32rvt_tt1p05v125c INVX1_RVT         (0,0)(0.76,1.672)
+           saed32rvt_tt1p05v125c INVX2_RVT         (0,0)(0.912,1.672)
+           saed32rvt_tt1p05v125c INVX32_RVT        (0,0)(5.472,1.672)
+           saed32rvt_tt1p05v125c INVX4_RVT         (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c INVX8_RVT         (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c INVX0_HVT         (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c INVX16_HVT        (0,0)(3.04,1.672)
+           saed32hvt_tt1p05v125c INVX1_HVT         (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c INVX2_HVT         (0,0)(0.912,1.672)
+           saed32hvt_tt1p05v125c INVX32_HVT        (0,0)(5.472,1.672)
+           saed32hvt_tt1p05v125c INVX4_HVT         (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c INVX8_HVT         (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c INVX0_LVT         (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c INVX16_LVT        (0,0)(3.04,1.672)
+           saed32lvt_tt1p05v125c INVX1_LVT         (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c INVX2_LVT         (0,0)(0.912,1.672)
+           saed32lvt_tt1p05v125c INVX32_LVT        (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c INVX4_LVT         (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c INVX8_LVT         (0,0)(1.824,1.672)
+BSLE       saed32rvt_tt1p05v125c BSLEX1_RVT        (0,0)(1.064,1.672)
+           saed32rvt_tt1p05v125c BSLEX2_RVT        (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c BSLEX4_RVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c BSLEX1_HVT        (0,0)(1.064,1.672)
+           saed32hvt_tt1p05v125c BSLEX2_HVT        (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c BSLEX4_HVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c BSLEX1_LVT        (0,0)(1.064,1.672)
+           saed32lvt_tt1p05v125c BSLEX2_LVT        (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c BSLEX4_LVT        (0,0)(1.52,1.672)
+BUSKP      saed32rvt_tt1p05v125c BUSKP_RVT         (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c BUSKP_HVT         (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c BUSKP_LVT         (0,0)(1.824,1.672)
+CLOAD1     saed32rvt_tt1p05v125c CLOAD1_RVT        (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c CLOAD1_HVT        (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c CLOAD1_LVT        (0,0)(0.76,1.672)
+DCAP       saed32rvt_tt1p05v125c DCAP_RVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c DCAP_HVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c DCAP_LVT          (0,0)(0.76,1.672)
+DEC24      saed32rvt_tt1p05v125c DEC24X1_RVT       (0,0)(3.648,1.672)
+           saed32rvt_tt1p05v125c DEC24X2_RVT       (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DEC24X1_HVT       (0,0)(3.648,1.672)
+           saed32hvt_tt1p05v125c DEC24X2_HVT       (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c DEC24X1_LVT       (0,0)(3.648,1.672)
+           saed32lvt_tt1p05v125c DEC24X2_LVT       (0,0)(4.256,1.672)
+DELLN1     saed32rvt_tt1p05v125c DELLN1X2_RVT      (0,0)(3.04,1.672)
+           saed32hvt_tt1p05v125c DELLN1X2_HVT      (0,0)(3.04,1.672)
+           saed32lvt_tt1p05v125c DELLN1X2_LVT      (0,0)(3.04,1.672)
+DELLN2     saed32rvt_tt1p05v125c DELLN2X2_RVT      (0,0)(3.952,1.672)
+           saed32hvt_tt1p05v125c DELLN2X2_HVT      (0,0)(3.952,1.672)
+           saed32lvt_tt1p05v125c DELLN2X2_LVT      (0,0)(3.952,1.672)
+DELLN3     saed32rvt_tt1p05v125c DELLN3X2_RVT      (0,0)(5.776,1.672)
+           saed32hvt_tt1p05v125c DELLN3X2_HVT      (0,0)(5.776,1.672)
+           saed32lvt_tt1p05v125c DELLN3X2_LVT      (0,0)(5.776,1.672)
+DFF        saed32rvt_tt1p05v125c DFFX1_RVT         (0,0)(3.952,1.672)
+           saed32rvt_tt1p05v125c DFFX2_RVT         (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFX1_HVT         (0,0)(3.952,1.672)
+           saed32hvt_tt1p05v125c DFFX2_HVT         (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFX1_LVT         (0,0)(3.952,1.672)
+           saed32lvt_tt1p05v125c DFFX2_LVT         (0,0)(4.256,1.672)
+DFFAR      saed32rvt_tt1p05v125c DFFARX1_RVT       (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c DFFARX2_RVT       (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFARX1_HVT       (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFARX2_HVT       (0,0)(4.712,1.672)
+           saed32lvt_tt1p05v125c DFFARX1_LVT       (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c DFFARX2_LVT       (0,0)(4.56,1.672)
+DFFAS      saed32rvt_tt1p05v125c DFFASX1_RVT       (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c DFFASX2_RVT       (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFASX1_HVT       (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFASX2_HVT       (0,0)(4.864,1.672)
+           saed32lvt_tt1p05v125c DFFASX1_LVT       (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c DFFASX2_LVT       (0,0)(4.56,1.672)
+DFFASR     saed32rvt_tt1p05v125c DFFASRX1_RVT      (0,0)(4.56,1.672)
+           saed32rvt_tt1p05v125c DFFASRX2_RVT      (0,0)(4.864,1.672)
+           saed32hvt_tt1p05v125c DFFASRX1_HVT      (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFASRX2_HVT      (0,0)(4.864,1.672)
+           saed32lvt_tt1p05v125c DFFASRX1_LVT      (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFASRX2_LVT      (0,0)(4.864,1.672)
+DFFN       saed32rvt_tt1p05v125c DFFNX1_RVT        (0,0)(3.952,1.672)
+           saed32rvt_tt1p05v125c DFFNX2_RVT        (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFNX1_HVT        (0,0)(3.952,1.672)
+           saed32hvt_tt1p05v125c DFFNX2_HVT        (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c DFFNX1_LVT        (0,0)(3.952,1.672)
+           saed32lvt_tt1p05v125c DFFNX2_LVT        (0,0)(4.256,1.672)
+DFFNAR     saed32rvt_tt1p05v125c DFFNARX1_RVT      (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c DFFNARX2_RVT      (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFNARX1_HVT      (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFNARX2_HVT      (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFNARX1_LVT      (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c DFFNARX2_LVT      (0,0)(4.56,1.672)
+DFFNAS     saed32rvt_tt1p05v125c DFFNASX1_RVT      (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c DFFNASX2_RVT      (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFNASX1_HVT      (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c DFFNASX2_HVT      (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFNASX1_LVT      (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c DFFNASX2_LVT      (0,0)(4.56,1.672)
+DFFNASR    saed32rvt_tt1p05v125c DFFNASRX1_RVT     (0,0)(4.56,1.672)
+           saed32rvt_tt1p05v125c DFFNASRX2_RVT     (0,0)(4.864,1.672)
+           saed32hvt_tt1p05v125c DFFNASRX1_HVT     (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFNASRX2_HVT     (0,0)(4.864,1.672)
+           saed32lvt_tt1p05v125c DFFNASRX1_LVT     (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFNASRX2_LVT     (0,0)(4.864,1.672)
+DFFNASRN   saed32rvt_tt1p05v125c DFFNASRNX1_RVT    (0,0)(4.408,1.672)
+           saed32rvt_tt1p05v125c DFFNASRNX2_RVT    (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFNASRNX1_HVT    (0,0)(4.408,1.672)
+           saed32hvt_tt1p05v125c DFFNASRNX2_HVT    (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFNASRNX1_LVT    (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c DFFNASRNX2_LVT    (0,0)(4.56,1.672)
+DFFNASRQ   saed32rvt_tt1p05v125c DFFNASRQX1_RVT    (0,0)(4.408,1.672)
+           saed32rvt_tt1p05v125c DFFNASRQX2_RVT    (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFNASRQX1_HVT    (0,0)(4.408,1.672)
+           saed32hvt_tt1p05v125c DFFNASRQX2_HVT    (0,0)(4.56,1.672)
+           saed32lvt_tt1p05v125c DFFNASRQX1_LVT    (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c DFFNASRQX2_LVT    (0,0)(4.56,1.672)
+DFFSSR     saed32rvt_tt1p05v125c DFFSSRX1_RVT      (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c DFFSSRX2_RVT      (0,0)(4.56,1.672)
+           saed32hvt_tt1p05v125c DFFSSRX1_HVT      (0,0)(4.408,1.672)
+           saed32hvt_tt1p05v125c DFFSSRX2_HVT      (0,0)(4.712,1.672)
+           saed32lvt_tt1p05v125c DFFSSRX1_LVT      (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c DFFSSRX2_LVT      (0,0)(4.712,1.672)
+DHFILLH2   saed32rvt_tt1p05v125c DHFILLH2_RVT      (0,0)(0.304,3.344)
+           saed32hvt_tt1p05v125c DHFILLH2_HVT      (0,0)(0.304,3.344)
+           saed32lvt_tt1p05v125c DHFILLH2_LVT      (0,0)(0.304,3.344)
+DHFILLHL2  saed32rvt_tt1p05v125c DHFILLHL2_RVT     (0,0)(0.304,3.344)
+           saed32hvt_tt1p05v125c DHFILLHL2_HVT     (0,0)(0.304,3.344)
+           saed32lvt_tt1p05v125c DHFILLHL2_LVT     (0,0)(0.304,3.344)
+DHFILLHLHLS11 saed32rvt_tt1p05v125c DHFILLHLHLS11_RVT (0,0)(1.672,3.344)
+           saed32hvt_tt1p05v125c DHFILLHLHLS11_HVT (0,0)(1.672,3.344)
+           saed32lvt_tt1p05v125c DHFILLHLHLS11_LVT (0,0)(1.672,3.344)
+FADD       saed32rvt_tt1p05v125c FADDX1_RVT        (0,0)(2.888,1.672)
+           saed32rvt_tt1p05v125c FADDX2_RVT        (0,0)(3.192,1.672)
+           saed32hvt_tt1p05v125c FADDX1_HVT        (0,0)(2.888,1.672)
+           saed32hvt_tt1p05v125c FADDX2_HVT        (0,0)(3.192,1.672)
+           saed32lvt_tt1p05v125c FADDX1_LVT        (0,0)(2.888,1.672)
+           saed32lvt_tt1p05v125c FADDX2_LVT        (0,0)(3.192,1.672)
+HADD       saed32rvt_tt1p05v125c HADDX1_RVT        (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c HADDX2_RVT        (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c HADDX1_HVT        (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c HADDX2_HVT        (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c HADDX1_LVT        (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c HADDX2_LVT        (0,0)(2.28,1.672)
+IBUFF      saed32rvt_tt1p05v125c IBUFFX16_RVT      (0,0)(3.952,1.672)
+           saed32rvt_tt1p05v125c IBUFFX2_RVT       (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c IBUFFX32_RVT      (0,0)(6.992,1.672)
+           saed32rvt_tt1p05v125c IBUFFX4_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c IBUFFX8_RVT       (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c IBUFFX16_HVT      (0,0)(3.952,1.672)
+           saed32hvt_tt1p05v125c IBUFFX2_HVT       (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c IBUFFX32_HVT      (0,0)(6.992,1.672)
+           saed32hvt_tt1p05v125c IBUFFX4_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c IBUFFX8_HVT       (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c IBUFFX16_LVT      (0,0)(3.952,1.672)
+           saed32lvt_tt1p05v125c IBUFFX2_LVT       (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c IBUFFX32_LVT      (0,0)(6.992,1.672)
+           saed32lvt_tt1p05v125c IBUFFX4_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c IBUFFX8_LVT       (0,0)(2.584,1.672)
+ISOLAND    saed32rvt_tt1p05v125c ISOLANDAOX1_RVT   (0,0)(3.344,1.672)
+           saed32rvt_tt1p05v125c ISOLANDAOX2_RVT   (0,0)(3.496,1.672)
+           saed32rvt_tt1p05v125c ISOLANDAOX4_RVT   (0,0)(4.104,1.672)
+           saed32rvt_tt1p05v125c ISOLANDAOX8_RVT   (0,0)(5.32,1.672)
+           saed32hvt_tt1p05v125c ISOLANDAOX1_HVT   (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c ISOLANDAOX2_HVT   (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c ISOLANDAOX4_HVT   (0,0)(4.104,1.672)
+           saed32hvt_tt1p05v125c ISOLANDAOX8_HVT   (0,0)(5.32,1.672)
+           saed32lvt_tt1p05v125c ISOLANDAOX1_LVT   (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c ISOLANDAOX2_LVT   (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c ISOLANDAOX4_LVT   (0,0)(4.104,1.672)
+           saed32lvt_tt1p05v125c ISOLANDAOX8_LVT   (0,0)(5.32,1.672)
+ISOLANDX1  saed32rvt_tt1p05v125c ISOLANDX1_RVT     (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c ISOLANDX2_RVT     (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c ISOLANDX4_RVT     (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c ISOLANDX8_RVT     (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c ISOLANDX1_HVT     (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c ISOLANDX2_HVT     (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c ISOLANDX4_HVT     (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c ISOLANDX8_HVT     (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c ISOLANDX1_LVT     (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c ISOLANDX2_LVT     (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c ISOLANDX4_LVT     (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c ISOLANDX8_LVT     (0,0)(2.584,1.672)
+ISOLOR     saed32rvt_tt1p05v125c ISOLORAOX1_RVT    (0,0)(3.496,1.672)
+           saed32rvt_tt1p05v125c ISOLORAOX2_RVT    (0,0)(3.8,1.672)
+           saed32rvt_tt1p05v125c ISOLORAOX4_RVT    (0,0)(4.408,1.672)
+           saed32rvt_tt1p05v125c ISOLORAOX8_RVT    (0,0)(5.928,1.672)
+           saed32hvt_tt1p05v125c ISOLORAOX1_HVT    (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c ISOLORAOX2_HVT    (0,0)(3.8,1.672)
+           saed32hvt_tt1p05v125c ISOLORAOX4_HVT    (0,0)(4.408,1.672)
+           saed32hvt_tt1p05v125c ISOLORAOX8_HVT    (0,0)(5.928,1.672)
+           saed32lvt_tt1p05v125c ISOLORAOX1_LVT    (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c ISOLORAOX2_LVT    (0,0)(3.8,1.672)
+           saed32lvt_tt1p05v125c ISOLORAOX4_LVT    (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c ISOLORAOX8_LVT    (0,0)(5.928,1.672)
+ISOLORX1   saed32rvt_tt1p05v125c ISOLORX1_RVT      (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c ISOLORX2_RVT      (0,0)(1.368,1.672)
+           saed32rvt_tt1p05v125c ISOLORX4_RVT      (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c ISOLORX8_RVT      (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c ISOLORX1_HVT      (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c ISOLORX2_HVT      (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c ISOLORX4_HVT      (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c ISOLORX8_HVT      (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c ISOLORX1_LVT      (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c ISOLORX2_LVT      (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c ISOLORX4_LVT      (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c ISOLORX8_LVT      (0,0)(2.584,1.672)
+LAR        saed32rvt_tt1p05v125c LARX1_RVT         (0,0)(3.344,1.672)
+           saed32rvt_tt1p05v125c LARX2_RVT         (0,0)(3.648,1.672)
+           saed32hvt_tt1p05v125c LARX1_HVT         (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c LARX2_HVT         (0,0)(3.648,1.672)
+           saed32lvt_tt1p05v125c LARX1_LVT         (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c LARX2_LVT         (0,0)(3.648,1.672)
+LAS        saed32rvt_tt1p05v125c LASX1_RVT         (0,0)(3.192,1.672)
+           saed32rvt_tt1p05v125c LASX2_RVT         (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c LASX1_HVT         (0,0)(3.192,1.672)
+           saed32hvt_tt1p05v125c LASX2_HVT         (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c LASX1_LVT         (0,0)(3.192,1.672)
+           saed32lvt_tt1p05v125c LASX2_LVT         (0,0)(3.496,1.672)
+LASR       saed32rvt_tt1p05v125c LASRX1_RVT        (0,0)(3.496,1.672)
+           saed32rvt_tt1p05v125c LASRX2_RVT        (0,0)(3.8,1.672)
+           saed32hvt_tt1p05v125c LASRX1_HVT        (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c LASRX2_HVT        (0,0)(3.8,1.672)
+           saed32lvt_tt1p05v125c LASRX1_LVT        (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c LASRX2_LVT        (0,0)(3.8,1.672)
+LASRN      saed32rvt_tt1p05v125c LASRNX1_RVT       (0,0)(3.344,1.672)
+           saed32rvt_tt1p05v125c LASRNX2_RVT       (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c LASRNX1_HVT       (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c LASRNX2_HVT       (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c LASRNX1_LVT       (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c LASRNX2_LVT       (0,0)(3.496,1.672)
+LASRQ      saed32rvt_tt1p05v125c LASRQX1_RVT       (0,0)(3.344,1.672)
+           saed32rvt_tt1p05v125c LASRQX2_RVT       (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c LASRQX1_HVT       (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c LASRQX2_HVT       (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c LASRQX1_LVT       (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c LASRQX2_LVT       (0,0)(3.496,1.672)
+LATCH      saed32rvt_tt1p05v125c LATCHX1_RVT       (0,0)(3.04,1.672)
+           saed32rvt_tt1p05v125c LATCHX2_RVT       (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c LATCHX1_HVT       (0,0)(3.04,1.672)
+           saed32hvt_tt1p05v125c LATCHX2_HVT       (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c LATCHX1_LVT       (0,0)(3.04,1.672)
+           saed32lvt_tt1p05v125c LATCHX2_LVT       (0,0)(3.344,1.672)
+LNAND      saed32rvt_tt1p05v125c LNANDX1_RVT       (0,0)(1.368,1.672)
+           saed32rvt_tt1p05v125c LNANDX2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c LNANDX1_HVT       (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c LNANDX2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c LNANDX1_LVT       (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c LNANDX2_LVT       (0,0)(1.976,1.672)
+MUX2       saed32rvt_tt1p05v125c MUX21X1_RVT       (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c MUX21X2_RVT       (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c MUX21X1_HVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c MUX21X2_HVT       (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c MUX21X1_LVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c MUX21X2_LVT       (0,0)(2.128,1.672)
+MUX41      saed32rvt_tt1p05v125c MUX41X1_RVT       (0,0)(3.344,1.672)
+           saed32rvt_tt1p05v125c MUX41X2_RVT       (0,0)(3.648,1.672)
+           saed32hvt_tt1p05v125c MUX41X1_HVT       (0,0)(3.344,1.672)
+           saed32hvt_tt1p05v125c MUX41X2_HVT       (0,0)(3.648,1.672)
+           saed32lvt_tt1p05v125c MUX41X1_LVT       (0,0)(3.344,1.672)
+           saed32lvt_tt1p05v125c MUX41X2_LVT       (0,0)(3.648,1.672)
+NAND2      saed32rvt_tt1p05v125c NAND2X0_RVT       (0,0)(0.912,1.672)
+           saed32rvt_tt1p05v125c NAND2X1_RVT       (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c NAND2X2_RVT       (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c NAND2X4_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c NAND2X0_HVT       (0,0)(0.912,1.672)
+           saed32hvt_tt1p05v125c NAND2X1_HVT       (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c NAND2X2_HVT       (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c NAND2X4_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c NAND2X0_LVT       (0,0)(0.912,1.672)
+           saed32lvt_tt1p05v125c NAND2X1_LVT       (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c NAND2X2_LVT       (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c NAND2X4_LVT       (0,0)(1.976,1.672)
+NAND3      saed32rvt_tt1p05v125c NAND3X0_RVT       (0,0)(1.064,1.672)
+           saed32rvt_tt1p05v125c NAND3X1_RVT       (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c NAND3X2_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c NAND3X4_RVT       (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c NAND3X0_HVT       (0,0)(1.064,1.672)
+           saed32hvt_tt1p05v125c NAND3X1_HVT       (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c NAND3X2_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c NAND3X4_HVT       (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c NAND3X0_LVT       (0,0)(1.064,1.672)
+           saed32lvt_tt1p05v125c NAND3X1_LVT       (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c NAND3X2_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c NAND3X4_LVT       (0,0)(2.128,1.672)
+NAND4      saed32rvt_tt1p05v125c NAND4X0_RVT       (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c NAND4X1_RVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c NAND4X0_HVT       (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c NAND4X1_HVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c NAND4X0_LVT       (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c NAND4X1_LVT       (0,0)(1.824,1.672)
+NBUFF      saed32rvt_tt1p05v125c NBUFFX16_RVT      (0,0)(3.648,1.672)
+           saed32rvt_tt1p05v125c NBUFFX2_RVT       (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c NBUFFX32_RVT      (0,0)(6.384,1.672)
+           saed32rvt_tt1p05v125c NBUFFX4_RVT       (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c NBUFFX8_RVT       (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c NBUFFX16_HVT      (0,0)(3.648,1.672)
+           saed32hvt_tt1p05v125c NBUFFX2_HVT       (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c NBUFFX32_HVT      (0,0)(6.384,1.672)
+           saed32hvt_tt1p05v125c NBUFFX4_HVT       (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c NBUFFX8_HVT       (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c NBUFFX16_LVT      (0,0)(3.648,1.672)
+           saed32lvt_tt1p05v125c NBUFFX2_LVT       (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c NBUFFX32_LVT      (0,0)(6.384,1.672)
+           saed32lvt_tt1p05v125c NBUFFX4_LVT       (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c NBUFFX8_LVT       (0,0)(2.28,1.672)
+NMT1       saed32rvt_tt1p05v125c NMT1_RVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c NMT1_HVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c NMT1_LVT          (0,0)(0.76,1.672)
+NMT2       saed32rvt_tt1p05v125c NMT2_RVT          (0,0)(0.912,1.672)
+           saed32hvt_tt1p05v125c NMT2_HVT          (0,0)(0.912,1.672)
+           saed32lvt_tt1p05v125c NMT2_LVT          (0,0)(0.912,1.672)
+NMT3       saed32rvt_tt1p05v125c NMT3_RVT          (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c NMT3_HVT          (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c NMT3_LVT          (0,0)(1.216,1.672)
+NOR2       saed32rvt_tt1p05v125c NOR2X0_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c NOR2X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c NOR2X2_RVT        (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c NOR2X4_RVT        (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c NOR2X0_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c NOR2X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c NOR2X2_HVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c NOR2X4_HVT        (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c NOR2X0_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c NOR2X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c NOR2X2_LVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c NOR2X4_LVT        (0,0)(1.976,1.672)
+NOR3       saed32rvt_tt1p05v125c NOR3X0_RVT        (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c NOR3X1_RVT        (0,0)(1.672,1.672)
+           saed32rvt_tt1p05v125c NOR3X2_RVT        (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c NOR3X4_RVT        (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c NOR3X0_HVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c NOR3X1_HVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c NOR3X2_HVT        (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c NOR3X4_HVT        (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c NOR3X0_LVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c NOR3X1_LVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c NOR3X2_LVT        (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c NOR3X4_LVT        (0,0)(2.128,1.672)
+NOR4       saed32rvt_tt1p05v125c NOR4X0_RVT        (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c NOR4X1_RVT        (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c NOR4X0_HVT        (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c NOR4X1_HVT        (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c NOR4X0_LVT        (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c NOR4X1_LVT        (0,0)(1.824,1.672)
+OA21       saed32rvt_tt1p05v125c OA21X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c OA21X2_RVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c OA21X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c OA21X2_HVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c OA21X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c OA21X2_LVT        (0,0)(1.672,1.672)
+OA22       saed32rvt_tt1p05v125c OA22X1_RVT        (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c OA22X2_RVT        (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c OA22X1_HVT        (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c OA22X2_HVT        (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c OA22X1_LVT        (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c OA22X2_LVT        (0,0)(1.672,1.672)
+OA221      saed32rvt_tt1p05v125c OA221X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c OA221X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c OA221X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c OA221X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c OA221X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c OA221X2_LVT       (0,0)(1.976,1.672)
+OA222      saed32rvt_tt1p05v125c OA222X1_RVT       (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c OA222X2_RVT       (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c OA222X1_HVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c OA222X2_HVT       (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c OA222X1_LVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c OA222X2_LVT       (0,0)(2.128,1.672)
+OAI21      saed32rvt_tt1p05v125c OAI21X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c OAI21X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c OAI21X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c OAI21X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c OAI21X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c OAI21X2_LVT       (0,0)(1.976,1.672)
+OAI22      saed32rvt_tt1p05v125c OAI22X1_RVT       (0,0)(1.824,1.672)
+           saed32rvt_tt1p05v125c OAI22X2_RVT       (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c OAI22X1_HVT       (0,0)(1.824,1.672)
+           saed32hvt_tt1p05v125c OAI22X2_HVT       (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c OAI22X1_LVT       (0,0)(1.824,1.672)
+           saed32lvt_tt1p05v125c OAI22X2_LVT       (0,0)(1.976,1.672)
+OAI221     saed32rvt_tt1p05v125c OAI221X1_RVT      (0,0)(2.128,1.672)
+           saed32rvt_tt1p05v125c OAI221X2_RVT      (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c OAI221X1_HVT      (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c OAI221X2_HVT      (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c OAI221X1_LVT      (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c OAI221X2_LVT      (0,0)(2.28,1.672)
+OAI222     saed32rvt_tt1p05v125c OAI222X1_RVT      (0,0)(2.28,1.672)
+           saed32rvt_tt1p05v125c OAI222X2_RVT      (0,0)(2.432,1.672)
+           saed32hvt_tt1p05v125c OAI222X1_HVT      (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c OAI222X2_HVT      (0,0)(2.432,1.672)
+           saed32lvt_tt1p05v125c OAI222X1_LVT      (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c OAI222X2_LVT      (0,0)(2.432,1.672)
+OR2        saed32rvt_tt1p05v125c OR2X1_RVT         (0,0)(1.216,1.672)
+           saed32rvt_tt1p05v125c OR2X2_RVT         (0,0)(1.368,1.672)
+           saed32rvt_tt1p05v125c OR2X4_RVT         (0,0)(1.672,1.672)
+           saed32hvt_tt1p05v125c OR2X1_HVT         (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c OR2X2_HVT         (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c OR2X4_HVT         (0,0)(1.672,1.672)
+           saed32lvt_tt1p05v125c OR2X1_LVT         (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c OR2X2_LVT         (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c OR2X4_LVT         (0,0)(1.672,1.672)
+OR3        saed32rvt_tt1p05v125c OR3X1_RVT         (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c OR3X2_RVT         (0,0)(1.52,1.672)
+           saed32rvt_tt1p05v125c OR3X4_RVT         (0,0)(2.432,1.672)
+           saed32hvt_tt1p05v125c OR3X1_HVT         (0,0)(1.368,1.672)
+           saed32hvt_tt1p05v125c OR3X2_HVT         (0,0)(1.52,1.672)
+           saed32hvt_tt1p05v125c OR3X4_HVT         (0,0)(2.432,1.672)
+           saed32lvt_tt1p05v125c OR3X1_LVT         (0,0)(1.368,1.672)
+           saed32lvt_tt1p05v125c OR3X2_LVT         (0,0)(1.52,1.672)
+           saed32lvt_tt1p05v125c OR3X4_LVT         (0,0)(2.432,1.672)
+OR4        saed32rvt_tt1p05v125c OR4X1_RVT         (0,0)(2.128,1.672)
+           saed32rvt_tt1p05v125c OR4X2_RVT         (0,0)(2.28,1.672)
+           saed32rvt_tt1p05v125c OR4X4_RVT         (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c OR4X1_HVT         (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c OR4X2_HVT         (0,0)(2.28,1.672)
+           saed32hvt_tt1p05v125c OR4X4_HVT         (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c OR4X1_LVT         (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c OR4X2_LVT         (0,0)(2.28,1.672)
+           saed32lvt_tt1p05v125c OR4X4_LVT         (0,0)(2.584,1.672)
+PG         saed32rvt_tt1p05v125c PGX1_RVT          (0,0)(0.76,1.672)
+           saed32rvt_tt1p05v125c PGX2_RVT          (0,0)(0.912,1.672)
+           saed32rvt_tt1p05v125c PGX4_RVT          (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c PGX1_HVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c PGX2_HVT          (0,0)(0.912,1.672)
+           saed32hvt_tt1p05v125c PGX4_HVT          (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c PGX1_LVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c PGX2_LVT          (0,0)(0.912,1.672)
+           saed32lvt_tt1p05v125c PGX4_LVT          (0,0)(1.216,1.672)
+PMT1       saed32rvt_tt1p05v125c PMT1_RVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c PMT1_HVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c PMT1_LVT          (0,0)(0.76,1.672)
+PMT2       saed32rvt_tt1p05v125c PMT2_RVT          (0,0)(0.912,1.672)
+           saed32hvt_tt1p05v125c PMT2_HVT          (0,0)(0.912,1.672)
+           saed32lvt_tt1p05v125c PMT2_LVT          (0,0)(0.912,1.672)
+PMT3       saed32rvt_tt1p05v125c PMT3_RVT          (0,0)(1.216,1.672)
+           saed32hvt_tt1p05v125c PMT3_HVT          (0,0)(1.216,1.672)
+           saed32lvt_tt1p05v125c PMT3_LVT          (0,0)(1.216,1.672)
+RDFFAR     saed32rvt_tt1p05v125c RDFFARX1_RVT      (0,0)(8.968,1.672)
+           saed32rvt_tt1p05v125c RDFFARX2_RVT      (0,0)(9.272,1.672)
+           saed32hvt_tt1p05v125c RDFFARX1_HVT      (0,0)(15.35,1.672)
+           saed32hvt_tt1p05v125c RDFFARX2_HVT      (0,0)(15.81,1.672)
+           saed32lvt_tt1p05v125c RDFFARX1_LVT      (0,0)(8.968,1.672)
+           saed32lvt_tt1p05v125c RDFFARX2_LVT      (0,0)(9.272,1.672)
+RDFFNAR    saed32rvt_tt1p05v125c RDFFNARX1_RVT     (0,0)(8.968,1.672)
+           saed32rvt_tt1p05v125c RDFFNARX2_RVT     (0,0)(9.272,1.672)
+           saed32hvt_tt1p05v125c RDFFNARX1_HVT     (0,0)(15.35,1.672)
+           saed32hvt_tt1p05v125c RDFFNARX2_HVT     (0,0)(15.81,1.672)
+           saed32lvt_tt1p05v125c RDFFNARX1_LVT     (0,0)(8.968,1.672)
+           saed32lvt_tt1p05v125c RDFFNARX2_LVT     (0,0)(9.272,1.672)
+RDFFNX1    saed32rvt_tt1p05v125c RDFFNX1_RVT       (0,0)(8.36,1.672)
+           saed32rvt_tt1p05v125c RDFFNX2_RVT       (0,0)(8.664,1.672)
+           saed32hvt_tt1p05v125c RDFFNX1_HVT       (0,0)(12.62,1.672)
+           saed32hvt_tt1p05v125c RDFFNX2_HVT       (0,0)(13.07,1.672)
+           saed32lvt_tt1p05v125c RDFFNX1_LVT       (0,0)(8.36,1.672)
+           saed32lvt_tt1p05v125c RDFFNX2_LVT       (0,0)(8.664,1.672)
+RDFFX1     saed32rvt_tt1p05v125c RDFFX1_RVT        (0,0)(8.36,1.672)
+           saed32rvt_tt1p05v125c RDFFX2_RVT        (0,0)(8.664,1.672)
+           saed32hvt_tt1p05v125c RDFFX1_HVT        (0,0)(12.62,1.672)
+           saed32hvt_tt1p05v125c RDFFX2_HVT        (0,0)(13.07,1.672)
+           saed32lvt_tt1p05v125c RDFFX1_LVT        (0,0)(8.36,1.672)
+           saed32lvt_tt1p05v125c RDFFX2_LVT        (0,0)(8.664,1.672)
+RSDFFAR    saed32rvt_tt1p05v125c RSDFFARX1_RVT     (0,0)(10.79,1.672)
+           saed32rvt_tt1p05v125c RSDFFARX2_RVT     (0,0)(11.1,1.672)
+           saed32hvt_tt1p05v125c RSDFFARX1_HVT     (0,0)(17.94,1.672)
+           saed32hvt_tt1p05v125c RSDFFARX2_HVT     (0,0)(18.39,1.672)
+           saed32lvt_tt1p05v125c RSDFFARX1_LVT     (0,0)(10.79,1.672)
+           saed32lvt_tt1p05v125c RSDFFARX2_LVT     (0,0)(11.1,1.672)
+RSDFFNAR   saed32rvt_tt1p05v125c RSDFFNARX1_RVT    (0,0)(10.79,1.672)
+           saed32rvt_tt1p05v125c RSDFFNARX2_RVT    (0,0)(11.1,1.672)
+           saed32hvt_tt1p05v125c RSDFFNARX1_HVT    (0,0)(22.95,1.672)
+           saed32hvt_tt1p05v125c RSDFFNARX2_HVT    (0,0)(23.86,1.672)
+           saed32lvt_tt1p05v125c RSDFFNARX1_LVT    (0,0)(10.79,1.672)
+           saed32lvt_tt1p05v125c RSDFFNARX2_LVT    (0,0)(11.1,1.672)
+RSDFFNX1   saed32rvt_tt1p05v125c RSDFFNX1_RVT      (0,0)(10.18,1.672)
+           saed32rvt_tt1p05v125c RSDFFNX2_RVT      (0,0)(10.49,1.672)
+           saed32hvt_tt1p05v125c RSDFFNX1_HVT      (0,0)(17.63,1.672)
+           saed32hvt_tt1p05v125c RSDFFNX2_HVT      (0,0)(18.09,1.672)
+           saed32lvt_tt1p05v125c RSDFFNX1_LVT      (0,0)(10.18,1.672)
+           saed32lvt_tt1p05v125c RSDFFNX2_LVT      (0,0)(10.49,1.672)
+RSDFFX1    saed32rvt_tt1p05v125c RSDFFX1_RVT       (0,0)(10.18,1.672)
+           saed32rvt_tt1p05v125c RSDFFX2_RVT       (0,0)(10.49,1.672)
+           saed32hvt_tt1p05v125c RSDFFX1_HVT       (0,0)(15.05,1.672)
+           saed32hvt_tt1p05v125c RSDFFX2_HVT       (0,0)(15.5,1.672)
+           saed32lvt_tt1p05v125c RSDFFX1_LVT       (0,0)(10.18,1.672)
+           saed32lvt_tt1p05v125c RSDFFX2_LVT       (0,0)(10.49,1.672)
+SDFF       saed32rvt_tt1p05v125c SDFFX1_RVT        (0,0)(5.168,1.672)
+           saed32rvt_tt1p05v125c SDFFX2_RVT        (0,0)(5.472,1.672)
+           saed32hvt_tt1p05v125c SDFFX1_HVT        (0,0)(6.84,1.672)
+           saed32hvt_tt1p05v125c SDFFX2_HVT        (0,0)(7.144,1.672)
+           saed32lvt_tt1p05v125c SDFFX1_LVT        (0,0)(5.168,1.672)
+           saed32lvt_tt1p05v125c SDFFX2_LVT        (0,0)(5.472,1.672)
+SDFFAR     saed32rvt_tt1p05v125c SDFFARX1_RVT      (0,0)(5.472,1.672)
+           saed32rvt_tt1p05v125c SDFFARX2_RVT      (0,0)(5.776,1.672)
+           saed32hvt_tt1p05v125c SDFFARX1_HVT      (0,0)(5.472,1.672)
+           saed32hvt_tt1p05v125c SDFFARX2_HVT      (0,0)(5.776,1.672)
+           saed32lvt_tt1p05v125c SDFFARX1_LVT      (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c SDFFARX2_LVT      (0,0)(5.776,1.672)
+SDFFAS     saed32rvt_tt1p05v125c SDFFASX1_RVT      (0,0)(5.472,1.672)
+           saed32rvt_tt1p05v125c SDFFASX2_RVT      (0,0)(5.776,1.672)
+           saed32hvt_tt1p05v125c SDFFASX1_HVT      (0,0)(6.08,1.672)
+           saed32hvt_tt1p05v125c SDFFASX2_HVT      (0,0)(6.384,1.672)
+           saed32lvt_tt1p05v125c SDFFASX1_LVT      (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c SDFFASX2_LVT      (0,0)(5.776,1.672)
+SDFFASR    saed32rvt_tt1p05v125c SDFFASRX1_RVT     (0,0)(6.08,1.672)
+           saed32rvt_tt1p05v125c SDFFASRX2_RVT     (0,0)(6.08,1.672)
+           saed32hvt_tt1p05v125c SDFFASRX1_HVT     (0,0)(8.664,1.672)
+           saed32hvt_tt1p05v125c SDFFASRX2_HVT     (0,0)(8.664,1.672)
+           saed32lvt_tt1p05v125c SDFFASRX1_LVT     (0,0)(6.08,1.672)
+           saed32lvt_tt1p05v125c SDFFASRX2_LVT     (0,0)(6.08,1.672)
+SDFFASRS   saed32rvt_tt1p05v125c SDFFASRSX1_RVT    (0,0)(6.08,1.672)
+           saed32rvt_tt1p05v125c SDFFASRSX2_RVT    (0,0)(6.232,1.672)
+           saed32hvt_tt1p05v125c SDFFASRSX1_HVT    (0,0)(7.144,1.672)
+           saed32hvt_tt1p05v125c SDFFASRSX2_HVT    (0,0)(7.448,1.672)
+           saed32lvt_tt1p05v125c SDFFASRSX1_LVT    (0,0)(6.08,1.672)
+           saed32lvt_tt1p05v125c SDFFASRSX2_LVT    (0,0)(6.232,1.672)
+SDFFN      saed32rvt_tt1p05v125c SDFFNX1_RVT       (0,0)(5.168,1.672)
+           saed32rvt_tt1p05v125c SDFFNX2_RVT       (0,0)(5.472,1.672)
+           saed32hvt_tt1p05v125c SDFFNX1_HVT       (0,0)(8.056,1.672)
+           saed32hvt_tt1p05v125c SDFFNX2_HVT       (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c SDFFNX1_LVT       (0,0)(5.168,1.672)
+           saed32lvt_tt1p05v125c SDFFNX2_LVT       (0,0)(5.472,1.672)
+SDFFNAR    saed32rvt_tt1p05v125c SDFFNARX1_RVT     (0,0)(5.472,1.672)
+           saed32rvt_tt1p05v125c SDFFNARX2_RVT     (0,0)(5.776,1.672)
+           saed32hvt_tt1p05v125c SDFFNARX1_HVT     (0,0)(5.472,1.672)
+           saed32hvt_tt1p05v125c SDFFNARX2_HVT     (0,0)(5.776,1.672)
+           saed32lvt_tt1p05v125c SDFFNARX1_LVT     (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c SDFFNARX2_LVT     (0,0)(5.776,1.672)
+SDFFNAS    saed32rvt_tt1p05v125c SDFFNASX1_RVT     (0,0)(5.472,1.672)
+           saed32rvt_tt1p05v125c SDFFNASX2_RVT     (0,0)(5.776,1.672)
+           saed32hvt_tt1p05v125c SDFFNASX1_HVT     (0,0)(5.624,1.672)
+           saed32hvt_tt1p05v125c SDFFNASX2_HVT     (0,0)(5.928,1.672)
+           saed32lvt_tt1p05v125c SDFFNASX1_LVT     (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c SDFFNASX2_LVT     (0,0)(5.776,1.672)
+SDFFNASR   saed32rvt_tt1p05v125c SDFFNASRX1_RVT    (0,0)(5.776,1.672)
+           saed32rvt_tt1p05v125c SDFFNASRX2_RVT    (0,0)(6.08,1.672)
+           saed32hvt_tt1p05v125c SDFFNASRX1_HVT    (0,0)(6.384,1.672)
+           saed32hvt_tt1p05v125c SDFFNASRX2_HVT    (0,0)(6.08,1.672)
+           saed32lvt_tt1p05v125c SDFFNASRX1_LVT    (0,0)(5.776,1.672)
+           saed32lvt_tt1p05v125c SDFFNASRX2_LVT    (0,0)(6.08,1.672)
+SDFFSSR    saed32rvt_tt1p05v125c SDFFSSRX1_RVT     (0,0)(5.32,1.672)
+           saed32rvt_tt1p05v125c SDFFSSRX2_RVT     (0,0)(5.624,1.672)
+           saed32hvt_tt1p05v125c SDFFSSRX1_HVT     (0,0)(6.84,1.672)
+           saed32hvt_tt1p05v125c SDFFSSRX2_HVT     (0,0)(5.776,1.672)
+           saed32lvt_tt1p05v125c SDFFSSRX1_LVT     (0,0)(5.472,1.672)
+           saed32lvt_tt1p05v125c SDFFSSRX2_LVT     (0,0)(5.776,1.672)
+SHFILL1    saed32rvt_tt1p05v125c SHFILL1_RVT       (0,0)(0.152,1.672)
+           saed32hvt_tt1p05v125c SHFILL1_HVT       (0,0)(0.152,1.672)
+           saed32lvt_tt1p05v125c SHFILL1_LVT       (0,0)(0.152,1.672)
+SHFILL128  saed32rvt_tt1p05v125c SHFILL128_RVT     (0,0)(19.46,1.672)
+           saed32hvt_tt1p05v125c SHFILL128_HVT     (0,0)(19.46,1.672)
+           saed32lvt_tt1p05v125c SHFILL128_LVT     (0,0)(19.46,1.672)
+SHFILL2    saed32rvt_tt1p05v125c SHFILL2_RVT       (0,0)(0.304,1.672)
+           saed32hvt_tt1p05v125c SHFILL2_HVT       (0,0)(0.304,1.672)
+           saed32lvt_tt1p05v125c SHFILL2_LVT       (0,0)(0.304,1.672)
+SHFILL3    saed32rvt_tt1p05v125c SHFILL3_RVT       (0,0)(0.456,1.672)
+           saed32hvt_tt1p05v125c SHFILL3_HVT       (0,0)(0.456,1.672)
+           saed32lvt_tt1p05v125c SHFILL3_LVT       (0,0)(0.456,1.672)
+SHFILL64   saed32rvt_tt1p05v125c SHFILL64_RVT      (0,0)(9.728,1.672)
+           saed32hvt_tt1p05v125c SHFILL64_HVT      (0,0)(9.728,1.672)
+           saed32lvt_tt1p05v125c SHFILL64_LVT      (0,0)(9.728,1.672)
+TIEH       saed32rvt_tt1p05v125c TIEH_RVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c TIEH_HVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c TIEH_LVT          (0,0)(0.76,1.672)
+TIEL       saed32rvt_tt1p05v125c TIEL_RVT          (0,0)(0.76,1.672)
+           saed32hvt_tt1p05v125c TIEL_HVT          (0,0)(0.76,1.672)
+           saed32lvt_tt1p05v125c TIEL_LVT          (0,0)(0.76,1.672)
+TNBUFF     saed32rvt_tt1p05v125c TNBUFFX16_RVT     (0,0)(5.168,1.672)
+           saed32rvt_tt1p05v125c TNBUFFX1_RVT      (0,0)(1.976,1.672)
+           saed32rvt_tt1p05v125c TNBUFFX2_RVT      (0,0)(2.128,1.672)
+           saed32rvt_tt1p05v125c TNBUFFX32_RVT     (0,0)(10.49,1.672)
+           saed32rvt_tt1p05v125c TNBUFFX4_RVT      (0,0)(2.432,1.672)
+           saed32rvt_tt1p05v125c TNBUFFX8_RVT      (0,0)(3.496,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX16_HVT     (0,0)(5.168,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX1_HVT      (0,0)(1.976,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX2_HVT      (0,0)(2.128,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX32_HVT     (0,0)(10.49,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX4_HVT      (0,0)(2.432,1.672)
+           saed32hvt_tt1p05v125c TNBUFFX8_HVT      (0,0)(3.496,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX16_LVT     (0,0)(5.168,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX1_LVT      (0,0)(1.976,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX2_LVT      (0,0)(2.128,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX32_LVT     (0,0)(10.49,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX4_LVT      (0,0)(2.432,1.672)
+           saed32lvt_tt1p05v125c TNBUFFX8_LVT      (0,0)(3.496,1.672)
+XNOR2      saed32rvt_tt1p05v125c XNOR2X1_RVT       (0,0)(2.584,1.672)
+           saed32rvt_tt1p05v125c XNOR2X2_RVT       (0,0)(2.736,1.672)
+           saed32hvt_tt1p05v125c XNOR2X1_HVT       (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c XNOR2X2_HVT       (0,0)(2.736,1.672)
+           saed32lvt_tt1p05v125c XNOR2X1_LVT       (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c XNOR2X2_LVT       (0,0)(2.736,1.672)
+XNOR3      saed32rvt_tt1p05v125c XNOR3X1_RVT       (0,0)(3.648,1.672)
+           saed32rvt_tt1p05v125c XNOR3X2_RVT       (0,0)(3.8,1.672)
+           saed32hvt_tt1p05v125c XNOR3X1_HVT       (0,0)(3.648,1.672)
+           saed32hvt_tt1p05v125c XNOR3X2_HVT       (0,0)(3.8,1.672)
+           saed32lvt_tt1p05v125c XNOR3X1_LVT       (0,0)(3.648,1.672)
+           saed32lvt_tt1p05v125c XNOR3X2_LVT       (0,0)(3.8,1.672)
+XOR2       saed32rvt_tt1p05v125c XOR2X1_RVT        (0,0)(2.584,1.672)
+           saed32rvt_tt1p05v125c XOR2X2_RVT        (0,0)(2.736,1.672)
+           saed32hvt_tt1p05v125c XOR2X1_HVT        (0,0)(2.584,1.672)
+           saed32hvt_tt1p05v125c XOR2X2_HVT        (0,0)(2.736,1.672)
+           saed32lvt_tt1p05v125c XOR2X1_LVT        (0,0)(2.584,1.672)
+           saed32lvt_tt1p05v125c XOR2X2_LVT        (0,0)(2.736,1.672)
+XOR3       saed32rvt_tt1p05v125c XOR3X1_RVT        (0,0)(4.256,1.672)
+           saed32rvt_tt1p05v125c XOR3X2_RVT        (0,0)(4.408,1.672)
+           saed32hvt_tt1p05v125c XOR3X1_HVT        (0,0)(4.256,1.672)
+           saed32hvt_tt1p05v125c XOR3X2_HVT        (0,0)(4.408,1.672)
+           saed32lvt_tt1p05v125c XOR3X1_LVT        (0,0)(4.256,1.672)
+           saed32lvt_tt1p05v125c XOR3X2_LVT        (0,0)(4.408,1.672)
+rdfcrd1    saed32rvt_tt1p05v125c RDFFSRX1_RVT      (0,0)(7.904,1.672)
+           saed32rvt_tt1p05v125c RDFFSRX2_RVT      (0,0)(8.208,1.672)
+           saed32hvt_tt1p05v125c RDFFSRX1_HVT      (0,0)(13.68,1.672)
+           saed32hvt_tt1p05v125c RDFFSRX2_HVT      (0,0)(13.98,1.672)
+           saed32lvt_tt1p05v125c RDFFSRX1_LVT      (0,0)(7.904,1.672)
+           saed32lvt_tt1p05v125c RDFFSRX2_LVT      (0,0)(8.208,1.672)
+rsdfcrd1   saed32rvt_tt1p05v125c RDFFNSRARX1_RVT   (0,0)(8.208,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRARX2_RVT   (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRNX1_RVT (0,0)(8.36,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRNX2_RVT (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRQX1_RVT (0,0)(8.36,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRQX2_RVT (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRX1_RVT  (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASRX2_RVT  (0,0)(8.816,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASX1_RVT   (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRASX2_RVT   (0,0)(8.816,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRX1_RVT     (0,0)(7.904,1.672)
+           saed32rvt_tt1p05v125c RDFFNSRX2_RVT     (0,0)(8.208,1.672)
+           saed32rvt_tt1p05v125c RDFFSRARX1_RVT    (0,0)(8.208,1.672)
+           saed32rvt_tt1p05v125c RDFFSRARX2_RVT    (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFSRASRX1_RVT   (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFSRASRX2_RVT   (0,0)(8.816,1.672)
+           saed32rvt_tt1p05v125c RDFFSRASX1_RVT    (0,0)(8.512,1.672)
+           saed32rvt_tt1p05v125c RDFFSRASX2_RVT    (0,0)(8.816,1.672)
+           saed32rvt_tt1p05v125c RDFFSRSSRX1_RVT   (0,0)(9.12,1.672)
+           saed32rvt_tt1p05v125c RDFFSRSSRX2_RVT   (0,0)(9.424,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRARX1_RVT  (0,0)(10.03,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRARX2_RVT  (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRNX1_RVT (0,0)(10.49,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRNX2_RVT (0,0)(10.49,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRQX1_RVT (0,0)(10.18,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRQX2_RVT (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRX1_RVT (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASRX2_RVT (0,0)(10.64,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASX1_RVT  (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRASX2_RVT  (0,0)(10.64,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRX1_RVT    (0,0)(9.728,1.672)
+           saed32rvt_tt1p05v125c RSDFFNSRX2_RVT    (0,0)(10.03,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRARX1_RVT   (0,0)(10.03,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRARX2_RVT   (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRASRX1_RVT  (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRASRX2_RVT  (0,0)(10.64,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRASX1_RVT   (0,0)(10.34,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRASX2_RVT   (0,0)(10.64,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRSSRX1_RVT  (0,0)(9.88,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRSSRX2_RVT  (0,0)(10.18,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRX1_RVT     (0,0)(9.728,1.672)
+           saed32rvt_tt1p05v125c RSDFFSRX2_RVT     (0,0)(10.03,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRARX1_HVT   (0,0)(12.46,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRARX2_HVT   (0,0)(12.77,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRNX1_HVT (0,0)(12.31,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRNX2_HVT (0,0)(12.46,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRQX1_HVT (0,0)(12.62,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRQX2_HVT (0,0)(12.77,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRX1_HVT  (0,0)(12.92,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASRX2_HVT  (0,0)(13.22,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASX1_HVT   (0,0)(12.31,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRASX2_HVT   (0,0)(12.62,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRX1_HVT     (0,0)(12.16,1.672)
+           saed32hvt_tt1p05v125c RDFFNSRX2_HVT     (0,0)(12.46,1.672)
+           saed32hvt_tt1p05v125c RDFFSRARX1_HVT    (0,0)(13.98,1.672)
+           saed32hvt_tt1p05v125c RDFFSRARX2_HVT    (0,0)(14.29,1.672)
+           saed32hvt_tt1p05v125c RDFFSRASRX1_HVT   (0,0)(14.44,1.672)
+           saed32hvt_tt1p05v125c RDFFSRASRX2_HVT   (0,0)(14.74,1.672)
+           saed32hvt_tt1p05v125c RDFFSRASX1_HVT    (0,0)(12.31,1.672)
+           saed32hvt_tt1p05v125c RDFFSRASX2_HVT    (0,0)(12.62,1.672)
+           saed32hvt_tt1p05v125c RDFFSRSSRX1_HVT   (0,0)(13.68,1.672)
+           saed32hvt_tt1p05v125c RDFFSRSSRX2_HVT   (0,0)(14.14,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRARX1_HVT  (0,0)(17.33,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRARX2_HVT  (0,0)(17.63,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRNX1_HVT (0,0)(17.48,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRNX2_HVT (0,0)(17.63,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRQX1_HVT (0,0)(17.78,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRQX2_HVT (0,0)(17.94,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRX1_HVT (0,0)(18.09,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASRX2_HVT (0,0)(18.39,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASX1_HVT  (0,0)(17.48,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRASX2_HVT  (0,0)(17.78,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRX1_HVT    (0,0)(16.72,1.672)
+           saed32hvt_tt1p05v125c RSDFFNSRX2_HVT    (0,0)(17.02,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRARX1_HVT   (0,0)(15.05,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRARX2_HVT   (0,0)(15.35,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRASRX1_HVT  (0,0)(15.5,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRASRX2_HVT  (0,0)(15.81,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRASX1_HVT   (0,0)(17.48,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRASX2_HVT   (0,0)(17.78,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRSSRX1_HVT  (0,0)(14.9,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRSSRX2_HVT  (0,0)(15.35,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRX1_HVT     (0,0)(14.74,1.672)
+           saed32hvt_tt1p05v125c RSDFFSRX2_HVT     (0,0)(15.05,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRARX1_LVT   (0,0)(8.208,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRARX2_LVT   (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRNX1_LVT (0,0)(8.36,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRNX2_LVT (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRQX1_LVT (0,0)(8.36,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRQX2_LVT (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRX1_LVT  (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASRX2_LVT  (0,0)(8.816,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASX1_LVT   (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRASX2_LVT   (0,0)(8.816,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRX1_LVT     (0,0)(7.904,1.672)
+           saed32lvt_tt1p05v125c RDFFNSRX2_LVT     (0,0)(8.208,1.672)
+           saed32lvt_tt1p05v125c RDFFSRARX1_LVT    (0,0)(8.208,1.672)
+           saed32lvt_tt1p05v125c RDFFSRARX2_LVT    (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFSRASRX1_LVT   (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFSRASRX2_LVT   (0,0)(8.816,1.672)
+           saed32lvt_tt1p05v125c RDFFSRASX1_LVT    (0,0)(8.512,1.672)
+           saed32lvt_tt1p05v125c RDFFSRASX2_LVT    (0,0)(8.816,1.672)
+           saed32lvt_tt1p05v125c RDFFSRSSRX1_LVT   (0,0)(9.12,1.672)
+           saed32lvt_tt1p05v125c RDFFSRSSRX2_LVT   (0,0)(9.424,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRARX1_LVT  (0,0)(10.03,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRARX2_LVT  (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRNX1_LVT (0,0)(10.49,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRNX2_LVT (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRQX1_LVT (0,0)(10.18,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRQX2_LVT (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRX1_LVT (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASRX2_LVT (0,0)(10.64,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASX1_LVT  (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRASX2_LVT  (0,0)(10.64,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRX1_LVT    (0,0)(9.728,1.672)
+           saed32lvt_tt1p05v125c RSDFFNSRX2_LVT    (0,0)(10.03,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRARX1_LVT   (0,0)(10.03,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRARX2_LVT   (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRASRX1_LVT  (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRASRX2_LVT  (0,0)(10.64,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRASX1_LVT   (0,0)(10.34,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRASX2_LVT   (0,0)(10.64,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRSSRX1_LVT  (0,0)(9.88,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRSSRX2_LVT  (0,0)(10.18,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRX1_LVT     (0,0)(9.728,1.672)
+           saed32lvt_tt1p05v125c RSDFFSRX2_LVT     (0,0)(10.03,1.672)
+-------------------------------------------------------------------
+
+#END_XCHECK_FOOTPRINT
+
+#BEGIN_XCHECK_CELLAREA
+
+Average cell area ratio physical/logic in the library:	1
+Number of cells with inconsistent area:	1
+
+Warning: List of cells with inconsistent area (LIBCHK-216)
+-------------------------------------------------------------------
+                                                   Area ratio
+Logic library name           Cell name             Phys/logic
+-------------------------------------------------------------------
+saed32rvt_tt1p05v125c        AOBUFX2_RVT           0.8667
+-------------------------------------------------------------------
+
+#END_XCHECK_CELLAREA
+
+#BEGIN_XCHECK_CELLANTENNADIODETYPE
+
+Number of cells with inconsistent antenna_diode_type:	0
+
+#END_XCHECK_CELLANTENNADIODETYPE
+
+Logic vs. physical library check summary:
+Number of cells missing in logic library:	168 
+Information: Logic library is INCONSISTENT with physical library (LIBCHK-220)
+
+#END_XCHECK_LIBRARY
+
+
+#BEGIN_CHECK_LIBRARY
+
+   Main library name:	/bks2/PB17061127/DA_VLSI_PD/picorv32_LIB
+   Check date and time:	Sun Dec 13 20:33:14 2020
+
+#BEGIN_CHECK_TECH_CONSISTENCY
+
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+   Technology consistency checking is done.
+
+#END_CHECK_TECH_CONSISTENCY
+
+Error: The cell's data model version is newer than what is supported by this application. (MW-301)
+#BEGIN_CHECK_VIEWCMP
+
+   Total number of cells missing CEL view:	0 (out of 3)
+   Total number of cells missing FRAM view:	3 (out of 3)
+   Total number of cells with mismatched view (CEL vs. FRAM):	0 (out of 3)
+
+#END_CHECK_VIEWCMP
+
+#BEGIN_CHECK_SAMENAMECELL
+
+   Total number of cells with same names:	0 (out of 1050)
+
+#END_CHECK_SAMENAMECELL
+
+#BEGIN_CHECK_SIGNALEM
+
+Warning: The library is missing signal EM data.  (LIBCHK-114)
+
+#END_CHECK_SIGNALEM
+
+#BEGIN_CHECK_ANTENNA
+
+Warning: The library is missing antenna rules.  (LIBCHK-116)
+   No cells are missing antenna properties in the library.
+
+#END_CHECK_ANTENNA
+
+#BEGIN_CHECK_RECTILINEARCELL
+
+   Total number of rectilinear cells:	0 (out of 0)
+
+#END_CHECK_RECTILINEARCELL
+
+#BEGIN_CHECK_PHYSICALONLYCELL
+
+   Total number of physical only cells:	0 (out of 0)
+
+#END_CHECK_PHYSICALONLYCELL
+
+#BEGIN_CHECK_PHYSICALPROPERTY
+
+   Total number of cells:	0
+
+Information: List of main and reference libraries  (LIBCHK-120)
+----------------------------------------------------------------------------------
+Library name       Path                                     Unit tile  Tile size
+----------------------------------------------------------------------------------
+picorv32_LIB       /bks2/PB17061127/DA_VLSI_PD              unit       0.152x1.672
+saed32nm_rvt_1p9m  /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway unit       0.152x1.672
+saed32nm_lvt_1p9m  /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway unit       0.152x1.672
+saed32nm_hvt_1p9m  /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway unit       0.152x1.672
+----------------------------------------------------------------------------------
+
+                 List of tile patterns
+---------------------------------------------------------------------------------
+ Tile pattern     Unit tile     Location     Orientation          Tile size
+---------------------------------------------------------------------------------
+	No tile pattern
+---------------------------------------------------------------------------------
+
+Information: List of routing properties  (LIBCHK-122)
+Unit tile : unitTile
+  -----------------------------------------------------------------------
+              Preferred      Track
+   Layer      direction    direction   Offset    Pitch   Remarks
+  -----------------------------------------------------------------------
+   M1             H            H       0.000     0.152   OK
+   M2                                  0.000     0.000   pitch=0
+   M3             V            V       0.000     0.152   OK
+   M4                                  0.000     0.000   pitch=0
+   M5             H            H       0.000     0.304   OK
+   M6                                  0.000     0.000   pitch=0
+   M7             V            V       0.000     0.304   OK
+   M8                                  0.000     0.000   pitch=0
+   M9             H            H       0.000     0.608   OK
+   MRDL           V            V       0.000     4.864   OK
+  -----------------------------------------------------------------------
+
+Error: Mismatched and missing data found. Please refer to LIBCHK-122.  (LIBCHK-101)
+
+#END_CHECK_PHYSICALPROPERTY
+
+#BEGIN_CHECK_ROUTEABILITY
+
+   Total number of pins without on-track routeability:	0 (out of 0)
+
+#END_CHECK_ROUTEABILITY
+
+#BEGIN_CHECK_DRC
+
+
+
+   -------------------------------------------------------------------
+   Summary Report:
+   Total number of cells with DRC violations:	0 (out of 0)
+   -------------------------------------------------------------------
+
+#END_CHECK_DRC
+
+#BEGIN_CHECK_TECH
+
+Warning: DesignRule is defined with non-distinct layers 'VIA1' and 'VIA1'. (line 2806) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA2' and 'VIA2'. (line 2811) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA3' and 'VIA3'. (line 2816) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA4' and 'VIA4'. (line 2821) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA5' and 'VIA5'. (line 2826) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA6' and 'VIA6'. (line 2831) (TFCHK-081)
+Warning: DesignRule is defined with non-distinct layers 'VIA7' and 'VIA7'. (line 2836) (TFCHK-081)
+Warning: DesignRule is defined with invalid metal-to-via enclosure layers 'NWELL' and 'DIFF'. (line 2842). (TFCHK-082)
+Warning: DesignRule is missing the attribute 'endOfLineEncTblSize'. (line 3024) (TFCHK-012)
+Warning: Layer 'M2' has a pitch 0.164 that does not match the doubled pitch 0.26 or tripled pitch 0.39. (TFCHK-050)
+Warning: Layer 'M4' has a pitch 0.164 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'M5' has a pitch 0.164 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'M6' has a pitch 0.164 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'M7' has a pitch 0.164 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'M8' has a pitch 0.164 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'M9' has a pitch 1.74 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Layer 'MRDL' has a pitch 4.5 that does not match the doubled pitch 0.328 or tripled pitch 0.492. (TFCHK-050)
+Warning: Tile 'unit' has a width 0.152 that is not a multiple of the metal layer pitch 0.164. (TFCHK-066)
+Warning: CapModel sections are missing. Capacitance models should be loaded with a TLU+ file later. (TFCHK-084)
+   Technology data checked and saved in Milkyway log file.
+   Dumped tech file is picorv32_LIB.tf_checker
+
+#END_CHECK_TECH
+
+   Extend rail check currently disabled
+#BEGIN_CHECK_RAIL_DATA
+
+   CHECKING PG PORTS in:  [CONN/FRAM view] 
+
+   -------------------------------------------------------------------
+   Summary Report:
+   Total number of cells need review/correct:	0 (out of 0)
+   -------------------------------------------------------------------
+
+   Detail  Report:
+   -------------------------------------------------------------------
+
+#END_CHECK_RAIL_DATA
+
+#END_CHECK_LIBRARY
+
+
+          Library grouping table
+------------------------------------------------------------------------------
+Group	Library name	       Library file name
+------------------------------------------------------------------------------
+  1     saed32rvt_tt1p05v125c  /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+  2     saed32hvt_tt1p05v125c  /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+  3     saed32lvt_tt1p05v125c  /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+------------------------------------------------------------------------------
+
+#BEGIN_XCHECK_LIBRARY
+
+Logic Library #1:
+    Library name              saed32rvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+    Time unit                 1ns
+    Capacitance unit          1ff
+    Leakage power unit        1pW
+    Current unit              1uA
+check_library options         -mcmm -upf -optimization { power } -scaling { timing noise power } 
+                              -logic
+Version                       H-2013.03-ICC-SP2
+Check date and time           Sun Dec 13 20:33:15 2020
+
+
+#BEGIN_LIBSCREEN_UPF
+
+Library#1 (saed32rvt_tt1p05v125c):
+Power management cell checking passed.
+
+#END_LIBSCREEN_UPF
+
+#BEGIN_XCHECK_LOGICCELLS
+
+
+#END_XCHECK_LOGICCELLS
+
+#BEGIN_XCHECK_LOGICPINS
+
+
+
+Warning: List of pins with mismatched or missing attributes in logic libraries (LIBCHK-321)
+--------------------------------------------------------------------------------------------
+                      Subgroup/              Attribute value
+Cell name Pin name    Attribute           lib#1         
+--------------------------------------------------------------------------------------------
+ANTENNA_RVT
+          INP         max_transition      missing
+BSLEX1_RVT
+          INOUT1      max_capacitance     missing
+BSLEX2_RVT
+          INOUT1      max_capacitance     missing
+BSLEX4_RVT
+          INOUT1      max_capacitance     missing
+BUSKP_RVT A           max_transition      missing
+CLOAD1_RVT
+          A           max_transition      missing
+NMT1_RVT  S           max_transition      missing
+NMT1_RVT  S           max_capacitance     missing
+NMT1_RVT  D           max_capacitance     missing
+NMT1_RVT  G           max_transition      missing
+NMT2_RVT  S           max_transition      missing
+NMT2_RVT  S           max_capacitance     missing
+NMT2_RVT  D           max_capacitance     missing
+NMT2_RVT  G           max_transition      missing
+NMT3_RVT  S           max_transition      missing
+NMT3_RVT  S           max_capacitance     missing
+NMT3_RVT  D           max_capacitance     missing
+NMT3_RVT  G           max_transition      missing
+PGX1_RVT  INOUT1      max_capacitance     missing
+PGX2_RVT  INOUT1      max_capacitance     missing
+PGX4_RVT  INOUT1      max_capacitance     missing
+PMT1_RVT  S           max_transition      missing
+PMT1_RVT  S           max_capacitance     missing
+PMT1_RVT  D           max_capacitance     missing
+PMT1_RVT  G           max_transition      missing
+PMT2_RVT  S           max_transition      missing
+PMT2_RVT  S           max_capacitance     missing
+PMT2_RVT  D           max_capacitance     missing
+PMT2_RVT  G           max_transition      missing
+PMT3_RVT  S           max_transition      missing
+PMT3_RVT  S           max_capacitance     missing
+PMT3_RVT  D           max_capacitance     missing
+PMT3_RVT  G           max_transition      missing
+RDFFARX1_RVT
+          RETN        max_transition      missing
+RDFFARX2_RVT
+          RETN        max_transition      missing
+RDFFNARX1_RVT
+          RETN        max_transition      missing
+RDFFNARX2_RVT
+          RETN        max_transition      missing
+RDFFNX1_RVT
+          RETN        max_transition      missing
+RDFFNX1_RVT
+          D           max_transition      missing
+RDFFNX2_RVT
+          RETN        max_transition      missing
+RDFFNX2_RVT
+          D           max_transition      missing
+RDFFX1_RVT
+          RETN        max_transition      missing
+RDFFX1_RVT
+          D           max_transition      missing
+RDFFX2_RVT
+          RETN        max_transition      missing
+RDFFX2_RVT
+          D           max_transition      missing
+RSDFFARX1_RVT
+          RETN        max_transition      missing
+RSDFFARX2_RVT
+          RETN        max_transition      missing
+RSDFFNARX1_RVT
+          RETN        max_transition      missing
+RSDFFNARX2_RVT
+          RETN        max_transition      missing
+RSDFFNX1_RVT
+          RETN        max_transition      missing
+RSDFFNX2_RVT
+          RETN        max_transition      missing
+RSDFFX1_RVT
+          RETN        max_transition      missing
+RSDFFX2_RVT
+          RETN        max_transition      missing
+TIEH_RVT  Y           max_capacitance     missing
+TIEL_RVT  Y           max_capacitance     missing
+--------------------------------------------------------------------------------------------
+
+#END_XCHECK_LOGICPINS
+
+#BEGIN_XCHECK_LOGICPGPINS
+
+Number of cells missing pg_pins in library 1:   0 (out of 294)
+
+#END_XCHECK_LOGICPGPINS
+
+#BEGIN_XCHECK_ARCS
+
+
+#END_XCHECK_ARCS
+
+
+Logic vs. logic library check summary: 
+Warning: Library 'saed32rvt_tt1p05v125c(lib#1)' is missing CCS driver models.  (LIBCHK-332)
+Warning: Library 'saed32rvt_tt1p05v125c(lib#1)' is missing CCS receiver models.  (LIBCHK-332)
+Information: Logic library inconsistencies found for MCMM.  (LIBCHK-360)
+Information: Logic library inconsistencies found for UPF.  (LIBCHK-361)
+Information: Logic library inconsistencies found for CCS timing scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for CCS noise scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for power scaling.  (LIBCHK-362)
+
+#END_XCHECK_LIBRARY
+
+
+#BEGIN_XCHECK_LIBRARY
+
+Logic Library #1:
+    Library name              saed32hvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+    Time unit                 1ns
+    Capacitance unit          1ff
+    Leakage power unit        1pW
+    Current unit              1uA
+check_library options         -mcmm -upf -optimization { power } -scaling { timing noise power } 
+                              -logic
+Version                       H-2013.03-ICC-SP2
+Check date and time           Sun Dec 13 20:33:16 2020
+
+
+#BEGIN_LIBSCREEN_UPF
+
+Library#1 (saed32hvt_tt1p05v125c):
+Power management cell checking passed.
+
+#END_LIBSCREEN_UPF
+
+#BEGIN_XCHECK_LOGICCELLS
+
+
+#END_XCHECK_LOGICCELLS
+
+#BEGIN_XCHECK_LOGICPINS
+
+
+
+Warning: List of pins with mismatched or missing attributes in logic libraries (LIBCHK-321)
+--------------------------------------------------------------------------------------------
+                      Subgroup/              Attribute value
+Cell name Pin name    Attribute           lib#1         
+--------------------------------------------------------------------------------------------
+ANTENNA_HVT
+          INP         max_transition      missing
+BSLEX1_HVT
+          INOUT1      max_capacitance     missing
+BSLEX2_HVT
+          INOUT1      max_capacitance     missing
+BSLEX4_HVT
+          INOUT1      max_capacitance     missing
+BUSKP_HVT A           max_transition      missing
+CLOAD1_HVT
+          A           max_transition      missing
+NMT1_HVT  S           max_transition      missing
+NMT1_HVT  S           max_capacitance     missing
+NMT1_HVT  D           max_capacitance     missing
+NMT1_HVT  G           max_transition      missing
+NMT2_HVT  S           max_transition      missing
+NMT2_HVT  S           max_capacitance     missing
+NMT2_HVT  D           max_capacitance     missing
+NMT2_HVT  G           max_transition      missing
+NMT3_HVT  S           max_transition      missing
+NMT3_HVT  S           max_capacitance     missing
+NMT3_HVT  D           max_capacitance     missing
+NMT3_HVT  G           max_transition      missing
+PGX1_HVT  INOUT1      max_capacitance     missing
+PGX2_HVT  INOUT1      max_capacitance     missing
+PGX4_HVT  INOUT1      max_capacitance     missing
+PMT1_HVT  S           max_transition      missing
+PMT1_HVT  S           max_capacitance     missing
+PMT1_HVT  D           max_capacitance     missing
+PMT1_HVT  G           max_transition      missing
+PMT2_HVT  S           max_transition      missing
+PMT2_HVT  S           max_capacitance     missing
+PMT2_HVT  D           max_capacitance     missing
+PMT2_HVT  G           max_transition      missing
+PMT3_HVT  S           max_transition      missing
+PMT3_HVT  S           max_capacitance     missing
+PMT3_HVT  D           max_capacitance     missing
+PMT3_HVT  G           max_transition      missing
+RDFFARX1_HVT
+          RETN        max_transition      missing
+RDFFARX2_HVT
+          RETN        max_transition      missing
+RDFFNARX1_HVT
+          RETN        max_transition      missing
+RDFFNARX2_HVT
+          RETN        max_transition      missing
+RDFFNX1_HVT
+          RETN        max_transition      missing
+RDFFNX1_HVT
+          D           max_transition      missing
+RDFFNX2_HVT
+          RETN        max_transition      missing
+RDFFNX2_HVT
+          D           max_transition      missing
+RDFFX1_HVT
+          RETN        max_transition      missing
+RDFFX1_HVT
+          D           max_transition      missing
+RDFFX2_HVT
+          RETN        max_transition      missing
+RDFFX2_HVT
+          D           max_transition      missing
+RSDFFARX1_HVT
+          RETN        max_transition      missing
+RSDFFARX2_HVT
+          RETN        max_transition      missing
+RSDFFNARX1_HVT
+          RETN        max_transition      missing
+RSDFFNARX2_HVT
+          RETN        max_transition      missing
+RSDFFNX1_HVT
+          RETN        max_transition      missing
+RSDFFNX2_HVT
+          RETN        max_transition      missing
+RSDFFX1_HVT
+          RETN        max_transition      missing
+RSDFFX2_HVT
+          RETN        max_transition      missing
+TIEH_HVT  Y           max_capacitance     missing
+TIEL_HVT  Y           max_capacitance     missing
+--------------------------------------------------------------------------------------------
+
+#END_XCHECK_LOGICPINS
+
+#BEGIN_XCHECK_LOGICPGPINS
+
+Number of cells missing pg_pins in library 1:   0 (out of 294)
+
+#END_XCHECK_LOGICPGPINS
+
+#BEGIN_XCHECK_ARCS
+
+
+#END_XCHECK_ARCS
+
+
+Logic vs. logic library check summary: 
+Warning: Library 'saed32hvt_tt1p05v125c(lib#1)' is missing CCS driver models.  (LIBCHK-332)
+Warning: Library 'saed32hvt_tt1p05v125c(lib#1)' is missing CCS receiver models.  (LIBCHK-332)
+Information: Logic library inconsistencies found for MCMM.  (LIBCHK-360)
+Information: Logic library inconsistencies found for UPF.  (LIBCHK-361)
+Information: Logic library inconsistencies found for CCS timing scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for CCS noise scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for power scaling.  (LIBCHK-362)
+
+#END_XCHECK_LIBRARY
+
+
+#BEGIN_XCHECK_LIBRARY
+
+Logic Library #1:
+    Library name              saed32lvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+    Time unit                 1ns
+    Capacitance unit          1ff
+    Leakage power unit        1pW
+    Current unit              1uA
+check_library options         -mcmm -upf -optimization { power } -scaling { timing noise power } 
+                              -logic
+Version                       H-2013.03-ICC-SP2
+Check date and time           Sun Dec 13 20:33:16 2020
+
+
+#BEGIN_LIBSCREEN_UPF
+
+Library#1 (saed32lvt_tt1p05v125c):
+Power management cell checking passed.
+
+#END_LIBSCREEN_UPF
+
+#BEGIN_XCHECK_LOGICCELLS
+
+
+#END_XCHECK_LOGICCELLS
+
+#BEGIN_XCHECK_LOGICPINS
+
+
+
+Warning: List of pins with mismatched or missing attributes in logic libraries (LIBCHK-321)
+--------------------------------------------------------------------------------------------
+                      Subgroup/              Attribute value
+Cell name Pin name    Attribute           lib#1         
+--------------------------------------------------------------------------------------------
+ANTENNA_LVT
+          INP         max_transition      missing
+BSLEX1_LVT
+          INOUT1      max_capacitance     missing
+BSLEX2_LVT
+          INOUT1      max_capacitance     missing
+BSLEX4_LVT
+          INOUT1      max_capacitance     missing
+BUSKP_LVT A           max_transition      missing
+CLOAD1_LVT
+          A           max_transition      missing
+NMT1_LVT  S           max_transition      missing
+NMT1_LVT  S           max_capacitance     missing
+NMT1_LVT  D           max_capacitance     missing
+NMT1_LVT  G           max_transition      missing
+NMT2_LVT  S           max_transition      missing
+NMT2_LVT  S           max_capacitance     missing
+NMT2_LVT  D           max_capacitance     missing
+NMT2_LVT  G           max_transition      missing
+NMT3_LVT  S           max_transition      missing
+NMT3_LVT  S           max_capacitance     missing
+NMT3_LVT  D           max_capacitance     missing
+NMT3_LVT  G           max_transition      missing
+PGX1_LVT  INOUT1      max_capacitance     missing
+PGX2_LVT  INOUT1      max_capacitance     missing
+PGX4_LVT  INOUT1      max_capacitance     missing
+PMT1_LVT  S           max_transition      missing
+PMT1_LVT  S           max_capacitance     missing
+PMT1_LVT  D           max_capacitance     missing
+PMT1_LVT  G           max_transition      missing
+PMT2_LVT  S           max_transition      missing
+PMT2_LVT  S           max_capacitance     missing
+PMT2_LVT  D           max_capacitance     missing
+PMT2_LVT  G           max_transition      missing
+PMT3_LVT  S           max_transition      missing
+PMT3_LVT  S           max_capacitance     missing
+PMT3_LVT  D           max_capacitance     missing
+PMT3_LVT  G           max_transition      missing
+RDFFARX1_LVT
+          RETN        max_transition      missing
+RDFFARX2_LVT
+          RETN        max_transition      missing
+RDFFNARX1_LVT
+          RETN        max_transition      missing
+RDFFNARX2_LVT
+          RETN        max_transition      missing
+RDFFNX1_LVT
+          RETN        max_transition      missing
+RDFFNX1_LVT
+          D           max_transition      missing
+RDFFNX2_LVT
+          RETN        max_transition      missing
+RDFFNX2_LVT
+          D           max_transition      missing
+RDFFX1_LVT
+          RETN        max_transition      missing
+RDFFX1_LVT
+          D           max_transition      missing
+RDFFX2_LVT
+          RETN        max_transition      missing
+RDFFX2_LVT
+          D           max_transition      missing
+RSDFFARX1_LVT
+          RETN        max_transition      missing
+RSDFFARX2_LVT
+          RETN        max_transition      missing
+RSDFFNARX1_LVT
+          RETN        max_transition      missing
+RSDFFNARX2_LVT
+          RETN        max_transition      missing
+RSDFFNX1_LVT
+          RETN        max_transition      missing
+RSDFFNX2_LVT
+          RETN        max_transition      missing
+RSDFFX1_LVT
+          RETN        max_transition      missing
+RSDFFX2_LVT
+          RETN        max_transition      missing
+TIEH_LVT  Y           max_capacitance     missing
+TIEL_LVT  Y           max_capacitance     missing
+--------------------------------------------------------------------------------------------
+
+#END_XCHECK_LOGICPINS
+
+#BEGIN_XCHECK_LOGICPGPINS
+
+Number of cells missing pg_pins in library 1:   0 (out of 294)
+
+#END_XCHECK_LOGICPGPINS
+
+#BEGIN_XCHECK_ARCS
+
+
+#END_XCHECK_ARCS
+
+
+Logic vs. logic library check summary: 
+Warning: Library 'saed32lvt_tt1p05v125c(lib#1)' is missing CCS driver models.  (LIBCHK-332)
+Warning: Library 'saed32lvt_tt1p05v125c(lib#1)' is missing CCS receiver models.  (LIBCHK-332)
+Information: Logic library inconsistencies found for MCMM.  (LIBCHK-360)
+Information: Logic library inconsistencies found for UPF.  (LIBCHK-361)
+Information: Logic library inconsistencies found for CCS timing scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for CCS noise scaling.  (LIBCHK-362)
+Information: Logic library inconsistencies found for power scaling.  (LIBCHK-362)
+
+#END_XCHECK_LIBRARY
+
+
+#BEGIN_XCHECK_LIBRARY
+
+Logic Library #1:
+    Library name              saed32rvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+    Time unit                 1ns
+    Capacitance unit          1ff
+    Leakage power unit        1pW
+    Current unit              1uA
+Logic Library #2:
+    Library name              saed32hvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+Logic Library #3:
+    Library name              saed32lvt_tt1p05v125c
+    File name                 /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+    Library type              pg_pin based db
+    Library Version           1.0000000
+    Tool Created              F-2011.09-SP1
+    Data Created              [2010 APRIL 28]
+check_library options         -mcmm -upf -optimization { power } -scaling { timing noise power } 
+                              -logic
+Version                       H-2013.03-ICC-SP2
+Check date and time           Sun Dec 13 20:33:17 2020
+
+
+#BEGIN_CHECK_THRESHOLD_VOLTAGE_GROUP
+
+No low threshold_voltage_group defined in the option.
+
+#END_CHECK_THRESHOLD_VOLTAGE_GROUP
+
+#END_XCHECK_LIBRARY
+
+0

@@ -1,0 +1,2 @@
+#dc_shell-t -topographical_mode -f rm_dc_scripts/dc.tcl | tee dc.log
+dc_shell-t -f rm_dc_scripts/dc.tcl | tee dc.log

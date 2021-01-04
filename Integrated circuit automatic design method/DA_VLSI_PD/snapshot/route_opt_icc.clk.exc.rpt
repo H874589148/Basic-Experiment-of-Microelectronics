@@ -1,0 +1,71 @@
+ 
+****************************************
+Report : clock tree
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:42:39 2020
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+============= Clock Tree Exception Pins =============
+
+Clock Tree Exceptions Summary
+=============================
+
+  1. Clock: clk
+     Clock root: clk
+     Clock net: clk
+     Total sinks: 1830
+     Explicit ignore pins: 0
+     Explicit sync pins: 0
+     Implicit ignore pins: 0
+     Default sink pins: 1830
+     Explicit nonstop pins: 0
+     Implicit nonstop pins: 0
+     Dont touch subtree pins: 0
+     Dont buffer nets: 0
+     Dont size cells: 0
+     Size only cells: 0
+
+
+=============================
+
+
+Clock Tree Exceptions 
+=====================
+
+
+Legends Used
+------------
+
+(P) = Default sink pin
+(F) = Explicit stop/float pin
+(I) = Implicit ignore pin
+(E) = Explicit ignore pin
+(J) = Implicit nonstop pin
+(T) = Explicit nonstop pin
+(D) = Dont touch subtree pin
+(B) = Dont buffer net
+(S) = Dont size cell
+
+(O) = Size only cell
+
+  1. Clock: clk
+     Clock root: clk
+     Clock net: clk
+     Total sinks: 1830
+     Explicit ignore pins: 0
+     Explicit sync pins: 0
+     Implicit ignore pins: 0
+     Default sink pins: 1830
+     Explicit nonstop pins: 0
+     Implicit nonstop pins: 0
+     Dont touch subtree pins: 0
+     Dont buffer nets: 0
+     Dont size cells: 0
+     Size only cells: 0
+
+
+=====================================================
+1

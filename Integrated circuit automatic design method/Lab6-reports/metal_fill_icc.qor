@@ -1,0 +1,133 @@
+Information: Updating graph... (UID-83)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Reselection in timing window:      false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.37V) above low
+                                   0.35 (0.37V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Updating design information... (UID-85)
+
+************************************************************
+SI options:
+Delta Delay Computation:           true
+Static Noise Computation:          false
+Timing window analysis for SI:     false
+Reselection in timing window:      false
+Min Delta Delay for SI:            true
+Analysis Effort:                   medium
+Max Transition Mode:               normal_slew
+Static Noise Thresholds:           0.35 (0.37V) above low
+                                   0.35 (0.37V) below high
+Route xtalk prevention:            true
+Route xtalk prevention threshold:  0.25
+************************************************************
+
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+ 
+****************************************
+Report : qor
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Fri Jan  1 23:08:07 2021
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              20.00
+  Critical Path Length:          1.90
+  Critical Path Slack:           0.02
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               9077
+  Buf/Inv Cell Count:             989
+  CT Buf/Inv Cell Count:           18
+  Combinational Cell Count:      7179
+  Sequential Cell Count:         1898
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    19063.849899
+  Noncombinational Area: 12543.531643
+  Buf/Inv Area:           2331.517085
+  Macro/Black Box Area:      0.000000
+  Net Area:              11328.127531
+  Net XLength        :      115848.70
+  Net YLength        :      163170.08
+  -----------------------------------
+  Cell Area:             31607.381541
+  Design Area:           42935.509073
+  Net Length        :       279018.78
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          9591
+  Nets With Violations:            21
+  Max Trans Violations:             8
+  Max Cap Violations:              21
+  -----------------------------------
+
+
+  Hostname: mgt
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    4.70
+  Logic Optimization:                 21.12
+  Mapping Optimization:               43.42
+  -----------------------------------------
+  Overall Compile Time:              128.64
+  Overall Compile Wall Clock Time:   134.32
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+  --------------------------------------------------------------------
+
+
+1
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+
+  Nets with DRC Violations: 21
+  Total moveable cell area: 31438.4
+  Total fixed cell area: 167.7
+  Total physical cell area: 31606.1
+  Core area: (30000 30000 241128 240672)
+
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0  (with Crosstalk delta delays)
+1

@@ -1,0 +1,253 @@
+$ 
+$$$$ Combo ITF $$$$
+$ 
+$ Cap Unit: 1e-12 F
+$ Res Unit: 1000 ohm
+$ 
+$ 
+$$ begin_min_ITF
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ ITF file: saed32nm_1p9m_Cmin.itf
+$ STARRCXT process file for saed 32nm Logic 1p9m 1.05V/1.8V/2.5V
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Revision History:
+$ Rev.		Date			What
+$ ---------------------------------------------------------------------------------------
+$ Rev.1 	02/Feb/2011		Initial version.
+$ Rev.1.1 	--/---/2011	Changed thickness and rpsq of some layers                                     
+$ ---------------------------------------------------------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Copyright (c), 2011 Synopsys, Inc. All rights reserved.
+$ This process description file and the associated documentation are confidential 
+$ and proprietary to Synopsys, Inc. 
+$ 
+$ DISCLAIMER
+$ The information contained herein is provided by Synopsys, Inc. on 
+$ an "AS IS" basis without any warranty, and Synopsys has no obligation 
+$ to support or otherwise maintain the information.
+$
+$ Synopsys, Inc. disclaims any representation that the information 
+$ does not infringe any intellectual property rights or proprietary
+$ rights of any third parties. There are no other warranties given by
+$ Synopsys, whether express, implied or statutory, including, without
+$ limitation, implied warranties of merchantability and fitness for a
+$ particular purpose.
+$
+$ Synopsys, Inc. reserves the right to make changes to the information 
+$ at any time and without notice.
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+TECHNOLOGY=saed32nm_1p9m_Cmin
+DIELECTRIC PASS1 { THICKNESS = 3.00 ER=3.9 }
+
+CONDUCTOR MRDL { THICKNESS = 0.23 WMIN=2 SMIN=2 RPSQ=0.35 }
+DIELECTRIC PASS2 { THICKNESS = 3.00 ER=3.9 }
+
+CONDUCTOR M9 { THICKNESS = 0.158 WMIN=0.16 SMIN=0.16 RPSQ=0.28 }
+DIELECTRIC D9 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M8 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D8 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M7 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D7 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M6 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D6 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M5 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D5 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M4 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D4 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M3 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D3 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M2 { THICKNESS = 0.078 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D2 { THICKNESS = 0.72 ER=3.9 }
+
+CONDUCTOR M1 { THICKNESS = 0.078 WMIN=0.05 SMIN=0.05 RPSQ=0.1 }
+DIELECTRIC D1 { THICKNESS = 0.3 ER=3.9 }
+
+CONDUCTOR POLY { THICKNESS = 0.0066 WMIN=0.03 SMIN=0.086 RPSQ=15 }
+DIELECTRIC GOX { THICKNESS = 0.0015 ER=4 }
+CONDUCTOR  DIFF   {IS_DIFF THICKNESS=0.05 WMIN=0.044 SMIN=0.05 RPSQ=15}
+DIELECTRIC D0 { THICKNESS = 0.141 ER=4 }
+
+VIA SUBCONT  { FROM=SUBSTRATE TO=DIFF RPV=0.00001 AREA=0.0144}
+VIA DIFFCONT { FROM=DIFF TO=M1 AREA=0.001764 RPV=150 }
+VIA POLYCONT { FROM=POLY TO=M1 AREA=0.001764 RPV=135 }
+VIA VIA1 { FROM=M1 TO=M2 AREA=0.0025 RPV=1 }
+VIA VIA1_BAR { FROM=M1 TO=M2 AREA=0.005 RPV=1 }
+VIA VIA1_LRG { FROM=M1 TO=M2 AREA=0.01 RPV=0.5 }
+VIA VIA2 { FROM=M2 TO=M3 AREA=0.0025 RPV=0.5 }
+VIA VIA2_BAR { FROM=M2 TO=M3 AREA=0.005 RPV=0.5 }
+VIA VIA2_LRG { FROM=M2 TO=M3 AREA=0.01 RPV=0.5 }
+VIA VIA3 { FROM=M3 TO=M4 AREA=0.0025 RPV=0.5 }
+VIA VIA3_BAR { FROM=M3 TO=M4 AREA=0.005 RPV=0.5 }
+VIA VIA3_LRG { FROM=M3 TO=M4 AREA=0.01 RPV=0.5 }
+VIA VIA4 { FROM=M4 TO=M5 AREA=0.0025 RPV=0.5 }
+VIA VIA4_BAR { FROM=M4 TO=M5 AREA=0.005 RPV=0.5 }
+VIA VIA4_LRG { FROM=M4 TO=M5 AREA=0.01 RPV=0.5 }
+VIA VIA5 { FROM=M5 TO=M6 AREA=0.0025 RPV=0.5 }
+VIA VIA5_BAR { FROM=M5 TO=M6 AREA=0.005 RPV=0.5 }
+VIA VIA5_LRG { FROM=M5 TO=M6 AREA=0.01 RPV=0.5 }
+VIA VIA6 { FROM=M6 TO=M7 AREA=0.0025 RPV=0.5 }
+VIA VIA6_BAR { FROM=M6 TO=M7 AREA=0.005 RPV=0.5 }
+VIA VIA6_LRG { FROM=M6 TO=M7 AREA=0.01 RPV=0.5 }
+VIA VIA7 { FROM=M7 TO=M8 AREA=0.0025 RPV=0.5 }
+VIA VIA7_BAR { FROM=M7 TO=M8 AREA=0.005 RPV=0.5 }
+VIA VIA7_LRG { FROM=M7 TO=M8 AREA=0.01 RPV=0.5 }
+VIA VIA8 { FROM=M8 TO=M9 AREA=0.0169 RPV=0.1 }
+VIA VIARDL { FROM=M9 TO=MRDL AREA=4 RPV=0.05 }
+
+$$ end_min_ITF
+$ 
+$$ begin_max_ITF
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ ITF file: saed32nm_1p9m_Cmax.itf
+$ STARRCXT process file for saed 32nm Logic 1p9m 1.05V/1.8V/2.5V
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Revision History:
+$ Rev.		Date			What
+$ ---------------------------------------------------------------------------------------
+$ Rev.1 	02/Feb/2011		Initial version.
+$ Rev.1.1 	--/---/2011	Changed thickness and rpsq of some layers                                     
+$ ---------------------------------------------------------------------------------------
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Copyright (c), 2011 Synopsys, Inc. All rights reserved.
+$ This process description file and the associated documentation are confidential 
+$ and proprietary to Synopsys, Inc. 
+$ 
+$ DISCLAIMER
+$ The information contained herein is provided by Synopsys, Inc. on 
+$ an "AS IS" basis without any warranty, and Synopsys has no obligation 
+$ to support or otherwise maintain the information.
+$
+$ Synopsys, Inc. disclaims any representation that the information 
+$ does not infringe any intellectual property rights or proprietary
+$ rights of any third parties. There are no other warranties given by
+$ Synopsys, whether express, implied or statutory, including, without
+$ limitation, implied warranties of merchantability and fitness for a
+$ particular purpose.
+$
+$ Synopsys, Inc. reserves the right to make changes to the information 
+$ at any time and without notice.
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+TECHNOLOGY=saed32nm_1p9m_Cmax
+DIELECTRIC PASS1 { THICKNESS = 3.00 ER=3.9 }
+
+CONDUCTOR MRDL { THICKNESS = 0.33 WMIN=2 SMIN=2 RPSQ=0.35 }
+DIELECTRIC PASS2 { THICKNESS = 3.00 ER=3.9 }
+
+CONDUCTOR M9 { THICKNESS = 0.22 WMIN=0.16 SMIN=0.16 RPSQ=0.28 }
+DIELECTRIC D9 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M8 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D8 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M7 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D7 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M6 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D6 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M5 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D5 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M4 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D4 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M3 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D3 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M2 { THICKNESS = 0.1 WMIN=0.056 SMIN=0.056 RPSQ=0.1 }
+DIELECTRIC D2 { THICKNESS = 0.5 ER=3.9 }
+
+CONDUCTOR M1 { THICKNESS = 0.1 WMIN=0.05 SMIN=0.05 RPSQ=0.1 }
+DIELECTRIC D1 { THICKNESS = 0.12 ER=3.9 }
+
+CONDUCTOR POLY { THICKNESS = 0.076 WMIN=0.03 SMIN=0.086 RPSQ=15 }
+DIELECTRIC GOX { THICKNESS = 0.0015 ER=4 }
+CONDUCTOR  DIFF   {IS_DIFF THICKNESS=0.05 WMIN=0.044 SMIN=0.05 RPSQ=15}
+DIELECTRIC D0 { THICKNESS = 0.114 ER=4 }
+
+VIA SUBCONT  { FROM=SUBSTRATE TO=DIFF RPV=0.00001 AREA=0.0144}
+VIA DIFFCONT { FROM=DIFF TO=M1 AREA=0.001764 RPV=150 }
+VIA POLYCONT { FROM=POLY TO=M1 AREA=0.001764 RPV=135 }
+VIA VIA1 { FROM=M1 TO=M2 AREA=0.0025 RPV=1 }
+VIA VIA1_BAR { FROM=M1 TO=M2 AREA=0.005 RPV=1 }
+VIA VIA1_LRG { FROM=M1 TO=M2 AREA=0.01 RPV=0.5 }
+VIA VIA2 { FROM=M2 TO=M3 AREA=0.0025 RPV=0.5 }
+VIA VIA2_BAR { FROM=M2 TO=M3 AREA=0.005 RPV=0.5 }
+VIA VIA2_LRG { FROM=M2 TO=M3 AREA=0.01 RPV=0.5 }
+VIA VIA3 { FROM=M3 TO=M4 AREA=0.0025 RPV=0.5 }
+VIA VIA3_BAR { FROM=M3 TO=M4 AREA=0.005 RPV=0.5 }
+VIA VIA3_LRG { FROM=M3 TO=M4 AREA=0.01 RPV=0.5 }
+VIA VIA4 { FROM=M4 TO=M5 AREA=0.0025 RPV=0.5 }
+VIA VIA4_BAR { FROM=M4 TO=M5 AREA=0.005 RPV=0.5 }
+VIA VIA4_LRG { FROM=M4 TO=M5 AREA=0.01 RPV=0.5 }
+VIA VIA5 { FROM=M5 TO=M6 AREA=0.0025 RPV=0.5 }
+VIA VIA5_BAR { FROM=M5 TO=M6 AREA=0.005 RPV=0.5 }
+VIA VIA5_LRG { FROM=M5 TO=M6 AREA=0.01 RPV=0.5 }
+VIA VIA6 { FROM=M6 TO=M7 AREA=0.0025 RPV=0.5 }
+VIA VIA6_BAR { FROM=M6 TO=M7 AREA=0.005 RPV=0.5 }
+VIA VIA6_LRG { FROM=M6 TO=M7 AREA=0.01 RPV=0.5 }
+VIA VIA7 { FROM=M7 TO=M8 AREA=0.0025 RPV=0.5 }
+VIA VIA7_BAR { FROM=M7 TO=M8 AREA=0.005 RPV=0.5 }
+VIA VIA7_LRG { FROM=M7 TO=M8 AREA=0.01 RPV=0.5 }
+VIA VIA8 { FROM=M8 TO=M9 AREA=0.0169 RPV=0.1 }
+VIA VIARDL { FROM=M9 TO=MRDL AREA=4 RPV=0.05 }
+
+$$ end_max_ITF
+$ 
+$$ begin_mapping_file
+$ *#########################################################################################
+$ *# SAED 32/28NM 1p9m STAR-RC itf2tluplus mapping file					 #
+$ *#											 #
+$ *# Revision History:									 #
+$ *# Rev.		date		what							 #
+$ *# --------------------------------------------------------------------------------------#	
+$ *# 1.0		--/---/2011	(First draft)						 #
+$ *#########################################################################################
+$ 
+$ conducting_layers
+$         DIFF     DIFF
+$ 	PO	 POLY
+$ 	M1	 M1	   
+$ 	M2	 M2	   
+$ 	M3	 M3	   
+$ 	M4	 M4
+$ 	M5	 M5	   
+$ 	M6	 M6	   
+$ 	M7	 M7	   
+$ 	M8	 M8	   
+$ 	M9	 M9		  
+$ 	MRDL	 MRDL
+$ via_layers
+$ 	CO	 POLYCONT 
+$ 	VIA1	 VIA1 
+$ 	VIA2	 VIA2   	 
+$ 	VIA3	 VIA3   	 
+$ 	VIA4	 VIA4   	 
+$ 	VIA5	 VIA5   	 
+$ 	VIA6	 VIA6   	 
+$ 	VIA7	 VIA7   	 
+$ 	VIA8	 VIA8   		
+$ 	VIARDL   VIARDL
+$ marker_layers
+$ 	metal1_pin
+$ 	metal2_pin
+$ 	metal3_pin
+$ 	metal4_pin
+$ 	metal5_pin
+$ 	metal6_pin
+$ 	metal7_pin
+$ 	metal8_pin	
+$ 	metal9_pin	
+$ 	$ 
+$$ end_mapping_file

@@ -1,0 +1,107 @@
+Information: Updating graph... (UID-83)
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Fri Jan  1 22:51:14 2021
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+
+  Startpoint: irq_mask_reg_24_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_next_pc_reg_26_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock clk (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                  0.00       0.00
+  irq_mask_reg_24_/CLK (DFFX1_HVT)                   0.00      0.00 #     0.00 r
+  irq_mask_reg_24_/Q (DFFX1_HVT)                     0.04      0.14       0.14 r
+  irq_mask[24] (net)             4         3.51                0.00       0.14 r
+  U5309/A1 (OR2X4_HVT)                               0.04      0.00 *     0.14 r
+  U5309/Y (OR2X4_HVT)                                0.06      0.10       0.24 r
+  n10413 (net)                   3        18.38                0.00       0.24 r
+  U5312/A3 (AND4X1_HVT)                              0.06      0.00 *     0.24 r
+  U5312/Y (AND4X1_HVT)                               0.04      0.11       0.35 r
+  n4959 (net)                    1         0.58                0.00       0.35 r
+  U5322/A3 (AND4X1_HVT)                              0.04      0.00 *     0.35 r
+  U5322/Y (AND4X1_HVT)                               0.04      0.10       0.45 r
+  n4962 (net)                    1         0.77                0.00       0.45 r
+  U5323/A2 (AND2X1_HVT)                              0.04      0.00 *     0.45 r
+  U5323/Y (AND2X1_HVT)                               0.02      0.06       0.51 r
+  n4964 (net)                    1         0.66                0.00       0.51 r
+  U5324/A2 (OA21X1_HVT)                              0.02      0.00 *     0.51 r
+  U5324/Y (OA21X1_HVT)                               0.06      0.10       0.60 r
+  n7690 (net)                    5         6.22                0.00       0.60 r
+  U8121/A1 (AND2X1_HVT)                              0.06      0.00 *     0.60 r
+  U8121/Y (AND2X1_HVT)                               0.04      0.08       0.68 r
+  n8360 (net)                    6         4.09                0.00       0.68 r
+  U8122/A1 (NAND2X0_HVT)                             0.04      0.00 *     0.68 r
+  U8122/Y (NAND2X0_HVT)                              0.12      0.10       0.78 f
+  n8359 (net)                    2         3.45                0.00       0.78 f
+  icc_place5708/A (INVX4_HVT)                        0.12      0.00 *     0.78 f
+  icc_place5708/Y (INVX4_HVT)                        0.07      0.06       0.84 r
+  n11618 (net)                  20        18.17                0.00       0.84 r
+  U9470/A1 (AND2X1_HVT)                              0.07      0.00 *     0.84 r
+  U9470/Y (AND2X1_HVT)                               0.04      0.08       0.92 r
+  n9863 (net)                    2         4.26                0.00       0.92 r
+  U9472/A1 (NAND2X0_HVT)                             0.04      0.00 *     0.92 r
+  U9472/Y (NAND2X0_HVT)                              0.09      0.08       1.00 f
+  n9865 (net)                    3         2.38                0.00       1.00 f
+  U9479/A1 (OAI21X1_HVT)                             0.09      0.00 *     1.00 f
+  U9479/Y (OAI21X1_HVT)                              0.03      0.12       1.12 r
+  n9772 (net)                    2         1.31                0.00       1.12 r
+  U9494/A1 (AOI21X1_HVT)                             0.03      0.00 *     1.12 r
+  U9494/Y (AOI21X1_HVT)                              0.03      0.10       1.22 f
+  n9510 (net)                    2         1.44                0.00       1.22 f
+  U9502/A2 (OAI21X1_HVT)                             0.03      0.00 *     1.22 f
+  U9502/Y (OAI21X1_HVT)                              0.05      0.11       1.33 r
+  n8517 (net)                    3         5.09                0.00       1.33 r
+  U9662/A1 (AOI21X1_HVT)                             0.05      0.00 *     1.33 r
+  U9662/Y (AOI21X1_HVT)                              0.08      0.14       1.47 f
+  n10231 (net)                   5         6.22                0.00       1.47 f
+  U9810/A2 (OAI21X1_HVT)                             0.08      0.00 *     1.47 f
+  U9810/Y (OAI21X1_HVT)                              0.05      0.13       1.60 r
+  n9119 (net)                    5         5.23                0.00       1.60 r
+  U10743/A1 (AOI21X1_HVT)                            0.05      0.00 *     1.60 r
+  U10743/Y (AOI21X1_HVT)                             0.02      0.11       1.71 f
+  n9077 (net)                    1         1.06                0.00       1.71 f
+  U10745/A1 (XOR2X1_HVT)                             0.02      0.00 *     1.71 f
+  U10745/Y (XOR2X1_HVT)                              0.04      0.10       1.80 r
+  n9078 (net)                    1         1.04                0.00       1.80 r
+  U10746/A6 (AO222X1_HVT)                            0.04      0.00 *     1.80 r
+  U10746/Y (AO222X1_HVT)                             0.06      0.10       1.90 r
+  n3529 (net)                    1         1.15                0.00       1.90 r
+  reg_next_pc_reg_26_/D (DFFX1_HVT)                  0.06      0.00 *     1.90 r
+  data arrival time                                                       1.90
+
+  clock clk (rise edge)                                        2.00       2.00
+  clock network delay (ideal)                                  0.00       2.00
+  reg_next_pc_reg_26_/CLK (DFFX1_HVT)                          0.00       2.00 r
+  library setup time                                          -0.07       1.93
+  data required time                                                      1.93
+  -------------------------------------------------------------------------------
+  data required time                                                      1.93
+  data arrival time                                                      -1.90
+  -------------------------------------------------------------------------------
+  slack (MET)                                                             0.03
+
+
+1

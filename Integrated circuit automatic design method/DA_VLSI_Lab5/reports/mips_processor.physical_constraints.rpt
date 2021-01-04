@@ -1,0 +1,10 @@
+****************************************
+report_physical_constraints
+Version: L-2016.03-SP5
+Date: Mon Nov 30 19:07:04 2020
+****************************************
+
+ Design mips_processor
+ Unit is micron
+
+1

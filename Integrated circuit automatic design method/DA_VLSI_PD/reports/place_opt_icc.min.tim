@@ -1,0 +1,54 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay min
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:34:21 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+
+  Startpoint: reg_sh_reg_2_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_sh_reg_2_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+  Point                        Fanout       Cap     Trans      Incr       Path
+  -------------------------------------------------------------------------------
+  clock clk (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                  0.00       0.00
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                      0.00      0.00 #     0.00 r
+  reg_sh_reg_2_/QN (DFFX1_HVT)                       0.04      0.10       0.10 f
+  n12112 (net)                   1         0.68                0.00       0.10 f
+  U12332/A3 (AO222X1_HVT)                            0.04      0.00 *     0.10 f
+  U12332/Y (AO222X1_HVT)                             0.03      0.07       0.17 f
+  N2872 (net)                    1         1.24                0.00       0.17 f
+  reg_sh_reg_2_/D (DFFX1_HVT)                        0.03      0.00 *     0.17 f
+  data arrival time                                                       0.17
+
+  clock clk (rise edge)                                        0.00       0.00
+  clock network delay (ideal)                                  0.00       0.00
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                                0.00       0.00 r
+  library hold time                                            0.00       0.00
+  data required time                                                      0.00
+  -------------------------------------------------------------------------------
+  data required time                                                      0.00
+  data arrival time                                                      -0.17
+  -------------------------------------------------------------------------------
+  slack (MET)                                                             0.17
+
+
+1

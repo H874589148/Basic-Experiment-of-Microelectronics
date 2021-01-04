@@ -1,0 +1,119 @@
+
+  Loading design 'picorv32'
+
+
+Warning: Port 'pcpi_wr' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[31]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[30]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[29]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[28]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[27]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[26]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[25]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[24]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[23]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[22]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[21]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[20]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[19]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[18]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[17]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[16]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[15]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[14]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[13]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[12]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[11]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[10]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[9]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[8]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[7]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[6]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[5]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[4]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[3]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[2]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[1]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[0]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_wait' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_ready' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+
+
+Information: Library Manufacturing Grid(GridResolution) : 1
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Warning: Mismatch in the main library and the Milkyway library resistance units. In the main library it is 1000.000 kohm and in the Milkyway design library it is 1.000 kohm. Check and correct the resistance units in the .tf and .db files. (PSYN-476)
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Warning: Mismatch in the main and the Milkyway library capacitance units. In the main library it is 0.001 pf and in the Milkyway design library it is 1.000 pf. Check and correct the capacitance units in the .tf and .db files. (PSYN-477)
+Warning: Inconsistent library data found for layer PO. (RCEX-018)
+Information: Layer M9 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: Layer MRDL is ignored for resistance and capacitance computation. (RCEX-019)
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is detail route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Warning: Not enough nets are routed (19/9505 < 0.66667); will do extraction by using placement congestion map as background. (RCEX-047)
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRVirtualC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 125/125/125. (RCEX-043)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+Information: Start rc update...
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer M1 : 0.18 0.16 (RCEX-011)
+Information: Library Derived Res for layer M1 : 2e-06 2e-06 (RCEX-011)
+Information: Library Derived Cap for layer M2 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M2 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M3 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M3 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M4 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M4 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M5 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M5 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M6 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M6 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M7 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M7 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M8 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M8 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M9 : 0.11 0.088 (RCEX-011)
+Information: Library Derived Res for layer M9 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer MRDL : 0.11 0.11 (RCEX-011)
+Information: Library Derived Res for layer MRDL : 1.8e-07 1.8e-07 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.17 0.15 (RCEX-011)
+Information: Library Derived Horizontal Res : 1.9e-06 1.9e-06 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Vertical Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 4.8e-07 4.8e-07 (RCEX-011)
+Information: End rc update.
+Information: The mixed mode parasitic extraction has been performed. (RCEX-202)
+Information: Updating graph... (UID-83)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+ 
+****************************************
+Report : clock tree
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:35:08 2020
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk                  1830      18        18        0.0085    0.0701      0            164.6853
+1

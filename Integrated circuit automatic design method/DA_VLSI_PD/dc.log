@@ -1,0 +1,2020 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version L-2016.03-SP5 for linux64 - Oct 14, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Starting shell in Topographical mode...
+source -echo -verbose ./rm_setup/dc_setup.tcl
+source -echo -verbose ./rm_setup/common_setup.tcl
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_PD/rm_setup/common_setup.tcl
+
+##########################################################################################
+# Variables common to all reference methodology scripts
+# Script: common_setup.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+##########################################################################################
+set DESIGN_NAME                   "picorv32"  ;#  The name of the top-level design
+picorv32
+set DESIGN_REF_DATA_PATH          "~/DA_VLSI_PD"  ;#  Absolute path prefix variable for library/design data.
+~/DA_VLSI_PD
+#  Use this variable to prefix the common absolute path  
+#  to the common variables defined below.
+#  Absolute paths are mandatory for hierarchical 
+#  reference methodology flow.
+set DESIGN_INSTANCE			"testbench.uut"	;#  The Design Instance Name for read_saif
+testbench.uut
+##########################################################################################
+# Hierarchical Flow Design Variables
+##########################################################################################
+set HIERARCHICAL_DESIGNS           "" ;# List of hierarchical block design names "DesignA DesignB" ...
+set HIERARCHICAL_CELLS             "" ;# List of hierarchical block cell instance names "u_DesignA u_DesignB" ...
+##########################################################################################
+# Library Setup Variables
+##########################################################################################
+# For the following variables, use a blank space to separate multiple entries.
+# Example: set TARGET_LIBRARY_FILES "lib1.db lib2.db lib3.db"
+set DESIGN_REF_PATH		  "/js1/songch/SAED32_EDK/lib"
+/js1/songch/SAED32_EDK/lib
+set DESIGN_REF_NLDMA_PATH          "${DESIGN_REF_PATH}/stdcell_rvt"
+/js1/songch/SAED32_EDK/lib/stdcell_rvt
+set DESIGN_REF_NLDMB_PATH          "${DESIGN_REF_PATH}/stdcell_lvt"
+/js1/songch/SAED32_EDK/lib/stdcell_lvt
+set DESIGN_REF_NLDMC_PATH          "${DESIGN_REF_PATH}/stdcell_hvt"
+/js1/songch/SAED32_EDK/lib/stdcell_hvt
+set DESIGN_REF_RAMSA_PATH          "${DESIGN_REF_PATH}/sram"
+/js1/songch/SAED32_EDK/lib/sram
+set DESIGN_REF_RAMSB_PATH          "${DESIGN_REF_PATH}/sram_lp"
+/js1/songch/SAED32_EDK/lib/sram_lp
+set DESIGN_REF_PLL_PATH           "${DESIGN_REF_PATH}/pll"
+/js1/songch/SAED32_EDK/lib/pll
+set DESIGN_REF_PADSA_PATH          "${DESIGN_REF_PATH}/io_std"
+/js1/songch/SAED32_EDK/lib/io_std
+set DESIGN_REF_PADSB_PATH          "${DESIGN_REF_PATH}/io_sp"
+/js1/songch/SAED32_EDK/lib/io_sp
+set DESIGN_REF_TECH_PATH          "/js1/songch/SAED32_EDK/references/orca/dc/models"
+/js1/songch/SAED32_EDK/references/orca/dc/models
+#set ADDITIONAL_SEARCH_PATH        ""  ;#  Additional search path to be added to the default search path
+set ADDITIONAL_SEARCH_PATH      "         ${DESIGN_REF_NLDMA_PATH}/db_nldm         ${DESIGN_REF_NLDMB_PATH}/db_nldm         ${DESIGN_REF_NLDMC_PATH}/db_nldm         ${DESIGN_REF_RAMSA_PATH}/db_nldm         ${DESIGN_REF_RAMSB_PATH}/db_nldm 	${DESIGN_REF_PLL_PATH}/db_nldm 	${DESIGN_REF_PADSA_PATH}/db_nldm 	${DESIGN_REF_PADSB_PATH}/db_nldm 	${DESIGN_REF_DATA_PATH}/results 	${DESIGN_REF_TECH_PATH}         ${DESIGN_REF_DATA_PATH}/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models 	"
+         /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm         /js1/songch/SAED32_EDK/lib/sram/db_nldm         /js1/songch/SAED32_EDK/lib/sram_lp/db_nldm 	/js1/songch/SAED32_EDK/lib/pll/db_nldm 	/js1/songch/SAED32_EDK/lib/io_std/db_nldm 	/js1/songch/SAED32_EDK/lib/io_sp/db_nldm 	~/DA_VLSI_PD/results 	/js1/songch/SAED32_EDK/references/orca/dc/models         ~/DA_VLSI_PD/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models 	
+set TARGET_LIBRARY_FILES          "saed32rvt_tt1p05v125c.db saed32hvt_tt1p05v125c.db saed32lvt_tt1p05v125c.db" ;#  Target technology logical libraries
+saed32rvt_tt1p05v125c.db saed32hvt_tt1p05v125c.db saed32lvt_tt1p05v125c.db
+set ADDITIONAL_LINK_LIB_FILES     ""  ;#  Extra link logical libraries not included in TARGET_LIBRARY_FILES
+set MIN_LIBRARY_FILES             ""  ;#  List of max min library pairs "max1 min1 max2 min2 max3 min3"...
+#set MW_REFERENCE_LIB_DIRS         ""  ;#  Milkyway reference libraries (include IC Compiler ILMs here)
+set MW_REFERENCE_LIB_DIRS  " 	${DESIGN_REF_NLDMA_PATH}/milkyway/saed32nm_rvt_1p9m 	${DESIGN_REF_NLDMB_PATH}/milkyway/saed32nm_lvt_1p9m 	${DESIGN_REF_NLDMC_PATH}/milkyway/saed32nm_hvt_1p9m 	"
+ 	/js1/songch/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m 	
+set MW_REFERENCE_CONTROL_FILE     ""  ;#  Reference Control file to define the Milkyway reference libs
+#set TECH_FILE                     ""  ;#  Milkyway technology file
+#set MAP_FILE                      ""  ;#  Mapping file for TLUplus
+#set TLUPLUS_MAX_FILE              ""  ;#  Max TLUplus file
+#set TLUPLUS_MIN_FILE              ""  ;#  Min TLUplus file
+set TECH_FILE        "/js1/songch/SAED32_EDK/references/orca/icc/ref/tech/saed32nm_1p9m_mw.tf"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tech/saed32nm_1p9m_mw.tf
+set MAP_FILE         "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map
+set TLUPLUS_MAX_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus
+set TLUPLUS_MIN_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus
+set MW_POWER_NET                "VDD" ;#
+VDD
+set MW_POWER_PORT               "VDD" ;#
+VDD
+set MW_GROUND_NET               "VSS" ;#
+VSS
+set MW_GROUND_PORT              "VSS" ;#
+VSS
+set MIN_ROUTING_LAYER            "M1"   ;# Min routing layer
+M1
+set MAX_ROUTING_LAYER            "M8"   ;# Max routing layer
+M8
+set LIBRARY_DONT_USE_FILE        ""   ;# Tcl file with library modifications for dont_use
+##########################################################################################
+# Multivoltage Common Variables
+#
+# Define the following multivoltage common variables for the reference methodology scripts 
+# for multivoltage flows. 
+# Use as few or as many of the following definitions as needed by your design.
+##########################################################################################
+set PD1                          ""           ;# Name of power domain/voltage area  1
+set VA1_COORDINATES              {}           ;# Coordinates for voltage area 1
+set MW_POWER_NET1                "VDD1"       ;# Power net for voltage area 1
+VDD1
+set PD2                          ""           ;# Name of power domain/voltage area  2
+set VA2_COORDINATES              {}           ;# Coordinates for voltage area 2
+set MW_POWER_NET2                "VDD2"       ;# Power net for voltage area 2
+VDD2
+set PD3                          ""           ;# Name of power domain/voltage area  3
+set VA3_COORDINATES              {}           ;# Coordinates for voltage area 3
+set MW_POWER_NET3                "VDD3"       ;# Power net for voltage area 3
+VDD3
+set PD4                          ""           ;# Name of power domain/voltage area  4
+set VA4_COORDINATES              {}           ;# Coordinates for voltage area 4
+set MW_POWER_NET4                "VDD4"       ;# Power net for voltage area 4
+VDD4
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_PD/rm_setup/common_setup.tcl
+
+source -echo -verbose ./rm_setup/dc_setup_filenames.tcl
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_PD/rm_setup/dc_setup_filenames.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Filenames Setup
+# Script: dc_setup_filenames.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2010-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Use this file to customize the filenames used in the Design Compiler
+# Reference Methodology scripts.  This file is designed to be sourced at the
+# beginning of the dc_setup.tcl file after sourcing the common_setup.tcl file.
+#
+# Note that the variables presented in this file depend on the type of flow
+# selected when generating the reference methodology files.
+#
+# Example.
+#    If you set DFT flow as FALSE, you will not see DFT related filename
+#    variables in this file.
+#
+# When reusing this file for different flows or newer release, ensure that
+# all the required filename variables are defined.  One way to do this is
+# to source the default dc_setup_filenames.tcl file and then override the
+# default settings as needed for your design.
+#
+# The default values are backwards compatible with older
+# Design Compiler Reference Methodology releases.
+#
+# Note: Care should be taken when modifying the names of output files
+#       that are used in other scripts or tools.
+#################################################################################
+#################################################################################
+# General Flow Files
+#################################################################################
+##########################
+# Milkyway Library Names #
+##########################
+set DCRM_MW_LIBRARY_NAME                                ${DESIGN_NAME}_LIB
+picorv32_LIB
+set DCRM_FINAL_MW_CEL_NAME                              ${DESIGN_NAME}_DCT
+picorv32_DCT
+###############
+# Input Files #
+###############
+set DCRM_SDC_INPUT_FILE                                 ${DESIGN_NAME}.sdc
+picorv32.sdc
+set DCRM_CONSTRAINTS_INPUT_FILE                         ${DESIGN_NAME}.constraints.tcl
+picorv32.constraints.tcl
+###########
+# Reports #
+###########
+set DCRM_CHECK_LIBRARY_REPORT                           ${DESIGN_NAME}.check_library.rpt
+picorv32.check_library.rpt
+set DCRM_CONSISTENCY_CHECK_ENV_FILE                     ${DESIGN_NAME}.compile_ultra.env
+picorv32.compile_ultra.env
+set DCRM_CHECK_DESIGN_REPORT                            ${DESIGN_NAME}.check_design.rpt
+picorv32.check_design.rpt
+set DCRM_FINAL_QOR_REPORT                               ${DESIGN_NAME}.mapped.qor.rpt
+picorv32.mapped.qor.rpt
+set DCRM_FINAL_TIMING_REPORT                            ${DESIGN_NAME}.mapped.timing.rpt
+picorv32.mapped.timing.rpt
+set DCRM_FINAL_AREA_REPORT                              ${DESIGN_NAME}.mapped.area.rpt
+picorv32.mapped.area.rpt
+set DCRM_FINAL_POWER_REPORT                             ${DESIGN_NAME}.mapped.power.rpt
+picorv32.mapped.power.rpt
+set DCRM_FINAL_CLOCK_GATING_REPORT                      ${DESIGN_NAME}.mapped.clock_gating.rpt
+picorv32.mapped.clock_gating.rpt
+set DCRM_FINAL_SELF_GATING_REPORT                       ${DESIGN_NAME}.mapped.self_gating.rpt
+picorv32.mapped.self_gating.rpt
+################
+# Output Files #
+################
+set DCRM_AUTOREAD_RTL_SCRIPT                            ${DESIGN_NAME}.autoread_rtl.tcl
+picorv32.autoread_rtl.tcl
+set DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE              ${DESIGN_NAME}.elab.ddc
+picorv32.elab.ddc
+set DCRM_COMPILE_ULTRA_DDC_OUTPUT_FILE                  ${DESIGN_NAME}.compile_ultra.ddc
+picorv32.compile_ultra.ddc
+set DCRM_FINAL_DDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.ddc
+picorv32.mapped.ddc
+set DCRM_FINAL_VERILOG_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.v
+picorv32.mapped.v
+set DCRM_FINAL_SDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.sdc
+picorv32.mapped.sdc
+#################################################################################
+# DCT Flow Files
+#################################################################################
+###################
+# DCT Input Files #
+###################
+set DCRM_DCT_DEF_INPUT_FILE                             ${DESIGN_NAME}.def
+picorv32.def
+set DCRM_DCT_FLOORPLAN_INPUT_FILE                       ${DESIGN_NAME}.fp
+picorv32.fp
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE            ${DESIGN_NAME}.physical_constraints.tcl
+picorv32.physical_constraints.tcl
+###############
+# DCT Reports #
+###############
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT                ${DESIGN_NAME}.physical_constraints.rpt
+picorv32.physical_constraints.rpt
+set DCRM_DCT_FINAL_CONGESTION_REPORT                    ${DESIGN_NAME}.mapped.congestion.rpt
+picorv32.mapped.congestion.rpt
+set DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE           ${DESIGN_NAME}.mapped.congestion_map.png
+picorv32.mapped.congestion_map.png
+set DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE    ${DESIGN_NAME}.mapped.congestion_map_window.png
+picorv32.mapped.congestion_map_window.png
+####################
+# DCT Output Files #
+####################
+set DCRM_DCT_FLOORPLAN_OUTPUT_FILE                      ${DESIGN_NAME}.initial.fp
+picorv32.initial.fp
+set DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE                ${DESIGN_NAME}.mapped.fp
+picorv32.mapped.fp
+set DCRM_DCT_FINAL_SPEF_OUTPUT_FILE                     ${DESIGN_NAME}.mapped.spef
+picorv32.mapped.spef
+set DCRM_DCT_FINAL_SDF_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.sdf
+picorv32.mapped.sdf
+#################################################################################
+# Formality Flow Files
+#################################################################################
+set DCRM_SVF_OUTPUT_FILE                                ${DESIGN_NAME}.mapped.svf
+picorv32.mapped.svf
+set FMRM_UNMATCHED_POINTS_REPORT                        ${DESIGN_NAME}.fmv_unmatched_points.rpt
+picorv32.fmv_unmatched_points.rpt
+set FMRM_FAILING_SESSION_NAME                           ${DESIGN_NAME}
+picorv32
+set FMRM_FAILING_POINTS_REPORT                          ${DESIGN_NAME}.fmv_failing_points.rpt
+picorv32.fmv_failing_points.rpt
+set FMRM_ABORTED_POINTS_REPORT                          ${DESIGN_NAME}.fmv_aborted_points.rpt
+picorv32.fmv_aborted_points.rpt
+set FMRM_ANALYZE_POINTS_REPORT                          ${DESIGN_NAME}.fmv_analyze_points.rpt
+picorv32.fmv_analyze_points.rpt
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_PD/rm_setup/dc_setup_filenames.tcl
+
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_PD/rm_setup/dc_setup.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Setup for Top-Down Flow
+# Script: dc_setup.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Setup Variables
+#
+# Modify settings in this section to customize your Design Compiler Reference 
+# Methodology run.
+# Portions of dc_setup.tcl may be used by other tools so program name checks
+# are performed where necessary.
+#################################################################################
+# The following setting removes new variable info messages from the end of the log file
+set_app_var sh_new_variable_message false
+false
+if {$synopsys_program_name == "dc_shell"}  {
+
+  #################################################################################
+  # Design Compiler Specific Setup Variables
+  #################################################################################
+
+  # Use the set_host_options command to enable multicore optimization to improve runtime.
+  # This feature has special usage and license requirements.  Refer to the 
+  # "Support for Multicore Technology" section in the Design Compiler User Guide
+  # for multicore usage guidelines.
+  # Note: This is a DC Ultra feature and is not supported in DC Expert.
+
+  # set_host_options -max_cores 4
+
+  # Change alib_library_analysis_path to point to a central cache of analyzed libraries
+  # to save runtime and disk space.  The following setting only reflects the
+  # default value and should be changed to a central location for best results.
+
+  set_app_var alib_library_analysis_path .
+
+  # Add any additional Design Compiler variables needed here
+}
+.
+set RTL_SOURCE_FILES  "picorv32.v"      ;# Enter the list of source RTL files if reading from RTL
+picorv32.v
+# The following variables are used by scripts in the rm_dc_scripts folder to direct 
+# the location of the output files.
+set REPORTS_DIR "reports"
+reports
+set RESULTS_DIR "results"
+results
+file mkdir ${REPORTS_DIR}
+file mkdir ${RESULTS_DIR}
+#################################################################################
+# Search Path Setup
+#
+# Set up the search path to find the libraries and design files.
+#################################################################################
+set_app_var search_path ". ${ADDITIONAL_SEARCH_PATH} $search_path"
+.          /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm         /js1/songch/SAED32_EDK/lib/sram/db_nldm         /js1/songch/SAED32_EDK/lib/sram_lp/db_nldm  /js1/songch/SAED32_EDK/lib/pll/db_nldm  /js1/songch/SAED32_EDK/lib/io_std/db_nldm  /js1/songch/SAED32_EDK/lib/io_sp/db_nldm  ~/DA_VLSI_PD/results  /js1/songch/SAED32_EDK/references/orca/dc/models         ~/DA_VLSI_PD/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models   . /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn /soft1/synopsys/synthesis/L-2016.03-SP5/minpower/syn /soft1/synopsys/synthesis/L-2016.03-SP5/dw/syn_ver /soft1/synopsys/synthesis/L-2016.03-SP5/dw/sim_ver
+#################################################################################
+# Library Setup
+#
+# This section is designed to work with the settings from common_setup.tcl
+# without any additional modification.
+#################################################################################
+# Milkyway variable settings
+# Make sure to define the Milkyway library variable
+# mw_design_library, it is needed by write_milkyway command
+set mw_reference_library ${MW_REFERENCE_LIB_DIRS}
+ 	/js1/songch/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m 	
+set mw_design_library ${DCRM_MW_LIBRARY_NAME}
+picorv32_LIB
+set mw_site_name_mapping { {CORE unit} {Core unit} {core unit} }
+ {CORE unit} {Core unit} {core unit} 
+# The remainder of the setup below should only be performed in Design Compiler
+if {$synopsys_program_name == "dc_shell"}  {
+
+  set_app_var target_library ${TARGET_LIBRARY_FILES}
+  set_app_var synthetic_library dw_foundation.sldb
+  set_app_var link_library "* $target_library $ADDITIONAL_LINK_LIB_FILES $synthetic_library"
+
+  # Set min libraries if they exist
+  foreach {max_library min_library} $MIN_LIBRARY_FILES {
+    set_min_library $max_library -min_version $min_library
+  }
+
+  if {[shell_is_in_topographical_mode]} {
+
+    # Only create new Milkyway design library if it doesn't already exist
+    if {![file isdirectory $mw_design_library ]} {
+      create_mw_lib   -technology $TECH_FILE                       -mw_reference_library $mw_reference_library                       $mw_design_library
+    } else {
+      # If Milkyway design library already exists, ensure that it is consistent with specified Milkyway reference libraries
+      set_mw_lib_reference $mw_design_library -mw_reference_library $mw_reference_library
+    }
+
+    open_mw_lib     $mw_design_library
+
+    check_library > ${REPORTS_DIR}/${DCRM_CHECK_LIBRARY_REPORT}
+
+    set_tlu_plus_files -max_tluplus $TLUPLUS_MAX_FILE                        -min_tluplus $TLUPLUS_MIN_FILE                        -tech2itf_map $MAP_FILE
+
+    check_tlu_plus_files
+  }
+
+  #################################################################################
+  # Library Modifications
+  #
+  # Apply library modifications after the libraries are loaded.
+  #################################################################################
+
+  if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+    puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_FILE}]\n"
+    source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+  }
+}
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB17061127/DA_VLSI_PD/picorv32_LIB
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB17061127/DA_VLSI_PD/picorv32_LIB
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+-------------------------------------------------------------------------
+
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+
+Sanity check for TLU+ vs MW-Tech files:
+ max_tlu+: /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus
+ min_tlu+: /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus
+ mapping_file: /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map
+ max_emul_tlu+: **NONE**
+ min_emul_tlu+: **NONE**
+ MW design lib: picorv32_LIB
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_PD/rm_setup/dc_setup.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Script for Top-Down Flow
+# Script: dc.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Additional Variables
+#
+# Add any additional variables needed for your flow here.
+#################################################################################
+# No additional flow variables are being recommended
+#################################################################################
+# Setup for Formality Verification
+#################################################################################
+# In the event of an inconclusive (or hard) verification, we recommend using
+# the set_verification_priority commands provided from the analyze_points command
+# in Formality. The set_verification_priority commands target specific
+# operators to reduce verification complexity while minimizing QoR impact.
+# The set_verification_priority commands should be applied after the design
+# is read and elaborated.
+# For designs that don't have tight QoR constraints and don't have register retiming,
+# you can use the following variable to enable the highest productivity single pass flow.
+# This flow modifies the optimizations to make verification easier.
+# This variable setting should be applied prior to reading in the RTL for the design.
+# set_app_var simplified_verification_mode true
+# For more information about facilitating formal verification in the flow, refer
+# to the following SolvNet article:
+# "Resolving Inconclusive and Hard Verifications in Design Compiler"
+# https://solvnet.synopsys.com/retrieve/033140.html
+# Define the verification setup file for Formality
+set_svf ${RESULTS_DIR}/${DCRM_SVF_OUTPUT_FILE}
+1
+#################################################################################
+# Setup SAIF Name Mapping Database
+#
+# Include an RTL SAIF for better power optimization and analysis.
+#
+# saif_map should be issued prior to RTL elaboration to create a name mapping
+# database for better annotation.
+################################################################################
+saif_map -start
+Information: The SAIF name mapping information database is now active. (PWR-602)
+1
+#################################################################################
+# Read in the RTL Design
+#
+# Read in the RTL source files or read in the elaborated design (.ddc).
+#################################################################################
+define_design_lib WORK -path ./WORK
+1
+analyze -format verilog ${RTL_SOURCE_FILES}
+Running PRESTO HDLC
+Compiling source file /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:288: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:288: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:275: A unnamed generate block with an LRM-defined name 'genblk1' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:308: A unnamed generate block with an LRM-defined name 'genblk2' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:308: A unnamed generate block with an LRM-defined name 'genblk2' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1227: A unnamed generate block with an LRM-defined name 'genblk3' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1227: A unnamed generate block with an LRM-defined name 'genblk3' is detected, which is incompatible with Verilog standard 2001 or 1995. (VER-944)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2835: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2836: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2865: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2865: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2867: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2867: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2869: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2869: Invalid escape sequence '\0' in call to '$display'. (VER-941)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2839: delay controls are ignored for synthesis. (VER-176)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2841: The statements in initial blocks are ignored. (VER-281)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:2888: The statements in initial blocks are ignored. (VER-281)
+Presto compilation completed successfully.
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb'
+1
+elaborate ${DESIGN_NAME}
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_tt1p05v125c'
+  Loading link library 'saed32hvt_tt1p05v125c'
+  Loading link library 'saed32lvt_tt1p05v125c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:167: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:168: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:461: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:465: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:470: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:473: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:487: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:499: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:505: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:620: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:881: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:891: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:901: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1126: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1128: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1130: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1211: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1243: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1315: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1428: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1479: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1506: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1552: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1558: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1566: signed to unsigned conversion occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1846: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1854: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1910: signed to unsigned assignment occurs. (VER-318)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1911: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 404 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           406            |     no/auto      |
+|           415            |    auto/auto     |
+|           423            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 568 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           584            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 859 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1120           |     auto/no      |
+===============================================
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1279: Statement unreachable (Branch condition impossible to meet).  (VER-61)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1281: Statement unreachable (Branch condition impossible to meet).  (VER-61)
+
+Statistics for case statements in always block at line 1247 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1250           |      no/no       |
+|           1267           |      no/no       |
+===============================================
+
+Statistics for case statements in always block at line 1307 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1313           |      no/no       |
+===============================================
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1594: Statement unreachable (Branch condition impossible to meet).  (VER-61)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1775: Statement unreachable (Branch condition impossible to meet).  (VER-61)
+Warning:  /bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v:1814: Statement unreachable (Branch condition impossible to meet).  (VER-61)
+
+Statistics for case statements in always block at line 1402 in file
+	'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1492           |     no/auto      |
+|           1504           |      no/no       |
+|           1590           |     auto/no      |
+|           1634           |      no/no       |
+|           1742           |     auto/no      |
+|           1773           |     auto/no      |
+|           1843           |      no/no       |
+|           1851           |      no/no       |
+|           1866           |      no/no       |
+|           1891           |      no/no       |
+|           1908           |      no/no       |
+===============================================
+
+Inferred memory devices in process
+	in routine picorv32 line 404 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|  mem_la_wdata_reg   | Latch |  32   |  Y  | N  | N  | N  | -  | -  | -  |
+| mem_rdata_word_reg  | Latch |  32   |  Y  | N  | N  | N  | -  | -  | -  |
+|  mem_la_wstrb_reg   | Latch |   4   |  Y  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine picorv32 line 433 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   mem_rdata_q_reg   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine picorv32 line 568 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    mem_addr_reg     | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|    mem_wstrb_reg    | Flip-flop |   4   |  Y  | N  | N  | N  | N  | N  | N  |
+|    mem_valid_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    mem_state_reg    | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|    mem_instr_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    mem_wdata_reg    | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine picorv32 line 859 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+=====================================================================================================
+|               Register Name               |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================================
+|               instr_beq_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_bne_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_blt_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_srl_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sra_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_or_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_and_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_bge_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_add_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_slt_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_sltu_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_xor_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_ori_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sll_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sw_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_srli_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_slti_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sub_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_srai_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_addi_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_xori_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_sltiu_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_slli_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_andi_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_lh_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_lhu_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_bltu_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_bgeu_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_lb_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_lw_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sb_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_sh_reg                | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_lbu_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               pcpi_insn_reg               | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|           is_slli_srli_srai_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| is_jalr_addi_slti_sltiu_xori_ori_andi_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_timer_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            is_alu_reg_reg_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             instr_maskirq_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            is_alu_reg_imm_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_setq_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            is_sll_srl_sra_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              is_sb_sh_sw_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_getq_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          is_lb_lh_lw_lbu_lhu_reg          | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            instr_rdinstrh_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_jalr_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             instr_rdinstr_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|               instr_jal_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            instr_rdcycleh_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     is_beq_bne_blt_bge_bltu_bgeu_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             decoded_imm_j_reg             | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|           is_lui_auipc_jal_reg            | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  is_lui_auipc_jal_jalr_addi_add_sub_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|            is_slti_blt_slt_reg            | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          is_sltiu_bltu_sltu_reg           | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             is_lbu_lhu_lw_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              is_compare_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              decoded_rd_reg               | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|           compressed_instr_reg            | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             instr_retirq_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             instr_waitirq_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              decoded_rs1_reg              | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|              decoded_rs2_reg              | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|               instr_lui_reg               | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|             instr_rdcycle_reg             | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              instr_auipc_reg              | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|              decoded_imm_reg              | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+=====================================================================================================
+
+Inferred memory devices in process
+	in routine picorv32 line 1336 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     cpuregs_reg     | Flip-flop | 1152  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine picorv32 line 1402 in file
+		'/bks2/PB17061127/DA_VLSI_PD/verilog/picorv32.v'.
+======================================================================================
+|       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+======================================================================================
+|       latched_rd_reg       | Flip-flop |   6   |  Y  | N  | N  | N  | N  | N  | N  |
+|     latched_is_lb_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      count_cycle_reg       | Flip-flop |  64   |  Y  | N  | N  | N  | N  | N  | N  |
+|      mem_do_rdata_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     latched_compr_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       irq_state_reg        | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|         reg_sh_reg         | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+|        reg_op1_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      reg_next_pc_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|    mem_do_prefetch_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      count_instr_reg       | Flip-flop |  64   |  Y  | N  | N  | N  | N  | N  | N  |
+|     latched_is_lh_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      mem_wordsize_reg      | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+|       irq_delay_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     latched_branch_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     latched_is_lu_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        irq_mask_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     latched_stalu_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       do_waitirq_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          eoi_reg           | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|     latched_store_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        reg_out_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      trace_valid_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          trap_reg          | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|         timer_reg          | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|      mem_do_rinst_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       cpu_state_reg        | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|       trace_data_reg       | Flip-flop |  36   |  Y  | N  | N  | N  | N  | N  | N  |
+|       irq_active_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        reg_op2_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|    decoder_trigger_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      irq_pending_reg       | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+| decoder_pseudo_trigger_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       pcpi_valid_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      mem_do_wdata_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|         reg_pc_reg         | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+|       alu_out_q_reg        | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+======================================================================================
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'picorv32'.
+1
+# OR
+# You can read an elaborated design from the same release.
+# Using an elaborated design from an older release will not give the best results.
+# read_ddc ${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+write -hierarchy -format ddc -output ${RESULTS_DIR}/${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+Writing ddc file 'results/picorv32.elab.ddc'.
+1
+#################################################################################
+# Apply Logical Design Constraints
+#################################################################################
+# You can use either SDC file ${DCRM_SDC_INPUT_FILE} or Tcl file 
+# ${DCRM_CONSTRAINTS_INPUT_FILE} to constrain your design.
+if {[file exists [which ${DCRM_SDC_INPUT_FILE}]]} {
+  puts "RM-Info: Reading SDC file [which ${DCRM_SDC_INPUT_FILE}]\n"
+  read_sdc ${DCRM_SDC_INPUT_FILE}
+}
+Warning: File 'picorv32.sdc' was not found in search path. (CMD-030)
+if {[file exists [which ${DCRM_CONSTRAINTS_INPUT_FILE}]]} {
+  puts "RM-Info: Sourcing script file [which ${DCRM_CONSTRAINTS_INPUT_FILE}]\n"
+  source -echo -verbose ${DCRM_CONSTRAINTS_INPUT_FILE}
+}
+RM-Info: Sourcing script file /bks2/PB17061127/DA_VLSI_PD/picorv32.constraints.tcl
+
+#set_operating_conditions -analysis_type bc_wc
+# set clock signal name you used in the design 
+set my_clock_pin   clk
+clk
+# set the clock frequency
+set my_clk_freq_MHz 500
+500
+set my_period [expr 1000 / $my_clk_freq_MHz]
+2
+set find_clock [ find port [list $my_clock_pin] ]
+{clk}
+if {  $find_clock != [list] } {
+   set clk_name $my_clock_pin
+   create_clock -period $my_period $clk_name
+} else {
+   set clk_name vclk
+   create_clock -period $my_period -name $clk_name
+
+   # set a delay constraint for combinatioal circuits
+   set_max_delay $my_period -from [all_input] -to [all_output]
+}
+1
+set input_delay 1
+1
+set output_delay 1
+1
+1
+# You can enable analysis and optimization for multiple clocks per register.
+# To use this, you must constrain to remove false interactions between mutually exclusive
+# clocks.  This is needed to prevent unnecessary analysis that can result in
+# a significant runtime increase with this feature enabled.
+#
+# set_clock_groups -physically_exclusive | -logically_exclusive | -asynchronous #                  -group {CLKA, CLKB} -group {CLKC, CLKD} 
+#
+# set_app_var timing_enable_multiple_clocks_per_reg true
+#################################################################################
+# Apply The Operating Conditions
+#################################################################################
+# Set operating condition on top level
+# set_operating_conditions -max <max_opcond> -min <min_opcond>
+#################################################################################
+# Create Default Path Groups
+#
+# Separating these paths can help improve optimization.
+# Remove these path group settings if user path groups have already been defined.
+#################################################################################
+set ports_clock_root [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+{clk}
+group_path -name REGOUT -to [all_outputs] 
+1
+group_path -name REGIN -from [remove_from_collection [all_inputs] ${ports_clock_root}] 
+1
+group_path -name FEEDTHROUGH -from [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+1
+#################################################################################
+# Power Optimization Section
+#################################################################################
+#############################################################################
+# Clock Gating Setup
+#############################################################################
+# Default clock_gating_style suits most designs.  Change only if necessary.
+# set_clock_gating_style -positive_edge_logic {integrated} -negative_edge_logic {integrated} -control_point before ...   
+# Clock gate insertion is now performed during compile_ultra -gate_clock
+# so insert_clock_gating is no longer recommended at this step.
+# The following setting can be used to enable global clock gating.
+# With global clock gating, common enables are extracted across hierarchies
+# which results in fewer redundant clock gates. 
+# set compile_clock_gating_through_hierarchy true 
+# For better timing optimization of enable logic, clock latency for 
+# clock gating cells can be optionally specified.
+# set_clock_gate_latency -clock <clock_name> -stage <stage_num>     #         -fanout_latency {fanout_range1 latency_val1 fanout_range2 latency_val2 ...}
+#############################################################################
+# Apply Power Optimization Constraints
+#############################################################################
+# Include a SAIF file, if possible, for power optimization.  If a SAIF file
+# is not provided, the default toggle rate of 0.1 will be used for propagating
+# switching activity.
+read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance ${DESIGN_INSTANCE} -verbose
+Error: No switching activity has been annotated. (PWR-362)
+0
+set_leakage_optimization true
+1
+set_dynamic_optimization true
+1
+if {[shell_is_in_topographical_mode]} {
+      # Use the following command to enable power prediction using clock tree estimation.
+
+      # set_power_prediction true -ct_references <LIB CELL LIST>
+    }
+if {[shell_is_in_topographical_mode]} {
+
+  ##################################################################################
+  # Apply Physical Design Constraints
+  #
+  # Optional: Floorplan information can be read in here if available.
+  # This is highly recommended for irregular floorplans.
+  #
+  # Floorplan constraints can be provided from one of the following sources:
+  # 	* extract_physical_constraints with a DEF file
+  #	* read_floorplan with a floorplan file (written by write_floorplan)
+  #	* User generated Tcl physical constraints
+  #
+  ##################################################################################
+
+  # Specify ignored layers for routing to improve correlation
+  # Use the same ignored layers that will be used during place and route
+
+  if { ${MIN_ROUTING_LAYER} != ""} {
+    set_ignored_layers -min_routing_layer ${MIN_ROUTING_LAYER}
+  }
+  if { ${MAX_ROUTING_LAYER} != ""} {
+    set_ignored_layers -max_routing_layer ${MAX_ROUTING_LAYER}
+  }
+
+  report_ignored_layers
+
+  # If the macro names change after mapping and writing out the design due to
+  # ungrouping or Verilog change_names renaming, it may be necessary to translate 
+  # the names to correspond to the cell names that exist before compile.
+
+  # During DEF constraint extraction, extract_physical_constraints automatically
+  # matches DEF names back to precompile names in memory using standard matching rules.
+  # read_floorplan will also automatically perform this name matching.
+
+  # Modify fuzzy_query_options if other characters are used for hierarchy separators
+  # or bus names. 
+
+  # set_fuzzy_query_options -hierarchical_separators {/ _ .}   #                         -bus_name_notations {[] __ ()}   #                         -class {cell pin port net}   #                         -show
+
+  ## For DEF floorplan input
+
+  # The DEF file for Design Compiler Topographical can be written from IC Compiler using the following 
+  # recommended options:
+  # icc_shell> write_def -version 5.7 -rows_tracks_gcells -fixed -pins -blockages -specialnets   #                      -vias -regions_groups -verbose -output ${DCRM_DCT_DEF_INPUT_FILE}
+
+  if {[file exists [which ${DCRM_DCT_DEF_INPUT_FILE}]]} {
+    # If you have physical only cells as a part of your floorplan DEF file, you can use
+    # the -allow_physical_cells option with extract_physical_constraints to include
+    # the physical only cells as a part of the floorplan in Design Compiler to improve correlation.
+    #
+    # Note: With -allow_physical_cells, new logical cells in the DEF file
+    #       that have a fixed location will also be added to the design in memory.
+    #       See the extract_physical_constraints manpage for more information about
+    #       identifying the cells added to the design when using -allow_physical_cells.
+  
+    # extract_physical_constraints -allow_physical_cells ${DCRM_DCT_DEF_INPUT_FILE}
+
+    puts "RM-Info: Reading in DEF file [which ${DCRM_DCT_DEF_INPUT_FILE}]\n"
+    extract_physical_constraints ${DCRM_DCT_DEF_INPUT_FILE}
+  }
+  
+  # OR
+
+  ## For floorplan file input
+
+  # The floorplan file for Design Compiler Topographical can be written from IC Compiler using the following 
+  # recommended options:
+  # Note: IC Compiler requires the use of -placement {terminal} with -create_terminal beginning in the
+  #       D-2010.03-SP1 release.
+  # icc_shell> write_floorplan -placement {io terminal hard_macro soft_macro} -create_terminal   #                            -row -create_bound -preroute -track ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+
+  # Read in the secondary floorplan file, previously written by write_floorplan in Design Compiler,
+  # to restore physical-only objects back to the design, before reading the main floorplan file.
+
+  if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]]} {
+    puts "RM-Info: Reading in secondary floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]\n"
+    read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects
+  }
+
+  if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]]} {
+    puts "RM-Info: Reading in floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]\n"
+    read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+  }
+
+  # OR
+
+  ## For Tcl file input
+
+  # For Tcl constraints, the name matching feature must be explicitly enabled
+  # and will also use the set_fuzzy_query_options setttings.  This should 
+  # be turned off after the constraint read in order to minimize runtime.
+
+  if {[file exists [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]]} {
+    set_app_var fuzzy_matching_enabled true
+    puts "RM-Info: Sourcing script file [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]\n"
+    source -echo -verbose ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}
+    set_app_var fuzzy_matching_enabled false 
+  }
+
+
+  # Use write_floorplan to save the applied floorplan.
+
+  # Note: A secondary floorplan file ${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}.objects
+  #       might also be written to capture physical-only objects in the design.
+  #       This file should be read in before reading the main floorplan file.
+
+  write_floorplan -all ${RESULTS_DIR}/${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}
+
+  # Verify that all the desired physical constraints have been applied
+  # Add the -pre_route option to include pre-routes in the report
+  report_physical_constraints > ${REPORTS_DIR}/${DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT}
+}
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+
+  Linking design 'picorv32'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  picorv32                    /bks2/PB17061127/DA_VLSI_PD/picorv32.db
+  saed32rvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+  saed32hvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+  saed32lvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+  dw_foundation.sldb (library) /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb
+
+Information: No preferred routing direction is found for design layer M1. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M2. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M3. Automatically deriving direction V. (DCT-035)
+Information: No preferred routing direction is found for design layer M4. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M5. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M6. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M7. Automatically deriving direction V. (DCT-035)
+Information: No preferred routing direction is found for design layer M8. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer M9. Automatically deriving direction H. (DCT-035)
+Information: No preferred routing direction is found for design layer MRDL. Automatically deriving direction V. (DCT-035)
+Information: setting M1 as min routing layer.  (PSYN-179)
+Information: setting M9 as ignored_layer due to min_max layer setting. (PSYN-178)
+Information: setting MRDL as ignored_layer due to min_max layer setting. (PSYN-178)
+Information: setting M8 as max routing layer.  (PSYN-179)
+Ignored layers in congestion analysis and RC estimation: M9 MRDL 
+
+Min_routing_layer: M1
+Max_routing_layer: M8
+Warning: File 'picorv32.def' was not found in search path. (CMD-030)
+Warning: File 'picorv32.fp.objects' was not found in search path. (CMD-030)
+Warning: File 'picorv32.fp' was not found in search path. (CMD-030)
+Warning: File 'picorv32.physical_constraints.tcl' was not found in search path. (CMD-030)
+#################################################################################
+# Apply Additional Optimization Constraints
+#################################################################################
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+#################################################################################
+# Save the compile environment snapshot for the Consistency Checker utility.
+#
+# This utility checks for inconsistent settings between Design Compiler and
+# IC Compiler which can contribute to correlation mismatches.
+#
+# Download this utility from SolvNet.  See the following SolvNet article for
+# complete details:
+#
+# https://solvnet.synopsys.com/retrieve/026366.html
+#
+# The article is titled: "Using the Consistency Checker to Automatically Compare
+# Environment Settings Between Design Compiler and IC Compiler"
+#################################################################################
+# Uncomment the following to snapshot the environment for the Consistency Checker
+# write_environment -consistency -output ${REPORTS_DIR}/${DCRM_CONSISTENCY_CHECK_ENV_FILE}
+#################################################################################
+# Check for Design Errors
+#################################################################################
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Sun Dec 13 19:58:42 2020
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     38
+    Unconnected ports (LINT-28)                                    35
+    Shorted outputs (LINT-31)                                       1
+    Constant outputs (LINT-52)                                      2
+
+Cells                                                              14
+    Cells do not drive (LINT-1)                                    14
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > ${REPORTS_DIR}/${DCRM_CHECK_DESIGN_REPORT}
+#################################################################################
+# Compile the Design
+#
+# Recommended Options:
+#
+#     -scan
+#     -gate_clock (-self_gating)
+#     -retime
+#     -timing_high_effort_script
+#     -spg
+#
+# Use compile_ultra as your starting point. For test-ready compile, include
+# the -scan option with the first compile and any subsequent compiles.
+#
+# Use -gate_clock to insert clock-gating logic during optimization.  This
+# is now the recommended methodology for clock gating.
+#
+# Note: You can use -self_gating option in addition to -gate_clock for 
+#       potentially saving additional dynamic power, in topographical mode 
+#       only. Registers that are not clock gated will be considered for XOR
+#       self gating.
+#       XOR self gating should be performed along with clock gating, using 
+#       -gate_clock and -self_gating options. XOR self gates will be inserted 
+#       only if there is potential power saving without degrading the timing.
+#       An accurate switching activity annotation either by reading in a saif 
+#       file or through set_switching_activity command is recommended.
+#       You can use "set_self_gating_options" command to specify self-gating 
+#       options. For example, to specify that the inserted self-gates be merged
+#       with traditional clock gates, you can use the following:
+#
+#       set_self_gating_options -interaction_with_clock_gating  merge
+#
+# Use -retime to enable adaptive retiming optimization for further timing benefit.
+#
+# The -timing_high_effort_script option can be used to try and improve the
+# optimization results at the tradeoff of some additional runtime.
+#
+# Use the -spg option to enable Design Compiler Graphical physical guidance flow.
+# The physical guidance flow improves QoR, area and timing correlation, and congestion.
+# It also improves place_opt runtime in IC Compiler.
+# You can selectively enable or disable the congestion optimization on parts of the design
+# by using the set_congestion_optimization command.
+# This option requires a license for Design Compiler Graphical.
+#
+# Note: You can use in addition to -spg option the -layer_optimization option to improve
+#       the accuracy of certain net delay during optimization. For more information 
+#       about layer optimization please refer to the Solvnet article 037946: "How to 
+#       Implement Net Layer Optimization With Design Compiler Graphical". 
+#       https://solvnet.synopsys.com/retrieve/037946.html
+#
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+# Use the "-check_only" option of "compile_ultra" to verify that your
+# libraries and design are complete and that optimization will not fail
+# in topographical mode.  Use the same options as will be used in compile_ultra.
+
+# compile_ultra -check_only
+}
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+
+TLU+ File = /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus
+TLU+ File = /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.5 |     *     |
+| Licensed DW Building Blocks        | L-2016.03-DWBB_201603.5 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 52 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'picorv32'
+
+Information: Layer M9 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: Layer MRDL is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer M1 : 0.18 0.16 (RCEX-011)
+Information: Library Derived Res for layer M1 : 2e-06 2e-06 (RCEX-011)
+Information: Library Derived Cap for layer M2 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M2 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M3 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M3 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M4 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M4 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M5 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M5 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M6 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M6 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M7 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M7 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M8 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M8 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M9 : 0.11 0.088 (RCEX-011)
+Information: Library Derived Res for layer M9 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer MRDL : 0.11 0.11 (RCEX-011)
+Information: Library Derived Res for layer MRDL : 1.8e-07 1.8e-07 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Horizontal Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Vertical Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 4.8e-07 4.8e-07 (RCEX-011)
+Loaded alib file './alib-52/saed32rvt_tt1p05v125c.db.alib' (placeholder)
+Loaded alib file './alib-52/saed32hvt_tt1p05v125c.db.alib'
+Loaded alib file './alib-52/saed32lvt_tt1p05v125c.db.alib' (placeholder)
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'picorv32'
+Information: Added key list 'DesignWare' to design 'picorv32'. (DDB-72)
+Information: The register 'pcpi_valid_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[32]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[33]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[34]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_data_reg[35]' is a constant and will be removed. (OPT-1206)
+Information: The register 'trace_valid_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpu_state_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'decoded_imm_j_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'compressed_instr_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'decoded_rs2_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'decoded_rd_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[30]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[29]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[28]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[27]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[26]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[25]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[24]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[23]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[22]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[21]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_imm_j_reg[20]' is removed because it is merged to 'decoded_imm_j_reg[31]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_rs2_reg[4]' is removed because it is merged to 'decoded_imm_j_reg[4]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_rs2_reg[3]' is removed because it is merged to 'decoded_imm_j_reg[3]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_rs2_reg[2]' is removed because it is merged to 'decoded_imm_j_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_rs2_reg[1]' is removed because it is merged to 'decoded_imm_j_reg[1]'. (OPT-1215)
+Information: In design 'picorv32', the register 'decoded_rs2_reg[0]' is removed because it is merged to 'decoded_imm_j_reg[11]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[3]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[4]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[5]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[6]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[7]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[8]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[1]' is removed because it is merged to 'pcpi_insn_reg[2]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[10]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[11]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[12]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[13]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[14]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[15]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[16]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[17]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[18]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[19]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[20]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[21]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[22]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[23]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[24]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[25]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[26]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[27]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[28]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[29]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[30]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[31]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'pcpi_insn_reg[0]' is removed because it is merged to 'pcpi_insn_reg[9]'. (OPT-1215)
+Information: In design 'picorv32', the register 'mem_addr_reg[0]' is removed because it is merged to 'mem_addr_reg[1]'. (OPT-1215)
+ Implement Synthetic for 'picorv32'.
+Memory usage for J1 task 538 Mbytes -- main task 538 Mbytes.
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: The register 'cpuregs_reg[0][1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][31]' is a constant and will be removed. (OPT-1206)
+Information: The register 'cpuregs_reg[0][0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'latched_compr_reg' is a constant and will be removed. (OPT-1206)
+Information: The register 'mem_addr_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'pcpi_insn_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'pcpi_insn_reg[9]' is a constant and will be removed. (OPT-1206)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+Information: The register 'reg_next_pc_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'reg_pc_reg[0]' is a constant and will be removed. (OPT-1206)
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Mapping 'picorv32_DP_OP_1646_129_6487_3'
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:09   31119.9      0.00       0.0     125.1                           1995676800.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+    0:01:09   31120.4      0.00       0.0     125.1                           1995899904.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db'
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 1830 load(s), 1 driver(s)
+  Loading design 'picorv32'
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_HVT' in the library 'saed32hvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT3_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_LVT' in the library 'saed32lvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Base Cell (com): cell NOR2X4_RVT, w=1976, h=1672 (npin=3)
+Information: Base Cell (seq): cell CGLPPSX16_LVT, w=6232, h=1672 (npin=4)
+Warning: Minimum site unit in physical library is different from the minimum site unit used in design. Choose site unit as base site.  (MPC-007)
+Information: Layer M9 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: Layer MRDL is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer M1 : 0.18 0.16 (RCEX-011)
+Information: Library Derived Res for layer M1 : 2e-06 2e-06 (RCEX-011)
+Information: Library Derived Cap for layer M2 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M2 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M3 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M3 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M4 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M4 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M5 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M5 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M6 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M6 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M7 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M7 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M8 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M8 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M9 : 0.11 0.088 (RCEX-011)
+Information: Library Derived Res for layer M9 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer MRDL : 0.11 0.11 (RCEX-011)
+Information: Library Derived Res for layer MRDL : 1.8e-07 1.8e-07 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Horizontal Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Vertical Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 4.8e-07 4.8e-07 (RCEX-011)
+
+...25%...50%...75%...100% done.
+
+
+ Collecting Buffer Trees ... Found 795
+
+ Processing Buffer Trees ... 
+
+    [80]  10% ...
+    [160]  20% ...
+    [240]  30% ...
+    [320]  40% ...
+    [400]  50% ...
+    [480]  60% ...
+    [560]  70% ...
+    [640]  80% ...
+    [720]  90% ...
+    [795] 100% Done ...
+
+
+Information: Automatic high-fanout synthesis deletes 766 cells. (HFS-802)
+Information: Automatic high-fanout synthesis adds 274 new cells. (PSYN-864)
+
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+
+  Beginning Timing Optimizations
+  ------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:26   30323.4      1.77    1409.3   10651.1                           2030933632.0000
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+    0:01:26   30323.4      1.77    1409.3   10651.1                           2030933632.0000
+    0:01:27   30364.9      0.22       0.9    7742.4                           1988425344.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ------------------------------------
+    0:01:32   32348.7      0.08       0.2       0.8                           2749462784.0000
+    0:01:32   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:32   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:32   32351.3      0.00       0.0       0.8                           2752001536.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:01:36   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:36   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:36   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:36   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:38   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:38   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:38   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:38   32351.3      0.00       0.0       0.8                           2752001536.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:41   32351.3      0.00       0.0       0.8                           2752001536.0000
+    0:01:43   31708.3      0.00       0.0       0.8                           2369905664.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+
+  Beginning High Effort Optimization Phase
+  ----------------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+
+  Beginning Timing Optimization
+  -----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:43   31708.3      0.00       0.0       0.8                           2369905664.0000
+    0:01:44   31708.3      0.00       0.0       0.8                           2369905664.0000
+    0:01:44   31708.3      0.00       0.0       0.8                           2369905664.0000
+    0:01:44   31708.3      0.00       0.0       0.8                           2369905664.0000
+    0:01:44   31708.3      0.00       0.0       0.8                           2369905664.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+
+
+  High Effort Optimization Phase Complete
+  ---------------------------------------
+
+Skipping remaining steps due to timing met. Go to finish
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_hvt 100.00%, saed32cell_lvt 0.00%, saed32cell_svt 0.00%
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+#################################################################################
+# Write Out Final Design and Reports
+#
+#        .ddc:   Recommended binary format used for subsequent Design Compiler sessions
+#    Milkyway:   Recommended binary format for IC Compiler
+#        .v  :   Verilog netlist for ASCII flow (Formality, PrimeTime, VCS)
+#       .spef:   Topographical mode parasitics for PrimeTime
+#        .sdf:   SDF backannotated topographical mode timing for PrimeTime
+#        .sdc:   SDC constraints for ASCII flow
+#
+#################################################################################
+change_names -rules verilog -hierarchy
+Warning: In the design picorv32, net 'pcpi_insn[9]' is connecting multiple ports. (UCN-1)
+1
+#################################################################################
+# Write out Design
+#################################################################################
+write -format ddc     -hierarchy -output ${RESULTS_DIR}/${DCRM_FINAL_DDC_OUTPUT_FILE}
+Writing ddc file 'results/picorv32.mapped.ddc'.
+1
+write -format verilog -hierarchy -output ${RESULTS_DIR}/${DCRM_FINAL_VERILOG_OUTPUT_FILE}
+Writing verilog file '/bks2/PB17061127/DA_VLSI_PD/results/picorv32.mapped.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+# Write and close SVF file and make it available for immediate use
+set_svf -off
+1
+#################################################################################
+# Write out Design Data
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+
+  # Note: A secondary floorplan file ${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}.objects
+  #       might also be written to capture physical-only objects in the design.
+  #       This file should be read in before reading the main floorplan file.
+
+  write_floorplan -all ${RESULTS_DIR}/${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}
+
+  # Write parasitics data from Design Compiler Topographical placement for static timing analysis
+  write_parasitics -output ${RESULTS_DIR}/${DCRM_DCT_FINAL_SPEF_OUTPUT_FILE}
+
+  # Write SDF backannotation data from Design Compiler Topographical placement for static timing analysis
+  write_sdf ${RESULTS_DIR}/${DCRM_DCT_FINAL_SDF_OUTPUT_FILE}
+
+  # Do not write out net RC info into SDC
+  set_app_var write_sdc_output_lumped_net_capacitance false
+  set_app_var write_sdc_output_net_resistance false
+}
+Information: Writing parasitics to file '/bks2/PB17061127/DA_VLSI_PD/results/picorv32.mapped.spef'. (WP-3)
+Information: Base Cell (com): cell NOR2X4_RVT, w=1976, h=1672 (npin=3)
+Information: Base Cell (seq): cell CGLPPSX16_LVT, w=6232, h=1672 (npin=4)
+Information: Layer M9 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: Layer MRDL is ignored for resistance and capacitance computation. (RCEX-019)
+****************************************************************
+Information: TLUPlus based RC computation is enabled. (RCEX-141)
+****************************************************************
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is TLU+. (RCEX-015)
+Information: Library Derived Cap for layer M1 : 0.18 0.16 (RCEX-011)
+Information: Library Derived Res for layer M1 : 2e-06 2e-06 (RCEX-011)
+Information: Library Derived Cap for layer M2 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M2 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M3 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M3 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M4 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M4 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M5 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M5 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M6 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M6 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M7 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M7 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M8 : 0.16 0.14 (RCEX-011)
+Information: Library Derived Res for layer M8 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer M9 : 0.11 0.088 (RCEX-011)
+Information: Library Derived Res for layer M9 : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Cap for layer MRDL : 0.11 0.11 (RCEX-011)
+Information: Library Derived Res for layer MRDL : 1.8e-07 1.8e-07 (RCEX-011)
+Information: Library Derived Horizontal Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Horizontal Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Library Derived Vertical Cap : 0.16 0.14 (RCEX-011)
+Information: Library Derived Vertical Res : 1.8e-06 1.8e-06 (RCEX-011)
+Information: Using derived R and C coefficients. (RCEX-008)
+Information: Using region-based R and C coefficients. (RCEX-013)
+Information: Library Derived Via Res : 4.8e-07 4.8e-07 (RCEX-011)
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/bks2/PB17061127/DA_VLSI_PD/results/picorv32.mapped.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+Warning: Design 'picorv32' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+false
+write_sdc -nosplit ${RESULTS_DIR}/${DCRM_FINAL_SDC_OUTPUT_FILE}
+1
+# If SAIF is used, write out SAIF name mapping file for PrimeTime-PX
+saif_map -type ptpx -write_map ${RESULTS_DIR}/${DESIGN_NAME}.mapped.SAIF.namemap
+Information: Writing SAIF name mapping information into the PT-PX name mapping file 'results/picorv32.mapped.SAIF.namemap'. (PWR-636)
+1
+#################################################################################
+# Generate Final Reports
+#################################################################################
+report_qor > ${REPORTS_DIR}/${DCRM_FINAL_QOR_REPORT}
+report_timing -transition_time -nets -attributes -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_TIMING_REPORT}
+if {[shell_is_in_topographical_mode]} {
+  report_area -physical -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_AREA_REPORT}
+} else {
+  report_area -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_AREA_REPORT}
+}
+#if {[shell_is_in_topographical_mode]} {
+# report_congestion (topographical mode only) reports estimated routing related congestion
+# after topographical mode synthesis.
+# This command requires a license for Design Compiler Graphical.
+#report_congestion > ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_REPORT}
+# Use the following to generate and write out a congestion map from batch mode
+# This requires a GUI session to be temporarily opened and closed so a valid DISPLAY
+# must be set in your UNIX environment.
+#if {[info exists env(DISPLAY)]} {
+#  gui_start
+#  # Create a layout window
+#  set MyLayout [gui_create_window -type LayoutWindow]
+#  # Build congestion map in case report_congestion was not previously run
+#  report_congestion -build_map
+#  # Display congestion map in layout window
+#  gui_show_map -map "Global Route Congestion" -show true
+#  # Zoom full to display complete floorplan
+#  gui_zoom -window [gui_get_current_window -view] -full
+#  # Write the congestion map out to an image file
+#  # You can specify the output image type with -format png | xpm | jpg | bmp
+#  # The following saves only the congestion map without the legends
+#  gui_write_window_image -format png -file ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE}
+#  # The following saves the entire congestion map layout window with the legends
+#  gui_write_window_image -window ${MyLayout} -format png -file ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE}
+#  gui_stop
+#} else {
+#  puts "Information: The DISPLAY environment variable is not set. Congestion map generation has been skipped."
+#}
+#}
+# Use SAIF file for power analysis
+read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance ${DESIGN_INSTANCE} -verbose
+Error: No switching activity has been annotated. (PWR-362)
+0
+report_power -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_POWER_REPORT}
+# report_clock_gating -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+# Uncomment the next line if you include the -self_gating to the compile_ultra command
+# to report the XOR Self Gating information.
+# report_self_gating  -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_SELF_GATING_REPORT}
+#################################################################################
+# Write out Milkyway Design for Top-Down Flow
+#
+# This should be the last step in the script
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+  # write_milkyway uses mw_design_library variable from dc_setup.tcl
+  write_milkyway -overwrite -output ${DCRM_FINAL_MW_CEL_NAME}
+}
+1
+exit
+
+Memory usage for main task 664 Mbytes.
+Memory usage for this session 664 Mbytes.
+CPU usage for this session 126 seconds ( 0.04 hours ).
+
+Thank you...

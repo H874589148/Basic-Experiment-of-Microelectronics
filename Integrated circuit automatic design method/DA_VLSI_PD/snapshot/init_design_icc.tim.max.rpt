@@ -1,0 +1,125 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay max
+        -physical
+        -derate
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -crosstalk_delta
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:33:13 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+Wire Load Model Mode: Inactive.
+
+  Startpoint: irq_pending_reg_20_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_next_pc_reg_31_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                        Fanout       Cap     DTran     Trans     Delta    Derate      Incr       Path      Location / Load        Attributes
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                                     0.000      0.000
+  clock network delay (ideal)                                                               0.000      0.000
+  irq_pending_reg_20_/CLK (DFFX1_HVT)               0.000     0.000     0.000               0.000 #    0.000 r    (NO LOCATION)
+  irq_pending_reg_20_/Q (DFFX1_HVT)                           0.051                         0.157      0.157 f    (NO LOCATION)
+  irq_pending[20] (net)          4        3.413                                             0.000      0.157 f    [1.28,3.41]
+  U5299/A (INVX1_HVT)                               0.000     0.051     0.000               0.000 *    0.157 f    (NO LOCATION)
+  U5299/Y (INVX1_HVT)                                         0.028                         0.022      0.179 r    (NO LOCATION)
+  n4948 (net)                    1        0.916                                             0.000      0.179 r    [0.30,0.92]
+  U5300/A2 (OR2X1_HVT)                              0.000     0.028     0.000               0.000 *    0.179 r    (NO LOCATION)
+  U5300/Y (OR2X1_HVT)                                         0.036                         0.063      0.242 r    (NO LOCATION)
+  n10405 (net)                   3        3.342                                             0.000      0.242 r    [1.86,3.34]
+  U5303/A3 (AND4X1_HVT)                             0.000     0.036     0.000               0.000 *    0.242 r    (NO LOCATION)
+  U5303/Y (AND4X1_HVT)                                        0.042                         0.106      0.347 r    (NO LOCATION)
+  n4960 (net)                    1        1.399                                             0.000      0.347 r    [1.02,1.40]
+  U5322/A2 (AND4X1_HVT)                             0.000     0.042     0.000               0.000 *    0.347 r    (NO LOCATION)
+  U5322/Y (AND4X1_HVT)                                        0.054                         0.115      0.463 r    (NO LOCATION)
+  n4962 (net)                    1        3.499                                             0.000      0.463 r    [3.04,3.50]
+  U5323/A2 (AND2X1_HVT)                             0.000     0.054     0.000               0.000 *    0.463 r    (NO LOCATION)
+  U5323/Y (AND2X1_HVT)                                        0.043                         0.085      0.548 r    (NO LOCATION)
+  n4964 (net)                    1        4.610                                             0.000      0.548 r    [4.13,4.61]
+  U5324/A2 (OA21X1_HVT)                             0.000     0.043     0.000               0.000 *    0.548 r    (NO LOCATION)
+  U5324/Y (OA21X1_HVT)                                        0.047                         0.094      0.642 r    (NO LOCATION)
+  n7690 (net)                    5        3.998                                             0.000      0.642 r    [1.36,4.00]
+  U8121/A1 (AND2X1_HVT)                             0.000     0.047     0.000               0.000 *    0.642 r    (NO LOCATION)
+  U8121/Y (AND2X1_HVT)                                        0.041                         0.074      0.716 r    (NO LOCATION)
+  n8360 (net)                    6        4.118                                             0.000      0.716 r    [1.17,4.12]
+  U8122/A1 (NAND2X0_HVT)                            0.000     0.041     0.000               0.000 *    0.716 r    (NO LOCATION)
+  U8122/Y (NAND2X0_HVT)                                       0.087                         0.074      0.790 f    (NO LOCATION)
+  n8359 (net)                    2        2.274                                             0.000      0.790 f    [1.26,2.27]
+  U6979/A (IBUFFX8_HVT)                             0.000     0.087     0.000               0.000 *    0.790 f    (NO LOCATION)
+  U6979/Y (IBUFFX8_HVT)                                       0.028                         0.078      0.869 r    (NO LOCATION)
+  n10732 (net)                  20       17.096                                             0.000      0.869 r    [7.56,17.10]
+  U9664/A1 (AND2X4_HVT)                             0.000     0.028     0.000               0.000 *    0.869 r    (NO LOCATION)
+  U9664/Y (AND2X4_HVT)                                        0.063                         0.104      0.973 r    (NO LOCATION)
+  n10241 (net)                  22       18.213                                             0.000      0.973 r    [5.93,18.21]
+  U9689/A1 (NOR2X0_HVT)                             0.000     0.063     0.000               0.000 *    0.973 r    (NO LOCATION)
+  U9689/Y (NOR2X0_HVT)                                        0.026                         0.097      1.070 f    (NO LOCATION)
+  n9220 (net)                    2        1.330                                             0.000      1.070 f    [0.09,1.33]
+  U9692/A1 (NOR2X0_HVT)                             0.000     0.026     0.000               0.000 *    1.070 f    (NO LOCATION)
+  U9692/Y (NOR2X0_HVT)                                        0.023                         0.069      1.139 r    (NO LOCATION)
+  n8628 (net)                    3        1.711                                             0.000      1.139 r    [0.46,1.71]
+  U9698/A1 (NAND2X0_HVT)                            0.000     0.023     0.000               0.000 *    1.139 r    (NO LOCATION)
+  U9698/Y (NAND2X0_HVT)                                       0.065                         0.054      1.194 f    (NO LOCATION)
+  n8461 (net)                    2        1.547                                             0.000      1.194 f    [0.54,1.55]
+  U9716/A1 (OAI21X2_HVT)                            0.000     0.065     0.000               0.000 *    1.194 f    (NO LOCATION)
+  U9716/Y (OAI21X2_HVT)                                       0.029                         0.107      1.301 r    (NO LOCATION)
+  n8462 (net)                    1        0.903                                             0.000      1.301 r    [0.42,0.90]
+  U9717/A3 (AOI21X1_HVT)                            0.000     0.029     0.000               0.000 *    1.301 r    (NO LOCATION)
+  U9717/Y (AOI21X1_HVT)                                       0.029                         0.076      1.376 f    (NO LOCATION)
+  n8507 (net)                    2        1.522                                             0.000      1.376 f    [0.67,1.52]
+  U9729/A2 (OAI21X2_HVT)                            0.000     0.029     0.000               0.000 *    1.376 f    (NO LOCATION)
+  U9729/Y (OAI21X2_HVT)                                       0.030                         0.088      1.465 r    (NO LOCATION)
+  n10229 (net)                   2        1.536                                             0.000      1.465 r    [0.58,1.54]
+  U12317/A1 (AOI21X1_HVT)                           0.000     0.030     0.000               0.000 *    1.465 r    (NO LOCATION)
+  U12317/Y (AOI21X1_HVT)                                      0.020                         0.095      1.559 f    (NO LOCATION)
+  n10230 (net)                   1        0.500                                             0.000      1.559 f    [0.11,0.50]
+  U12318/A3 (OAI21X2_HVT)                           0.000     0.020     0.000               0.000 *    1.559 f    (NO LOCATION)
+  U12318/Y (OAI21X2_HVT)                                      0.030                         0.078      1.638 r    (NO LOCATION)
+  n10239 (net)                   1        1.523                                             0.000      1.638 r    [0.19,1.52]
+  U12322/CI (FADDX1_HVT)                            0.000     0.030     0.000               0.000 *    1.638 r    (NO LOCATION)
+  U12322/CO (FADDX1_HVT)                                      0.045                         0.088      1.725 r    (NO LOCATION)
+  n10243 (net)                   1        1.224                                             0.000      1.725 r    [0.13,1.22]
+  U12324/A1 (XOR2X2_HVT)                            0.000     0.045     0.000               0.000 *    1.725 r    (NO LOCATION)
+  U12324/Y (XOR2X2_HVT)                                       0.035                         0.066      1.791 r    (NO LOCATION)
+  n10244 (net)                   1        0.804                                             0.000      1.791 r    [0.30,0.80]
+  U12325/A6 (AO222X1_HVT)                           0.000     0.035     0.000               0.000 *    1.791 r    (NO LOCATION)
+  U12325/Y (AO222X1_HVT)                                      0.053                         0.091      1.882 r    (NO LOCATION)
+  n3524 (net)                    1        0.740                                             0.000      1.882 r    [0.24,0.74]
+  reg_next_pc_reg_31_/D (DFFX2_HVT)                 0.000     0.053     0.000               0.000 *    1.882 r    (NO LOCATION)
+  data arrival time                                                                                    1.882
+
+  clock clk (rise edge)                                                                     2.000      2.000
+  clock network delay (ideal)                                                               0.000      2.000
+  reg_next_pc_reg_31_/CLK (DFFX2_HVT)                                                       0.000      2.000 r
+  library setup time                                                                       -0.075      1.925
+  data required time                                                                                   1.925
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                   1.925
+  data arrival time                                                                                   -1.882
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                          0.043
+
+
+1

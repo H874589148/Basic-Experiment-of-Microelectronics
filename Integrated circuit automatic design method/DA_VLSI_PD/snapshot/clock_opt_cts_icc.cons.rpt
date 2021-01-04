@@ -1,0 +1,39 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:35:10 2020
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   mem_addr[19]                0.097          0.097          0.000  (VIOLATED: increase significant digits)
+   timer[14]                   0.097          0.097          0.000  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      2                 -0.000  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   reg_pc[11]                  8.000          8.103         -0.103  (VIOLATED)
+   mem_addr[19]                8.000          8.043         -0.043  (VIOLATED)
+   timer[14]                   8.000          8.039         -0.039  (VIOLATED)
+   pcpi_rs1[31]               32.000         32.032         -0.032  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      4                 -0.216  
+
+1

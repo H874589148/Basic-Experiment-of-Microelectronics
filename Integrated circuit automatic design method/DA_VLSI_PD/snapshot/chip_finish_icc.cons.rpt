@@ -1,0 +1,57 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:45:50 2020
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   mem_wdata[18]               0.097          0.101         -0.003  (VIOLATED)
+       PIN :   mem_wdata_reg_18_/Q    0.097    0.101        -0.003  (VIOLATED)
+   decoded_imm_j[7]            0.097          0.099         -0.002  (VIOLATED)
+       PIN :   decoded_imm_j_reg_7_/Q    0.097    0.099     -0.002  (VIOLATED)
+   cpuregs[779]                0.097          0.098         -0.001  (VIOLATED)
+       PIN :   cpuregs_reg_11__11_/Q    0.097    0.098      -0.001  (VIOLATED)
+   instr_lui                   0.097          0.097          0.000  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      4                 -0.006  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   clk_G1B2I11 (dont_touch)  168.000        175.387         -7.387  (VIOLATED)
+   pcpi_rs1[1]                64.000         66.005         -2.005  (VIOLATED)
+   n11509                     64.000         65.094         -1.094  (VIOLATED)
+   mem_la_wdata[22]           16.000         16.796         -0.796  (VIOLATED)
+   n5147                      32.000         32.621         -0.621  (VIOLATED)
+   n10891                      8.000          8.452         -0.452  (VIOLATED)
+   mem_wdata[18]               8.000          8.363         -0.363  (VIOLATED)
+   n12560                     32.000         32.345         -0.345  (VIOLATED)
+   decoded_imm_j[7]            8.000          8.235         -0.235  (VIOLATED)
+   n10895                      8.000          8.186         -0.186  (VIOLATED)
+   n7613                       8.000          8.174         -0.174  (VIOLATED)
+   n11890                      8.000          8.145         -0.145  (VIOLATED)
+   n10251                      8.000          8.125         -0.125  (VIOLATED)
+   cpuregs[779]                8.000          8.125         -0.125  (VIOLATED)
+   n9698                       8.000          8.078         -0.078  (VIOLATED)
+   n8214                       8.000          8.057         -0.057  (VIOLATED)
+   instr_lui                   8.000          8.046         -0.046  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      17               -14.234  
+
+1

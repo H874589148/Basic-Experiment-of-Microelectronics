@@ -1,0 +1,13 @@
+                   0 a = 0000 b = 0001, c=0011, d=0111, sel=4, out=0
+                 100 a = 0000 b = 0001, c=0011, d=0111, sel=5, out=0
+                 200 a = 0010 b = 1001, c=1110, d=1111, sel=f, out=1
+                 300 a = 0100 b = 0101, c=1101, d=0111, sel=9, out=1
+                 400 a = 1000 b = 0011, c=0111, d=1000, sel=6, out=1
+                 500 a = 1111 b = 0000, c=1011, d=0001, sel=8, out=1
+$finish called from file "mux16to1_test.v", line 25.
+$finish at simulation time                  600
+Simulation complete, time is 60000 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 60000 ps
+CPU Time:      0.060 seconds;       Data structure size:   0.0Mb
+Mon Nov  2 21:46:20 2020

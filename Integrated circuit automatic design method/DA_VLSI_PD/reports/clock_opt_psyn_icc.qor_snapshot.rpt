@@ -1,0 +1,274 @@
+--- Snapshot Timing Progress ---
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+QoR Report                                        WNS     TNS     Hold     LogicDRC     RouteDRC     Cell Cnt      Area     Buf/Inv       Util     CPU/Elps(hr)    Mem(Mb)     Host
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+init_design_icc                                 0.043     0.0        0            5            0         9151     31708        1088     70.17%        0.00/0.01        254      mgt
+place_opt_icc                                   0.041     0.0        0            1            0         8982     31336         843     69.35%        0.02/0.02        322      mgt
+clock_opt_cts_icc                               0.027     0.0        0            6            0         9000     31501         861     69.71%        0.01/0.01        320      mgt
+clock_opt_psyn_icc                              0.093     0.0        0            5            0         9006     31574         866     69.87%        0.01/0.02        352      mgt
+
+
+***********************************************
+Report          : create_qor_snapshot (init_design_icc)
+Design          : picorv32
+Version         : H-2013.03-ICC-SP2
+Date            : Sun Dec 13 20:33:13 2020
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: N/A
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB17061127/DA_VLSI_PD/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                   0.043 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                  0  
+Number of max cap violations:                    5  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        31708
+Cell count:                                   9151
+Buf/inv cell count:                           1088
+Std cell utilization:                       70.17%
+CPU/ELAPSE(hr):                          0.00/0.01
+Mem(Mb):                                       254
+Host name:                                     mgt
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (place_opt_icc)
+Design          : picorv32
+Version         : H-2013.03-ICC-SP2
+Date            : Sun Dec 13 20:34:24 2020
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: N/A
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB17061127/DA_VLSI_PD/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                   0.041 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                  0  
+Number of max cap violations:                    1  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        31336
+Cell count:                                   8982
+Buf/inv cell count:                            843
+Std cell utilization:                       69.35%
+CPU/ELAPSE(hr):                          0.02/0.02
+Mem(Mb):                                       322
+Host name:                                     mgt
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (clock_opt_cts_icc)
+Design          : picorv32
+Version         : H-2013.03-ICC-SP2
+Date            : Sun Dec 13 20:35:11 2020
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: N/A
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB17061127/DA_VLSI_PD/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                   0.027 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                  2  
+Number of max cap violations:                    4  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        31501
+Cell count:                                   9000
+Buf/inv cell count:                            861
+Std cell utilization:                       69.71%
+CPU/ELAPSE(hr):                          0.01/0.01
+Mem(Mb):                                       320
+Host name:                                     mgt
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk                  0.008/0.070      18      2.0000 
+--------------------------------------------------
+Worst Skew                 0.008 
+Worst Delay                0.070 
+Max Transitions                0 
+Max Caps                       0 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+
+
+***********************************************
+Report          : create_qor_snapshot (clock_opt_psyn_icc)
+Design          : picorv32
+Version         : H-2013.03-ICC-SP2
+Date            : Sun Dec 13 20:36:14 2020
+Time unit       : 1.0e-09 Second(ns)
+Capacitance unit: N/A
+Voltage unit    : 1 Volt
+Power unit      : N/A
+Location        : /bks2/PB17061127/DA_VLSI_PD/snapshot
+***********************************************
+No. of scenario = 1
+--------------------------------------------------
+WNS of each timing group:                
+--------------------------------------------------
+--------------------------------------------------
+Setup WNS:                                   0.093 
+Setup TNS:                                     0.0
+Number of setup violations:                      0  
+Hold WNS:                                    0.000  
+Hold TNS:                                    0.000  
+Number of hold violations:                       0  
+Number of max trans violations:                  0  
+Number of max cap violations:                    5  
+Number of min pulse width violations:            0  
+Route drc violations:                            0
+--------------------------------------------------
+Area:                                        31574
+Cell count:                                   9006
+Buf/inv cell count:                            866
+Std cell utilization:                       69.87%
+CPU/ELAPSE(hr):                          0.01/0.02
+Mem(Mb):                                       352
+Host name:                                     mgt
+--------------------------------------------------
+Histogram:           
+--------------------------------------------------
+Max violations:         0 
+   above ~ -0.7  ---    0 
+    -0.6 ~ -0.7  ---    0 
+    -0.5 ~ -0.6  ---    0 
+    -0.4 ~ -0.5  ---    0 
+    -0.3 ~ -0.4  ---    0 
+    -0.2 ~ -0.3  ---    0 
+    -0.1 ~ -0.2  ---    0 
+       0 ~ -0.1  ---    0 
+--------------------------------------------------
+Min violations:         0 
+  -0.06 ~ above  ---    0 
+  -0.05 ~ -0.06  ---    0 
+  -0.04 ~ -0.05  ---    0 
+  -0.03 ~ -0.04  ---    0 
+  -0.02 ~ -0.03  ---    0 
+  -0.01 ~ -0.02  ---    0 
+      0 ~ -0.01  ---    0 
+--------------------------------------------------
+Global Skew Report:                  CT Buf    Period 
+--------------------------------------------------
+clk                  0.010/0.072      18      2.0000 
+--------------------------------------------------
+Worst Skew                 0.010 
+Worst Delay                0.072 
+Max Transitions                0 
+Max Caps                       1 
+Max Fanouts                    0 
+--------------------------------------------------
+
+
+
+Snapshot report (index) is created and can be viewed using file "/bks2/PB17061127/DA_VLSI_PD/snapshot/index.html"
+1

@@ -1,0 +1,382 @@
+ 
+****************************************
+Report : design
+        -physical
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:36:51 2020
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Sun Dec 13 20:36:51 2020
+Machine Host Name: mgt
+Working Directory: /bks2/PB17061127/DA_VLSI_PD
+Library Name:      picorv32_LIB
+Cell Name:         clock_opt_route_icc.CEL;1
+Design Statistics:
+    Number of Module Cells:        9006
+    Number of Pins:                53009
+    Number of IO Pins:             409
+    Number of Nets:                9475
+    Average Pins Per Net (Signal): 3.37318
+
+Chip Utilization:
+    Total Std Cell Area:           31573.58
+    Core Size:     width 212.80, height 212.34; area 45186.80
+    Chip Size:     width 272.80, height 272.34; area 74295.44
+    Std cells utilization:         69.87% 
+    Cell/Core Ratio:               69.87%
+    Cell/Chip Ratio:               42.50%
+    Number of Cell Rows:            127
+
+Master Instantiation:
+	MasterName	Type	InstCount
+	=================================
+	DFFX1_HVT	STD	1722
+	AO22X1_HVT	STD	1430
+	MUX21X1_HVT	STD	1252
+	NAND2X0_HVT	STD	688
+	INVX0_HVT	STD	354
+	NOR4X1_HVT	STD	317
+	AND2X1_HVT	STD	311
+	NOR2X0_HVT	STD	289
+	XOR2X1_HVT	STD	193
+	OA22X1_HVT	STD	186
+	NBUFFX4_HVT	STD	142
+	NAND4X0_HVT	STD	141
+	OR2X1_HVT	STD	140
+	XNOR2X1_HVT	STD	136
+	NAND3X0_HVT	STD	129
+	AO222X1_HVT	STD	128
+	NBUFFX8_HVT	STD	113
+	DFFX2_HVT	STD	108
+	NBUFFX2_HVT	STD	107
+	OAI21X1_HVT	STD	99
+	OA21X1_HVT	STD	90
+	AOI22X1_HVT	STD	89
+	AO21X1_HVT	STD	86
+	AND2X4_HVT	STD	86
+	AOI21X1_HVT	STD	81
+	OR3X1_HVT	STD	64
+	LATCHX1_HVT	STD	62
+	AND2X2_HVT	STD	51
+	INVX4_HVT	STD	42
+	AND3X1_HVT	STD	29
+	OR2X2_HVT	STD	28
+	NBUFFX32_HVT	STD	23
+	AND4X1_HVT	STD	22
+	INVX2_HVT	STD	22
+	HADDX1_HVT	STD	22
+	FADDX1_HVT	STD	19
+	INVX8_HVT	STD	18
+	NBUFFX16_HVT	STD	17
+	OR3X2_HVT	STD	12
+	AO22X2_HVT	STD	11
+	INVX32_LVT	STD	11
+	AND3X4_HVT	STD	11
+	NAND3X4_HVT	STD	10
+	MUX21X2_HVT	STD	8
+	OA221X1_HVT	STD	8
+	NOR2X4_HVT	STD	7
+	INVX16_HVT	STD	7
+	NAND2X2_HVT	STD	6
+	INVX32_RVT	STD	6
+	LATCHX2_HVT	STD	6
+	AO222X2_HVT	STD	5
+	AND4X4_HVT	STD	5
+	NAND3X2_HVT	STD	5
+	AND3X2_HVT	STD	4
+	OAI22X1_HVT	STD	4
+	OR2X4_HVT	STD	4
+	NAND2X4_HVT	STD	4
+	XOR2X2_HVT	STD	4
+	AO221X1_HVT	STD	4
+	NOR3X0_HVT	STD	3
+	NOR2X2_HVT	STD	3
+	AND4X2_HVT	STD	3
+	AO21X2_HVT	STD	2
+	OR4X1_HVT	STD	2
+	OA22X2_HVT	STD	2
+	XNOR2X2_HVT	STD	2
+	NOR3X2_HVT	STD	1
+	AOI22X2_HVT	STD	1
+	OAI21X2_HVT	STD	1
+	IBUFFX16_HVT	STD	1
+	MUX21X1_RVT	STD	1
+	NBUFFX2_LVT	STD	1
+	INVX32_HVT	STD	1
+	OAI22X2_HVT	STD	1
+	OR3X4_HVT	STD	1
+	FADDX2_HVT	STD	1
+	IBUFFX2_HVT	STD	1
+	=================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+    layer M1, dir Hor, min width = 0.05, min space = 0.05 pitch = 0.13
+    layer M2, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M3, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M4, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M5, dir Hor, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M6, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M7, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M8, dir Ver, min width = 0.06, min space = 0.06 pitch = 0.16
+    layer M9, dir Hor, min width = 0.16, min space = 0.16 pitch = 1.74
+    layer MRDL, dir Ver, min width = 2.00, min space = 2.00 pitch = 4.50
+     
+    Average gCell capacity  6.38	 on layer (1)	 M1
+    Average gCell capacity  10.19	 on layer (2)	 M2
+    Average gCell capacity  10.20	 on layer (3)	 M3
+    Average gCell capacity  10.20	 on layer (4)	 M4
+    Average gCell capacity  10.17	 on layer (5)	 M5
+    Average gCell capacity  10.20	 on layer (6)	 M6
+    Average gCell capacity  10.20	 on layer (7)	 M7
+    Average gCell capacity  10.20	 on layer (8)	 M8
+    Average gCell capacity  0.95	 on layer (9)	 M9
+    Average gCell capacity  0.00	 on layer (10)	 MRDL
+     
+    Initial. Both Dirs: Overflow =    14 Max = 1 GRCs =    23 (0.04%)
+    Initial. H routing: Overflow =    14 Max = 1 (GRCs =  6) GRCs =    23 (0.09%)
+    Initial. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    phase1. Both Dirs: Overflow =    15 Max = 1 GRCs =    25 (0.05%)
+    phase1. H routing: Overflow =    15 Max = 1 (GRCs =  6) GRCs =    25 (0.09%)
+    phase1. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    phase2. Both Dirs: Overflow =    15 Max = 1 GRCs =    24 (0.04%)
+    phase2. H routing: Overflow =    15 Max = 1 (GRCs =  6) GRCs =    24 (0.09%)
+    phase2. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+     
+    Total Wire Length = 10855.15
+    Layer M1 wire length = 1789.38
+    Layer M2 wire length = 63.10
+    Layer M3 wire length = 4155.95
+    Layer M4 wire length = 3696.71
+    Layer M5 wire length = 464.55
+    Layer M6 wire length = 0.00
+    Layer M7 wire length = 0.00
+    Layer M8 wire length = 441.34
+    Layer M9 wire length = 244.11
+    Layer MRDL wire length = 0.00
+    Total Number of Contacts = 5821
+    Via VIA12SQ_C count = 1871
+    Via VIA23SQ count = 1851
+    Via VIA34SQ count = 1770
+    Via VIA45SQ_C count = 258
+    Via VIA56SQ_C count = 16
+    Via VIA67SQ count = 16
+    Via VIA78SQ count = 16
+    Via VIA89_C count = 23
+    Via VIA9RDL count = 0
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB):  688
+
+Track Assignment Information:
+    Number of wires with overlap after iteration 0 = 1739 of 7595
+
+    Number of wires with overlap after iteration 1 = 378 of 4828
+
+    Total M1 wire length: 52.2
+    Total M2 wire length: 283.7
+    Total M3 wire length: 4252.1
+    Total M4 wire length: 3621.3
+    Total M5 wire length: 442.5
+    Total M6 wire length: 0.0
+    Total M7 wire length: 0.0
+    Total M8 wire length: 439.6
+    Total M9 wire length: 230.6
+    Total MRDL wire length: 0.0
+    Total wire length: 9322.0
+
+    Elapsed real time: 0:00:01
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:01 total = 0:00:01
+    Total Proc Memory(MB):  717
+
+Detailed Routing Information:
+    
+
+    ---------- Detail route ----------
+
+     
+    Iteration 0: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+     
+    Iteration 1: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+     
+    Iteration 2: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+     
+    Iteration 3: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+     
+    Iteration 4: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	2
+     
+    Iteration 5: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	1
+     
+    Iteration 6: DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+     
+    Elapsed real time: 0:00:06
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:06 total = 0:00:06
+    Total Proc Memory(MB):  744
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:06 CPU = 0:00:06
+     
+    DR finished with 0 open nets, of which 0 are frozen
+    DR finished with 0 violations
+     
+    DRC-SUMMARY:
+    	@@@@@@@ TOTAL VIOLATIONS =	0
+    Total number of nets = 9475
+    0 open nets, of which 0 are frozen
+    Total number of excluded ports = 0 ports of 0 unplaced cells connected to 0 nets
+                                     0 ports without pins of 0 cells connected to 0 nets
+                                     0 ports of 0 cover cells connected to 0 non-pg nets
+    Total number of DRCs = 0
+    Total number of antenna violations = antenna checking not active
+    Total number of voltage-area violations = no voltage-areas defined
+    
+
+     
+    Elapsed real time: 0:00:00
+    Elapsed cpu time: sys = 0:00:00 usr = 0:00:00 total = 0:00:00
+    Total Proc Memory(MB):  744
+     
+    Cumulative run time upto current stage: Elapsed = 0:00:06 CPU = 0:00:06
+     
+    Total Wire Length =                    9618 micron
+    Total Number of Contacts =             5929
+    Total Number of Wires =                4274
+    Total Number of PtConns =              2142
+    Total Number of Routable Wires =       4274
+    Total Routable Wire Length =           9258 micron
+    	Layer             M1 :         13 micron
+    	Layer             M2 :        602 micron
+    	Layer             M3 :       4263 micron
+    	Layer             M4 :       3600 micron
+    	Layer             M5 :        501 micron
+    	Layer             M6 :          3 micron
+    	Layer             M7 :         27 micron
+    	Layer             M8 :        440 micron
+    	Layer             M9 :        169 micron
+    	Layer           MRDL :          0 micron
+    	Via     VIA89_C(rot) :          1
+    	Via            VIA89 :          2
+    	Via       VIA89(rot) :         10
+    	Via     VIA78SQ(rot) :          3
+    	Via   VIA78BAR1(rot) :         23
+    	Via     VIA67SQ(rot) :          3
+    	Via   VIA67BAR1(rot) :         13
+    	Via        VIA56SQ_C :         16
+    	Via        VIA45SQ_C :         42
+    	Via   VIA45SQ_C(rot) :        225
+    	Via        VIA34LG_C :        315
+    	Via     VIA34SQ(rot) :       1516
+    	Via   VIA34BAR1(rot) :          9
+    	Via        VIA23SQ_C :          7
+    	Via     VIA23SQ(rot) :       1863
+    	Via   VIA23BAR1(rot) :          7
+    	Via        VIA12SQ_C :       1540
+    	Via   VIA12SQ_C(rot) :        323
+    	Via      VIA12BAR2_C :          1
+    	Via     VIA12SQ(rot) :         10
+     
+    Redundant via conversion report:
+    --------------------------------
+
+      Total optimized via conversion rate =  0.00% (0 / 5929 vias)
+     
+        Layer VIA1       =  0.00% (0      / 1874    vias)
+            Un-optimized = 100.00% (1874    vias)
+        Layer VIA2       =  0.00% (0      / 1877    vias)
+            Un-optimized = 100.00% (1877    vias)
+        Layer VIA3       =  0.00% (0      / 1840    vias)
+            Un-optimized = 100.00% (1840    vias)
+        Layer VIA4       =  0.00% (0      / 267     vias)
+            Un-optimized = 100.00% (267     vias)
+        Layer VIA5       =  0.00% (0      / 16      vias)
+            Un-optimized = 100.00% (16      vias)
+        Layer VIA6       =  0.00% (0      / 16      vias)
+            Un-optimized = 100.00% (16      vias)
+        Layer VIA7       =  0.00% (0      / 26      vias)
+            Un-optimized = 100.00% (26      vias)
+        Layer VIA8       =  0.00% (0      / 13      vias)
+            Un-optimized = 100.00% (13      vias)
+     
+      Total double via conversion rate    =  0.00% (0 / 5929 vias)
+     
+        Layer VIA1       =  0.00% (0      / 1874    vias)
+        Layer VIA2       =  0.00% (0      / 1877    vias)
+        Layer VIA3       =  0.00% (0      / 1840    vias)
+        Layer VIA4       =  0.00% (0      / 267     vias)
+        Layer VIA5       =  0.00% (0      / 16      vias)
+        Layer VIA6       =  0.00% (0      / 16      vias)
+        Layer VIA7       =  0.00% (0      / 26      vias)
+        Layer VIA8       =  0.00% (0      / 13      vias)
+     
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+
+Stripe Wiring Statistics:
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+
+Signal Wiring Statistics:
+    metal1 Wire Length(count):                 14.03(80)
+    metal2 Wire Length(count):                602.43(1955)
+    metal3 Wire Length(count):               4273.40(2787)
+    metal4 Wire Length(count):               3600.69(1428)
+    metal5 Wire Length(count):                501.06(201)
+    metal6 Wire Length(count):                  2.59(16)
+    metal7 Wire Length(count):                 26.82(22)
+    metal8 Wire Length(count):                439.92(20)
+    metal9 Wire Length(count):                169.43(9)
+  ==============================================
+    Total Wire Length(count):                9630.39(6518)
+
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+        via1       VIA12SQ_C(1)              1863	       99.4
+        via1     VIA12BAR2_C(3)                 1	     0.0534
+        via1         VIA12SQ(5)                10	      0.534
+        via2       VIA23SQ_C(9)                 7	      0.373
+        via2         VIA23SQ(13)              1863	       99.3
+        via2       VIA23BAR1(14)                 7	      0.373
+        via3       VIA34LG_C(20)               315	       17.1
+        via3         VIA34SQ(21)              1516	       82.4
+        via3       VIA34BAR1(22)                 9	      0.489
+        via4       VIA45SQ_C(25)               267	        100
+        via5       VIA56SQ_C(33)                16	        100
+        via6         VIA67SQ(45)                 3	       18.8
+        via6       VIA67BAR1(46)                13	       81.2
+        via7         VIA78SQ(53)                 3	       11.5
+        via7       VIA78BAR1(54)                23	       88.5
+        via8         VIA89_C(57)                 1	       7.69
+        via8           VIA89(58)                12	       92.3
+  ==============================================
+    Total Number of Contacts:     5929
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+    metal1            13.89 ( 0.37%)             0.14 ( 0.00%)
+    metal2           161.68 ( 4.30%)           440.75 ( 7.51%)
+    metal3          2853.14 (75.87%)          1420.26 (24.20%)
+    metal4            38.65 ( 1.03%)          3562.05 (60.68%)
+    metal5           499.58 (13.29%)             1.48 ( 0.03%)
+    metal6             0.00 ( 0.00%)             2.59 ( 0.04%)
+    metal7            24.55 ( 0.65%)             2.27 ( 0.04%)
+    metal8             1.15 ( 0.03%)           438.77 ( 7.47%)
+    metal9           167.69 ( 4.46%)             1.74 ( 0.03%)
+  ==============================================================
+    Total           3760.33                   5870.05
+1

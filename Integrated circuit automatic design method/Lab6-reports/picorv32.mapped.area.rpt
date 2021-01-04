@@ -1,0 +1,42 @@
+ 
+****************************************
+Report : area
+Design : picorv32
+Version: L-2016.03-SP5
+Date   : Fri Jan  1 22:37:08 2021
+****************************************
+
+Library(s) Used:
+
+    saed32hvt_tt1p05v125c (File: /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db)
+
+Number of ports:                          409
+Number of nets:                          9206
+Number of cells:                         9097
+Number of combinational cells:           7198
+Number of sequential cells:              1899
+Number of macros/black boxes:               0
+Number of buf/inv:                       1033
+Number of references:                      61
+
+Combinational area:              18442.467801
+Buf/Inv area:                     1758.930639
+Noncombinational area:           12770.736337
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 31213.204139
+Total area:                 undefined
+
+Core Area:                     52156
+Aspect Ratio:                 1.0060
+Utilization Ratio:            0.5984
+
+
+The above information was reported from the logical library. The following are from the physical library:
+
+  Total moveable cell area: 31213.2
+  Total fixed cell area: 0.0
+  Total physical cell area: 31213.2
+ Core area: 0.000, 0.000, 227.696, 229.064
+1

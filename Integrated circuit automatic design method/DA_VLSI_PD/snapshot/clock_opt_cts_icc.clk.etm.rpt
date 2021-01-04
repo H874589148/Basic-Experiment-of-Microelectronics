@@ -1,0 +1,12 @@
+ 
+****************************************
+Report : clock tree
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:35:11 2020
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+Detecting skew issue inside block/ETM for clock clk started at root clk, skew threshold is 0.000 ...
+1

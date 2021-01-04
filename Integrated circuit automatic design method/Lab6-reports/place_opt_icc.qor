@@ -1,0 +1,95 @@
+ 
+****************************************
+Report : qor
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Fri Jan  1 22:51:17 2021
+****************************************
+
+
+  Timing Path Group 'clk'
+  -----------------------------------
+  Levels of Logic:              18.00
+  Critical Path Length:          1.90
+  Critical Path Slack:           0.03
+  Critical Path Clk Period:      2.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:               9019
+  Buf/Inv Cell Count:             935
+  CT Buf/Inv Cell Count:            0
+  Combinational Cell Count:      7121
+  Sequential Cell Count:         1898
+  Macro Count:                      0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:    18728.888101
+  Noncombinational Area: 12519.642111
+  Buf/Inv Area:           2010.787351
+  Macro/Black Box Area:      0.000000
+  Net Area:               9573.436599
+  Net XLength        :      106610.62
+  Net YLength        :      139019.36
+  -----------------------------------
+  Cell Area:             31248.530213
+  Design Area:           40821.966812
+  Net Length        :       245629.98
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:          9533
+  Nets With Violations:             1
+  Max Trans Violations:             0
+  Max Cap Violations:               1
+  -----------------------------------
+
+
+  Hostname: mgt
+
+  Compile CPU Statistics
+  -----------------------------------------
+  Resource Sharing:                    4.70
+  Logic Optimization:                 21.12
+  Mapping Optimization:               33.01
+  -----------------------------------------
+  Overall Compile Time:              116.31
+  Overall Compile Wall Clock Time:   121.79
+
+  --------------------------------------------------------------------
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+
+  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  --------------------------------------------------------------------
+
+
+1
+
+  Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+
+  Nets with DRC Violations: 1
+  Total moveable cell area: 31247.0
+  Total fixed cell area: 0.0
+  Total physical cell area: 31247.0
+  Core area: (30000 30000 241128 240672)
+
+
+  No hold constraints
+
+1

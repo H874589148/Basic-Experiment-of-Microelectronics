@@ -1,0 +1,1466 @@
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+               Version L-2016.03-SP5 for linux64 - Oct 14, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+source -echo -verbose ./rm_setup/dc_setup.tcl
+source -echo -verbose ./rm_setup/common_setup.tcl
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/common_setup.tcl
+
+##########################################################################################
+# Variables common to all reference methodology scripts
+# Script: common_setup.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+##########################################################################################
+set DESIGN_NAME                   "mips_processor"  ;#  The name of the top-level design
+mips_processor
+set DESIGN_REF_DATA_PATH          "~/DA_VLSI_Lab5"  ;#  Absolute path prefix variable for library/design data.
+~/DA_VLSI_Lab5
+#  Use this variable to prefix the common absolute path  
+#  to the common variables defined below.
+#  Absolute paths are mandatory for hierarchical 
+#  reference methodology flow.
+set DESIGN_INSTANCE					"mips_processor_test.mips_processor_1"	;#  The Design Instance Name for read_saif
+mips_processor_test.mips_processor_1
+##########################################################################################
+# Hierarchical Flow Design Variables
+##########################################################################################
+set HIERARCHICAL_DESIGNS           "" ;# List of hierarchical block design names "DesignA DesignB" ...
+set HIERARCHICAL_CELLS             "" ;# List of hierarchical block cell instance names "u_DesignA u_DesignB" ...
+##########################################################################################
+# Library Setup Variables
+##########################################################################################
+# For the following variables, use a blank space to separate multiple entries.
+# Example: set TARGET_LIBRARY_FILES "lib1.db lib2.db lib3.db"
+set DESIGN_REF_PATH		  "/js1/songch/SAED32_EDK/lib"
+/js1/songch/SAED32_EDK/lib
+set DESIGN_REF_NLDMA_PATH          "${DESIGN_REF_PATH}/stdcell_rvt"
+/js1/songch/SAED32_EDK/lib/stdcell_rvt
+set DESIGN_REF_NLDMB_PATH          "${DESIGN_REF_PATH}/stdcell_lvt"
+/js1/songch/SAED32_EDK/lib/stdcell_lvt
+set DESIGN_REF_NLDMC_PATH          "${DESIGN_REF_PATH}/stdcell_hvt"
+/js1/songch/SAED32_EDK/lib/stdcell_hvt
+set DESIGN_REF_RAMSA_PATH          "${DESIGN_REF_PATH}/sram"
+/js1/songch/SAED32_EDK/lib/sram
+set DESIGN_REF_RAMSB_PATH          "${DESIGN_REF_PATH}/sram_lp"
+/js1/songch/SAED32_EDK/lib/sram_lp
+set DESIGN_REF_PLL_PATH           "${DESIGN_REF_PATH}/pll"
+/js1/songch/SAED32_EDK/lib/pll
+set DESIGN_REF_PADSA_PATH          "${DESIGN_REF_PATH}/io_std"
+/js1/songch/SAED32_EDK/lib/io_std
+set DESIGN_REF_PADSB_PATH          "${DESIGN_REF_PATH}/io_sp"
+/js1/songch/SAED32_EDK/lib/io_sp
+set DESIGN_REF_TECH_PATH          "/js1/songch/SAED32_EDK/references/orca/dc/models"
+/js1/songch/SAED32_EDK/references/orca/dc/models
+#set ADDITIONAL_SEARCH_PATH        ""  ;#  Additional search path to be added to the default search path
+set ADDITIONAL_SEARCH_PATH      "         ${DESIGN_REF_NLDMA_PATH}/db_nldm         ${DESIGN_REF_NLDMB_PATH}/db_nldm         ${DESIGN_REF_NLDMC_PATH}/db_nldm         ${DESIGN_REF_RAMSA_PATH}/db_nldm         ${DESIGN_REF_RAMSB_PATH}/db_nldm 	${DESIGN_REF_PLL_PATH}/db_nldm 	${DESIGN_REF_PADSA_PATH}/db_nldm 	${DESIGN_REF_PADSB_PATH}/db_nldm 	${DESIGN_REF_DATA_PATH}/results 	${DESIGN_REF_TECH_PATH}         ${DESIGN_REF_DATA_PATH}/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models 	"
+         /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm         /js1/songch/SAED32_EDK/lib/sram/db_nldm         /js1/songch/SAED32_EDK/lib/sram_lp/db_nldm 	/js1/songch/SAED32_EDK/lib/pll/db_nldm 	/js1/songch/SAED32_EDK/lib/io_std/db_nldm 	/js1/songch/SAED32_EDK/lib/io_sp/db_nldm 	~/DA_VLSI_Lab5/results 	/js1/songch/SAED32_EDK/references/orca/dc/models         ~/DA_VLSI_Lab5/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models 	
+set TARGET_LIBRARY_FILES          "saed32rvt_tt1p05v125c.db"  ;#  Target technology logical libraries
+saed32rvt_tt1p05v125c.db
+set ADDITIONAL_LINK_LIB_FILES     ""  ;#  Extra link logical libraries not included in TARGET_LIBRARY_FILES
+set MIN_LIBRARY_FILES             ""  ;#  List of max min library pairs "max1 min1 max2 min2 max3 min3"...
+#set MW_REFERENCE_LIB_DIRS         ""  ;#  Milkyway reference libraries (include IC Compiler ILMs here)
+set MW_REFERENCE_LIB_DIRS  " 	${DESIGN_REF_NLDMA_PATH}/milkyway/saed32nm_rvt_1p9m 	${DESIGN_REF_NLDMB_PATH}/milkyway/saed32nm_lvt_1p9m 	${DESIGN_REF_NLDMC_PATH}/milkyway/saed32nm_hvt_1p9m 	"
+ 	/js1/songch/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m 	
+set MW_REFERENCE_CONTROL_FILE     ""  ;#  Reference Control file to define the Milkyway reference libs
+#set TECH_FILE                     ""  ;#  Milkyway technology file
+#set MAP_FILE                      ""  ;#  Mapping file for TLUplus
+#set TLUPLUS_MAX_FILE              ""  ;#  Max TLUplus file
+#set TLUPLUS_MIN_FILE              ""  ;#  Min TLUplus file
+set TECH_FILE        "/js1/songch/SAED32_EDK/references/orca/icc/ref/tech/saed32nm_1p9m_mw.tf"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tech/saed32nm_1p9m_mw.tf
+set MAP_FILE         "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map
+set TLUPLUS_MAX_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus
+set TLUPLUS_MIN_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus"
+/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus
+set MW_POWER_NET                "VDD" ;#
+VDD
+set MW_POWER_PORT               "VDD" ;#
+VDD
+set MW_GROUND_NET               "VSS" ;#
+VSS
+set MW_GROUND_PORT              "VSS" ;#
+VSS
+set MIN_ROUTING_LAYER            "M1"   ;# Min routing layer
+M1
+set MAX_ROUTING_LAYER            "M8"   ;# Max routing layer
+M8
+set LIBRARY_DONT_USE_FILE        ""   ;# Tcl file with library modifications for dont_use
+##########################################################################################
+# Multivoltage Common Variables
+#
+# Define the following multivoltage common variables for the reference methodology scripts 
+# for multivoltage flows. 
+# Use as few or as many of the following definitions as needed by your design.
+##########################################################################################
+set PD1                          ""           ;# Name of power domain/voltage area  1
+set VA1_COORDINATES              {}           ;# Coordinates for voltage area 1
+set MW_POWER_NET1                "VDD1"       ;# Power net for voltage area 1
+VDD1
+set PD2                          ""           ;# Name of power domain/voltage area  2
+set VA2_COORDINATES              {}           ;# Coordinates for voltage area 2
+set MW_POWER_NET2                "VDD2"       ;# Power net for voltage area 2
+VDD2
+set PD3                          ""           ;# Name of power domain/voltage area  3
+set VA3_COORDINATES              {}           ;# Coordinates for voltage area 3
+set MW_POWER_NET3                "VDD3"       ;# Power net for voltage area 3
+VDD3
+set PD4                          ""           ;# Name of power domain/voltage area  4
+set VA4_COORDINATES              {}           ;# Coordinates for voltage area 4
+set MW_POWER_NET4                "VDD4"       ;# Power net for voltage area 4
+VDD4
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/common_setup.tcl
+
+source -echo -verbose ./rm_setup/dc_setup_filenames.tcl
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/dc_setup_filenames.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Filenames Setup
+# Script: dc_setup_filenames.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2010-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Use this file to customize the filenames used in the Design Compiler
+# Reference Methodology scripts.  This file is designed to be sourced at the
+# beginning of the dc_setup.tcl file after sourcing the common_setup.tcl file.
+#
+# Note that the variables presented in this file depend on the type of flow
+# selected when generating the reference methodology files.
+#
+# Example.
+#    If you set DFT flow as FALSE, you will not see DFT related filename
+#    variables in this file.
+#
+# When reusing this file for different flows or newer release, ensure that
+# all the required filename variables are defined.  One way to do this is
+# to source the default dc_setup_filenames.tcl file and then override the
+# default settings as needed for your design.
+#
+# The default values are backwards compatible with older
+# Design Compiler Reference Methodology releases.
+#
+# Note: Care should be taken when modifying the names of output files
+#       that are used in other scripts or tools.
+#################################################################################
+#################################################################################
+# General Flow Files
+#################################################################################
+##########################
+# Milkyway Library Names #
+##########################
+set DCRM_MW_LIBRARY_NAME                                ${DESIGN_NAME}_LIB
+mips_processor_LIB
+set DCRM_FINAL_MW_CEL_NAME                              ${DESIGN_NAME}_DCT
+mips_processor_DCT
+###############
+# Input Files #
+###############
+set DCRM_SDC_INPUT_FILE                                 ${DESIGN_NAME}.sdc
+mips_processor.sdc
+set DCRM_CONSTRAINTS_INPUT_FILE                         ${DESIGN_NAME}.constraints.tcl
+mips_processor.constraints.tcl
+###########
+# Reports #
+###########
+set DCRM_CHECK_LIBRARY_REPORT                           ${DESIGN_NAME}.check_library.rpt
+mips_processor.check_library.rpt
+set DCRM_CONSISTENCY_CHECK_ENV_FILE                     ${DESIGN_NAME}.compile_ultra.env
+mips_processor.compile_ultra.env
+set DCRM_CHECK_DESIGN_REPORT                            ${DESIGN_NAME}.check_design.rpt
+mips_processor.check_design.rpt
+set DCRM_FINAL_QOR_REPORT                               ${DESIGN_NAME}.mapped.qor.rpt
+mips_processor.mapped.qor.rpt
+set DCRM_FINAL_TIMING_REPORT                            ${DESIGN_NAME}.mapped.timing.rpt
+mips_processor.mapped.timing.rpt
+set DCRM_FINAL_AREA_REPORT                              ${DESIGN_NAME}.mapped.area.rpt
+mips_processor.mapped.area.rpt
+set DCRM_FINAL_POWER_REPORT                             ${DESIGN_NAME}.mapped.power.rpt
+mips_processor.mapped.power.rpt
+set DCRM_FINAL_CLOCK_GATING_REPORT                      ${DESIGN_NAME}.mapped.clock_gating.rpt
+mips_processor.mapped.clock_gating.rpt
+set DCRM_FINAL_SELF_GATING_REPORT                       ${DESIGN_NAME}.mapped.self_gating.rpt
+mips_processor.mapped.self_gating.rpt
+################
+# Output Files #
+################
+set DCRM_AUTOREAD_RTL_SCRIPT                            ${DESIGN_NAME}.autoread_rtl.tcl
+mips_processor.autoread_rtl.tcl
+set DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE              ${DESIGN_NAME}.elab.ddc
+mips_processor.elab.ddc
+set DCRM_COMPILE_ULTRA_DDC_OUTPUT_FILE                  ${DESIGN_NAME}.compile_ultra.ddc
+mips_processor.compile_ultra.ddc
+set DCRM_FINAL_DDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.ddc
+mips_processor.mapped.ddc
+set DCRM_FINAL_VERILOG_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.v
+mips_processor.mapped.v
+set DCRM_FINAL_SDC_OUTPUT_FILE                          ${DESIGN_NAME}.mapped.sdc
+mips_processor.mapped.sdc
+#################################################################################
+# DCT Flow Files
+#################################################################################
+###################
+# DCT Input Files #
+###################
+set DCRM_DCT_DEF_INPUT_FILE                             ${DESIGN_NAME}.def
+mips_processor.def
+set DCRM_DCT_FLOORPLAN_INPUT_FILE                       ${DESIGN_NAME}.fp
+mips_processor.fp
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE            ${DESIGN_NAME}.physical_constraints.tcl
+mips_processor.physical_constraints.tcl
+###############
+# DCT Reports #
+###############
+set DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT                ${DESIGN_NAME}.physical_constraints.rpt
+mips_processor.physical_constraints.rpt
+set DCRM_DCT_FINAL_CONGESTION_REPORT                    ${DESIGN_NAME}.mapped.congestion.rpt
+mips_processor.mapped.congestion.rpt
+set DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE           ${DESIGN_NAME}.mapped.congestion_map.png
+mips_processor.mapped.congestion_map.png
+set DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE    ${DESIGN_NAME}.mapped.congestion_map_window.png
+mips_processor.mapped.congestion_map_window.png
+####################
+# DCT Output Files #
+####################
+set DCRM_DCT_FLOORPLAN_OUTPUT_FILE                      ${DESIGN_NAME}.initial.fp
+mips_processor.initial.fp
+set DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE                ${DESIGN_NAME}.mapped.fp
+mips_processor.mapped.fp
+set DCRM_DCT_FINAL_SPEF_OUTPUT_FILE                     ${DESIGN_NAME}.mapped.spef
+mips_processor.mapped.spef
+set DCRM_DCT_FINAL_SDF_OUTPUT_FILE                      ${DESIGN_NAME}.mapped.sdf
+mips_processor.mapped.sdf
+#################################################################################
+# Formality Flow Files
+#################################################################################
+set DCRM_SVF_OUTPUT_FILE                                ${DESIGN_NAME}.mapped.svf
+mips_processor.mapped.svf
+set FMRM_UNMATCHED_POINTS_REPORT                        ${DESIGN_NAME}.fmv_unmatched_points.rpt
+mips_processor.fmv_unmatched_points.rpt
+set FMRM_FAILING_SESSION_NAME                           ${DESIGN_NAME}
+mips_processor
+set FMRM_FAILING_POINTS_REPORT                          ${DESIGN_NAME}.fmv_failing_points.rpt
+mips_processor.fmv_failing_points.rpt
+set FMRM_ABORTED_POINTS_REPORT                          ${DESIGN_NAME}.fmv_aborted_points.rpt
+mips_processor.fmv_aborted_points.rpt
+set FMRM_ANALYZE_POINTS_REPORT                          ${DESIGN_NAME}.fmv_analyze_points.rpt
+mips_processor.fmv_analyze_points.rpt
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/dc_setup_filenames.tcl
+
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/dc_setup.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Setup for Top-Down Flow
+# Script: dc_setup.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Setup Variables
+#
+# Modify settings in this section to customize your Design Compiler Reference 
+# Methodology run.
+# Portions of dc_setup.tcl may be used by other tools so program name checks
+# are performed where necessary.
+#################################################################################
+# The following setting removes new variable info messages from the end of the log file
+set_app_var sh_new_variable_message false
+false
+if {$synopsys_program_name == "dc_shell"}  {
+
+  #################################################################################
+  # Design Compiler Specific Setup Variables
+  #################################################################################
+
+  # Use the set_host_options command to enable multicore optimization to improve runtime.
+  # This feature has special usage and license requirements.  Refer to the 
+  # "Support for Multicore Technology" section in the Design Compiler User Guide
+  # for multicore usage guidelines.
+  # Note: This is a DC Ultra feature and is not supported in DC Expert.
+
+  # set_host_options -max_cores 4
+
+  # Change alib_library_analysis_path to point to a central cache of analyzed libraries
+  # to save runtime and disk space.  The following setting only reflects the
+  # default value and should be changed to a central location for best results.
+
+  set_app_var alib_library_analysis_path .
+
+  # Add any additional Design Compiler variables needed here
+}
+.
+set RTL_SOURCE_FILES  "mips_processor.v"      ;# Enter the list of source RTL files if reading from RTL
+mips_processor.v
+# The following variables are used by scripts in the rm_dc_scripts folder to direct 
+# the location of the output files.
+set REPORTS_DIR "reports"
+reports
+set RESULTS_DIR "results"
+results
+file mkdir ${REPORTS_DIR}
+file mkdir ${RESULTS_DIR}
+#################################################################################
+# Search Path Setup
+#
+# Set up the search path to find the libraries and design files.
+#################################################################################
+set_app_var search_path ". ${ADDITIONAL_SEARCH_PATH} $search_path"
+.          /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm         /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm         /js1/songch/SAED32_EDK/lib/sram/db_nldm         /js1/songch/SAED32_EDK/lib/sram_lp/db_nldm  /js1/songch/SAED32_EDK/lib/pll/db_nldm  /js1/songch/SAED32_EDK/lib/io_std/db_nldm  /js1/songch/SAED32_EDK/lib/io_sp/db_nldm  ~/DA_VLSI_Lab5/results  /js1/songch/SAED32_EDK/references/orca/dc/models         ~/DA_VLSI_Lab5/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models   . /soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn /soft1/synopsys/synthesis/L-2016.03-SP5/minpower/syn /soft1/synopsys/synthesis/L-2016.03-SP5/dw/syn_ver /soft1/synopsys/synthesis/L-2016.03-SP5/dw/sim_ver
+#################################################################################
+# Library Setup
+#
+# This section is designed to work with the settings from common_setup.tcl
+# without any additional modification.
+#################################################################################
+# Milkyway variable settings
+# Make sure to define the Milkyway library variable
+# mw_design_library, it is needed by write_milkyway command
+set mw_reference_library ${MW_REFERENCE_LIB_DIRS}
+ 	/js1/songch/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m 	/js1/songch/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m 	
+set mw_design_library ${DCRM_MW_LIBRARY_NAME}
+mips_processor_LIB
+set mw_site_name_mapping { {CORE unit} {Core unit} {core unit} }
+ {CORE unit} {Core unit} {core unit} 
+# The remainder of the setup below should only be performed in Design Compiler
+if {$synopsys_program_name == "dc_shell"}  {
+
+  set_app_var target_library ${TARGET_LIBRARY_FILES}
+  set_app_var synthetic_library dw_foundation.sldb
+  set_app_var link_library "* $target_library $ADDITIONAL_LINK_LIB_FILES $synthetic_library"
+
+  # Set min libraries if they exist
+  foreach {max_library min_library} $MIN_LIBRARY_FILES {
+    set_min_library $max_library -min_version $min_library
+  }
+
+  if {[shell_is_in_topographical_mode]} {
+
+    # Only create new Milkyway design library if it doesn't already exist
+    if {![file isdirectory $mw_design_library ]} {
+      create_mw_lib   -technology $TECH_FILE                       -mw_reference_library $mw_reference_library                       $mw_design_library
+    } else {
+      # If Milkyway design library already exists, ensure that it is consistent with specified Milkyway reference libraries
+      set_mw_lib_reference $mw_design_library -mw_reference_library $mw_reference_library
+    }
+
+    open_mw_lib     $mw_design_library
+
+    check_library > ${REPORTS_DIR}/${DCRM_CHECK_LIBRARY_REPORT}
+
+    set_tlu_plus_files -max_tluplus $TLUPLUS_MAX_FILE                        -min_tluplus $TLUPLUS_MIN_FILE                        -tech2itf_map $MAP_FILE
+
+    check_tlu_plus_files
+  }
+
+  #################################################################################
+  # Library Modifications
+  #
+  # Apply library modifications after the libraries are loaded.
+  #################################################################################
+
+  if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+    puts "RM-Info: Sourcing script file [which ${LIBRARY_DONT_USE_FILE}]\n"
+    source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+  }
+}
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_Lab5/rm_setup/dc_setup.tcl
+
+#################################################################################
+# Design Compiler Reference Methodology Script for Top-Down Flow
+# Script: dc.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+#################################################################################
+#################################################################################
+# Additional Variables
+#
+# Add any additional variables needed for your flow here.
+#################################################################################
+# No additional flow variables are being recommended
+#################################################################################
+# Setup for Formality Verification
+#################################################################################
+# In the event of an inconclusive (or hard) verification, we recommend using
+# the set_verification_priority commands provided from the analyze_points command
+# in Formality. The set_verification_priority commands target specific
+# operators to reduce verification complexity while minimizing QoR impact.
+# The set_verification_priority commands should be applied after the design
+# is read and elaborated.
+# For designs that don't have tight QoR constraints and don't have register retiming,
+# you can use the following variable to enable the highest productivity single pass flow.
+# This flow modifies the optimizations to make verification easier.
+# This variable setting should be applied prior to reading in the RTL for the design.
+# set_app_var simplified_verification_mode true
+# For more information about facilitating formal verification in the flow, refer
+# to the following SolvNet article:
+# "Resolving Inconclusive and Hard Verifications in Design Compiler"
+# https://solvnet.synopsys.com/retrieve/033140.html
+# Define the verification setup file for Formality
+set_svf ${RESULTS_DIR}/${DCRM_SVF_OUTPUT_FILE}
+1
+#################################################################################
+# Setup SAIF Name Mapping Database
+#
+# Include an RTL SAIF for better power optimization and analysis.
+#
+# saif_map should be issued prior to RTL elaboration to create a name mapping
+# database for better annotation.
+################################################################################
+saif_map -start
+Information: The SAIF name mapping information database is now active. (PWR-602)
+1
+#################################################################################
+# Read in the RTL Design
+#
+# Read in the RTL source files or read in the elaborated design (.ddc).
+#################################################################################
+define_design_lib WORK -path ./WORK
+1
+analyze -format verilog ${RTL_SOURCE_FILES}
+Running PRESTO HDLC
+Compiling source file /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1058: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1058: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1058: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1058: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1060: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1066: delay controls are ignored for synthesis. (VER-176)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:1070: The statements in initial blocks are ignored. (VER-281)
+Presto compilation completed successfully.
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/dw_foundation.sldb'
+1
+elaborate ${DESIGN_NAME}
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/gtech.db'
+Loading db file '/soft1/synopsys/synthesis/L-2016.03-SP5/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_tt1p05v125c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'mips_processor'.
+Information: Building the design 'mux_2' instantiated from design 'mips_processor' with
+	the parameters "32". (HDL-193)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:161: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 159 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           161            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'task_end_test'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'pc'. (HDL-193)
+
+Inferred memory devices in process
+	in routine pc line 725 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      value_reg      | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'instruction_mem'. (HDL-193)
+
+Inferred memory devices in process
+	in routine instruction_mem line 509 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    instr_mem_reg    | Flip-flop |  280  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+=========================================================
+|  block name/line    | Inputs | Outputs | # sel inputs |
+=========================================================
+| instruction_mem/507 |  128   |    8    |      7       |
+=========================================================
+Presto compilation completed successfully.
+Information: Building the design 'adder'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'if_id_reg'. (HDL-193)
+
+Inferred memory devices in process
+	in routine if_id_reg line 601 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      value_reg      | Flip-flop |  64   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'register_files'. (HDL-193)
+
+Inferred memory devices in process
+	in routine register_files line 390 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    registers_reg    | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+========================================================
+|  block name/line   | Inputs | Outputs | # sel inputs |
+========================================================
+| register_files/386 |   32   |   32    |      5       |
+| register_files/387 |   32   |   32    |      5       |
+| register_files/388 |   32   |   32    |      5       |
+========================================================
+Presto compilation completed successfully.
+Information: Building the design 'sign_extend'. (HDL-193)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:313: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 311 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           313            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'control'. (HDL-193)
+
+Statistics for case statements in always block at line 271 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           273            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'mux_2' instantiated from design 'mips_processor' with
+	the parameters "9". (HDL-193)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:161: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 159 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           161            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'id_ex_reg'. (HDL-193)
+
+Inferred memory devices in process
+	in routine id_ex_reg line 652 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      value_reg      | Flip-flop |  152  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'shift_left_2'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'mux_3' instantiated from design 'mips_processor' with
+	the parameters "32". (HDL-193)
+
+Statistics for case statements in always block at line 200 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           202            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'alu'. (HDL-193)
+
+Statistics for case statements in always block at line 23 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            25            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'alu_control'. (HDL-193)
+
+Statistics for case statements in always block at line 106 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           113            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'mux_2' instantiated from design 'mips_processor' with
+	the parameters "5". (HDL-193)
+Warning:  /bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v:161: DEFAULT branch of CASE statement cannot be reached. (ELAB-311)
+
+Statistics for case statements in always block at line 159 in file
+	'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           161            |    auto/auto     |
+===============================================
+Presto compilation completed successfully.
+Information: Building the design 'ex_mem_reg'. (HDL-193)
+
+Inferred memory devices in process
+	in routine ex_mem_reg line 677 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      value_reg      | Flip-flop |  107  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'branch'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'data_mem'. (HDL-193)
+
+Inferred memory devices in process
+	in routine data_mem line 560 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    data_mem_reg     | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|   data_mem/559   |   32   |   32    |      5       |
+======================================================
+Presto compilation completed successfully.
+Information: Building the design 'mem_wb_reg'. (HDL-193)
+
+Inferred memory devices in process
+	in routine mem_wb_reg line 703 in file
+		'/bks2/PB17061127/DA_VLSI_Lab5/verilog/mips_processor.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      value_reg      | Flip-flop |  71   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'hazard_detection_unit'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'forwarding_unit'. (HDL-193)
+Presto compilation completed successfully.
+1
+# OR
+# You can read an elaborated design from the same release.
+# Using an elaborated design from an older release will not give the best results.
+# read_ddc ${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+write -hierarchy -format ddc -output ${RESULTS_DIR}/${DCRM_ELABORATED_DESIGN_DDC_OUTPUT_FILE}
+Writing ddc file 'results/mips_processor.elab.ddc'.
+1
+#################################################################################
+# Apply Logical Design Constraints
+#################################################################################
+# You can use either SDC file ${DCRM_SDC_INPUT_FILE} or Tcl file 
+# ${DCRM_CONSTRAINTS_INPUT_FILE} to constrain your design.
+if {[file exists [which ${DCRM_SDC_INPUT_FILE}]]} {
+  puts "RM-Info: Reading SDC file [which ${DCRM_SDC_INPUT_FILE}]\n"
+  read_sdc ${DCRM_SDC_INPUT_FILE}
+}
+Warning: File 'mips_processor.sdc' was not found in search path. (CMD-030)
+if {[file exists [which ${DCRM_CONSTRAINTS_INPUT_FILE}]]} {
+  puts "RM-Info: Sourcing script file [which ${DCRM_CONSTRAINTS_INPUT_FILE}]\n"
+  source -echo -verbose ${DCRM_CONSTRAINTS_INPUT_FILE}
+}
+RM-Info: Sourcing script file /bks2/PB17061127/DA_VLSI_Lab5/mips_processor.constraints.tcl
+
+#set_operating_conditions -analysis_type bc_wc
+# set clock signal name you used in the design 
+set my_clock_pin   clk
+clk
+# set the clock frequency
+set my_clk_freq_MHz 500
+500
+set my_period [expr 1000 / $my_clk_freq_MHz]
+2
+set find_clock [ find port [list $my_clock_pin] ]
+{clk}
+if {  $find_clock != [list] } {
+   set clk_name $my_clock_pin
+   create_clock -period $my_period $clk_name
+} else {
+   set clk_name vclk
+   create_clock -period $my_period -name $clk_name
+
+   # set a delay constraint for combinatioal circuits
+   set_max_delay $my_period -from [all_input] -to [all_output]
+}
+1
+#set input_delay 1
+#set output_delay 1
+# You can enable analysis and optimization for multiple clocks per register.
+# To use this, you must constrain to remove false interactions between mutually exclusive
+# clocks.  This is needed to prevent unnecessary analysis that can result in
+# a significant runtime increase with this feature enabled.
+#
+# set_clock_groups -physically_exclusive | -logically_exclusive | -asynchronous #                  -group {CLKA, CLKB} -group {CLKC, CLKD} 
+#
+# set_app_var timing_enable_multiple_clocks_per_reg true
+#################################################################################
+# Apply The Operating Conditions
+#################################################################################
+# Set operating condition on top level
+# set_operating_conditions -max <max_opcond> -min <min_opcond>
+#################################################################################
+# Create Default Path Groups
+#
+# Separating these paths can help improve optimization.
+# Remove these path group settings if user path groups have already been defined.
+#################################################################################
+set ports_clock_root [filter_collection [get_attribute [get_clocks] sources] object_class==port]
+{clk}
+group_path -name REGOUT -to [all_outputs] 
+1
+group_path -name REGIN -from [remove_from_collection [all_inputs] ${ports_clock_root}] 
+1
+group_path -name FEEDTHROUGH -from [remove_from_collection [all_inputs] ${ports_clock_root}] -to [all_outputs]
+1
+#################################################################################
+# Power Optimization Section
+#################################################################################
+#############################################################################
+# Clock Gating Setup
+#############################################################################
+# Default clock_gating_style suits most designs.  Change only if necessary.
+# set_clock_gating_style -positive_edge_logic {integrated} -negative_edge_logic {integrated} -control_point before ...   
+# Clock gate insertion is now performed during compile_ultra -gate_clock
+# so insert_clock_gating is no longer recommended at this step.
+# The following setting can be used to enable global clock gating.
+# With global clock gating, common enables are extracted across hierarchies
+# which results in fewer redundant clock gates. 
+# set compile_clock_gating_through_hierarchy true 
+# For better timing optimization of enable logic, clock latency for 
+# clock gating cells can be optionally specified.
+# set_clock_gate_latency -clock <clock_name> -stage <stage_num>     #         -fanout_latency {fanout_range1 latency_val1 fanout_range2 latency_val2 ...}
+#############################################################################
+# Apply Power Optimization Constraints
+#############################################################################
+# Include a SAIF file, if possible, for power optimization.  If a SAIF file
+# is not provided, the default toggle rate of 0.1 will be used for propagating
+# switching activity.
+read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance ${DESIGN_INSTANCE} -verbose
+Error: No switching activity has been annotated. (PWR-362)
+0
+set_leakage_optimization true
+1
+set_dynamic_optimization true
+1
+if {[shell_is_in_topographical_mode]} {
+      # Use the following command to enable power prediction using clock tree estimation.
+
+      # set_power_prediction true -ct_references <LIB CELL LIST>
+    }
+if {[shell_is_in_topographical_mode]} {
+
+  ##################################################################################
+  # Apply Physical Design Constraints
+  #
+  # Optional: Floorplan information can be read in here if available.
+  # This is highly recommended for irregular floorplans.
+  #
+  # Floorplan constraints can be provided from one of the following sources:
+  # 	* extract_physical_constraints with a DEF file
+  #	* read_floorplan with a floorplan file (written by write_floorplan)
+  #	* User generated Tcl physical constraints
+  #
+  ##################################################################################
+
+  # Specify ignored layers for routing to improve correlation
+  # Use the same ignored layers that will be used during place and route
+
+  if { ${MIN_ROUTING_LAYER} != ""} {
+    set_ignored_layers -min_routing_layer ${MIN_ROUTING_LAYER}
+  }
+  if { ${MAX_ROUTING_LAYER} != ""} {
+    set_ignored_layers -max_routing_layer ${MAX_ROUTING_LAYER}
+  }
+
+  report_ignored_layers
+
+  # If the macro names change after mapping and writing out the design due to
+  # ungrouping or Verilog change_names renaming, it may be necessary to translate 
+  # the names to correspond to the cell names that exist before compile.
+
+  # During DEF constraint extraction, extract_physical_constraints automatically
+  # matches DEF names back to precompile names in memory using standard matching rules.
+  # read_floorplan will also automatically perform this name matching.
+
+  # Modify fuzzy_query_options if other characters are used for hierarchy separators
+  # or bus names. 
+
+  # set_fuzzy_query_options -hierarchical_separators {/ _ .}   #                         -bus_name_notations {[] __ ()}   #                         -class {cell pin port net}   #                         -show
+
+  ## For DEF floorplan input
+
+  # The DEF file for Design Compiler Topographical can be written from IC Compiler using the following 
+  # recommended options:
+  # icc_shell> write_def -version 5.7 -rows_tracks_gcells -fixed -pins -blockages -specialnets   #                      -vias -regions_groups -verbose -output ${DCRM_DCT_DEF_INPUT_FILE}
+
+  if {[file exists [which ${DCRM_DCT_DEF_INPUT_FILE}]]} {
+    # If you have physical only cells as a part of your floorplan DEF file, you can use
+    # the -allow_physical_cells option with extract_physical_constraints to include
+    # the physical only cells as a part of the floorplan in Design Compiler to improve correlation.
+    #
+    # Note: With -allow_physical_cells, new logical cells in the DEF file
+    #       that have a fixed location will also be added to the design in memory.
+    #       See the extract_physical_constraints manpage for more information about
+    #       identifying the cells added to the design when using -allow_physical_cells.
+  
+    # extract_physical_constraints -allow_physical_cells ${DCRM_DCT_DEF_INPUT_FILE}
+
+    puts "RM-Info: Reading in DEF file [which ${DCRM_DCT_DEF_INPUT_FILE}]\n"
+    extract_physical_constraints ${DCRM_DCT_DEF_INPUT_FILE}
+  }
+  
+  # OR
+
+  ## For floorplan file input
+
+  # The floorplan file for Design Compiler Topographical can be written from IC Compiler using the following 
+  # recommended options:
+  # Note: IC Compiler requires the use of -placement {terminal} with -create_terminal beginning in the
+  #       D-2010.03-SP1 release.
+  # icc_shell> write_floorplan -placement {io terminal hard_macro soft_macro} -create_terminal   #                            -row -create_bound -preroute -track ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+
+  # Read in the secondary floorplan file, previously written by write_floorplan in Design Compiler,
+  # to restore physical-only objects back to the design, before reading the main floorplan file.
+
+  if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]]} {
+    puts "RM-Info: Reading in secondary floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects]\n"
+    read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}.objects
+  }
+
+  if {[file exists [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]]} {
+    puts "RM-Info: Reading in floorplan file [which ${DCRM_DCT_FLOORPLAN_INPUT_FILE}]\n"
+    read_floorplan ${DCRM_DCT_FLOORPLAN_INPUT_FILE}
+  }
+
+  # OR
+
+  ## For Tcl file input
+
+  # For Tcl constraints, the name matching feature must be explicitly enabled
+  # and will also use the set_fuzzy_query_options setttings.  This should 
+  # be turned off after the constraint read in order to minimize runtime.
+
+  if {[file exists [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]]} {
+    set_app_var fuzzy_matching_enabled true
+    puts "RM-Info: Sourcing script file [which ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}]\n"
+    source -echo -verbose ${DCRM_DCT_PHYSICAL_CONSTRAINTS_INPUT_FILE}
+    set_app_var fuzzy_matching_enabled false 
+  }
+
+
+  # Use write_floorplan to save the applied floorplan.
+
+  # Note: A secondary floorplan file ${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}.objects
+  #       might also be written to capture physical-only objects in the design.
+  #       This file should be read in before reading the main floorplan file.
+
+  write_floorplan -all ${RESULTS_DIR}/${DCRM_DCT_FLOORPLAN_OUTPUT_FILE}
+
+  # Verify that all the desired physical constraints have been applied
+  # Add the -pre_route option to include pre-routes in the report
+  report_physical_constraints > ${REPORTS_DIR}/${DCRM_DCT_PHYSICAL_CONSTRAINTS_REPORT}
+}
+#################################################################################
+# Apply Additional Optimization Constraints
+#################################################################################
+# Prevent assignment statements in the Verilog netlist.
+set_fix_multiple_port_nets -all -buffer_constants
+1
+#################################################################################
+# Save the compile environment snapshot for the Consistency Checker utility.
+#
+# This utility checks for inconsistent settings between Design Compiler and
+# IC Compiler which can contribute to correlation mismatches.
+#
+# Download this utility from SolvNet.  See the following SolvNet article for
+# complete details:
+#
+# https://solvnet.synopsys.com/retrieve/026366.html
+#
+# The article is titled: "Using the Consistency Checker to Automatically Compare
+# Environment Settings Between Design Compiler and IC Compiler"
+#################################################################################
+# Uncomment the following to snapshot the environment for the Consistency Checker
+# write_environment -consistency -output ${REPORTS_DIR}/${DCRM_CONSISTENCY_CHECK_ENV_FILE}
+#################################################################################
+# Check for Design Errors
+#################################################################################
+check_design -summary
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Sun Dec 13 18:35:25 2020
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     61
+    Unconnected ports (LINT-28)                                    28
+    Feedthrough (LINT-29)                                          16
+    Shorted outputs (LINT-31)                                      16
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                             112
+    Cells do not drive (LINT-1)                                     3
+    Connected to power or ground (LINT-32)                        105
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
+1
+check_design > ${REPORTS_DIR}/${DCRM_CHECK_DESIGN_REPORT}
+#################################################################################
+# Compile the Design
+#
+# Recommended Options:
+#
+#     -scan
+#     -gate_clock (-self_gating)
+#     -retime
+#     -timing_high_effort_script
+#     -spg
+#
+# Use compile_ultra as your starting point. For test-ready compile, include
+# the -scan option with the first compile and any subsequent compiles.
+#
+# Use -gate_clock to insert clock-gating logic during optimization.  This
+# is now the recommended methodology for clock gating.
+#
+# Note: You can use -self_gating option in addition to -gate_clock for 
+#       potentially saving additional dynamic power, in topographical mode 
+#       only. Registers that are not clock gated will be considered for XOR
+#       self gating.
+#       XOR self gating should be performed along with clock gating, using 
+#       -gate_clock and -self_gating options. XOR self gates will be inserted 
+#       only if there is potential power saving without degrading the timing.
+#       An accurate switching activity annotation either by reading in a saif 
+#       file or through set_switching_activity command is recommended.
+#       You can use "set_self_gating_options" command to specify self-gating 
+#       options. For example, to specify that the inserted self-gates be merged
+#       with traditional clock gates, you can use the following:
+#
+#       set_self_gating_options -interaction_with_clock_gating  merge
+#
+# Use -retime to enable adaptive retiming optimization for further timing benefit.
+#
+# The -timing_high_effort_script option can be used to try and improve the
+# optimization results at the tradeoff of some additional runtime.
+#
+# Use the -spg option to enable Design Compiler Graphical physical guidance flow.
+# The physical guidance flow improves QoR, area and timing correlation, and congestion.
+# It also improves place_opt runtime in IC Compiler.
+# You can selectively enable or disable the congestion optimization on parts of the design
+# by using the set_congestion_optimization command.
+# This option requires a license for Design Compiler Graphical.
+#
+# Note: You can use in addition to -spg option the -layer_optimization option to improve
+#       the accuracy of certain net delay during optimization. For more information 
+#       about layer optimization please refer to the Solvnet article 037946: "How to 
+#       Implement Net Layer Optimization With Design Compiler Graphical". 
+#       https://solvnet.synopsys.com/retrieve/037946.html
+#
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+# Use the "-check_only" option of "compile_ultra" to verify that your
+# libraries and design are complete and that optimization will not fail
+# in topographical mode.  Use the same options as will be used in compile_ultra.
+
+# compile_ultra -check_only
+}
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | L-2016.03-DWBB_201603.5 |     *     |
+| Licensed DW Building Blocks        | L-2016.03-DWBB_201603.5 |     *     |
+============================================================================
+
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 173 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+Information: Uniquified 5 instances of design 'mux_2_WIDTH32'. (OPT-1056)
+Information: Uniquified 2 instances of design 'adder'. (OPT-1056)
+Information: Uniquified 2 instances of design 'mux_3_WIDTH32'. (OPT-1056)
+  Simplifying Design 'mips_processor'
+
+Loaded alib file './alib-52/saed32rvt_tt1p05v125c.db.alib'
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy mux_2_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy task_end_test_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy pc_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy adder_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy if_id_reg_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy sign_extend_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy control_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_ctl before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy id_ex_reg_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy shift_left_2_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_3_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy alu_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy alu_control_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_rd before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy ex_mem_reg_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy branch_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mem_wb_reg_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy hazard_detection_unit_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy forwarding_unit_1 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_3 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_alu_op_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_inst before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_2_pc before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy adder_2 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy mux_3_2 before Pass 1 (OPT-776)
+Information: Ungrouping 25 of 29 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'register_files'
+  Processing 'data_mem'
+  Processing 'mips_processor'
+Information: Added key list 'DesignWare' to design 'mips_processor'. (DDB-72)
+ Implement Synthetic for 'mips_processor'.
+  Processing 'instruction_mem'
+ Implement Synthetic for 'instruction_mem'.
+Memory usage for J1 task 203 Mbytes -- main task 171 Mbytes.
+Memory usage for J2 task 189 Mbytes -- main task 171 Mbytes.
+Memory usage for J3 task 182 Mbytes -- main task 171 Mbytes.
+Memory usage for J4 task 185 Mbytes -- main task 171 Mbytes.
+
+  Updating timing information
+Information: The register 'register_files_1/registers_reg[0][31]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][30]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][29]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][28]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][27]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][26]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][25]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][24]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][23]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][22]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][21]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][20]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][19]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][18]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][17]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][16]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][15]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][14]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][13]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][12]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][11]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][10]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][9]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][8]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][7]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][6]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][5]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][4]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][3]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][2]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][1]' will be removed. (OPT-1207)
+Information: The register 'register_files_1/registers_reg[0][0]' will be removed. (OPT-1207)
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt1p05v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+Information: Complementing port 'reset' in design 'register_files'.
+	 The new name of the port is 'reset_BAR'. (OPT-319)
+Information: The register 'if_id_reg_1/value_reg[33]' is a constant and will be removed. (OPT-1206)
+Information: The register 'id_ex_reg_1/value_reg[112]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ex_mem_reg_1/value_reg[71]' is a constant and will be removed. (OPT-1206)
+Information: The register 'pc_1/value_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'if_id_reg_1/value_reg[32]' is a constant and will be removed. (OPT-1206)
+Information: The register 'id_ex_reg_1/value_reg[111]' is a constant and will be removed. (OPT-1206)
+Information: The register 'ex_mem_reg_1/value_reg[70]' is a constant and will be removed. (OPT-1206)
+Information: The register 'pc_1/value_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][7]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][6]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][5]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][4]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][3]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][2]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][1]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[34][0]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][7]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][6]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][5]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][4]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][3]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][2]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][1]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[33][0]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][7]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][6]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][5]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][4]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][3]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][2]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][1]' will be removed. (OPT-1207)
+Information: The register 'instruction_mem_1/instr_mem_reg[32][0]' will be removed. (OPT-1207)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Constant Register Removal
+  -----------------------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Mapping 'mips_processor_DP_OP_75J3_122_237_0'
+  Mapping 'mips_processor_DP_OP_80_126_7093_3'
+  Selecting critical implementations
+  Mapping 'mips_processor_DW01_add_0'
+  Mapping 'mips_processor_DW01_add_1'
+  Mapping 'mips_processor_DP_OP_80_126_7093_4'
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Isolate Ports
+  -----------------------
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:55   38687.3      6.22     478.0      73.2                           24191426560.0000
+    0:00:58   39164.6      2.57     399.8      38.0                           24659548160.0000
+    0:00:58   39164.6      2.57     399.8      38.0                           24659548160.0000
+    0:00:59   39163.8      2.56     403.4      38.0                           24662519808.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:01:07   36922.8      2.22     124.1      52.1                           22683791360.0000
+    0:01:08   36884.9      2.22     123.6      52.1                           22546274304.0000
+    0:01:08   36884.9      2.22     123.6      52.1                           22546274304.0000
+    0:01:10   36925.3      2.20     125.0      51.7                           22593054720.0000
+    0:01:10   36925.3      2.20     125.0      51.7                           22593054720.0000
+    0:01:10   36926.6      2.19     124.7      51.7                           22597113856.0000
+    0:01:10   36926.6      2.19     124.7      51.7                           22597113856.0000
+    0:01:11   36926.6      2.19     124.7      51.7                           22597113856.0000
+    0:01:11   36926.6      2.19     124.7      51.7                           22597113856.0000
+    0:01:13   36977.7      2.00     119.9      51.4                           22667343872.0000
+    0:01:13   36977.7      2.00     119.9      51.4                           22667343872.0000
+    0:01:14   36980.5      2.00     119.4      51.4                           22670884864.0000
+    0:01:14   36980.5      2.00     119.4      51.4                           22670884864.0000
+    0:01:15   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:15   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:16   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:16   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:16   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:16   36984.8      1.98     119.2      51.4                           22676150272.0000
+    0:01:18   36984.8      1.98     119.2      51.4                           22676150272.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:18   36984.8      1.98     119.2      51.4                           22676150272.0000
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+    0:01:20   37509.4      1.96     118.6       0.1 data_mem_1/wdata[19]      22997946368.0000
+    0:01:22   37621.7      1.68     111.5       0.0                           22966734848.0000
+    0:01:24   37696.2      1.66     110.2       0.0                           23000834048.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+
+  Beginning Power Optimization
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:24   37696.2      1.66     110.2       0.0                           23000834048.0000
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+  Global Optimization (Phase 48)
+  Global Optimization (Phase 49)
+  Global Optimization (Phase 50)
+  Global Optimization (Phase 51)
+    0:01:30   37067.9      1.56     170.1       0.1                           22506242048.0000
+    0:01:31   37091.8      1.55     170.2       0.1                           22540892160.0000
+    0:01:31   37091.8      1.55     170.2       0.1                           22540892160.0000
+    0:01:33   37107.1      1.55     157.0       0.1                           22591117312.0000
+    0:01:33   37107.1      1.55     157.0       0.1                           22591117312.0000
+    0:01:33   37107.1      1.55     157.0       0.1                           22591117312.0000
+    0:01:33   37107.1      1.55     157.0       0.1                           22591117312.0000
+    0:01:33   37107.3      1.54     157.0       0.1                           22591899648.0000
+    0:01:33   37107.3      1.54     157.0       0.1                           22591899648.0000
+    0:01:34   37107.3      1.54     157.0       0.1                           22591899648.0000
+    0:01:34   37107.3      1.54     157.0       0.1                           22591899648.0000
+    0:01:35   37119.8      1.48     155.4       0.1                           22607523840.0000
+    0:01:35   37119.8      1.48     155.4       0.1                           22607523840.0000
+    0:01:38   37193.0      1.41     154.2       0.1                           22644760576.0000
+    0:01:38   37193.0      1.41     154.2       0.1                           22644760576.0000
+    0:01:39   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:39   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:40   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:40   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:40   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:40   37198.0      1.41     153.9       0.1                           22649765888.0000
+    0:01:40   37198.0      1.41     153.9       0.1                           22649765888.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:01:41   37190.7      1.41     153.9       0.1                           22644856832.0000
+    0:01:42   36980.2      1.42     157.6       0.1                           22602854400.0000
+    0:01:43   36977.7      1.41     155.1       0.1                           22606336000.0000
+    0:01:43   36977.7      1.41     155.1       0.1                           22606336000.0000
+    0:01:44   36995.7      1.41     132.1       0.1                           22658136064.0000
+    0:01:47   37250.4      1.40     130.6       0.0 data_mem_1/wdata[1]       22919172096.0000
+    0:01:47   37256.7      1.40     130.6       0.0                           22920257536.0000
+    0:01:48   37263.1      1.39     130.5       0.0                           22933866496.0000
+    0:01:49   37271.5      1.39     130.4       0.0                           22948732928.0000
+    0:01:49   37271.5      1.39     130.4       0.0                           22948732928.0000
+    0:01:50   37187.1      1.39     128.3       0.0                           22737451008.0000
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Warning: Design 'mips_processor' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'data_mem_1/clk': 2581 load(s), 1 driver(s)
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+#################################################################################
+# Write Out Final Design and Reports
+#
+#        .ddc:   Recommended binary format used for subsequent Design Compiler sessions
+#    Milkyway:   Recommended binary format for IC Compiler
+#        .v  :   Verilog netlist for ASCII flow (Formality, PrimeTime, VCS)
+#       .spef:   Topographical mode parasitics for PrimeTime
+#        .sdf:   SDF backannotated topographical mode timing for PrimeTime
+#        .sdc:   SDC constraints for ASCII flow
+#
+#################################################################################
+change_names -rules verilog -hierarchy
+1
+#################################################################################
+# Write out Design
+#################################################################################
+write -format ddc     -hierarchy -output ${RESULTS_DIR}/${DCRM_FINAL_DDC_OUTPUT_FILE}
+Writing ddc file 'results/mips_processor.mapped.ddc'.
+1
+write -format verilog -hierarchy -output ${RESULTS_DIR}/${DCRM_FINAL_VERILOG_OUTPUT_FILE}
+Writing verilog file '/bks2/PB17061127/DA_VLSI_Lab5/results/mips_processor.mapped.v'.
+1
+# Write and close SVF file and make it available for immediate use
+set_svf -off
+1
+#################################################################################
+# Write out Design Data
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+
+  # Note: A secondary floorplan file ${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}.objects
+  #       might also be written to capture physical-only objects in the design.
+  #       This file should be read in before reading the main floorplan file.
+
+  write_floorplan -all ${RESULTS_DIR}/${DCRM_DCT_FINAL_FLOORPLAN_OUTPUT_FILE}
+
+  # Write parasitics data from Design Compiler Topographical placement for static timing analysis
+  write_parasitics -output ${RESULTS_DIR}/${DCRM_DCT_FINAL_SPEF_OUTPUT_FILE}
+
+  # Write SDF backannotation data from Design Compiler Topographical placement for static timing analysis
+  write_sdf ${RESULTS_DIR}/${DCRM_DCT_FINAL_SDF_OUTPUT_FILE}
+
+  # Do not write out net RC info into SDC
+  set_app_var write_sdc_output_lumped_net_capacitance false
+  set_app_var write_sdc_output_net_resistance false
+}
+write_sdc -nosplit ${RESULTS_DIR}/${DCRM_FINAL_SDC_OUTPUT_FILE}
+1
+# If SAIF is used, write out SAIF name mapping file for PrimeTime-PX
+saif_map -type ptpx -write_map ${RESULTS_DIR}/${DESIGN_NAME}.mapped.SAIF.namemap
+Information: Writing SAIF name mapping information into the PT-PX name mapping file 'results/mips_processor.mapped.SAIF.namemap'. (PWR-636)
+1
+#################################################################################
+# Generate Final Reports
+#################################################################################
+report_qor > ${REPORTS_DIR}/${DCRM_FINAL_QOR_REPORT}
+report_timing -transition_time -nets -attributes -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_TIMING_REPORT}
+if {[shell_is_in_topographical_mode]} {
+  report_area -physical -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_AREA_REPORT}
+} else {
+  report_area -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_AREA_REPORT}
+}
+#if {[shell_is_in_topographical_mode]} {
+# report_congestion (topographical mode only) reports estimated routing related congestion
+# after topographical mode synthesis.
+# This command requires a license for Design Compiler Graphical.
+report_congestion > ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_REPORT}
+Error: unknown command 'report_congestion' (CMD-005)
+# Use the following to generate and write out a congestion map from batch mode
+# This requires a GUI session to be temporarily opened and closed so a valid DISPLAY
+# must be set in your UNIX environment.
+#if {[info exists env(DISPLAY)]} {
+#  gui_start
+#  # Create a layout window
+#  set MyLayout [gui_create_window -type LayoutWindow]
+#  # Build congestion map in case report_congestion was not previously run
+#  report_congestion -build_map
+#  # Display congestion map in layout window
+#  gui_show_map -map "Global Route Congestion" -show true
+#  # Zoom full to display complete floorplan
+#  gui_zoom -window [gui_get_current_window -view] -full
+#  # Write the congestion map out to an image file
+#  # You can specify the output image type with -format png | xpm | jpg | bmp
+#  # The following saves only the congestion map without the legends
+#  gui_write_window_image -format png -file ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_OUTPUT_FILE}
+#  # The following saves the entire congestion map layout window with the legends
+#  gui_write_window_image -window ${MyLayout} -format png -file ${REPORTS_DIR}/${DCRM_DCT_FINAL_CONGESTION_MAP_WINDOW_OUTPUT_FILE}
+#  gui_stop
+#} else {
+#  puts "Information: The DISPLAY environment variable is not set. Congestion map generation has been skipped."
+#}
+#}
+# Use SAIF file for power analysis
+read_saif -auto_map_names -input ${DESIGN_NAME}.saif -instance ${DESIGN_INSTANCE} -verbose
+Error: No switching activity has been annotated. (PWR-362)
+0
+report_power -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_POWER_REPORT}
+# report_clock_gating -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_CLOCK_GATING_REPORT}
+# Uncomment the next line if you include the -self_gating to the compile_ultra command
+# to report the XOR Self Gating information.
+# report_self_gating  -nosplit > ${REPORTS_DIR}/${DCRM_FINAL_SELF_GATING_REPORT}
+#################################################################################
+# Write out Milkyway Design for Top-Down Flow
+#
+# This should be the last step in the script
+#################################################################################
+if {[shell_is_in_topographical_mode]} {
+  # write_milkyway uses mw_design_library variable from dc_setup.tcl
+  write_milkyway -overwrite -output ${DCRM_FINAL_MW_CEL_NAME}
+}
+exit
+
+Memory usage for main task 205 Mbytes.
+Memory usage for this session 205 Mbytes.
+CPU usage for this session 123 seconds ( 0.03 hours ).
+
+Thank you...

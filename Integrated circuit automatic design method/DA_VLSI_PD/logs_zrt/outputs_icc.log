@@ -1,0 +1,1151 @@
+
+                          IC Compiler (TM)
+                         IC Compiler-PC (TM)
+                         IC Compiler-XP (TM)
+                         IC Compiler-DP (TM)
+                         IC Compiler-AG (TM)
+
+        Version H-2013.03-ICC-SP2 for RHEL64 -- May 28, 2013
+
+Zroute is the default router for ICC, ICC-PC, ICC-DP and ICC-AG in IC Compiler.
+         Classic router will continue to be fully supported.
+
+               Copyright (c) 1988-2013 Synopsys, Inc.
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+Initializing...
+##########################################################################################
+# Version: H-2013.03-SP2 (Aug 5, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+##########################################################################################
+source -echo ./rm_setup/icc_setup.tcl 
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_PD/rm_setup/icc_setup.tcl
+
+##########################################################################################
+# Variables for IC Compiler Reference Methodology, IC Compiler Design Planning Reference 
+# Methodology, and IC Compiler Hierarchical Reference Methodology 
+# Script: icc_setup.tcl
+# Version: H-2013.03-SP2 (Aug 5, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+##########################################################################################
+# Sourcing the common variables
+source -echo ./rm_setup/common_setup.tcl 
+puts "RM-Info: Running script [info script]\n"
+RM-Info: Running script /bks2/PB17061127/DA_VLSI_PD/rm_setup/common_setup.tcl
+
+##########################################################################################
+# Variables common to all reference methodology scripts
+# Script: common_setup.tcl
+# Version: H-2013.03 (April 15, 2013)
+# Copyright (C) 2007-2013 Synopsys, Inc. All rights reserved.
+##########################################################################################
+set DESIGN_NAME                   "picorv32"  ;#  The name of the top-level design
+set DESIGN_REF_DATA_PATH          "~/DA_VLSI_PD"  ;#  Absolute path prefix variable for library/design data.
+#  Use this variable to prefix the common absolute path  
+#  to the common variables defined below.
+#  Absolute paths are mandatory for hierarchical 
+#  reference methodology flow.
+set DESIGN_INSTANCE			"testbench.uut"	;#  The Design Instance Name for read_saif
+##########################################################################################
+# Hierarchical Flow Design Variables
+##########################################################################################
+set HIERARCHICAL_DESIGNS           "" ;# List of hierarchical block design names "DesignA DesignB" ...
+set HIERARCHICAL_CELLS             "" ;# List of hierarchical block cell instance names "u_DesignA u_DesignB" ...
+##########################################################################################
+# Library Setup Variables
+##########################################################################################
+# For the following variables, use a blank space to separate multiple entries.
+# Example: set TARGET_LIBRARY_FILES "lib1.db lib2.db lib3.db"
+set DESIGN_REF_PATH		  "/js1/songch/SAED32_EDK/lib"
+set DESIGN_REF_NLDMA_PATH          "${DESIGN_REF_PATH}/stdcell_rvt"
+set DESIGN_REF_NLDMB_PATH          "${DESIGN_REF_PATH}/stdcell_lvt"
+set DESIGN_REF_NLDMC_PATH          "${DESIGN_REF_PATH}/stdcell_hvt"
+set DESIGN_REF_RAMSA_PATH          "${DESIGN_REF_PATH}/sram"
+set DESIGN_REF_RAMSB_PATH          "${DESIGN_REF_PATH}/sram_lp"
+set DESIGN_REF_PLL_PATH           "${DESIGN_REF_PATH}/pll"
+set DESIGN_REF_PADSA_PATH          "${DESIGN_REF_PATH}/io_std"
+set DESIGN_REF_PADSB_PATH          "${DESIGN_REF_PATH}/io_sp"
+set DESIGN_REF_TECH_PATH          "/js1/songch/SAED32_EDK/references/orca/dc/models"
+#set ADDITIONAL_SEARCH_PATH        ""  ;#  Additional search path to be added to the default search path
+set ADDITIONAL_SEARCH_PATH      "         ${DESIGN_REF_NLDMA_PATH}/db_nldm         ${DESIGN_REF_NLDMB_PATH}/db_nldm         ${DESIGN_REF_NLDMC_PATH}/db_nldm         ${DESIGN_REF_RAMSA_PATH}/db_nldm         ${DESIGN_REF_RAMSB_PATH}/db_nldm 	${DESIGN_REF_PLL_PATH}/db_nldm 	${DESIGN_REF_PADSA_PATH}/db_nldm 	${DESIGN_REF_PADSB_PATH}/db_nldm 	${DESIGN_REF_DATA_PATH}/results 	${DESIGN_REF_TECH_PATH}         ${DESIGN_REF_DATA_PATH}/verilog         /js1/songch/SAED32_EDK/references/orca/icc/models 	"
+set TARGET_LIBRARY_FILES          "saed32rvt_tt1p05v125c.db saed32hvt_tt1p05v125c.db saed32lvt_tt1p05v125c.db" ;#  Target technology logical libraries
+set ADDITIONAL_LINK_LIB_FILES     ""  ;#  Extra link logical libraries not included in TARGET_LIBRARY_FILES
+set MIN_LIBRARY_FILES             ""  ;#  List of max min library pairs "max1 min1 max2 min2 max3 min3"...
+#set MW_REFERENCE_LIB_DIRS         ""  ;#  Milkyway reference libraries (include IC Compiler ILMs here)
+set MW_REFERENCE_LIB_DIRS  " 	${DESIGN_REF_NLDMA_PATH}/milkyway/saed32nm_rvt_1p9m 	${DESIGN_REF_NLDMB_PATH}/milkyway/saed32nm_lvt_1p9m 	${DESIGN_REF_NLDMC_PATH}/milkyway/saed32nm_hvt_1p9m 	"
+set MW_REFERENCE_CONTROL_FILE     ""  ;#  Reference Control file to define the Milkyway reference libs
+#set TECH_FILE                     ""  ;#  Milkyway technology file
+#set MAP_FILE                      ""  ;#  Mapping file for TLUplus
+#set TLUPLUS_MAX_FILE              ""  ;#  Max TLUplus file
+#set TLUPLUS_MIN_FILE              ""  ;#  Min TLUplus file
+set TECH_FILE        "/js1/songch/SAED32_EDK/references/orca/icc/ref/tech/saed32nm_1p9m_mw.tf"
+set MAP_FILE         "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_tf_itf_tluplus.map"
+set TLUPLUS_MAX_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus"
+set TLUPLUS_MIN_FILE "/js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus"
+set MW_POWER_NET                "VDD" ;#
+set MW_POWER_PORT               "VDD" ;#
+set MW_GROUND_NET               "VSS" ;#
+set MW_GROUND_PORT              "VSS" ;#
+set MIN_ROUTING_LAYER            "M1"   ;# Min routing layer
+set MAX_ROUTING_LAYER            "M8"   ;# Max routing layer
+set LIBRARY_DONT_USE_FILE        ""   ;# Tcl file with library modifications for dont_use
+##########################################################################################
+# Multivoltage Common Variables
+#
+# Define the following multivoltage common variables for the reference methodology scripts 
+# for multivoltage flows. 
+# Use as few or as many of the following definitions as needed by your design.
+##########################################################################################
+set PD1                          ""           ;# Name of power domain/voltage area  1
+set VA1_COORDINATES              {}           ;# Coordinates for voltage area 1
+set MW_POWER_NET1                "VDD1"       ;# Power net for voltage area 1
+set PD2                          ""           ;# Name of power domain/voltage area  2
+set VA2_COORDINATES              {}           ;# Coordinates for voltage area 2
+set MW_POWER_NET2                "VDD2"       ;# Power net for voltage area 2
+set PD3                          ""           ;# Name of power domain/voltage area  3
+set VA3_COORDINATES              {}           ;# Coordinates for voltage area 3
+set MW_POWER_NET3                "VDD3"       ;# Power net for voltage area 3
+set PD4                          ""           ;# Name of power domain/voltage area  4
+set VA4_COORDINATES              {}           ;# Coordinates for voltage area 4
+set MW_POWER_NET4                "VDD4"       ;# Power net for voltage area 4
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_PD/rm_setup/common_setup.tcl
+
+###############################
+## Flow Variables
+###############################
+set ICC_INIT_DESIGN_INPUT         "DDC"         ;# VERILOG|DDC|MW; specify the type of starting point;
+;# if "VERILOG" is specified, you should also specify a valid $ICC_IN_VERILOG_NETLIST_FILE
+;# if "DDC" is specified, you should also specify a valid $ICC_IN_DDC_FILE 
+;# if "MW" is specified, you should also specify a valid $ICC_INPUT_CEL
+set POWER_OPTIMIZATION            TRUE         ;# TRUE|FALSE; set TRUE to enable power optimization (-power option) for the core commands such as place_opt, clock_opt, 
+;# route_opt, and focal_opt. If $ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT below is also specified, 
+;# leakage power optimization is focused on lvt cell reduction; otherwise focused on leakage power reduction.
+set ICC_PLACE_LOW_POWER_PLACEMENT FALSE	       ;# TRUE|FALSE; set TRUE to enable low power placement for place_opt; requires $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CUSTOM_MULTI_VTH_CONSTRAINT_SCRIPT ""  ;# script for customized set_multi_vth_constraints constraints. effective only when $POWER_OPTIMIZATION is set to TRUE;
+;# specify to make leakage power optimization focused on lvt cell reduction; 
+;# refer to rm_icc_scripts/multi_vth_constraint.example as an example.	   
+set DFT                           FALSE	       ;# TRUE|FALSE; set TRUE to enable scan reordering flow and add -optimize_dft option to place_opt and clock_opt commands;
+;# if set TRUE, you should also provide a valid $ICC_IN_SCAN_DEF_FILE
+set ICC_TIE_CELL_FLOW             FALSE        ;# TRUE|FALSE, set TRUE if you want TIE-CELLS to be used during optimizations instead of TIE-nets
+set ICC_DBL_VIA                   TRUE         ;# TRUE|FALSE; set TRUE to enable redundant via insertion; more options in "Chipfinishing and Metal Fill Variables" section
+set ICC_FIX_ANTENNA               FALSE        ;# TRUE|FALSE: set TRUE to enable antenna fixing; more options in "Chipfinishing Variables" section
+set ADD_FILLER_CELL               FALSE        ;# TRUE|FALSE; set TRUE to enable std cells filler insertion; more options in "Chipfinishing Variables" section
+set ICC_REDUCE_CRITICAL_AREA      TRUE         ;# TRUE|FALSE; set TRUE to enable detail route wire spreading
+set ICC_CREATE_MODEL              FALSE        ;# TRUE|FALSE; set TRUE to create block abstraction (or ILM) and FRAM view (at block level)
+set ICC_CREATE_BLOCK_ABSTRACTION  TRUE	       ;# TRUE|FALSE; set TRUE to create block abstraction, set to FALSE to create ILM (at block level)
+set ADD_METAL_FILL                "ICC"        
+;# HERCULES : signoff_metal_fill using Hercules
+;# ICV : signoff_metal_fill using IC Validator
+set SIGNOFF_DRC_ENGINE	"ICV"		       ;# ICV|HERCULES; signoff_drc using ICV or Hercules; more options in "Metal fill and Signoff DRC Variables" section
+set ICC_REPORTING_EFFORT          "MED"        ;# OFF|LOW|MED; if set to OFF, no reporting is done; if set to LOW, report_qor/report_constraints/report_power are skipped,
+;# additionally, report_timing is skipped in clock_opt_cts
+set ICC_SANITY_CHECK              FALSE        ;# TRUE|FALSE, set TRUE to perform check_physical_design
+set ICC_ENABLE_CHECKPOINT	  FALSE	       ;# TRUE|FALSE, set TRUE to perform checkpoint strategy for optimization commands 
+;# ensure there is enough disk space before enabling this feature. refer to the set_checkpoint_strategy man page for details.
+###############################
+## General Variables
+###############################
+set ICC_INPUT_CEL                 "${DESIGN_NAME}_DCT" ;# starting CEL for flow with a Milkyway CEL input which can be the final CEL from Design Compiler Topographical 
+set PNET_METAL_LIST               ""           	;# List of metals in the design to be used for (partial) pnet options
+set PNET_METAL_LIST_COMPLETE	  ""	       	;# List of metals in the design to be used for (complete) pnet options
+set ICC_IN_DONT_USE_FILE          "$LIBRARY_DONT_USE_FILE" ;# script with library modifications for dont_use; default to $LIBRARY_DONT_USE_FILE in common_setup.tcl 
+set ICC_FIX_HOLD_PREFER_CELLS     ""           	;# Syntax: library/cell_name - Example: slow/DLY1X1 slow/DLY1X4
+set ICC_MAX_AREA                  ""           	;# max_area value used during area optimization
+set AREA_CRITICAL_RANGE_PRE_CTS   ""           	;# area critical range use during area optimization during place_opt
+set AREA_CRITICAL_RANGE_POST_CTS  ""           	;# area critical range use during area optimization during post-CTS optimization 
+set AREA_CRITICAL_RANGE_POST_RT   ""           	;# area critical range use during area optimization during route_opt
+set POWER_CRITICAL_RANGE_PRE_CTS  ""           	;# power critical range use during area optimization during place_opt
+set POWER_CRITICAL_RANGE_POST_CTS ""           	;# power critical range use during area optimization during post-CTS optimization 
+set POWER_CRITICAL_RANGE_POST_RT  ""           	;# power critical range use during area optimization during route_opt
+set ICC_NUM_CPUS                  1            	;# number of cpus for distributed processing
+;# specify a number greater than 1 to enable it for classic router based route_opt and insert_redundant_via commands
+set ICC_NUM_CORES                 1            	;# number of cores on the local host for multicore support; 
+;# specify a number greater than 1 to enable it for the core commands
+set PLACE_OPT_EFFORT 		  "medium"      ;# low|medium|high; choose effort level for place_opt command
+set PLACE_OPT_TRADEOFF_TIMING_FOR_POWER_AREA FALSE ;# TRUE|FALSE; set TRUE to enable timing, power and area tradeoff optimization for place_opt command.
+;# It only works for medium effort place_opt with -power option
+set ROUTE_OPT_EFFORT 		  "medium"      ;# low|medium|high; choose effort level for route_opt command
+set PLACE_OPT_CONGESTION_DRIVEN	  TRUE          ;# TRUE|FALSE; set TRUE to enable congestion removal during place_opt command (place_opt_icc step) and 
+;# clock_opt -only_psyn command (clock_opt_psyn_icc step) 
+set PLACE_OPT_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION FALSE 
+;# TRUE|FALSE; set TRUE to perform layer optimization (preroute_focal_opt -layer_optimization) 
+;# on existing buffer trees after place_opt command (place_opt_icc step)
+set CLOCK_OPT_PSYN_PREROUTE_FOCALOPT_LAYER_OPTIMIZATION FALSE 
+;# TRUE|FALSE; set TRUE to perform layer optimization (preroute_focal_opt -layer_optimization) 
+;# on existing buffer trees after clock_opt -only_psyn command (clock_opt_psyn_icc step)
+set ICC_CREATE_GR_PNG             FALSE  	;# TRUE|FALSE; set TRUE to create a global route congestion map snapshot in PNG format at the end of route_icc step
+set ICC_WRITE_FULL_CHIP_VERILOG   FALSE		;# TRUE|FALSE; set TRUE for write_verilog in outputs_icc.tcl to write out module definitions for soft macros 
+if {![info exists MW_POWER_NET]} {
+set MW_POWER_NET 		  "VDD"
+}
+if {![info exists MW_POWER_PORT]} {
+set MW_POWER_PORT                 "VDD"
+}
+if {![info exists MW_GROUND_NET]} {
+set MW_GROUND_NET                 "VSS"
+}
+if {![info exists MW_GROUND_PORT]} { 
+set MW_GROUND_PORT                "VSS"
+}
+###############################
+## Cellname Variables
+###############################
+set ICC_FLOORPLAN_CEL            "init_design_icc"
+set ICC_PLACE_OPT_CEL            "place_opt_icc"
+set ICC_CLOCK_OPT_CTS_CEL        "clock_opt_cts_icc"
+set ICC_CLOCK_OPT_PSYN_CEL       "clock_opt_psyn_icc"
+set ICC_CLOCK_OPT_ROUTE_CEL      "clock_opt_route_icc"
+set ICC_ROUTE_CEL                "route_icc"
+set ICC_ROUTE_OPT_CEL            "route_opt_icc"
+set ICC_CHIP_FINISH_CEL          "chip_finish_icc"
+set ICC_METAL_FILL_CEL           "metal_fill_icc"
+set ICC_ECO_STARTING_CEL	 $ICC_METAL_FILL_CEL         ;# CEL to run ECO on (contains original pre-tape-out database)
+set ICC_ECO_CEL             	 "eco_icc"                   ;# CEL after running the ECO (contains new ECO netlist)
+set ICC_FOCAL_OPT_STARTING_CEL	 $ICC_CHIP_FINISH_CEL        ;# CEL to run focal_opt on
+set ICC_FOCAL_OPT_CEL       	 "focal_opt_icc"             ;# CEL after running focal_opt
+set ICC_FLOORPLAN_ODL_CEL	 "init_design_odl" 
+set ICC_DP_CREATE_PLANGROUPS_CEL "create_plangroups_dp" 
+set ICC_DP_CREATE_ODL_CEL	 "create_odl_dp" 
+set ICC_DP_ROUTEABILITY_ON_PLANGROUPS_CEL "routeability_on_plangroups_dp"
+set ICC_DP_PIN_ASSIGNMENT_BUDGETING_CEL	 "pin_assignment_budgeting_dp"
+set ICC_DP_COMMIT_CEL		 "commit_dp"
+############################################################
+## Customized Constraint Script for Core Commands (Optional)
+############################################################ 
+set CUSTOM_INIT_DESIGN_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced before the read_def command;
+;# review init_design_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_PLACE_OPT_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right before the place_opt core command;
+;# review place_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_PLACE_OPT_POST_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right after the place_opt core command;
+;# review place_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_CTS_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right before the clock_opt -only_cts core command;
+;# review clock_opt_cts_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_CTS_POST_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right after the clock_opt -only_cts core command;
+;# review clock_opt_cts_icc script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_PSYN_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right before the clock_opt -only_psyn core command;
+;# review clock_opt_psyn_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_PSYN_POST_SCRIPT ""	;# An optional Tcl file; if specified, will be sourced right after the clock_opt -only_psyn core command;
+;# review clock_opt_psyn_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_SCRIPT ""	;# An optional Tcl file; if specified, will be sourced before the route_group -all_clock_nets command;
+;# review clock_opt_route_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_ROUTE_PRE_CTO_SCRIPT ""	;# An optional Tcl file; if specified, will be sourced before the optimize_clock_tree command;
+;# review clock_opt_route_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CLOCK_OPT_ROUTE_POST_CTO_SCRIPT ""	;# An optional Tcl file; if specified, will be sourced after the optimize_clock_tree command;
+;# review clock_opt_route_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_ROUTE_PRE_SCRIPT ""			;# An optional Tcl file; if specified, will be sourced before the route_opt -initial_route_only command;
+;# review route_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_ROUTE_POST_SCRIPT ""			;# An optional Tcl file; if specified, will be sourced after the route_opt -initial_route_only command;
+;# review route_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_ROUTE_OPT_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right before the route_opt core command;
+;# review route_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_ROUTE_OPT_POST_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced right after the route_opt core command;
+;# review route_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_FOCAL_OPT_PRE_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced before the focal_opt core commands;
+;# review focal_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_FOCAL_OPT_POST_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced after the focal_opt core commands;
+;# review focal_opt_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+set CUSTOM_CHIP_FINISH_POST_SCRIPT ""		;# An optional Tcl file; if specified, will be sourced before the route_opt -inc -size_only command;
+;# review chip_finish_icc.tcl script for exact location where this is sourced to avoid overlap with existing constraints
+###############################
+## Floorplan Input Variables          		    
+###############################
+set ICC_FLOORPLAN_INPUT           	"CREATE"   ;# DEF | FP_FILE | CREATE | USER_FILE | SKIP; "DEF" reads $ICC_IN_DEF_FILE; "FP_FILE" reads ICC_IN_FLOORPLAN_FILE;
+;# "CREATE" uses create_floorplan command; "USER_FILE" sources $ICC_IN_FLOORPLAN_USER_FILE; 
+;# "SKIP" skips floorplanning section
+set ICC_IN_DEF_FILE		  	""	;# Complete floorplan file in DEF format
+set ICC_IN_FLOORPLAN_FILE	  	""	;# Complete floorplan file generated by write_floorplan 
+set ICC_IN_FLOORPLAN_USER_FILE	  	""	;# Complete floorplan file generated by user; This file will simply be sourced.
+set ICC_IN_PIN_PAD_PHYSICAL_CONSTRAINTS_FILE ""	;# I/O constraint file generated by write_pin_pad_physical_constraints which contains pin or pad information
+;# applied prior to create_floorplan command   
+set ICC_IN_PHYSICAL_ONLY_CELLS_CREATION_FILE "" ;# a file to include physical-only cell creation commands to be sourced
+;# e.g. create_cell {vdd1left vdd1right vdd1top vdd1bottom} pvdi
+set ICC_IN_PHYSICAL_ONLY_CELLS_CONNECTION_FILE "" ;# a file to include physical-only cell connection commands to be sourced
+;# e.g. derive_pg_connection -power_net $MW_POWER_NET -power_pin $MW_POWER_PORT -ground_net $MW_GROUND_NET -ground_pin $MW_GROUND_PORT -cells {vdd1left vdd1right vdd1top vdd1bottom}
+set ICC_PHYSICAL_CONSTRAINTS_FILE 	""	;# script to add incremental floorplan constraints which will be sourced after read_def, read_floorplan, or floorplan creation
+set CUSTOM_CONNECT_PG_NETS_SCRIPT 	""      ;# script for customized derive_pg_connection commands which replaces the default derive_pg_connection commands in the scripts   
+###############################
+## Timing Variables
+###############################
+set ICC_APPLY_RM_DERATING               FALSE 	;# TRUE|FALSE; when set to FALSE, the derating is assumed to be set in the SDC
+set ICC_LATE_DERATING_FACTOR	        1.01 	;# Late derating factor, used for both data and clock 
+set ICC_EARLY_DERATING_FACTOR	        0.99 	;# Early derating factor, used for both data and clock 
+set ICC_APPLY_RM_UNCERTAINTY_PRECTS     FALSE	;# TRUE|FALSE; when set to TRUE, user uncertainty will be replaced by $ICC_UNCERTAINTY_PRECTS
+set ICC_APPLY_RM_UNCERTAINTY_POSTCTS    FALSE	;# TRUE|FALSE; when set to TRUE, user uncertainty will be replaced by $ICC_UNCERTAINTY_POSTCTS
+set ICC_UNCERTAINTY_PRECTS_FILE         ""   	;# Pre-cts uncertainty file used during place_opt
+set ICC_UNCERTAINTY_POSTCTS_FILE        ""   	;# Post-cts uncertainty file used during post-CTS optimization and route_opt
+set ICC_MAX_TRANSITION                  ""   	;# max_transition value set on the design
+set ICC_CRITICAL_RANGE                  ""   	;# critical_range set on the design; default = 50% of each clock period
+set ICC_MAX_FANOUT                      ""   	;# max_fanout value set on the design
+set ICC_FULL_ARNOLDI                    FALSE	;# TRUE|FALSE; when set to TRUE, will enable full-Arnoldi, i.e. no net filtering
+set ICC_IN_AOCV_TABLE_FILE		""	;# A file containing advanced on-chip variation (OCV) derate factor tables written out by PrimeTime's write_binary_aocvm command 
+;# If specified, it will be read right before clock_opt -only_psyn command at clock_opt_psyn_icc step and AOCV analysis will be enabled
+#######################################
+## Clock Tree Synthesis (CTS) Variables
+#######################################
+set ICC_CTS_RULE_NAME		"iccrm_clock_double_spacing" ;# specify the name of a clock nondefault routing rule that you have defined (for ex, in common_cts_settings_icc.tcl); 
+;# it will be associated with set_clock_tree_options -routing_rule  
+;# If ICC_CTS_RULE_NAME is set to iccrm_clock_double_spacing, double spacings will be applied to all layers
+set ICC_CTS_LAYER_LIST		""		;# clock tree layers, usually M3 and above; e.g. set ICC_CTS_LAYER_LIST "M3 M4 M5"
+set ICC_CTS_REF_LIST		""		;# cells for CTS; a space-deliminated list: cell1 cell2 
+set ICC_CTS_REF_DEL_INS_ONLY	""		;# cells for CTS delay insertion; a space-deliminated list: cell1 cell2
+set ICC_CTS_REF_SIZING_ONLY	""		;# cells for CTS sizing only; a space-deliminated list: cell1 cell2 
+set ICC_CTS_SHIELD_RULE_NAME	""		;# specify clock shielding rule name; requires $ICC_CTS_SHIELD_SPACINGS, $ICC_CTS_SHIELD_WIDTHS to be also specified    
+set ICC_CTS_SHIELD_SPACINGS	""		;# specify clock shielding spacing associated with shielding rule; a list of layer name and spacing pairs
+set ICC_CTS_SHIELD_WIDTHS	""		;# specify clock shielding width associated with shielding rule: a list of layer name and width pair
+set ICC_CTS_SHIELD_CLK_NAMES	""		;# optionally specify a subset of clock names to apply the clock shielding rule: $ICC_CTS_SHIELD_RULE_NAME;
+;# if not specified, $ICC_CTS_SHIELD_RULE_NAME will be applied to all clock nets 
+set ICC_CTS_INTERCLOCK_BALANCING	FALSE	;# TRUE|FALSE; set TRUE to enable -inter_clock_balance for "clock_opt -only_cts" at clock_opt_cts_icc task;
+;# specify $ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE to set the options  
+set ICC_CTS_INTERCLOCK_BALANCING_OPTIONS_FILE	"" ;# an optional file which contains set_inter_clock_delay_options commands
+set ICC_CTS_UPDATE_LATENCY	FALSE		;# set TRUE to perform clock latency update post CTS
+set ICC_CTS_LATENCY_OPTIONS_FILE	""	;# an optional file which specifies the latency adjustment options
+set ICC_CTS_LOW_POWER_PLACEMENT	FALSE	        ;# TRUE|FALSE; set TRUE to enable low power placement for CTS; requires $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_MERGE	FALSE		;# TRUE|FALSE; set TRUE to enable clock gate merging for CTS for power reduction; requires $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_CLOCK_GATE_SPLIT	FALSE		;# TRUE|FALSE; set TRUE to enable clock gate splitting for CTS for reducing enable pin violations; requires $POWER_OPTIMIZATION to be TRUE to be effective.
+set ICC_CTS_SELF_GATING		FALSE		;# TRUE|FALSE; set TRUE to insert XOR self-gating logic during clock tree synthesis before clock tree construction
+;# An optional gate-level SAIF file ($ICC_IN_SAIF_FILE) is recommended in order to provide clock activity information
+set ICC_IN_SAIF_FILE            "$DESIGN_NAME.saif" ;# An optional gate-level SAIF file for low power placement ($ICC_CTS_LOW_POWER_PLACEMENT) and self-gating ($ICC_CTS_SELF_GATING)
+set ICC_SAIF_INSTANCE_NAME      $DESIGN_NAME	;# the instance in the SAIF file containing switching activity
+set ICC_POST_CLOCK_ROUTE_CTO	FALSE  	       	;# set TRUE if to perform post route clock tree optimization after clock routing at clock_opt_route_icc step
+#########################################
+## Routing and Chipfinishing Variables
+#########################################
+## end cap cells 
+set ICC_H_CAP_CEL                  ""           ;# defines the horizontal CAP CELL library cell 
+set ICC_V_CAP_CEL                  ""           ;# defines the vertical CAP CELL library cell (for the Well Proximity Effect)
+## redundant via insertion (ICC_DBL_VIA) options
+set ICC_DBL_VIA_FLOW_EFFORT      LOW            ;# LOW|MED|HIGH  - MED enables concurrent soft-rule redundant via insertion
+;# HIGH runs another redundant via, timing driven, after chipfinishing
+set ICC_CUSTOM_DBL_VIA_DEFINE_SCRIPT ""         ;# script to define the redundant via definitions
+set ICC_DBL_VIA_DURING_INITIAL_ROUTING TRUE	;# TRUE|FALSE - TRUE enables automatic redundant via insertion after detail route change of "route_opt -initial"
+;# FALSE runs insert_zrt_redundant_vias after "route_opt -initial"
+## antenna fixing (ICC_FIX_ANTENNA) options
+set ANTENNA_RULES_FILE           ""             ;# defines the antenna rules
+set ICC_USE_DIODES               FALSE          ;# TRUE|FALSE; control variable to allow diodes to be inserted both by the 
+;# insert_port_protection_diodes command as well as the router
+set ICC_ROUTING_DIODES           ""             ;# space separated list of diode names
+set ICC_PORT_PROTECTION_DIODE    ""             ;# diode name for insert_port_protection_diodes
+;# Format = library_name/diode_name
+set ICC_PORT_PROTECTION_DIODE_EXCLUDE_PORTS ""  ;# a list of ports to be excluded by insert_port_protection_diodes
+## filler cell insertion (ADD_FILLER_CELL) options
+set FILLER_CELL_METAL            ""             ;# space separated list of filler cells with metals
+set FILLER_CELL                  ""             ;# space separated list of filler cells 
+## signal em
+set ICC_FIX_SIGNAL_EM		 FALSE		;# TRUE|FALSE; set TRUE to enable signal em fixing; please uncomment the section and follow instruction in chip_finish_icc.tcl 
+###############################
+## Emulation TLUplus Files
+###############################
+## Note : emulated metal fill mau not correlate well with real metal fill, especially for advanced technology nodes.
+#  Please use it for reference only.
+set TLUPLUS_MAX_EMULATION_FILE         ""  	;#  Max TLUplus file
+set TLUPLUS_MIN_EMULATION_FILE         ""  	;#  Min TLUplus file
+###############################
+## check_signoff_correlation  Variables
+###############################
+set PT_DIR ""                          		;# path to PrimeTime bin directory
+set PT_SDC_FILE ""                     		;# optional file in case PrimeTime has a different SDC that what is available in the IC Compiler database
+set STARRC_DIR ""                      		;# path to StarRC bin directory
+set STARRC_MAX_NXTGRD ""               		;# MAX NXTGRD file
+set STARRC_MIN_NXTGRD ""               		;# MIN NXTGRD file
+set STARRC_MAP_FILE "$MAP_FILE"        		;# NXTGRD mapping file, defaults to TLUPlus mapping file, but could be different
+set ICC_SIGNOFF_OPT_CHECK_CORRELATION_PREROUTE_SCRIPT "" ;# a file to be sourced to run check_signoff_correlation at end of place_opt_icc step; 
+;# example - rm_icc_scripts/signoff_opt_check_correlation_preroute_icc.example.tcl
+set ICC_SIGNOFF_OPT_CHECK_CORRELATION_POSTROUTE_SCRIPT "" ;# a file to be sourced to run at check_signoff_correlation end of route_opt_icc step; 
+;# example - rm_icc_scripts/signoff_opt_check_correlation_postroute_icc.example.tcl
+#######################################
+## Metal fill and Signoff DRC Variables
+#######################################
+## For Hercules - ensure environment variable HERCULES_HOME_DIR is set and that Hercules is included in the same path where the IC Compiler shell is executed from
+## For IC Validator metal Fill - ensure environment variable PRIMEYIELD_HOME_DIR is set and that IC Validator is included in the same path where the IC Compiler shell is executed from
+## For IC Validator DRC - ensure environment variable ICV_HOME_DIR is set and that IC Validator is included in the same path where the IC Compiler shell is executed from
+set SIGNOFF_FILL_RUNSET ""             		;# IC Validator or Hercules runset for signoff_metal_fill command
+set SIGNOFF_DRC_RUNSET  ""             		;# IC Validator or Hercules runset for signoff_drc command
+set SIGNOFF_MAPFILE     ""             		;# IC Validator|Hercules mapping file for signoff_metal_fill and signoff_drc commands
+## Options for signoff_metal_fill command using ICV engine in metal_fill_icc.tcl
+set SIGNOFF_METAL_FILL_TIMING_DRIVEN FALSE  	;# TRUE|FALSE : set this to TRUE to enable timing driven for IC Validator metal fill 	
+set TIMING_PRESERVE_SLACK_SETUP	"0.1"  		;# float : setup slack threshold for timing driven ICV metal fill; default 0.1
+;# also used by wire_spreading/widening in chip_finishi_icc.tcl
+set TIMING_PRESERVE_SLACK_HOLD "0"     		;# float : hold slack threshold for wire_spreading/widening in chip_finishi_icc.tcl; default 0
+## Options for insert_metal_fill command using ICC engine in metal_fill_icc.tcl
+set ICC_METAL_FILL_SPACE           2            ;# space amount used during the IC Compiler insert_metal_fill command
+set ICC_METAL_FILL_TIMING_DRIVEN  TRUE          ;# enables timing driven metal fill for the IC Compiler insert_metal_fill command
+###############################
+## focal_opt Variables
+###############################
+set ICC_FOCAL_OPT_HOLD_VIOLS     "all"          ;# filename|all - blank to skip; filename to fix violations from a file; specify "all" to fix all hold violations
+set ICC_FOCAL_OPT_SETUP_VIOLS    ""          	;# filename|all - blank to skip; filename to fix violations from a file; specify "all" to fix all setup violations
+set ICC_FOCAL_OPT_DRC_NET_VIOLS  "all"          ;# filename|all - blank to skip; filename to fix violations from a file; specify "all" to fix all DRC net violations
+set ICC_FOCAL_OPT_DRC_PIN_VIOLS  ""             ;# filename|all - blank to skip; filename to fix violations from a file; specify "all" to fix all DRC pin violations
+set ICC_FOCAL_OPT_XTALK_VIOLS    ""             ;# filename - blank to skip; filename to fix crosstalk violations from a file
+###############################
+## ECO Flow Variables
+###############################
+set ICC_ECO_FLOW		"NONE" 	;# NONE|UNCONSTRAINED|FREEZE_SILICON
+;# UNCONSTRAINED : NO spare cell insertion ; cells can be added (pre tapeout)
+;# FREEZE_SILICON : spare cell insertion/freeze silicon ECO
+set ICC_SPARE_CELL_FILE         ""     	;# Tcl script to insert the spare cells, e.g. :
+;# insert_spare_cells -lib_cell {INV8 DFF1} -cell_name spares -num_instances 300
+set ICC_ECO_FILE                ""     	;# a verilog netlist or Tcl file containing ECO changes - specify the file name and type of file using ICC_ECO_FLOW_TYPE
+set ICC_ECO_FLOW_TYPE		"verilog" ;# verilog | pt_drc_setup_fixing_tcl | pt_hold_fixing_tcl - specify type of ECO file for UNCONSTRAINED ICC_ECO_FLOW;
+;# depending on the value specified, the commands used to read ECO file and place ECO cells vary;
+;# specify verilog if you provide a functional eco file for ICC_ECO_FILE;
+;# specify pt_drc_setup_fixing_tcl if you provide a change file generated by the PrimeTime fix_eco_drc or fix_eco_timing -setup commands;
+;# specify pt_hold_fixing_tcl if you provide a change file generated by the PrimeTime fix_eco_timing -hold command
+set ICC_ECO_METAL_FILL_MODE	"early_stage" ;# early_stage | signoff_stage; only ICV is supported;
+;# specify early stage to use ICV DRC based metal fill trimming (faster);
+;# specify signoff_stage to perform complete ICV metal fill purge, ADR and metal fill insertion  
+########################################################################################################################
+############                        IC COMPILER DESIGN PLANNING SPECIFIC                         #######################   
+############(variables for IC Compiler Design Planning and IC Compiler Hierarchical Reference Methodologies)  ##########
+########################################################################################################################
+########################################################################################################################
+## Common variables (applied to both IC Compiler Design Planning and IC Compiler Hierarchical Reference Methodologies )
+########################################################################################################################
+set ICC_DP_VERBOSE_REPORTING		FALSE		;# TRUE|FALSE; generate additional reports before placement
+set ICC_DP_SET_HFNS_AS_IDEAL_THRESHOLD	""		;# integer; specify a threshold to set nets with fanout larger than it as ideal nets
+set ICC_DP_SET_MIXED_AS_IDEAL		TRUE		;# TRUE|FALSE; set mixed clock/signal paths as ideal nets
+set ICC_DP_FIX_MACRO_LIST		""		;# ""|skip|"a_list_of_macros"; unfix all macros OR skip fix OR fix specified macros before placement
+set CUSTOM_ICC_DP_PLACE_CONSTRAINT_SCRIPT ""            ;# Put your set_keepout_margin and fp_set_macro_placement_constraint in this file 
+set CUSTOM_ICC_DP_PREROUTE_STD_CELL_SCRIPT ""		;# File to perform customized preroute_standard_cell commands
+## PNS and PNA control variables
+set CUSTOM_ICC_DP_PNS_CONSTRAINT_SCRIPT ""              ;# File to add PNS constraints which is loaded before running PNS
+set PNS_POWER_NETS         		"${MW_POWER_NET} ${MW_GROUND_NET}" ;# Target nets for PNS; syntax is "your_power_net your_ground_net" 
+set PNS_POWER_BUDGET       		1000          	;# Unit in milliWatts; default is 1000
+set PNS_VOLTAGE_SUPPLY     		1.5           	;# Unit in Volts; default is 1.5
+set PNS_VIRTUAL_RAIL_LAYER 		""              ;# Specify the metal layer you want to use as virtual rail
+set PNS_OUTPUT_DIR         		"./pna_output"  ;# Output directory for PNS and PNA output files
+set PNA_EXTRACTION_TEMPERATURE		""		;# Float; set the wire extraction temperature for PNA. Optional.
+set PNA_EXTRACTION_CORNER		""		;# min|max; set the parasitic corner for RC extraction for PNA. Optional.
+###############################################################
+## IC Compiler Hierarchical Reference Methodology Variables
+###############################################################
+set ICC_DP_PLAN_GROUPS		"$HIERARCHICAL_CELLS"	;# full module names from which plan groups will be created
+;#   space deliminated list: "top/A top/B top/C"
+;# default to $HIERARCHICAL_CELLS from common_setup.tcl if using Design Compiler Topographical
+set ICC_DP_PLANGROUP_FILE               ""              ;# floorplan file containing plan group creation and location which should be the output of write_floorplan
+set ICC_DP_ALLOW_FEEDTHROUGH	        FALSE		;# TRUE|FALSE; allow feedthrough creation during pin assignment 
+set CUSTOM_ICC_DP_PNS_SCRIPT 		""              ;# customized PNS script; replacing PNS section in scripts; for template based PNS, this is required
+set CUSTOM_ICC_DP_PNA_SCRIPT 		""              ;# customized PNA script; replacing PNA section in scripts
+## DFT-aware hierarchical design planning variables 
+set ICC_DP_DFT_FLOW			FALSE		;# TRUE|FALSE; enable DFT-aware hierarchical design planning flow; requires ICC_IN_FULL_CHIP_SCANDEF_FILE
+set ICC_IN_FULL_CHIP_SCANDEF_FILE "$DESIGN_NAME.mapped.expanded.scandef"		
+;# full-chip SCANDEF file for DFT-aware hierarchical design planning flow (see $ICC_DP_DFT_FLOW)
+;# used only in hierarchical design planning phase; not used or needed for block level implementations and top level assembly 
+set BUDGETING_SDC_OUTPUT_DIR            "./sdc"         ;# budgeting SDC output directory; default is "./sdc"
+## ODL flow variables
+set ICC_DP_ODL_HOST_OPTION 	""			;# lsf|grd|samehost|list_of_hosts; this controls the set_host_options value for create_on_demand_netlist
+;# if either lsf or grd is specified, you must also specify $ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS 
+;# if list_of_hosts is specified, you must also specify $ICC_DP_ODL_HOST_OPTION_HOSTS_LIST 
+set ICC_DP_ODL_HOST_OPTION_SUBMIT_OPTIONS {}		;# controls the value of -submit_option option for set_host_options for create_on_demand_netlist command. 
+;# If ICC_DP_ODL_HOST_OPTION is set to lsf, 
+;# then lsf specific submit options should be specified, for example, 
+;# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_DP_ODL_HOST_OPTION_HOSTS_LIST	""              ;# a list of hosts on which to perform create_on_demand_netlist
+## TIO and block abstraction variables
+set ICC_BLOCK_ABSTRACTIONS_LIST		""		;# a list of all the block abstractions used in the design if $ICC_CREATE_BLOCK_ABSTRACTION is set to TRUE;
+;# if left empty, the list will be auto set to include all soft macros in the design if you are following HRM step-by-step 
+set ICC_TIO_BLOCK_LIST			$ICC_BLOCK_ABSTRACTIONS_LIST
+;# a list of names of block abstractions that are to be optimized by transparent interface optimization (TIO) at route_opt_icc;
+;# you can change it to a subset of block abstractions before route_opt_icc starts  
+set ICC_TIO_OPTIMIZE_BLOCK_INTERFACE    TRUE            ;# TRUE|FALSE; set TRUE for TIO to optimize interface logic
+set ICC_TIO_OPTIMIZE_MIM_BLOCK_INTERFACE FALSE          ;# TRUE|FALSE; set TRUE for TIO to optimize inside MIM blocks; set true only when you are opening MIM blocks for TIO
+set ICC_TIO_OPTIMIZE_SHARED_LOGIC       FALSE           ;# TRUE|FALSE; set TRUE for TIO to optimize shared logic; requires $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE to be also enabled
+set ICC_TIO_HOST_OPTION 		""		;# lsf|grd|samehost|list_of_hosts; this controls the set_host_options value for TIO
+;# if either lsf or grd is specified, you must also specify $ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS 
+;# if list_of_hosts is specified, you must also specify $ICC_TIO_HOST_OPTION_HOSTS_LIST
+;# Please note that if $ICC_TIO_OPTIMIZE_BLOCK_INTERFACE is set to TRUE and $ICC_TIO_BLOCK_LIST is not empty,
+;# which are both default for HRM, you should also specify a valid value for $ICC_TIO_HOST_OPTION
+set ICC_TIO_HOST_OPTION_SUBMIT_OPTIONS {}		;# controls the value of -submit_option option for set_host_options for TIO 
+;# If $ICC_TIO_HOST_OPTION is set to lsf, 
+;# then lsf specific submit options should be specified and vice versa, for example, 
+;# {-q bnormal -R "rusage\[mem=12000\]\cputype==emt64 cpuspeed==EMT3000 qsc==e"}
+set ICC_TIO_HOST_OPTION_HOSTS_LIST	""              ;# a list of hosts on which to perform automatic block update during TIO
+set ICC_TIO_WRITE_ECO_FILE              FALSE		;# TRUE|FALSE; set TRUE for TIO to write out an ECO file to TIO_eco_changes directory
+set ICC_IMPLEMENTATION_PHASE		default         ;# default|block|top; set it to block or top to disable tasks such as Milkyway design library creation,
+;# importing of black boxes, scenario creation, voltage area creation, and power switch creation, etc 
+;# in init_design_icc.tcl which should have been completed during design planning phase and should be skipped during 
+;# block and top level implementation phases; also set it to top to enable TIO at route_opt_icc task;
+;# if you are following IC Compiler Hierarchical RM step-by-step, please do not change this;
+;# it will be automatically set to block or top for block or top level designs, respectively
+set MW_SOFT_MACRO_LIBS                  ""       	;# a list containing paths to all block libraries; they will be added as reference libraries of the top level library
+;# if you are following IC Compiler Hierarchical RM step-by-step, please do not change this;
+;# it will be automatically set to include all block libraries in the design for top level implementation
+###############################################################################
+## IC Compiler Design Planning Reference Methodology (Flat) Variables
+###############################################################################
+## explore mode: flow control variables
+set ICC_DP_EXPLORE_MODE			TRUE		;# TRUE|FALSE; turn on exploration mode
+set ICC_DP_EXPLORE_STYLE		default		;# valid options are: default | placement_only | no_pns_pna | no_ipo
+;# default: place -> PNS/PNA -> in-place optimization -> final groute, snapshot, QoR, timing, and outputs 
+;# placement_only: skips pns/pna and in-place optimization from default | no_pns_pna: skips pna/pns from default 
+;# | no_ipo: skips in-place optimization from default 
+set ICC_DP_EXPLORE_SAVE_CEL_EACH_STEP 	FALSE		;# TRUE|FALSE; save 3 additional CEL after placement, in-place optimization, and PNS in explore mode (requires more disk space)
+set ICC_DP_EXPLORE_REPORTING_EACH_STEP	FALSE		;# TRUE|FALSE; generate QoR snapshot and timing report after each step (longer run time)
+set ICC_DP_EXPLORE_USE_GLOBAL_ROUTE 	FALSE		
+set ICC_DP_EXPLORE_SAVE_CEL_AFTER_GROUTE TRUE		;# TRUE|FALSE; save 2 additional CEL after global route: one after placement and one at the end
+set ICC_DP_EXPLORE_CUSTOM_PG_SCRIPT	""		;# string; script to be loaded to create customized PG straps after placement in explore mode; 
+;# valid only if ICC_DP_EXPLORE_STYLE is placement_only or no_pns_pna
+## explore mode: additional PNS control variables
+set PNS_TARGET_VOLTAGE_DROP     	250	        ;# Unit in milliVolts. Tool default is 10% of PNS_POWER_BUDGET
+set PNS_BLOCK_MODE         		FALSE           ;# TRUE|FALSE; specify if the design is block or top level; It turns on correspondant options in PNS and PNA
+set PNS_PAD_MASTERS        		""		;# Only for top level design with power pads. Specify cell masters for power pads, e.g. "pv0i.FRAM pv0a.FRAM"
+set PNS_PAD_INSTANCE_FILE  		""              ;# Only for top level design with power pads. Specify the file with a list of power pad instances
+set PNS_PAD_MASTER_FILE    		""		;# Only for top level design with power pads. Specify the file with a list of power pad masters
+## Please provide only one of PNS_PAD_MASTERS, OR PNS_PAD_INSTANCE_FILE, OR PNS_PAD_MASTER_FILE 
+#####################################################################################################################################
+## NO NEED TO CHANGE THE FOLLOWING IF Design Compiler Reference Metholodgy IS USED PRIOR TO IC Compiler Reference Methodology
+#####################################################################################################################################
+set ICC_IN_VERILOG_NETLIST_FILE "$DESIGN_NAME.mapped.v" ;#1 to n verilog input files, spaced by blanks
+set ICC_IN_SDC_FILE             "$DESIGN_NAME.mapped.sdc"
+set ICC_IN_DDC_FILE             "$DESIGN_NAME.mapped.ddc"
+set ICC_IN_UPF_FILE             "$DESIGN_NAME.mapped.upf"
+set ICC_IN_SCAN_DEF_FILE        "$DESIGN_NAME.mapped.scandef" 			;# default from Design Compiler Reference Metholodgy is $DESIGN_NAME.mapped.scandef
+set MW_DESIGN_LIBRARY           "${DESIGN_NAME}_LIB"    ;# Milkyway design library
+set COPY_FROM_MW_DESIGN_LIBRARY ""			;# specify a milkyway design library if you want reference methodology to copy it as MW_DESIGN_LIBRARY
+;# only applies if ICC_INIT_DESIGN_INPUT is set to Milkyway
+set REPORTS_DIR                 "reports"               ;# Directory to write reports.
+set RESULTS_DIR                 "results"               ;# Directory to write output data files
+set SOURCE_DIR 			$RESULTS_DIR		;# Source directory for analysis tasks such as FM and MVRC
+set REPORTS_DIR_INIT_DESIGN                     $REPORTS_DIR
+set REPORTS_DIR_PLACE_OPT                       $REPORTS_DIR
+set REPORTS_DIR_CLOCK_OPT_CTS                   $REPORTS_DIR
+set REPORTS_DIR_CLOCK_OPT_PSYN                  $REPORTS_DIR
+set REPORTS_DIR_CLOCK_OPT_ROUTE                 $REPORTS_DIR
+set REPORTS_DIR_ROUTE                           $REPORTS_DIR
+set REPORTS_DIR_ROUTE_OPT                       $REPORTS_DIR
+set REPORTS_DIR_CHIP_FINISH                     $REPORTS_DIR
+set REPORTS_DIR_ECO                        	$REPORTS_DIR
+set REPORTS_DIR_FOCAL_OPT                       $REPORTS_DIR
+set REPORTS_DIR_SIGNOFF_OPT                     $REPORTS_DIR
+set REPORTS_DIR_METAL_FILL                      $REPORTS_DIR
+set REPORTS_DIR_DP            			$REPORTS_DIR
+set REPORTS_DIR_DP_CREATE_PLANGROUPS		$REPORTS_DIR
+set REPORTS_DIR_DP_ROUTEABILITY_ON_PLANGROUPS   $REPORTS_DIR
+set REPORTS_DIR_DP_PIN_ASSIGNMENT_BUDGETING     $REPORTS_DIR
+set REPORTS_DIR_DP_COMMIT                       $REPORTS_DIR
+set REPORTS_DIR_DP_PREPARE_BLOCK                $REPORTS_DIR
+set REPORTS_DIR_FORMALITY			$REPORTS_DIR
+if { ! [file exists $REPORTS_DIR_INIT_DESIGN] } { file mkdir $REPORTS_DIR_INIT_DESIGN }
+if { ! [file exists $REPORTS_DIR_PLACE_OPT] } { file mkdir $REPORTS_DIR_PLACE_OPT }
+if { ! [file exists $REPORTS_DIR_CLOCK_OPT_CTS] } { file mkdir $REPORTS_DIR_CLOCK_OPT_CTS }
+if { ! [file exists $REPORTS_DIR_CLOCK_OPT_PSYN] } { file mkdir $REPORTS_DIR_CLOCK_OPT_PSYN }
+if { ! [file exists $REPORTS_DIR_CLOCK_OPT_ROUTE] } { file mkdir $REPORTS_DIR_CLOCK_OPT_ROUTE }
+if { ! [file exists $REPORTS_DIR_ROUTE] } { file mkdir $REPORTS_DIR_ROUTE }
+if { ! [file exists $REPORTS_DIR_ROUTE_OPT] } { file mkdir $REPORTS_DIR_ROUTE_OPT }
+if { ! [file exists $REPORTS_DIR_CHIP_FINISH] } { file mkdir $REPORTS_DIR_CHIP_FINISH }
+if { ! [file exists $REPORTS_DIR_ECO] } { file mkdir $REPORTS_DIR_ECO }
+if { ! [file exists $REPORTS_DIR_FOCAL_OPT] } { file mkdir $REPORTS_DIR_FOCAL_OPT }
+if { ! [file exists $REPORTS_DIR_SIGNOFF_OPT] } { file mkdir $REPORTS_DIR_SIGNOFF_OPT }
+if { ! [file exists $REPORTS_DIR_METAL_FILL] } { file mkdir $REPORTS_DIR_METAL_FILL }
+if { ! [file exists $REPORTS_DIR_DP] } { file mkdir $REPORTS_DIR_DP }
+if { ! [file exists $REPORTS_DIR_DP_CREATE_PLANGROUPS] } { file mkdir $REPORTS_DIR_DP_CREATE_PLANGROUPS }
+if { ! [file exists $REPORTS_DIR_DP_ROUTEABILITY_ON_PLANGROUPS] } { file mkdir $REPORTS_DIR_DP_ROUTEABILITY_ON_PLANGROUPS }
+if { ! [file exists $REPORTS_DIR_DP_PIN_ASSIGNMENT_BUDGETING] } { file mkdir $REPORTS_DIR_DP_PIN_ASSIGNMENT_BUDGETING }
+if { ! [file exists $REPORTS_DIR_DP_COMMIT] } { file mkdir $REPORTS_DIR_DP_COMMIT }
+if { ! [file exists $REPORTS_DIR_DP_PREPARE_BLOCK] } { file mkdir $REPORTS_DIR_DP_PREPARE_BLOCK }
+if { ! [file exists $REPORTS_DIR_FORMALITY] } { file mkdir $REPORTS_DIR_FORMALITY }
+## Logical libraries
+set_app_var search_path	". ./rm_icc_scripts ./rm_icc_zrt_scripts ./rm_icc_dp_scripts ./$RESULTS_DIR $ADDITIONAL_SEARCH_PATH $search_path" 
+if {$synopsys_program_name != "mvrc"} {
+  set_app_var target_library	"$TARGET_LIBRARY_FILES"
+  set_app_var link_library	"* $TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+} else {
+  set_app_var link_library	"$TARGET_LIBRARY_FILES $ADDITIONAL_LINK_LIB_FILES"
+}
+if { ! [file exists $RESULTS_DIR] } {
+  file mkdir $RESULTS_DIR
+}
+if { ! [file exists $REPORTS_DIR] } {
+  file mkdir $REPORTS_DIR
+}
+if {$synopsys_program_name == "icc_shell"} {
+
+## Min/Max library relationships
+#  For "set_operating_conditions -analysis_type on_chip_variation", it is not recommended if only -max is specified.
+#  Only use it if both -max and -min of set_operating_conditions are specified and point to two different libraries
+#  and are characterized to model OCV effects of the same corner.
+if {$MIN_LIBRARY_FILES != "" } {
+  foreach {max_library min_library} $MIN_LIBRARY_FILES {
+    set_min_library $max_library -min_version $min_library
+  }
+}
+
+## Reference libraries
+if { ![file exists [which $MW_REFERENCE_CONTROL_FILE]]} {
+ if {[file exists $MW_DESIGN_LIBRARY/lib]} {
+   set_mw_lib_reference $MW_DESIGN_LIBRARY -mw_reference_library "$MW_REFERENCE_LIB_DIRS $MW_SOFT_MACRO_LIBS"
+ }
+}
+
+## PD4 is not always used
+if {![info exists PD4]} {set PD4 ""}
+
+## Avoiding too many messages
+set_message_info -id PSYN-040 -limit 10 ;# Dont_touch for fixed cells
+set_message_info -id PSYN-087 -limit 10 ;# Port inherits its location from pad pin
+set_message_info -id LINT-8   -limit 10 ;# input port is unloaded
+
+set_app_var check_error_list "$check_error_list LINK-5 PSYN-375"
+
+}
+
+------------------- Internal Reference Library Settings -----------------
+
+Library    /bks2/PB17061127/DA_VLSI_PD/picorv32_LIB
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+
+
+------------------- Control File Reference Library Settings -----------
+
+Library    /bks2/PB17061127/DA_VLSI_PD/picorv32_LIB
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m
+  Reference    /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+-------------------------------------------------------------------------
+
+if {$synopsys_program_name == "fm_shell"} {
+set_app_var sh_new_variable_message false
+} 
+#################################################################################
+puts "RM-Info: Completed script [info script]\n"
+RM-Info: Completed script /bks2/PB17061127/DA_VLSI_PD/rm_setup/icc_setup.tcl
+
+#######################################
+####Outputs Script
+#######################################
+##Open Design
+open_mw_cel $ICC_METAL_FILL_CEL -lib $MW_DESIGN_LIBRARY
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_rvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_lvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+	10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+	pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     MRPIN        |	MRDL9PIN	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA5         |	M8
+	Mask Name      via5         |	metal8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA6         |	VIA8
+	Mask Name      via6         |	via8	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA7         |	M9
+	Mask Name      via7         |	metal9	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA8         |	CO
+	Mask Name      via8         |	polyCont	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA1         |	M6
+	Mask Name      via1         |	metal6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA2         |	VIA6
+	Mask Name      via2         |	via6	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA3         |	M7
+	Mask Name      via3         |	metal7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     VIA4         |	VIA7
+	Mask Name      via4         |	via7	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M7           |	M4
+	Mask Name      metal7       |	metal4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M8           |	VIA4
+	Mask Name      metal8       |	via4	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M9           |	M5
+	Mask Name      metal9       |	metal5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     CO           |	VIA5
+	Mask Name      polyCont     |	via5	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M3           |	M2
+	Mask Name      metal3       |	metal2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M4           |	VIA2
+	Mask Name      metal4       |	via2	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M5           |	M3
+	Mask Name      metal5       |	metal3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M6           |	VIA3
+	Mask Name      metal6       |	via3	 (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+	Main Library (picorv32_LIB) |	Reference Library (saed32nm_hvt_1p9m)
+	Layer Name     M2           |	VIA1
+	Mask Name      metal2       |	via1	 (MWLIBP-319)
+Warning: Unit conflict found: Milkyway technology file capacitance unit is pF; main library capacitance unit is fF. (IFS-007)
+Warning: Unit conflict found: Milkyway technology file resistance unit is kOhm; main library resistance unit is MOhm. (IFS-007)
+Warning: Unit conflict found: Milkyway technology file current unit is mA; main library current unit is uA. (IFS-007)
+Information: Opened "metal_fill_icc.CEL;1" from "/bks2/PB17061127/DA_VLSI_PD/picorv32_LIB" library. (MWUI-068)
+{metal_fill_icc}
+##Change Names
+change_names -rules verilog -hierarchy
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db'
+Loading db file '/js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db'
+Loading db file '/soft1/synopsys/iccompiler/H-2013.03-SP2/libraries/syn/gtech.db'
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+Information: Loading local_link_library attribute {saed32rvt_tt1p05v125c.db, saed32hvt_tt1p05v125c.db, saed32lvt_tt1p05v125c.db}. (MWDC-290)
+
+  Linking design 'picorv32'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  picorv32                    metal_fill_icc.CEL
+  saed32rvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+  saed32hvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+  saed32lvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+
+Load global CTS reference options from NID to stack
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+Information: Updating database...
+Information: Updating top database 'metal_fill_icc.CEL;1'. (MWDC-255)
+1
+save_mw_cel -as change_names_icc
+Information: Performing CEL netlist consistency check. (MWDC-118)
+Information: CEL consistency check PASSED. (MWDC-119)
+Information: Saved design named change_names_icc. (UIG-5)
+1
+close_mw_cel
+Removing physical design 'picorv32'
+1
+open_mw_cel change_names_icc
+Warning: Unit conflict found: Milkyway technology file capacitance unit is pF; main library capacitance unit is fF. (IFS-007)
+Warning: Unit conflict found: Milkyway technology file resistance unit is kOhm; main library resistance unit is MOhm. (IFS-007)
+Warning: Unit conflict found: Milkyway technology file current unit is mA; main library current unit is uA. (IFS-007)
+Information: Opened "change_names_icc.CEL;1" from "/bks2/PB17061127/DA_VLSI_PD/picorv32_LIB" library. (MWUI-068)
+{change_names_icc}
+##Verilog
+if {$ICC_WRITE_FULL_CHIP_VERILOG} {
+write_verilog -diode_ports -no_physical_only_cells $RESULTS_DIR/$DESIGN_NAME.output.v -macro_definition
+
+## For comparison with a Design Compiler netlist,the option -diode_ports is removed
+write_verilog -no_physical_only_cells $RESULTS_DIR/$DESIGN_NAME.output.dc.v -macro_definition
+
+## For LVS use,the option -no_physical_only_cells is removed
+write_verilog -diode_ports -pg $RESULTS_DIR/$DESIGN_NAME.output.pg.lvs.v -macro_definition
+
+} else {
+write_verilog -diode_ports -no_physical_only_cells $RESULTS_DIR/$DESIGN_NAME.output.v
+
+## For comparison with a Design Compiler netlist,the option -diode_ports is removed
+write_verilog -no_physical_only_cells $RESULTS_DIR/$DESIGN_NAME.output.dc.v
+}
+Generating description for top level cell.
+Processing module picorv32
+Elapsed =    0:00:00, CPU =    0:00:00
+Write verilog completed successfully.
+Generating description for top level cell.
+Processing module picorv32
+Elapsed =    0:00:00, CPU =    0:00:00
+Write verilog completed successfully.
+1
+## For LVS use,the option -no_physical_only_cells is removed
+write_verilog -diode_ports -pg $RESULTS_DIR/$DESIGN_NAME.output.pg.lvs.v
+Generating description for top level cell.
+Processing module picorv32
+Elapsed =    0:00:01, CPU =    0:00:00
+Write verilog completed successfully.
+1
+## Add -output_net_name_for_tie option to write_verilog command
+#  if the verilog file is to be used by "eco_netlist -by_verilog_file" command in eco_icc task
+## For Prime Time use,to include DCAP cells for leakage power analysis, add the option -force_output_references
+#  if {$ICC_WRITE_FULL_CHIP_VERILOG} {
+#  write_verilog -diode_ports -no_physical_only_cells -force_output_references [list of your DCAP cells] $RESULTS_DIR/$DESIGN_NAME.output.pt.v -macro_definition
+#  } else {
+#  write_verilog -diode_ports -no_physical_only_cells -force_output_references [list of your DCAP cells] $RESULTS_DIR/$DESIGN_NAME.output.pt.v
+#  }
+##SDC
+set_app_var write_sdc_output_lumped_net_capacitance false
+false
+set_app_var write_sdc_output_net_resistance false
+false
+write_sdc $RESULTS_DIR/$DESIGN_NAME.output.sdc
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+Information: Loading local_link_library attribute {saed32rvt_tt1p05v125c.db, saed32hvt_tt1p05v125c.db, saed32lvt_tt1p05v125c.db}. (MWDC-290)
+
+  Linking design 'picorv32'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  picorv32                    change_names_icc.CEL
+  saed32rvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db
+  saed32hvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db
+  saed32lvt_tt1p05v125c (library) /js1/songch/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_tt1p05v125c.db
+
+Load global CTS reference options from NID to stack
+1
+extract_rc -coupling_cap
+Information: The design has horizontal rows, and Y-symmetry has been used for sites. (MWDC-217)
+Floorplan loading succeeded.
+
+  Loading design 'picorv32'
+
+
+Warning: Port 'pcpi_wr' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[31]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[30]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[29]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[28]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[27]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[26]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[25]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[24]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[23]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[22]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[21]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[20]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[19]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[18]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[17]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[16]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[15]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[14]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[13]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[12]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[11]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[10]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[9]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[8]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[7]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[6]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[5]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[4]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[3]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[2]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[1]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_rd[0]' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_wait' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+Warning: Port 'pcpi_ready' cannot inherit its location, because the port does not connect with any leaf cell pins. Please check the floorplan. (PSYN-1042)
+
+
+Information: Library Manufacturing Grid(GridResolution) : 1
+Information: Time Unit from Milkyway design library: 'ns' 
+Information: Design Library and main library timing units are matched - 1.000 ns. 
+Information: Resistance Unit from Milkyway design library: 'kohm' 
+Warning: Mismatch in the main library and the Milkyway library resistance units. In the main library it is 1000.000 kohm and in the Milkyway design library it is 1.000 kohm. Check and correct the resistance units in the .tf and .db files. (PSYN-476)
+Information: Capacitance Unit from Milkyway design library: 'pf' 
+Warning: Mismatch in the main and the Milkyway library capacitance units. In the main library it is 0.001 pf and in the Milkyway design library it is 1.000 pf. Check and correct the capacitance units in the .tf and .db files. (PSYN-477)
+Warning: Inconsistent library data found for layer PO. (RCEX-018)
+Information: Layer M9 is ignored for resistance and capacitance computation. (RCEX-019)
+Information: Layer MRDL is ignored for resistance and capacitance computation. (RCEX-019)
+
+TLU+ File = /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmax.tluplus
+TLU+ File = /js1/songch/SAED32_EDK/references/orca/icc/ref/tlup/saed32nm_1p9m_Cmin.tluplus
+
+--------- Sanity Check on TLUPlus Files -------------
+1. Checking the conducting layer names in ITF and mapping file ... 
+[ Passed! ]
+2. Checking the via layer names in ITF and mapping file ... 
+[ Passed! ]
+3. Checking the consistency of Min Width and Min Spacing between MW-tech and ITF ... 
+[ Passed! ]
+----------------- Check Ends ------------------
+Information: The distance unit in Capacitance and Resistance is 1 micron. (RCEX-007)
+Information: The RC model used is detail route TLU+. (RCEX-015)
+Information: Start mixed mode parasitic extraction. (RCEX-023)
+Information: Start rc extraction...
+Information: Parasitic source is LPE. (RCEX-040)
+Information: Parasitic mode is RealRC. (RCEX-041)
+Information: Using virtual shield extraction. (RCEX-081)
+Information: Using real metal fill extraction: floating model. (RCEX-080)
+Information: Extraction mode is MIN_MAX. (RCEX-042)
+Information: Extraction derate is 125/125/125. (RCEX-043)
+Information: Coupling capacitances are explicitly created. (RCEX-044)
+Information: Start back annotation for parasitic extraction. (RCEX-023)
+Information: End back annotation for parasitic extraction. (RCEX-023)
+Information: Start timing update for parasitic extraction. (RCEX-023)
+Information: End timing update for parasitic extraction. (RCEX-023)
+Information: End parasitic extraction. (RCEX-023)
+1
+#write_parasitics  -format SPEF -output $RESULTS_DIR/$DESIGN_NAME.output.spef
+write_parasitics  -format SBPF -output $RESULTS_DIR/$DESIGN_NAME.output.sbpf
+Information: design is either fully routed or in placement stage.
+Writing SBPF to results/picorv32.output.sbpf.max ...
+Writing binary parasitics for 9469 networks (9469 RC, 0 PI, 0 LC)...
+Writing SBPF to results/picorv32.output.sbpf.min ...
+Writing binary parasitics for 9469 networks (9469 RC, 0 PI, 0 LC)...
+1
+##DEF
+write_def -output  $RESULTS_DIR/$DESIGN_NAME.output.def
+Output DEF file
+Information: This design contains rotated vias. Rerun this command with the -all_vias or -lef option, if you need the rotated via definitions. (DDEFW-009)
+Information: Writing ROWS statement (DDEFW-014)
+Information: Completed ROWS statement  (DDEFW-016)
+Information: Writing TRACKS statement (DDEFW-014)
+Information: Completed TRACKS statement  (DDEFW-016)
+Information: Writing GCELLGRID statement (DDEFW-014)
+Information: Completed GCELLGRID statement  (DDEFW-016)
+Information: Writing VIAS section (DDEFW-014)
+Information: Completed VIAS section  (DDEFW-016)
+Information: Writing NONDEFAULTRULES statement (DDEFW-014)
+Information: Completed NONDEFAULTRULES statement  (DDEFW-016)
+Information: Writing COMPONENTS section (DDEFW-014)
+Information: Completed COMPONENTS 1000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 2000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 3000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 4000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 5000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 6000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 7000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 8000/9037 (DDEFW-015)
+Information: Completed COMPONENTS 9000/9037 (DDEFW-015)
+Information: Completed COMPONENTS section  (DDEFW-016)
+Information: Writing PINS section (DDEFW-014)
+Information: Completed PINS section  (DDEFW-016)
+Information: Writing SPECIALNETS section (DDEFW-014)
+Information: Completed SPECIALNETS 1000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 2000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 3000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 4000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 5000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 6000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 7000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 8000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS 9000/9362 (DDEFW-015)
+Information: Completed SPECIALNETS section  (DDEFW-016)
+Information: Writing NETS section (DDEFW-014)
+Information: Completed NETS 1000/9505 (DDEFW-015)
+Information: Completed NETS 2000/9505 (DDEFW-015)
+Information: Completed NETS 3000/9505 (DDEFW-015)
+Information: Completed NETS 4000/9505 (DDEFW-015)
+Information: Completed NETS 5000/9505 (DDEFW-015)
+Information: Completed NETS 6000/9505 (DDEFW-015)
+Information: Completed NETS 7000/9505 (DDEFW-015)
+Information: Completed NETS 8000/9505 (DDEFW-015)
+Information: Completed NETS 9000/9505 (DDEFW-015)
+Information: Completed NETS section  (DDEFW-016)
+DEF output completed
+1
+###GDSII
+##Set options - usually also include a mapping file (-map_layer)
+##  set_write_stream_options #	-child_depth 99 #       -output_filling fill #       -output_outdated_fill #       -output_pin geometry #       -keep_data_type
+#   write_stream -lib_name $MW_DESIGN_LIBRARY -format gds $RESULTS_DIR/$DESIGN_NAME.gds
+if {$ICC_CREATE_MODEL } {
+  save_mw_cel -as $DESIGN_NAME
+  close_mw_cel
+  open_mw_cel $DESIGN_NAME
+
+  source -echo common_optimization_settings_icc.tcl
+  source -echo common_placement_settings_icc.tcl
+  source -echo common_post_cts_timing_settings.tcl
+  source -echo common_route_si_settings_zrt_icc.tcl
+
+  create_macro_fram
+  if {$ICC_FIX_ANTENNA} {
+  ##create Antenna Info
+    extract_zrt_hier_antenna_property -cell_name $DESIGN_NAME
+  }
+
+  if {$ICC_CREATE_BLOCK_ABSTRACTION} {
+    create_block_abstraction
+    save_mw_cel
+  } else {
+    create_ilm -include_xtalk
+  }
+
+  ## Validating ILM using write_interface_timing and compare_interface_timing:
+  #  	write_interface_timing cel.rpt
+  #  	close_mw_cel
+  #  	open_mw_cel $DESIGN_NAME.ILM
+  #  	write_interface_timing ilm.rpt
+  #  	compare_interface_timing -nosplit cel.rpt ilm.rpt -output compare_interface_timing.rpt
+  #  	close_mw_cel
+  #  	open_mw_cel $DESIGN_NAME
+
+  close_mw_cel 
+}
+exit
+
+Thank you...
+Exit IC Compiler!

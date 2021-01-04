@@ -1,0 +1,42 @@
+ 
+****************************************
+Report : area
+Design : mips_processor
+Version: L-2016.03-SP5
+Date   : Fri Jan  1 19:53:20 2021
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_tt1p05v125c (File: /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db)
+
+Number of ports:                          235
+Number of nets:                         10717
+Number of cells:                        10485
+Number of combinational cells:           7903
+Number of sequential cells:              2581
+Number of macros/black boxes:               0
+Number of buf/inv:                        868
+Number of references:                      49
+
+Combinational area:              20202.923160
+Buf/Inv area:                     2270.522515
+Noncombinational area:           17205.549332
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 37408.472493
+Total area:                 undefined
+
+Core Area:                    114947
+Aspect Ratio:                 1.0047
+Utilization Ratio:            0.3254
+
+
+The above information was reported from the logical library. The following are from the physical library:
+
+  Total moveable cell area: 37408.5
+  Total fixed cell area: 0.0
+  Total physical cell area: 37408.5
+ Core area: 0.000, 0.000, 338.240, 339.840
+1

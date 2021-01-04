@@ -1,0 +1,126 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:41:04 2020
+****************************************
+
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 125/125/125
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   reg_pc[19]                  0.097          0.105         -0.008  (VIOLATED)
+       PIN :   reg_pc_reg_19_/Q    0.097      0.105         -0.008  (VIOLATED)
+   reg_pc[8]                   0.097          0.105         -0.007  (VIOLATED)
+       PIN :   reg_pc_reg_8_/Q    0.097       0.105         -0.007  (VIOLATED)
+   reg_pc[3]                   0.097          0.101         -0.003  (VIOLATED)
+       PIN :   reg_pc_reg_3_/Q    0.097       0.101         -0.003  (VIOLATED)
+   timer[12]                   0.097          0.100         -0.003  (VIOLATED)
+       PIN :   timer_reg_12_/Q    0.097       0.100         -0.003  (VIOLATED)
+   reg_next_pc[16]             0.097          0.100         -0.002  (VIOLATED)
+       PIN :   reg_next_pc_reg_16_/Q    0.097    0.100      -0.002  (VIOLATED)
+   decoded_imm[30]             0.097          0.099         -0.002  (VIOLATED)
+       PIN :   decoded_imm_reg_30_/Q    0.097    0.099      -0.002  (VIOLATED)
+   reg_next_pc[17]             0.097          0.098         -0.001  (VIOLATED)
+       PIN :   reg_next_pc_reg_17_/Q    0.097    0.098      -0.001  (VIOLATED)
+   reg_pc[16]                  0.097          0.098         -0.001  (VIOLATED)
+       PIN :   reg_pc_reg_16_/Q    0.097      0.098         -0.001  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      8                 -0.028  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   n11462                     82.000         97.372        -15.372  (VIOLATED)
+   n11177                     32.000         40.145         -8.145  (VIOLATED)
+   clk_G1B2I11 (dont_touch)  168.000        174.688         -6.688  (VIOLATED)
+   n11510                     64.000         68.263         -4.263  (VIOLATED)
+   n8380                      32.000         35.745         -3.745  (VIOLATED)
+   n11586                     32.000         35.243         -3.243  (VIOLATED)
+   n6215                      32.000         34.960         -2.960  (VIOLATED)
+   n5535                      32.000         34.936         -2.936  (VIOLATED)
+   n6381                      32.000         34.867         -2.867  (VIOLATED)
+   n12561                     32.000         34.861         -2.861  (VIOLATED)
+   n4920                      32.000         34.542         -2.542  (VIOLATED)
+   n11535                     64.000         66.504         -2.504  (VIOLATED)
+   n6213                      32.000         34.458         -2.458  (VIOLATED)
+   n8540                      32.000         33.722         -1.722  (VIOLATED)
+   n11219                     16.000         17.520         -1.520  (VIOLATED)
+   n12176                     32.000         33.473         -1.473  (VIOLATED)
+   n5537                      32.000         33.450         -1.450  (VIOLATED)
+   n12603                     16.000         17.342         -1.342  (VIOLATED)
+   n11534                     64.000         65.134         -1.134  (VIOLATED)
+   n11423                      8.000          9.111         -1.111  (VIOLATED)
+   n11544                     64.000         65.043         -1.043  (VIOLATED)
+   n12246                     16.000         17.007         -1.007  (VIOLATED)
+   n11680                      8.000          8.998         -0.998  (VIOLATED)
+   mem_la_addr[23]            32.000         32.997         -0.997  (VIOLATED)
+   n9966                      16.000         16.987         -0.987  (VIOLATED)
+   n12138                     16.000         16.956         -0.956  (VIOLATED)
+   n12258                      8.000          8.896         -0.896  (VIOLATED)
+   reg_pc[19]                  8.000          8.835         -0.835  (VIOLATED)
+   n11358                     32.000         32.829         -0.829  (VIOLATED)
+   reg_pc[8]                   8.000          8.749         -0.749  (VIOLATED)
+   n12128                     32.000         32.746         -0.746  (VIOLATED)
+   n11888                      8.000          8.740         -0.740  (VIOLATED)
+   n7357                      16.000         16.737         -0.737  (VIOLATED)
+   n12332                      8.000          8.729         -0.729  (VIOLATED)
+   n11671                     82.000         82.714         -0.714  (VIOLATED)
+   n12127                     16.000         16.690         -0.690  (VIOLATED)
+   n12143                     16.000         16.650         -0.650  (VIOLATED)
+   n7540                      16.000         16.621         -0.621  (VIOLATED)
+   n12145                     16.000         16.606         -0.606  (VIOLATED)
+   n9348                      32.000         32.588         -0.588  (VIOLATED)
+   n10265                      8.000          8.544         -0.544  (VIOLATED)
+   n11898                      8.000          8.469         -0.469  (VIOLATED)
+   n11885                      8.000          8.449         -0.449  (VIOLATED)
+   n11883                      8.000          8.401         -0.401  (VIOLATED)
+   reg_pc[3]                   8.000          8.371         -0.371  (VIOLATED)
+   N561                        8.000          8.360         -0.360  (VIOLATED)
+   n10441                     32.000         32.348         -0.348  (VIOLATED)
+   mem_la_addr[22]            32.000         32.330         -0.330  (VIOLATED)
+   timer[12]                   8.000          8.328         -0.328  (VIOLATED)
+   n7027                       8.000          8.323         -0.323  (VIOLATED)
+   n12186                     16.000         16.306         -0.306  (VIOLATED)
+   n10405                      8.000          8.299         -0.299  (VIOLATED)
+   n12133                     16.000         16.296         -0.296  (VIOLATED)
+   n7704                      32.000         32.281         -0.281  (VIOLATED)
+   reg_next_pc[16]             8.000          8.273         -0.273  (VIOLATED)
+   n6857                       8.000          8.258         -0.258  (VIOLATED)
+   n8337                      32.000         32.220         -0.220  (VIOLATED)
+   n11863                      8.000          8.219         -0.219  (VIOLATED)
+   n12606                     16.000         16.211         -0.211  (VIOLATED)
+   decoded_imm[30]             8.000          8.207         -0.207  (VIOLATED)
+   n11185                      8.000          8.153         -0.153  (VIOLATED)
+   n11503                     32.000         32.138         -0.138  (VIOLATED)
+   n10269                      8.000          8.135         -0.135  (VIOLATED)
+   reg_next_pc[17]             8.000          8.130         -0.130  (VIOLATED)
+   reg_pc[16]                  8.000          8.128         -0.128  (VIOLATED)
+   n9785                       8.000          8.128         -0.128  (VIOLATED)
+   n8690                      16.000         16.113         -0.113  (VIOLATED)
+   n12123                     32.000         32.086         -0.086  (VIOLATED)
+   n11426                      8.000          8.084         -0.084  (VIOLATED)
+   n10657                      8.000          8.076         -0.076  (VIOLATED)
+   n12125                     16.000         16.044         -0.044  (VIOLATED)
+   n11694                     82.000         82.040         -0.040  (VIOLATED)
+   n5755                       8.000          8.029         -0.029  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      73               -94.232  
+
+1

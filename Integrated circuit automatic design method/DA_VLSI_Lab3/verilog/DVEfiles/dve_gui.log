@@ -1,0 +1,118 @@
+time :                    0   clock : 0 A:     x   B:     x   state: xx   state_next: xx  load_counter: 0  A_lt_B: x
+
+Warning-[TFX-DUMPVIG] TF Call before $dumpvars
+  $dumpall was called before $dumpvars, ignored at time #0. Please refer to 
+  Section 18.1.3 of IEEE Verilog Standard 1364-2001 for $dumpon/$dumpoff 
+  usage.
+
+time :                  100   clock : 1 A:     x   B:     x   state: 00   state_next: 00  load_counter: 0  A_lt_B: x
+time :                  200   clock : 0 A:     x   B:     x   state: 00   state_next: 00  load_counter: 0  A_lt_B: x
+time :                  300   clock : 1 A:    69   B:    96   state: 00   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                  400   clock : 0 A:    69   B:    96   state: 00   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                  500   clock : 1 A:    69   B:    96   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                  600   clock : 0 A:    69   B:    96   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                  700   clock : 1 A:    96   B:    69   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                  800   clock : 0 A:    96   B:    69   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                  900   clock : 1 A:    27   B:    69   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 1000   clock : 0 A:    27   B:    69   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 1100   clock : 1 A:    27   B:    69   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 1200   clock : 0 A:    27   B:    69   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 1300   clock : 1 A:    69   B:    27   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 1400   clock : 0 A:    69   B:    27   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 1500   clock : 1 A:    42   B:    27   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 1600   clock : 0 A:    42   B:    27   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 1700   clock : 1 A:    15   B:    27   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 1800   clock : 0 A:    15   B:    27   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 1900   clock : 1 A:    15   B:    27   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 2000   clock : 0 A:    15   B:    27   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 2100   clock : 1 A:    27   B:    15   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 2200   clock : 0 A:    27   B:    15   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 2300   clock : 1 A:    12   B:    15   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 2400   clock : 0 A:    12   B:    15   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 2500   clock : 1 A:    12   B:    15   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 2600   clock : 0 A:    12   B:    15   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 2700   clock : 1 A:    15   B:    12   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 2800   clock : 0 A:    15   B:    12   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 2900   clock : 1 A:     3   B:    12   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 3000   clock : 0 A:     3   B:    12   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 3100   clock : 1 A:     3   B:    12   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 3200   clock : 0 A:     3   B:    12   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 3300   clock : 1 A:    12   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3400   clock : 0 A:    12   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3500   clock : 1 A:     9   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3600   clock : 0 A:     9   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3700   clock : 1 A:     6   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3800   clock : 0 A:     6   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 3900   clock : 1 A:     3   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 4000   clock : 0 A:     3   B:     3   state: 10   state_next: 10  load_counter: 1  A_lt_B: 0
+time :                 4100   clock : 1 A:     0   B:     3   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 4200   clock : 0 A:     0   B:     3   state: 10   state_next: 01  load_counter: 1  A_lt_B: 1
+time :                 4300   clock : 1 A:     0   B:     3   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 4400   clock : 0 A:     0   B:     3   state: 01   state_next: 10  load_counter: 1  A_lt_B: 1
+time :                 4500   clock : 1 A:     3   B:     0   state: 10   state_next: 11  load_counter: 1  A_lt_B: 0
+time :                 4600   clock : 0 A:     3   B:     0   state: 10   state_next: 11  load_counter: 1  A_lt_B: 0
+time :                 4700   clock : 1 A:     3   B:     0   state: 11   state_next: 11  load_counter: 1  A_lt_B: 0
+a-in    =    69
+b-in    =    96
+gcd-out =     3
+$finish called from file "gcd_optimized.v", line 365.
+$finish at simulation time                 4750
+Simulation complete, time is 475000 ps.
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 475000 ps
+CPU Time:      0.040 seconds;       Data structure size:   0.0Mb
+Mon Nov 16 19:28:46 2020
+---------------------------------------------
+
+The tool has just exited abnormally:
+
+
+Release = 'H-2013.06_Full64'  Architecture = 'amd64'  Program = 'DVE'
+
+'32848188 32873664 32875733 242737164751'
+
+---------------------------------------------
+=======================DVE Context and Call Stack=========================
+Command line: /soft1/synopsys/vcs/H-2013.06/gui/dve/amd64/bin/dve.exe -full64 -ucliplatform=amd64 -toolargs "-ucligui -toolexe ./simv +a-in=69 +b-in=96  -pid 18658" -toolin /tmp/vcs_20201116112826_18655_PB17061127..stdin -toolout /tmp/vcs_20201116112826_18655_PB17061127..stdout
+
+--- Stack trace follows:
+[Thread debugging using libthread_db enabled]
+[New Thread 0x2b8aa3847940 (LWP 18834)]
+
+warning: no loadable sections found in added symbol-file system-supplied DSO at 0x7fff029fd000
+0x0000003884499e0f in waitpid () from /lib64/libc.so.6
+
+Thread 2 (Thread 0x2b8aa3847940 (LWP 18834)):
+#0  0x000000388500b280 in pthread_cond_timedwait@@GLIBC_2.3.2 () from /lib64/libpthread.so.0
+#1  0x000000000286d179 in ?? ()
+#2  0x000000000286d621 in QThread::msleep(unsigned long) ()
+#3  0x0000000000febe34 in ag::dveXThread::run() ()
+#4  0x000000000286d20f in QThreadInstance::start(void*) ()
+#5  0x000000388500683d in start_thread () from /lib64/libpthread.so.0
+#6  0x00000038844d4fcd in clone () from /lib64/libc.so.6
+#7  0x0000000000000000 in ?? ()
+
+Thread 1 (Thread 0x2b8aa2c1ab50 (LWP 18672)):
+#0  0x0000003884499e0f in waitpid () from /lib64/libc.so.6
+#1  0x000000388443c4a1 in do_system () from /lib64/libc.so.6
+#2  0x000000388443c7f7 in system () from /lib64/libc.so.6
+#3  0x00002b8aa0f79bb4 in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e639d2928478c79b3f673f99203bcf8be646006121000822323a7337474f31850 () from /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so
+#4  0x00002b8aa0f7a14b in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313e81c34e9ac4c8988ef4a6e067b3aa9271e9f15440f9e8f69ebc77e2fd65860faa () from /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so
+#5  0x00002b8aa0f7b0ea in SNPSle_10ee25eff68cd8461c9146fa1d0b35e87067f3c8015b313efba706aab251478fa49e66610e453774633a6c152e7ef778f2202cda681f3d4e () from /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so
+#6  0x00002b8aa0f73f26 in SNPSle_d35ca1ff70d465c24c71e1f0ad6ba632 () from /soft1/synopsys/vcs/H-2013.06/amd64/lib/liberrorinf.so
+#7  0x0000000001f59c68 in ag::logErrorMessage(ag::errorType, QString const&, bool) ()
+#8  0x0000000001f5a4d5 in ?? ()
+#9  0x00000038844331cf in exit () from /lib64/libc.so.6
+#10 0x0000000001032ed6 in VCS_EXIT ()
+#11 0x00000000010f92fb in SigHandler ()
+#12 <signal handler called>
+#13 0x00000038844ce162 in select () from /lib64/libc.so.6
+#14 0x0000000002835028 in QEventLoop::processEvents(unsigned int) ()
+#15 0x0000000001031b79 in ag::ovaEventLoop::processEvents(unsigned int) ()
+#16 0x00000000028843b9 in QEventLoop::enterLoop() ()
+#17 0x000000000288433a in QEventLoop::exec() ()
+#18 0x0000000001031531 in run_cci_event_loop ()
+#19 0x0000000000fee9eb in ag::ovaAppInst::enterEventLoop(int, char**) ()
+#20 0x0000000000da627c in main ()
+No context available
+==========================================================================

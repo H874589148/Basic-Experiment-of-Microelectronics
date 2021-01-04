@@ -1,0 +1,25 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:42:38 2020
+****************************************
+
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   clk_G1B2I11 (dont_touch)  168.000        174.688         -6.688  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      1                 -6.688  
+
+1

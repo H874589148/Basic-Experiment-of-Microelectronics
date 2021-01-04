@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+        -max_delay
+        -min_delay
+        -max_capacitance
+        -max_transition
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:36:51 2020
+****************************************
+
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   n11676                     82.000         82.206         -0.206  (VIOLATED)
+   n6857                       8.000          8.101         -0.101  (VIOLATED)
+   cpuregs[779]                8.000          8.015         -0.015  (VIOLATED)
+   mem_la_addr[30]            32.000         32.014         -0.014  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      4                 -0.336  
+
+1

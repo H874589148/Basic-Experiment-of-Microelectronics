@@ -1,0 +1,85 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay min
+        -physical
+        -derate
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -crosstalk_delta
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:41:04 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+	Parasitic source    : LPE
+	Parasitic mode      : RealRC
+	Extraction mode     : MIN_MAX
+	Extraction derating : 125/125/125
+
+Information: Percent of Arnoldi-based delays = 27.71%
+
+  Startpoint: reg_sh_reg_2_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_sh_reg_2_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                        Fanout       Cap     DTran     Trans     Delta    Derate      Incr       Path      Location / Load        Attributes
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                                     0.000      0.000
+  clk (in)                                                    0.000                         0.000 @    0.000 r    (68.10, 0.00)
+  clk (net)                      3       82.684                                             0.000      0.000 r    [22.35,82.68]          d 
+  CTSINVX32_RVT_G1B2I2/A (INVX32_LVT)               0.000     0.031     0.000               0.019 @    0.019 r    (217.40,124.36)        d 
+  CTSINVX32_RVT_G1B2I2/Y (INVX32_LVT)                         0.032                         0.016 @    0.036 f    (218.77,124.41)        d 
+  clk_G1B1I2 (net)               4       96.358                                             0.000      0.036 f    [15.81,96.36]          d 
+  CTSINVX32_RVT_G1B1I14/A (INVX32_LVT)              0.000     0.032     0.000               0.003 @    0.039 f    (214.66,151.11)        d 
+  CTSINVX32_RVT_G1B1I14/Y (INVX32_LVT)                        0.032                         0.022 @    0.060 r    (216.03,151.17)        d 
+  clk_G1B2I14 (net)            119      132.574                                             0.000      0.060 r    [58.64,132.57]         d 
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.033     0.000               0.001 @    0.062 r    (209.39,145.20)
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.033     0.000               0.000      0.062 r    (209.39,145.20)
+  reg_sh_reg_2_/QN (DFFX1_HVT)                                0.040                         0.117      0.178 f    (212.50,144.64)
+  n12112 (net)                   1        1.092                                             0.000      0.178 f    [0.66,1.09]
+  U12332/A3 (AO222X1_HVT)                           0.000     0.040     0.000               0.000 &    0.178 f    (209.69,146.89)
+  U12332/Y (AO222X1_HVT)                                      0.027                         0.071      0.249 f    (210.59,146.21)
+  N2872 (net)                    1        0.904                                             0.000      0.249 f    [0.40,0.90]
+  reg_sh_reg_2_/D (DFFX1_HVT)                       0.000     0.027     0.000               0.000 &    0.249 f    (209.07,144.36)
+  data arrival time                                                                                    0.249
+
+  clock clk (rise edge)                                                                     0.000      0.000
+  clk (in)                                                    0.000                         0.000 @    0.000 r    (68.10, 0.00)
+  clk (net)                      3       82.684                                             0.000      0.000 r    [22.35,82.68]          d 
+  CTSINVX32_RVT_G1B2I2/A (INVX32_LVT)               0.000     0.031     0.000               0.019 @    0.019 r    (217.40,124.36)        d 
+  CTSINVX32_RVT_G1B2I2/Y (INVX32_LVT)                         0.032                         0.016 @    0.036 f    (218.77,124.41)        d 
+  clk_G1B1I2 (net)               4       96.358                                             0.000      0.036 f    [15.81,96.36]          d 
+  CTSINVX32_RVT_G1B1I14/A (INVX32_LVT)              0.000     0.032     0.000               0.003 @    0.039 f    (214.66,151.11)        d 
+  CTSINVX32_RVT_G1B1I14/Y (INVX32_LVT)                        0.032                         0.022 @    0.060 r    (216.03,151.17)        d 
+  clk_G1B2I14 (net)            119      132.574                                             0.000      0.060 r    [58.64,132.57]         d 
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.033     0.000               0.001 @    0.062 r    (209.39,145.20)
+  clock reconvergence pessimism                                                             0.000      0.062
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                                                             0.000      0.062 r
+  library hold time                                                                         0.006      0.068
+  data required time                                                                                   0.068
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                   0.068
+  data arrival time                                                                                   -0.249
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                          0.181
+
+
+1

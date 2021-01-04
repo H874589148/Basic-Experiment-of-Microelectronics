@@ -1,0 +1,64 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay min
+        -physical
+        -derate
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -crosstalk_delta
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:34:24 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+
+  Startpoint: reg_sh_reg_2_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_sh_reg_2_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                        Fanout       Cap     DTran     Trans     Delta    Derate      Incr       Path      Location / Load        Attributes
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                                     0.000      0.000
+  clock network delay (ideal)                                                               0.000      0.000
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.000     0.000               0.000 #    0.000 r    (209.39,145.20)        so i 
+  reg_sh_reg_2_/QN (DFFX1_HVT)                                0.036                         0.098      0.098 f    (212.50,144.64)        so 
+  n12112 (net)                   1        0.681                                             0.000      0.098 f    [0.25,0.68]
+  U12332/A3 (AO222X1_HVT)                           0.000     0.036     0.000               0.000 *    0.098 f    (212.42,147.19)
+  U12332/Y (AO222X1_HVT)                                      0.030                         0.072      0.170 f    (213.33,147.87)
+  N2872 (net)                    1        1.238                                             0.000      0.170 f    [0.73,1.24]
+  reg_sh_reg_2_/D (DFFX1_HVT)                       0.000     0.030     0.000               0.000 *    0.170 f    (209.07,144.36)        so 
+  data arrival time                                                                                    0.170
+
+  clock clk (rise edge)                                                                     0.000      0.000
+  clock network delay (ideal)                                                               0.000      0.000
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                                                             0.000      0.000 r
+  library hold time                                                                        -0.004     -0.004
+  data required time                                                                                  -0.004
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                  -0.004
+  data arrival time                                                                                   -0.170
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                          0.174
+
+
+1

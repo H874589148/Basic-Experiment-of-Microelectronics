@@ -1,0 +1,71 @@
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Fri Jan  1 22:35:09 2021
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     38
+    Unconnected ports (LINT-28)                                    35
+    Shorted outputs (LINT-31)                                       1
+    Constant outputs (LINT-52)                                      2
+
+Cells                                                              14
+    Cells do not drive (LINT-1)                                    14
+--------------------------------------------------------------------------------
+
+Warning: In design 'picorv32', cell 'B_154' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'B_155' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'B_156' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14367' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'B_158' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'B_159' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14795' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14845' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14859' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14866' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14875' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14889' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C14962' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', cell 'C15027' does not drive any nets. (LINT-1)
+Warning: In design 'picorv32', port 'pcpi_wr' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_rd[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_wait' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', port 'pcpi_ready' is not connected to any nets. (LINT-28)
+Warning: In design 'picorv32', output port 'mem_la_addr[1]' is connected directly to output port 'mem_la_addr[0]'. (LINT-31)
+Warning: In design 'picorv32', output port 'mem_la_addr[1]' is connected directly to 'logic 0'. (LINT-52)
+Warning: In design 'picorv32', output port 'mem_la_addr[0]' is connected directly to 'logic 0'. (LINT-52)
+1

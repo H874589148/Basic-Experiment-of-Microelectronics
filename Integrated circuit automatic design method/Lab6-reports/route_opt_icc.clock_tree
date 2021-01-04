@@ -1,0 +1,15 @@
+ 
+****************************************
+Report : clock tree
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Fri Jan  1 23:03:05 2021
+****************************************
+
+Information: Float pin scale factor for the 'max' operating condition of scenario 'default' is set to 1.000 (CTS-375)
+
+======================= Clock Tree Summary ========================
+Clock                Sinks     CTBuffers ClkCells  Skew      LongestPath TotalDRC   BufferArea
+-----------------------------------------------------------------------------------------------
+clk                  1830      18        18        0.0201    0.0795      4            167.7350
+1

@@ -1,0 +1,44 @@
+Information: Base Cell (com): cell NOR2X4_RVT, w=1976, h=1672 (npin=3)
+Information: Base Cell (seq): cell CGLPPSX16_LVT, w=6232, h=1672 (npin=4)
+ 
+****************************************
+Report : area
+Design : picorv32
+Version: L-2016.03-SP5
+Date   : Sun Dec 13 20:00:43 2020
+****************************************
+
+Library(s) Used:
+
+    saed32hvt_tt1p05v125c (File: /js1/songch/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_tt1p05v125c.db)
+
+Number of ports:                          409
+Number of nets:                          9261
+Number of cells:                         9152
+Number of combinational cells:           7253
+Number of sequential cells:              1899
+Number of macros/black boxes:               0
+Number of buf/inv:                       1088
+Number of references:                      67
+
+Combinational area:              18902.976748
+Buf/Inv area:                     2189.704735
+Noncombinational area:           12805.299915
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                 31708.276663
+Total area:                 undefined
+
+Core Area:                     96546
+Aspect Ratio:                 1.0021
+Utilization Ratio:            0.3284
+
+
+The above information was reported from the logical library. The following are from the physical library:
+
+  Total moveable cell area: 31708.3
+  Total fixed cell area: 0.0
+  Total physical cell area: 31708.3
+ Core area: 0.000, 0.000, 310.400, 311.040
+1

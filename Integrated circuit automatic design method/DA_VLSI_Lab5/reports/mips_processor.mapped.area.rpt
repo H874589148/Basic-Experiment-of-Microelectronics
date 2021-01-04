@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : mips_processor
+Version: L-2016.03-SP5
+Date   : Sun Dec 13 18:37:23 2020
+****************************************
+
+Library(s) Used:
+
+    saed32rvt_tt1p05v125c (File: /js1/songch/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt1p05v125c.db)
+
+Number of ports:                          383
+Number of nets:                         11151
+Number of cells:                        10780
+Number of combinational cells:           8193
+Number of sequential cells:              2584
+Number of macros/black boxes:               0
+Number of buf/inv:                        550
+Number of references:                      54
+
+Combinational area:              20111.177167
+Buf/Inv area:                      832.321609
+Noncombinational area:           17075.935916
+Macro/Black Box area:                0.000000
+Net Interconnect area:           17361.644351
+
+Total cell area:                 37187.113083
+Total area:                      54548.757433
+1

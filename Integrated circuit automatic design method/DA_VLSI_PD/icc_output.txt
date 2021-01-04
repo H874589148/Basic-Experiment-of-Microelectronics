@@ -1,0 +1,284 @@
+icc_shell> gui_start
+Information: Visibility is turned ON for cells and cell contents because the task is set to Block Implementation (GUI-026)
+icc_shell> open_mw_lib /bks2/PB17061127/DA_VLSI_PD/picorv32_LIB/
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+        pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     MRPIN        |   MRDL9PIN         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA5         |   M8
+        Mask Name      via5         |   metal8   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA6         |   VIA8
+        Mask Name      via6         |   via8     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA7         |   M9
+        Mask Name      via7         |   metal9   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA8         |   CO
+        Mask Name      via8         |   polyCont         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA1         |   M6
+        Mask Name      via1         |   metal6   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA2         |   VIA6
+        Mask Name      via2         |   via6     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA3         |   M7
+        Mask Name      via3         |   metal7   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     VIA4         |   VIA7
+        Mask Name      via4         |   via7     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M7           |   M4
+        Mask Name      metal7       |   metal4   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M8           |   VIA4
+        Mask Name      metal8       |   via4     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M9           |   M5
+        Mask Name      metal9       |   metal5   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     CO           |   VIA5
+        Mask Name      polyCont     |   via5     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M3           |   M2
+        Mask Name      metal3       |   metal2   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M4           |   VIA2
+        Mask Name      metal4       |   via2     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M5           |   M3
+        Mask Name      metal5       |   metal3   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M6           |   VIA3
+        Mask Name      metal6       |   via3     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_rvt_1p9m)
+        Layer Name     M2           |   VIA1
+        Mask Name      metal2       |   via1     (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+        pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     MRPIN        |   MRDL9PIN         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA5         |   M8
+        Mask Name      via5         |   metal8   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA6         |   VIA8
+        Mask Name      via6         |   via8     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA7         |   M9
+        Mask Name      via7         |   metal9   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA8         |   CO
+        Mask Name      via8         |   polyCont         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA1         |   M6
+        Mask Name      via1         |   metal6   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA2         |   VIA6
+        Mask Name      via2         |   via6     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA3         |   M7
+        Mask Name      via3         |   metal7   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     VIA4         |   VIA7
+        Mask Name      via4         |   via7     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M7           |   M4
+        Mask Name      metal7       |   metal4   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M8           |   VIA4
+        Mask Name      metal8       |   via4     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M9           |   M5
+        Mask Name      metal9       |   metal5   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     CO           |   VIA5
+        Mask Name      polyCont     |   via5     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M3           |   M2
+        Mask Name      metal3       |   metal2   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M4           |   VIA2
+        Mask Name      metal4       |   via2     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M5           |   M3
+        Mask Name      metal5       |   metal3   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M6           |   VIA3
+        Mask Name      metal6       |   via3     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_lvt_1p9m)
+        Layer Name     M2           |   VIA1
+        Mask Name      metal2       |   via1     (MWLIBP-319)
+Warning: Reference Library Inconsistent With Main Library
+Reference Library: /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m (MWLIBP-300)
+Warning: Inconsistent Resistance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Precision:
+        10000000 (Main Library) <==> 10000 (Reference Library). (MWLIBP-301)
+Warning: Inconsistent Capacitance Unit Name: 
+        pf (Main Library) <==> ff (Reference Library). (MWLIBP-302)
+Warning: Inconsistent Data for Layer 43
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     MRPIN        |   MRDL9PIN         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 25
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA5         |   M8
+        Mask Name      via5         |   metal8   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 26
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA6         |   VIA8
+        Mask Name      via6         |   via8     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 27
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA7         |   M9
+        Mask Name      via7         |   metal9   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 28
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA8         |   CO
+        Mask Name      via8         |   polyCont         (MWLIBP-319)
+Warning: Inconsistent Data for Layer 21
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA1         |   M6
+        Mask Name      via1         |   metal6   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 22
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA2         |   VIA6
+        Mask Name      via2         |   via6     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 23
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA3         |   M7
+        Mask Name      via3         |   metal7   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 24
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     VIA4         |   VIA7
+        Mask Name      via4         |   via7     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 17
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M7           |   M4
+        Mask Name      metal7       |   metal4   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 18
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M8           |   VIA4
+        Mask Name      metal8       |   via4     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 19
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M9           |   M5
+        Mask Name      metal9       |   metal5   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 20
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     CO           |   VIA5
+        Mask Name      polyCont     |   via5     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 13
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M3           |   M2
+        Mask Name      metal3       |   metal2   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 14
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M4           |   VIA2
+        Mask Name      metal4       |   via2     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 15
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M5           |   M3
+        Mask Name      metal5       |   metal3   (MWLIBP-319)
+Warning: Inconsistent Data for Layer 16
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M6           |   VIA3
+        Mask Name      metal6       |   via3     (MWLIBP-319)
+Warning: Inconsistent Data for Layer 12
+        Main Library (picorv32_LIB) |   Reference Library (saed32nm_hvt_1p9m)
+        Layer Name     M2           |   VIA1
+        Mask Name      metal2       |   via1     (MWLIBP-319)
+{picorv32_LIB}
+icc_shell> open_mw_cel clock_opt_route_icc
+Preparing data for query................... 
+Warning: No valid link library found; check the link_library variable. (IFS-008)
+Information: Opened "clock_opt_route_icc.CEL;1" from "/bks2/PB17061127/DA_VLSI_PD/picorv32_LIB" library. (MWUI-068)
+icc_shell> 
+Preparing data for query................... 
+icc_shell> report_clock_timing -type skew
+Loading db file '/soft1/synopsys/iccompiler/H-2013.03-SP2/libraries/syn/gtech.db'
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Error: Could not read the following target libraries:
+your_library.db 
+ (UIO-3)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Error: Could not read the following target libraries:
+your_library.db 
+ (UIO-3)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Information: linking reference library : /soft2/eda/tech/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m. (PSYN-878)
+Error: No valid link library specified, please check library setup. (PSYN-958)
+Error: Could not read the following target libraries:
+your_library.db 
+ (UIO-3)
+Error: Fail to rebuild timing design from database (UID-841)
+0
+icc_shell> report_clock_timing
+Error: Required argument '-type' was not found (CMD-007)
+icc_shell> exit
+
+Thank you...
+

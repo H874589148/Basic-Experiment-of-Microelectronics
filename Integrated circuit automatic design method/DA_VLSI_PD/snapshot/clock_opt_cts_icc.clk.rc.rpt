@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clocks
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:35:12 2020
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+clk              2.00   {0 1}               f         {clk}
+--------------------------------------------------------------------------------
+1

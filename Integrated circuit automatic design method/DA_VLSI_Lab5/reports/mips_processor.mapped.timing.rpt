@@ -1,0 +1,96 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+Design : mips_processor
+Version: L-2016.03-SP5
+Date   : Sun Dec 13 18:37:23 2020
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: ex_mem_reg_1_value_reg_3_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ex_mem_reg_1_value_reg_67_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mips_processor     70000                 saed32rvt_tt1p05v125c
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                             0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  ex_mem_reg_1_value_reg_3_/CLK (DFFX1_RVT)               0.00      0.00 #     0.00 r
+  ex_mem_reg_1_value_reg_3_/Q (DFFX1_RVT)                 0.02      0.08       0.08 r
+  ex_mem_out[3] (net)                           2                   0.00       0.08 r
+  U1534/Y (OR3X1_RVT)                                     0.02      0.18       0.26 r
+  n1215 (net)                                   1                   0.00       0.26 r
+  U1511/Y (OA21X1_RVT)                                    0.02      0.15       0.41 r
+  n1117 (net)                                   2                   0.00       0.41 r
+  U1318/Y (NAND3X2_RVT)                                   0.02      0.15       0.56 f
+  n1219 (net)                                   3                   0.00       0.56 f
+  U1573/Y (NOR3X2_RVT)                                    0.02      0.20       0.76 r
+  n1313 (net)                                   5                   0.00       0.76 r
+  U1471/Y (NBUFFX2_RVT)                                   0.02      0.19       0.96 r
+  n1085 (net)                                   7                   0.00       0.96 r
+  U1301/Y (AO22X1_RVT)                                    0.02      0.22       1.18 r
+  n1346 (net)                                   1                   0.00       1.18 r
+  U1819/Y (AO21X1_RVT)                                    0.02      0.13       1.31 r
+  n1347 (net)                                   1                   0.00       1.31 r
+  U1288/Y (AO21X1_RVT)                                    0.03      0.13       1.44 r
+  n2007 (net)                                   2                   0.00       1.44 r
+  U1626/Y (XOR2X1_RVT)                                    0.03      0.28       1.72 f
+  n1359 (net)                                   2                   0.00       1.72 f
+  U1820/Y (NOR2X0_RVT)                                    0.02      0.18       1.90 r
+  n2172 (net)                                   3                   0.00       1.90 r
+  U1598/Y (NOR2X0_RVT)                                    0.01      0.19       2.09 f
+  n1362 (net)                                   1                   0.00       2.09 f
+  U1830/Y (AOI21X1_RVT)                                   0.02      0.15       2.24 r
+  n1951 (net)                                   3                   0.00       2.24 r
+  U1571/Y (OAI21X2_RVT)                                   0.02      0.20       2.44 f
+  n1415 (net)                                   4                   0.00       2.44 f
+  U1490/Y (AOI21X2_RVT)                                   0.02      0.21       2.65 r
+  n1095 (net)                                   7                   0.00       2.65 r
+  U1540/Y (OR2X1_RVT)                                     0.02      0.24       2.89 r
+  n1155 (net)                                   1                   0.00       2.89 r
+  U1542/Y (OA22X1_RVT)                                    0.02      0.14       3.02 r
+  n1152 (net)                                   1                   0.00       3.02 r
+  U1541/Y (AO21X1_RVT)                                    0.02      0.14       3.16 r
+  n1175 (net)                                   1                   0.00       3.16 r
+  U1579/Y (NAND2X0_RVT)                                   0.02      0.11       3.27 f
+  n821 (net)                                    1                   0.00       3.27 f
+  ex_mem_reg_1_value_reg_67_/D (DFFX2_RVT)                0.02      0.10       3.37 f
+  data arrival time                                                            3.37
+
+  clock clk (rise edge)                                             2.00       2.00
+  clock network delay (ideal)                                       0.00       2.00
+  ex_mem_reg_1_value_reg_67_/CLK (DFFX2_RVT)                        0.00       2.00 r
+  library setup time                                               -0.02       1.98
+  data required time                                                           1.98
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           1.98
+  data arrival time                                                           -3.37
+  ---------------------------------------------------------------------------------------------------------
+  slack (VIOLATED)                                                            -1.39
+
+
+1

@@ -1,0 +1,144 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -nets
+        -max_paths 1
+        -transition_time
+Design : mips_processor
+Version: L-2016.03-SP5
+Date   : Fri Jan  1 19:53:19 2021
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+Wire Load Model Mode: Inactive.
+
+  Startpoint: id_ex_reg_1_value_reg_7_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: ex_mem_reg_1_value_reg_68_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+  inf - infeasible path
+
+  Point                                       Fanout     Trans      Incr       Path      Attributes
+  ---------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                             0.00       0.00
+  clock network delay (ideal)                                       0.00       0.00
+  id_ex_reg_1_value_reg_7_/CLK (DFFX1_RVT)                0.00      0.00 #     0.00 r
+  id_ex_reg_1_value_reg_7_/Q (DFFX1_RVT)                  0.04      0.11       0.11 f
+  id_ex_out[7] (net)                            6                   0.00       0.11 f
+  U5874/Y (INVX1_RVT)                                     0.04      0.03 *     0.14 r
+  n5554 (net)                                   5                   0.00       0.14 r
+  U5960/Y (AO22X1_RVT)                                    0.02      0.04 *     0.18 r
+  n5544 (net)                                   1                   0.00       0.18 r
+  U5961/Y (OA221X1_RVT)                                   0.02      0.04 *     0.22 r
+  n5546 (net)                                   1                   0.00       0.22 r
+  U5962/Y (OA221X1_RVT)                                   0.03      0.04 *     0.26 r
+  n5549 (net)                                   1                   0.00       0.26 r
+  U5964/Y (NAND4X0_RVT)                                   0.15      0.11 *     0.37 f
+  n5567 (net)                                   2                   0.00       0.37 f
+  U6509/Y (INVX4_RVT)                                     0.10      0.07 *     0.44 r
+  n7703 (net)                                  33                   0.00       0.44 r
+  U5976/Y (NOR2X4_RVT)                                    0.07      0.12 *     0.56 f
+  n5576 (net)                                  32                   0.00       0.56 f
+  U6121/Y (AO222X1_RVT)                                   0.03      0.05 *     0.61 f
+  n6303 (net)                                   2                   0.00       0.61 f
+  U6122/Y (MUX21X1_RVT)                                   0.05      0.07 *     0.68 f
+  n6667 (net)                                   4                   0.00       0.68 f
+  U6123/Y (XOR2X1_RVT)                                    0.03      0.08 *     0.76 r
+  n5921 (net)                                   1                   0.00       0.76 r
+  U6455/CO (FADDX1_RVT)                                   0.04      0.06 *     0.83 r
+  n5798 (net)                                   1                   0.00       0.83 r
+  U6349/CO (FADDX1_RVT)                                   0.03      0.06 *     0.89 r
+  n5933 (net)                                   1                   0.00       0.89 r
+  U6461/CO (FADDX1_RVT)                                   0.04      0.06 *     0.95 r
+  n5792 (net)                                   1                   0.00       0.95 r
+  U6343/CO (FADDX1_RVT)                                   0.04      0.06 *     1.01 r
+  n5785 (net)                                   1                   0.00       1.01 r
+  U6335/CO (FADDX1_RVT)                                   0.04      0.06 *     1.07 r
+  n5778 (net)                                   1                   0.00       1.07 r
+  U6328/CO (FADDX1_RVT)                                   0.04      0.06 *     1.14 r
+  n5772 (net)                                   1                   0.00       1.14 r
+  U6322/CO (FADDX1_RVT)                                   0.04      0.06 *     1.20 r
+  n5765 (net)                                   1                   0.00       1.20 r
+  U6315/CO (FADDX1_RVT)                                   0.04      0.06 *     1.26 r
+  n5759 (net)                                   1                   0.00       1.26 r
+  U6308/CO (FADDX1_RVT)                                   0.04      0.06 *     1.32 r
+  n5752 (net)                                   1                   0.00       1.32 r
+  U6301/CO (FADDX1_RVT)                                   0.03      0.06 *     1.38 r
+  n5746 (net)                                   1                   0.00       1.38 r
+  U6294/CO (FADDX1_RVT)                                   0.04      0.06 *     1.44 r
+  n5739 (net)                                   1                   0.00       1.44 r
+  U6286/CO (FADDX1_RVT)                                   0.04      0.06 *     1.50 r
+  n5727 (net)                                   1                   0.00       1.50 r
+  U6272/CO (FADDX1_RVT)                                   0.04      0.06 *     1.56 r
+  n5721 (net)                                   1                   0.00       1.56 r
+  U6265/CO (FADDX1_RVT)                                   0.04      0.06 *     1.63 r
+  n5714 (net)                                   1                   0.00       1.63 r
+  U6258/CO (FADDX1_RVT)                                   0.04      0.06 *     1.69 r
+  n5706 (net)                                   1                   0.00       1.69 r
+  U6249/CO (FADDX1_RVT)                                   0.04      0.06 *     1.75 r
+  n5699 (net)                                   1                   0.00       1.75 r
+  U6242/CO (FADDX1_RVT)                                   0.04      0.06 *     1.81 r
+  n5693 (net)                                   1                   0.00       1.81 r
+  U6235/CO (FADDX1_RVT)                                   0.03      0.06 *     1.88 r
+  n5686 (net)                                   1                   0.00       1.88 r
+  U6227/CO (FADDX1_RVT)                                   0.03      0.06 *     1.94 r
+  n5680 (net)                                   1                   0.00       1.94 r
+  U6220/CO (FADDX1_RVT)                                   0.04      0.06 *     2.00 r
+  n5673 (net)                                   1                   0.00       2.00 r
+  U6213/CO (FADDX1_RVT)                                   0.04      0.06 *     2.06 r
+  n5667 (net)                                   1                   0.00       2.06 r
+  U6206/CO (FADDX1_RVT)                                   0.03      0.06 *     2.12 r
+  n5661 (net)                                   1                   0.00       2.12 r
+  U6199/CO (FADDX1_RVT)                                   0.03      0.06 *     2.18 r
+  n5654 (net)                                   1                   0.00       2.18 r
+  U6190/CO (FADDX1_RVT)                                   0.03      0.06 *     2.24 r
+  n5647 (net)                                   1                   0.00       2.24 r
+  U6182/CO (FADDX1_RVT)                                   0.03      0.06 *     2.30 r
+  n5641 (net)                                   1                   0.00       2.30 r
+  U6175/CO (FADDX1_RVT)                                   0.04      0.06 *     2.36 r
+  n5635 (net)                                   1                   0.00       2.36 r
+  U6167/CO (FADDX1_RVT)                                   0.04      0.06 *     2.42 r
+  n5627 (net)                                   1                   0.00       2.42 r
+  U6156/CO (FADDX1_RVT)                                   0.03      0.06 *     2.48 r
+  n5620 (net)                                   1                   0.00       2.48 r
+  U6149/CO (FADDX1_RVT)                                   0.04      0.06 *     2.54 r
+  n5613 (net)                                   1                   0.00       2.54 r
+  U6141/CO (FADDX1_RVT)                                   0.04      0.06 *     2.60 r
+  n5607 (net)                                   1                   0.00       2.60 r
+  U6134/CO (FADDX1_RVT)                                   0.03      0.06 *     2.66 r
+  n5601 (net)                                   1                   0.00       2.66 r
+  U6126/Y (XOR2X1_RVT)                                    0.03      0.04 *     2.70 r
+  n5604 (net)                                   1                   0.00       2.70 r
+  U6130/Y (AO222X1_RVT)                                   0.04      0.05 *     2.75 r
+  n2650 (net)                                   1                   0.00       2.75 r
+  ex_mem_reg_1_value_reg_68_/D (DFFX2_RVT)                0.04      0.00 *     2.75 r
+  data arrival time                                                            2.75
+
+  clock clk (rise edge)                                            10.00      10.00
+  clock network delay (ideal)                                       0.00      10.00
+  ex_mem_reg_1_value_reg_68_/CLK (DFFX2_RVT)                        0.00      10.00 r
+  library setup time                                               -0.04       9.96
+  data required time                                                           9.96
+  ---------------------------------------------------------------------------------------------------------
+  data required time                                                           9.96
+  data arrival time                                                           -2.75
+  ---------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                  7.21
+
+
+1

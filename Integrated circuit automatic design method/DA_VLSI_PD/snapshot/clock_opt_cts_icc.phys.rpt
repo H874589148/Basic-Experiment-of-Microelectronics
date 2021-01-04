@@ -1,0 +1,138 @@
+ 
+****************************************
+Report : design
+        -physical
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:35:10 2020
+****************************************
+
+****************************** P&R Summary ********************************
+Date : Sun Dec 13 20:35:10 2020
+Machine Host Name: mgt
+Working Directory: /bks2/PB17061127/DA_VLSI_PD
+Library Name:      picorv32_LIB
+Cell Name:         clock_opt_cts_icc.CEL;1
+Design Statistics:
+    Number of Module Cells:        9000
+    Number of Pins:                52983
+    Number of IO Pins:             409
+    Number of Nets:                9468
+    Average Pins Per Net (Signal): 3.37409
+
+Chip Utilization:
+    Total Std Cell Area:           31501.15
+    Core Size:     width 212.80, height 212.34; area 45186.80
+    Chip Size:     width 272.80, height 272.34; area 74295.44
+    Std cells utilization:         69.71% 
+    Cell/Core Ratio:               69.71%
+    Cell/Chip Ratio:               42.40%
+    Number of Cell Rows:            127
+
+Master Instantiation:
+	MasterName	Type	InstCount
+	=================================
+	DFFX1_HVT	STD	1744
+	AO22X1_HVT	STD	1430
+	MUX21X1_HVT	STD	1253
+	NAND2X0_HVT	STD	688
+	INVX0_HVT	STD	359
+	NOR4X1_HVT	STD	317
+	AND2X1_HVT	STD	311
+	NOR2X0_HVT	STD	287
+	XOR2X1_HVT	STD	193
+	OA22X1_HVT	STD	186
+	NBUFFX4_HVT	STD	145
+	NAND4X0_HVT	STD	141
+	OR2X1_HVT	STD	140
+	XNOR2X1_HVT	STD	136
+	NAND3X0_HVT	STD	129
+	AO222X1_HVT	STD	129
+	NBUFFX8_HVT	STD	112
+	NBUFFX2_HVT	STD	104
+	OAI21X1_HVT	STD	99
+	OA21X1_HVT	STD	90
+	AOI22X1_HVT	STD	89
+	AO21X1_HVT	STD	86
+	DFFX2_HVT	STD	85
+	AND2X4_HVT	STD	84
+	AOI21X1_HVT	STD	81
+	OR3X1_HVT	STD	64
+	LATCHX1_HVT	STD	62
+	AND2X2_HVT	STD	53
+	INVX2_HVT	STD	33
+	AND3X1_HVT	STD	29
+	OR2X2_HVT	STD	28
+	INVX4_HVT	STD	28
+	AND4X1_HVT	STD	22
+	HADDX1_HVT	STD	22
+	NBUFFX32_HVT	STD	22
+	FADDX1_HVT	STD	19
+	INVX8_HVT	STD	18
+	NBUFFX16_HVT	STD	14
+	OR3X2_HVT	STD	12
+	AO22X2_HVT	STD	11
+	INVX32_LVT	STD	11
+	NAND3X4_HVT	STD	10
+	AND3X4_HVT	STD	10
+	MUX21X2_HVT	STD	8
+	OA221X1_HVT	STD	8
+	NOR2X4_HVT	STD	7
+	INVX16_HVT	STD	7
+	NAND2X2_HVT	STD	6
+	INVX32_RVT	STD	6
+	LATCHX2_HVT	STD	6
+	NOR2X2_HVT	STD	5
+	AND4X4_HVT	STD	5
+	NAND3X2_HVT	STD	5
+	AND3X2_HVT	STD	4
+	OAI22X1_HVT	STD	4
+	AO222X2_HVT	STD	4
+	OR2X4_HVT	STD	4
+	NAND2X4_HVT	STD	4
+	XOR2X2_HVT	STD	4
+	AO221X1_HVT	STD	4
+	NOR3X0_HVT	STD	3
+	AND4X2_HVT	STD	3
+	AO21X2_HVT	STD	2
+	OR4X1_HVT	STD	2
+	OA22X2_HVT	STD	2
+	XNOR2X2_HVT	STD	2
+	NOR3X2_HVT	STD	1
+	AOI22X2_HVT	STD	1
+	OAI21X2_HVT	STD	1
+	INVX32_HVT	STD	1
+	OAI22X2_HVT	STD	1
+	OR3X4_HVT	STD	1
+	FADDX2_HVT	STD	1
+	IBUFFX2_HVT	STD	1
+	DFFX1_RVT	STD	1
+	=================================
+
+Timing/Optimization Information:
+
+Global Routing Information:
+
+Track Assignment Information:
+
+Detailed Routing Information:
+
+DRC information: 
+      Total error number: 0
+
+Ring Wiring Statistics:
+
+Stripe Wiring Statistics:
+
+User Wiring Statistics:
+
+PG follow-pin Wiring Statistics:
+
+Signal Wiring Statistics:
+      Mask Name      Contact Code    Number Of Contacts    Percentage
+
+  Horizontal/Vertical Wire Distribution:
+    Layer      Hor. Wire (% of Hor.)     Ver. Wire (% of Ver.)
+  ==============================================================
+    Total              0.00                      0.00
+1

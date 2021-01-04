@@ -1,0 +1,304 @@
+ 
+****************************************
+check_design summary:
+Version:     L-2016.03-SP5
+Date:        Sun Dec 13 18:35:25 2020
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     61
+    Unconnected ports (LINT-28)                                    28
+    Feedthrough (LINT-29)                                          16
+    Shorted outputs (LINT-31)                                      16
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                             112
+    Cells do not drive (LINT-1)                                     3
+    Connected to power or ground (LINT-32)                        105
+    Nets connected to multiple pins on same cell (LINT-33)          4
+--------------------------------------------------------------------------------
+
+Warning: In design 'alu', cell 'C199' does not drive any nets. (LINT-1)
+Warning: In design 'alu', cell 'C200' does not drive any nets. (LINT-1)
+Warning: In design 'alu', cell 'C265' does not drive any nets. (LINT-1)
+Warning: In design 'task_end_test', port 'pc[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[24]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[23]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[22]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[21]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[20]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[11]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[10]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[9]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[8]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[7]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'task_end_test', port 'pc[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'data_mem', port 'memread' is not connected to any nets. (LINT-28)
+Warning: In design 'sign_extend', input port 'in[15]' is connected directly to output port 'out[15]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[14]' is connected directly to output port 'out[14]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[13]' is connected directly to output port 'out[13]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[12]' is connected directly to output port 'out[12]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[11]' is connected directly to output port 'out[11]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[10]' is connected directly to output port 'out[10]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[9]' is connected directly to output port 'out[9]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[8]' is connected directly to output port 'out[8]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[7]' is connected directly to output port 'out[7]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[6]' is connected directly to output port 'out[6]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[5]' is connected directly to output port 'out[5]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[4]' is connected directly to output port 'out[4]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[3]' is connected directly to output port 'out[3]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[2]' is connected directly to output port 'out[2]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[1]' is connected directly to output port 'out[1]'. (LINT-29)
+Warning: In design 'sign_extend', input port 'in[0]' is connected directly to output port 'out[0]'. (LINT-29)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[16]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[17]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[18]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[19]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[20]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[21]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[22]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[23]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[24]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[25]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[26]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[27]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[28]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[29]'. (LINT-31)
+Warning: In design 'sign_extend', output port 'out[31]' is connected directly to output port 'out[30]'. (LINT-31)
+Warning: In design 'hazard_detection_unit', output port 'pcwrite' is connected directly to output port 'if_id_write'. (LINT-31)
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[31]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[30]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[29]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[28]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[27]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[26]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[25]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[24]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[23]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[22]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[21]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[20]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[19]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[18]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[17]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[16]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[15]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[14]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[13]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[12]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[11]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[10]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[9]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[8]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[7]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[6]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[5]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[4]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[3]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[2]' is connected to logic 1. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[1]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'adder_1' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'op_2[0]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[31]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[30]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[29]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[28]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[27]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[26]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[25]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[24]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[23]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[22]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[21]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[20]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[19]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[18]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[17]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[16]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[15]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[14]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[13]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[12]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[11]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[10]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[9]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[8]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[7]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[6]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[5]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[4]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[3]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[2]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[1]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_pc' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[0]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[31]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[30]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[29]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[28]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[27]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[26]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[25]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[24]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[23]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[22]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[21]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[20]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[19]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[18]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[17]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[16]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[15]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[14]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[13]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[12]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[11]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[10]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[9]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[8]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[7]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[6]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[5]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[4]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[3]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[2]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[1]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_inst' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[0]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[8]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[7]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[6]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[5]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[4]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[3]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[2]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[1]' is connected to logic 0. 
+Warning: In design 'mips_processor', a pin on submodule 'mux_2_ctl' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'in_2[0]' is connected to logic 0. 
+Warning: In design 'mips_processor', the same net is connected to more than one pin on submodule 'adder_1'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'op_2[31]', 'op_2[30]'', 'op_2[29]', 'op_2[28]', 'op_2[27]', 'op_2[26]', 'op_2[25]', 'op_2[24]', 'op_2[23]', 'op_2[22]', 'op_2[21]', 'op_2[20]', 'op_2[19]', 'op_2[18]', 'op_2[17]', 'op_2[16]', 'op_2[15]', 'op_2[14]', 'op_2[13]', 'op_2[12]', 'op_2[11]', 'op_2[10]', 'op_2[9]', 'op_2[8]', 'op_2[7]', 'op_2[6]', 'op_2[5]', 'op_2[4]', 'op_2[3]', 'op_2[1]', 'op_2[0]'.
+Warning: In design 'mips_processor', the same net is connected to more than one pin on submodule 'mux_2_pc'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'in_2[31]', 'in_2[30]'', 'in_2[29]', 'in_2[28]', 'in_2[27]', 'in_2[26]', 'in_2[25]', 'in_2[24]', 'in_2[23]', 'in_2[22]', 'in_2[21]', 'in_2[20]', 'in_2[19]', 'in_2[18]', 'in_2[17]', 'in_2[16]', 'in_2[15]', 'in_2[14]', 'in_2[13]', 'in_2[12]', 'in_2[11]', 'in_2[10]', 'in_2[9]', 'in_2[8]', 'in_2[7]', 'in_2[6]', 'in_2[5]', 'in_2[4]', 'in_2[3]', 'in_2[2]', 'in_2[1]', 'in_2[0]'.
+Warning: In design 'mips_processor', the same net is connected to more than one pin on submodule 'mux_2_inst'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'in_2[31]', 'in_2[30]'', 'in_2[29]', 'in_2[28]', 'in_2[27]', 'in_2[26]', 'in_2[25]', 'in_2[24]', 'in_2[23]', 'in_2[22]', 'in_2[21]', 'in_2[20]', 'in_2[19]', 'in_2[18]', 'in_2[17]', 'in_2[16]', 'in_2[15]', 'in_2[14]', 'in_2[13]', 'in_2[12]', 'in_2[11]', 'in_2[10]', 'in_2[9]', 'in_2[8]', 'in_2[7]', 'in_2[6]', 'in_2[5]', 'in_2[4]', 'in_2[3]', 'in_2[2]', 'in_2[1]', 'in_2[0]'.
+Warning: In design 'mips_processor', the same net is connected to more than one pin on submodule 'mux_2_ctl'. (LINT-33)
+   Net '*Logic0*' is connected to pins 'in_2[8]', 'in_2[7]'', 'in_2[6]', 'in_2[5]', 'in_2[4]', 'in_2[3]', 'in_2[2]', 'in_2[1]', 'in_2[0]'.
+Warning: In design 'alu_control', output port 'alu_ctl[3]' is connected directly to 'logic 0'. (LINT-52)
+1

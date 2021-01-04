@@ -1,0 +1,81 @@
+ 
+****************************************
+Report : timing
+        -path full_clock
+        -delay min
+        -physical
+        -derate
+        -input_pins
+        -nets
+        -max_paths 1
+        -transition_time
+        -crosstalk_delta
+        -capacitance
+Design : picorv32
+Version: H-2013.03-ICC-SP2
+Date   : Sun Dec 13 20:36:14 2020
+****************************************
+
+ * Some/all delay information is back-annotated.
+
+Operating Conditions: tt1p05v125c   Library: saed32rvt_tt1p05v125c
+
+Information: Percent of Arnoldi-based delays =  5.26%
+
+  Startpoint: reg_sh_reg_2_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: reg_sh_reg_2_
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: min
+
+Attributes:
+    d - dont_touch
+    u - dont_use
+   mo - map_only
+   so - size_only
+    i - ideal_net or ideal_network
+
+  Point                        Fanout       Cap     DTran     Trans     Delta    Derate      Incr       Path      Location / Load        Attributes
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  clock clk (rise edge)                                                                     0.000      0.000
+  clk (in)                                                    0.000                         0.000 @    0.000 r    (68.10, 0.00)
+  clk (net)                      3       82.706                                             0.000      0.000 r    [22.37,82.71]          d 
+  CTSINVX32_RVT_G1B2I2/A (INVX32_LVT)               0.000     0.031     0.000               0.020 @    0.020 r    (217.40,124.36)        d 
+  CTSINVX32_RVT_G1B2I2/Y (INVX32_LVT)                         0.031                         0.016 @    0.036 f    (218.77,124.41)        d 
+  clk_G1B1I2 (net)               4       96.401                                             0.000      0.036 f    [15.85,96.40]          d 
+  CTSINVX32_RVT_G1B1I14/A (INVX32_LVT)              0.000     0.031     0.000               0.003 @    0.039 f    (214.66,151.11)        d 
+  CTSINVX32_RVT_G1B1I14/Y (INVX32_LVT)                        0.032                         0.021 @    0.060 r    (216.03,151.17)        d 
+  clk_G1B2I14 (net)            119      128.234                                             0.000      0.060 r    [54.30,128.23]         d 
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.032     0.000               0.001 @    0.061 r    (209.39,145.20)
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.032     0.000               0.000      0.061 r    (209.39,145.20)
+  reg_sh_reg_2_/QN (DFFX1_HVT)                                0.039                         0.115      0.175 f    (212.50,144.64)
+  n12112 (net)                   1        0.958                                             0.000      0.175 f    [0.52,0.96]
+  U12332/A3 (AO222X1_HVT)                           0.000     0.039     0.000               0.000 *    0.175 f    (209.69,146.89)
+  U12332/Y (AO222X1_HVT)                                      0.026                         0.070      0.245 f    (210.59,146.21)
+  N2872 (net)                    1        0.842                                             0.000      0.245 f    [0.34,0.84]
+  reg_sh_reg_2_/D (DFFX1_HVT)                       0.000     0.026     0.000               0.000 *    0.245 f    (209.07,144.36)
+  data arrival time                                                                                    0.245
+
+  clock clk (rise edge)                                                                     0.000      0.000
+  clk (in)                                                    0.000                         0.000 @    0.000 r    (68.10, 0.00)
+  clk (net)                      3       82.706                                             0.000      0.000 r    [22.37,82.71]          d 
+  CTSINVX32_RVT_G1B2I2/A (INVX32_LVT)               0.000     0.031     0.000               0.020 @    0.020 r    (217.40,124.36)        d 
+  CTSINVX32_RVT_G1B2I2/Y (INVX32_LVT)                         0.031                         0.016 @    0.036 f    (218.77,124.41)        d 
+  clk_G1B1I2 (net)               4       96.401                                             0.000      0.036 f    [15.85,96.40]          d 
+  CTSINVX32_RVT_G1B1I14/A (INVX32_LVT)              0.000     0.031     0.000               0.003 @    0.039 f    (214.66,151.11)        d 
+  CTSINVX32_RVT_G1B1I14/Y (INVX32_LVT)                        0.032                         0.021 @    0.060 r    (216.03,151.17)        d 
+  clk_G1B2I14 (net)            119      128.234                                             0.000      0.060 r    [54.30,128.23]         d 
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                     0.000     0.032     0.000               0.001 @    0.061 r    (209.39,145.20)
+  clock reconvergence pessimism                                                             0.000      0.061
+  reg_sh_reg_2_/CLK (DFFX1_HVT)                                                             0.000      0.061 r
+  library hold time                                                                         0.006      0.067
+  data required time                                                                                   0.067
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  data required time                                                                                   0.067
+  data arrival time                                                                                   -0.245
+  -------------------------------------------------------------------------------------------------------------------------------------------------
+  slack (MET)                                                                                          0.178
+
+
+1
