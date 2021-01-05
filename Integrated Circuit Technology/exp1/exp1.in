@@ -1,0 +1,57 @@
+go athena
+# Non-Uniform Grid(1µm×2µm)
+line x loc=0.00 spac=0.10
+line x loc=0.5 spac=0.01
+line x loc=1 spac=0.01
+
+line y loc=0.00 spac=0.010
+line y loc=1 spac=0.05
+line y loc=2 spac=0.05
+
+# Initial silicon Structure
+init silicon c.phosphor=1.0e17 orientation=100 two.d
+struct outfile=.history01.str
+
+# Conformal Oxide deposition
+deposit oxide thick=1 divisions=10 
+struct outfile=.history02.str
+
+# oxide definition
+etch oxide right p1.x=0.5
+struct outfile=.history03.str
+
+# Doping
+implant boron dose=9.5e14 energy=100 tilt=7 rotation=30 crystal
+struct outfile=.history04.str
+
+# Aluminum Deposition
+deposit aluminum thick=0.5 divisions=5
+struct outfile=.history05.str
+
+# Etch Aluminum
+etch aluminum left p1.x=0.3
+struct outfile=.history06.str
+
+#extract name="pxj" xj material="Silicon" mat.occno=1 x.val=0.8 junc.occno=1
+extract name="pxj" xj material="Silicon" mat.occno=1 x.val=0.8 junc.occno=1
+
+struct mirror right
+struct outfile=.history07.str
+
+electrode name=anode x=0.80
+electrode name=cathode backside
+
+struct outfile=.history08.str
+#
+structure outfile=pn.str
+
+go atlas
+mesh infile=pn.str
+material material=Si taun0=1e-7 taup0=1e-7
+models srh conmob fldmob
+#
+method newton gummel itlimit=25 trap atrap=0.5 maxtrap=4 autonr nrcriterion=0.1 tol.time=5e-3 dt.min=1e-25 damped delta=0.5 damploop=10 dfactor=10.0 iccg lu1cri=3e3 lu2cri=3e2 maxinner=25
+solve init
+log outf=pn01_0.log
+solve name=anode vanode=0.05 vfinal=1.0 vstep=0.05
+

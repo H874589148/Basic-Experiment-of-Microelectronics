@@ -1,0 +1,36 @@
+go athena
+# Non-Uniform Grid (lum*2um)
+line x loc=0.00 spac=0.10
+line x loc=0.5 spac=0.01
+line x loc=1 spac=0.01
+
+line y loc=0.00 spac=0.01
+line y loc=1 spac=0.05
+line y loc=2 spac=0.05
+# Initial Silicon Structure
+init silicon c.phosphor=1.0e18 orientation=100 two.d
+struct outfile=.history01.str
+
+#Platinum Deposition
+deposit platinum thick=0.05 divisions=2
+
+#Etch Platinum
+etch platinum left p1.x=0.5
+struct outfile=.history02.str
+struct mirror right
+electrode name=anode x=0.80 y=-0.05
+electrode name=cathode backside
+struct outfile=.history03.str
+#
+structure outfile=SBD.str
+
+go atlas
+mesh infile=SBD.str
+material material=Si taun0=1e-7 taup0=1e-7
+models srh conmob fldmob
+contact name=anode workfunction=5.65
+method newton gummel itlimit=25 trap atrap=0.5 maxtrap=4 autonr nrcriterion=0.1 tol.time=5e-3 dt.min=1e-25 damped delta=0.5 damploop=10 dfactor=10.0 iccg lu1cri=3e3 lu2cri=3e2 maxinner=25
+solve init
+log outf=SBD01_0.log
+solve name=anode vanode=0.05 vfinal=1.0 vstep=0.05
+
