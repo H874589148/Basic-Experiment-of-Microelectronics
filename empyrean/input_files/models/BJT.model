@@ -1,0 +1,231 @@
+
+***********************************************************************************
+*           1.8V  P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=10x10um^2)            *
+***********************************************************************************
+*                  
+.model pnp18a100 pnp           
+*
++LEVEL    = 1 
++VAF      = 553.93              IKF      = 2.80E-03            
++ISE      = 9.00E-17            NE       = 1.503               BR       = 9.00E-03            
++NR       = 0.993               VAR      = 25.0                IKR      = 2.09E-03            
++ISC      = 5.50E-17            NC       = 1.5                 RB       = 60.398              
++IRB      = 8.00E-04            RBM      = 2.0                 RE       = 1.1166              
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.0049              
++TBR1     = -0.0001             TIKF1    = -0.004              TNF1     = -5E-5
++TNE1     = 0.0001              CTC      = 2E-3                CTE      = 8.76E-4             
++VJE      = 0.817               MJE      = 0.415               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               
++TVJC     = 2.53E-3             TVJE     = 1.53E-3                               
++IS       = '8.78E-18+DIS_PNP18A100'
++BF       = '3.224+DBF_PNP18A100'
++NF       = '0.9925+DNF_PNP18A100'
++CJC      = '6.91E-14+DCJC_PNP18A100'
++CJE      = '1.11E-13+DCJE_PNP18A100'    
+*
+***********************************************************************************
+*            1.8V  P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=5x5um^2)             *
+***********************************************************************************
+*                  
+.model pnp18a25 pnp
+*
++LEVEL    = 1
++VAF      = 553.93              IKF      = 1.30E-03            
++ISE      = 4.80E-17            NE       = 1.5                 BR       = 3.75E-03            
++NR       = 1.0                 VAR      = 25.0                IKR      = 2.09E-03            
++ISC      = 5.50E-17            NC       = 1.5                 RB       = 70.398              
++IRB      = 8.00E-04            RBM      = 2.0                 RE       = 1.9166              
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.0051              
++TBR1     = 0.001               TIKF1    = -0.004              TNF1     = -0.0001             
++CTC      = 2E-3                CTE      = 8.76E-4             TVJC     = 2.53E-3
++VJE      = 0.817               MJE      = 0.415               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               
++TVJE     = 1.53E-3                               
++IS       = '3.10E-18+DIS_PNP18A25'  
++BF       = '3.244+DBF_PNP18A25'                
++NF       = '1.0+DNF_PNP18A25'
++CJC      = '3.95E-14+DCJC_PNP18A25' 
++CJE      = '2.87E-14+DCJE_PNP18A25' 
+*
+***********************************************************************************
+*            1.8V  P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=2x2um^2)             *
+***********************************************************************************
+*                  
+.model pnp18a4 pnp
+*
++LEVEL    = 1
++VAF      = 551.93              IKF      = 4.50E-04            
++ISE      = 1.10E-17            NE       = 1.47                BR       = 1.07E-03            
++NR       = 1.0                 VAR      = 19.0                IKR      = 1.79E-03            
++ISC      = 2.00E-17            NC       = 1.5                 RB       = 122.98               
++IRB      = 1.50E-03            RBM      = 2.0                 RE       = 2.16                
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.00563              
++TBR1     = 0.0012              TIKF1    = -0.0043             TNF1     = 1.0E-4
++CTC      = 2E-3                CTE      = 8.76E-4             TVJC     = 2.53E-3                 
++VJE      = 0.817               MJE      = 0.415               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               
++TVJE     = 1.53E-3             
++IS       = '6.50E-19+DIS_PNP18A4'  
++BF       = '3.4502+DBF_PNP18A4'                
++NF       = '1.0+DNF_PNP18A4'
++CJC      = '2.53E-14+DCJC_PNP18A4' 
++CJE      = '5.07E-15+DCJE_PNP18A4' 
+*
+***********************************************************************************
+*            3.3V  P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=10x10um^2)           *
+***********************************************************************************
+*                  
+.model pnp33a100 pnp     
+*
++LEVEL    = 1 
++VAF      = 553.93              IKF      = 2.80E-03            
++ISE      = 9.00E-17            NE       = 1.503               BR       = 8.85E-03            
++NR       = 0.993               VAR      = 25.0                IKR      = 2.09E-03            
++ISC      = 5.50E-17            NC       = 1.5                 RB       = 60.398              
++IRB      = 8.00E-04            RBM      = 2.0                 RE       = 1.1166              
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.0049              
++TBR1     = 0.0007              TIKF1    = -0.003              TNF1     = -1.0E-4
++TNE1     = 0.0001              CTC      = 2E-3                CTE      = 8.83E-4             
++VJE      = 0.807               MJE      = 0.401               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               
++TVJC     = 2.53E-3             TVJE     = 1.57E-3                               
++IS       = '8.78E-18+DIS_PNP33A100'
++BF       = '3.124+DBF_PNP33A100'
++NF       = '0.9925+DNF_PNP33A100'
++CJC      = '6.91E-14+DCJC_PNP33A100'
++CJE      = '1.046E-13+DCJE_PNP33A100'     
+*
+***********************************************************************************
+*             3.3V  P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=5x5um^2)            *
+***********************************************************************************
+*                  
+.model pnp33a25 pnp
++LEVEL    = 1
++VAF      = 553.93              IKF      = 1.30E-03            
++ISE      = 4.80E-17            NE       = 1.5                 BR       = 3.65E-03            
++NR       = 1.0                 VAR      = 25.0                IKR      = 2.09E-03            
++ISC      = 5.50E-17            NC       = 1.5                 RB       = 70.398              
++IRB      = 8.00E-04            RBM      = 2.0                 RE       = 1.9166              
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.0051              
++TBR1     = 0.001               TIKF1    = -0.004              TNF1     = -0.0001             
++CTC      = 2E-3                CTE      = 8.83E-4             TVJC     = 2.53E-3
++VJE      = 0.807               MJE      = 0.401               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               TBF2     = 2.5E-6
++TVJE     = 1.57E-3                               
++IS       = '3.10E-18+DIS_PNP33A25'  
++BF       = '3.10+DBF_PNP33A25'                
++NF       = '1.0+DNF_PNP33A25'
++CJC      = '3.95E-14+DCJC_PNP33A25' 
++CJE      = '2.70E-14+DCJE_PNP33A25' 
+*
+***********************************************************************************
+*            3.3V P+/NWELL/PSUB BIPOLAR MODEL (Emitter Area=2x2um^2)              *
+***********************************************************************************
+*                  
+.model pnp33a4 pnp
++LEVEL    = 1
++VAF      = 551.93              IKF      = 4.50E-04            
++ISE      = 1.10E-17            NE       = 1.47                BR       = 1.05E-03            
++NR       = 1.0                 VAR      = 19.0                IKR      = 1.79E-03            
++ISC      = 2.00E-17            NC       = 1.5                 RB       = 122.98               
++IRB      = 1.50E-03            RBM      = 2.0                 RE       = 2.16                
++RC       = 17.11               XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   XTB      = 0.00                TBF1     = 0.00563              
++TBF2     = 2.5E-6              TIKF1    = -0.004              TNF1     = 0.00
++CTC      = 2E-3                CTE      = 8.83E-4             TVJC     = 2.53E-3                 
++VJE      = 0.807               MJE      = 0.401               SUBS     = 1
++VJC      = 0.494               MJC      = 0.317               
++TVJE     = 1.57E-3             
++IS       = '6.50E-19+DIS_PNP33A4'  
++BF       = '3.26+DBF_PNP33A4'                
++NF       = '1.0+DNF_PNP33A4'
++CJC      = '2.528E-14+DCJC_PNP33A4' 
++CJE      = '4.757E-15+DCJE_PNP33A4' 
+*
+
+*
+***********************************************************************************
+*     1.8V Vertical N+/BPWELL/DNWELL BIPOLAR MODEL (Emitter Area=10x10um^2)       *
+***********************************************************************************
+*        
+.model npn18a100 npn
++LEVEL    = 1
++VAF      = 40.0                IKF      = 0.028               
++ISE      = 4.92E-16            NE       = 1.4488              BR       = 1.43                
++NR       = 1.004               VAR      = 21.782              IKR      = 3.30E-03            
++ISC      = 8.97E-16            NC       = 1.4                 RB       = 150.0               
++IRB      = 2.00E-03            RBM      = 0.1                 RE       = 5.0                 
++RC       = 15.0                XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   SUBS     = 1                   TBF1     = 0.0061              
++TBR1     = 0.00085             TIKF1    = -0.003              TNE1     = 0.00025             
++CTC      = 1.2E-3              CTE      = 8.42E-4             TVJC     = 1.9E-3                  
++VJE      = 0.7                 MJE      = 0.346               
++VJC      = 0.693               MJC      = 0.343               
++TVJE     = 0.00147                                      
++IS       = '4.20E-17+DIS_NPN18A100'  
++BF       = '24.9+DBF_NPN18A100'                
++NF       = '1.006+DNF_NPN18A100'
++CJC      = '1.58E-13+DCJC_NPN18A100' 
++CJE      = '1.00E-13+DCJE_NPN18A100' 
+*   
+***********************************************************************************
+*       1.8V Vertical N+/BPWELL/DNWELL BIPOLAR MODEL (Emitter Area=5x5um^2)       *
+***********************************************************************************
+*                  
+.model npn18a25 npn
++LEVEL    = 1                  
++VAF      = 37.0                IKF      = 8.80E-03            
++ISE      = 3.60E-16            NE       = 1.49                BR       = 0.79                
++NR       = 1.004               VAR      = 21.782              IKR      = 1.30E-03            
++ISC      = 9.00E-16            NC       = 1.4                 RB       = 170.0               
++IRB      = 2.00E-03            RBM      = 0.1                 RE       = 13.0                
++RC       = 18.0                XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   SUBS     = 1                   TBF1     = 6.1E-03
++TBR1     = 8.50E-04            TIKF1    = -3.0E-03            TNE1     = 2.5E-04             
++CTC      = 1.2E-3              CTE      = 8.42E-4             TVJC     = 1.9E-3                   
++VJE      = 0.7                 MJE      = 0.346               
++VJC      = 0.693               MJC      = 0.343               
++TVJE     = 0.00147                                      
++IS       = '1.25E-17+DIS_NPN18A25'  
++BF       = '26.2+DBF_NPN18A25'                
++NF       = '1.0065+DNF_NPN18A25'
++CJC      = '7.90E-14+DCJC_NPN18A25' 
++CJE      = '2.58E-14+DCJE_NPN18A25' 
+*
+***********************************************************************************
+*        1.8V Vertical N+/BPWELL/DNWELL BIPOLAR MODEL (Emitter Area=2x2um^2)      *
+***********************************************************************************
+*                  
+.model npn18a4 npn
++LEVEL    = 1                   
++VAF      = 38.0                IKF      = 1.50E-03            
++ISE      = 1.15E-16            NE       = 1.48                BR       = 0.271               
++NR       = 1.007               VAR      = 21.782              IKR      = 1.30E-03            
++ISC      = 5.80E-16            NC       = 1.43                RB       = 200.0               
++IRB      = 1.00E-04            RBM      = 0.1                 RE       = 18.0                
++RC       = 25.0                XTI      = 3.0                 EG       = 1.16                
++TREF     = 25.0                NKF      = 0.5                 TLEV     = 0                   
++TLEVC    = 1                   SUBS     = 1                   TBF1     = 6.1E-03
++TBR1     = 8.50E-04            TIKF1    = -3.0E-03            TNE1     = 2.5E-04             
++CTC      = 1.2E-3              CTE      = 8.42E-4             TVJC     = 1.9E-3                  
++VJE      = 0.7                 MJE      = 0.346               
++VJC      = 0.693               MJC      = 0.343               
++TVJE     = 0.00147                                      
++IS       = '2.80E-18+DIS_NPN18A4'  
++BF       = '28.2+DBF_NPN18A4'                
++NF       = '1.01+DNF_NPN18A4'
++CJC      = '4.46E-14+DCJC_NPN18A4' 
++CJE      = '4.51E-15+DCJ

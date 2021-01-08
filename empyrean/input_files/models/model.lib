@@ -1,0 +1,409 @@
+
+.LIB TT
+.PARAM
+*1.8V core NMOS 
++DTOX_N18      = 0            DXL_N18       = 0            DXW_N18       = 0 
++DVTH_N18      = 0            DCJ_N18       = 0            DCJSW_N18     = 0
++DCJSWG_N18    = 0            DCGDO_N18     = 0            DCGSO_N18     = 0
++DPVTH0_N18    = 0
+
+*1.8V core PMOS
++DTOX_P18      = 0            DXL_P18       = 0            DXW_P18       = 0 
++DVTH_P18      = 0	      DCJ_P18       = 0            DCJSW_P18     = 0
++DCJSWG_P18    = 0	      DCGDO_P18     = 0            DCGSO_P18     = 0
++DPVTH0_P18    = 0
+
+*3.3V IO NMOS 
++DTOX_N33      = 0            DXL_N33       = 0            DXW_N33       = 0 
++DVTH_N33      = 0            DCJ_N33       = 0            DCJSW_N33     = 0
++DCJSWG_N33    = 0            DCGDO_N33     = 0            DCGSO_N33     = 0
++DPVTH0_N33    = 0
+
+*3.3V IO PMOS
++DTOX_P33      = 0            DXL_P33       = 0            DXW_P33       = 0 
++DVTH_P33      = 0	      DCJ_P33       = 0            DCJSW_P33     = 0
++DCJSWG_P33    = 0	      DCGDO_P33     = 0            DCGSO_P33     = 0
++DPVTH0_P33    = 0
+
+*1.8V CORE NATIVE NMOS 
++DTOX_NNT18      = 0          DXL_NNT18     = 0            DXW_NNT18     = 0 
++DVTH_NNT18      = 0          DCJ_NNT18     = 0            DCJSW_NNT18   = 0
++DCJSWG_NNT18    = 0          DCGDO_NNT18   = 0            DCGSO_NNT18   = 0
++DPVTH0_NNT18    = 0
+
+*3.3V IO NATIVE NMOS 
++DTOX_NNT33      = 0          DXL_NNT33     = 0            DXW_NNT33     = 0 
++DVTH_NNT33      = 0          DCJ_NNT33     = 0            DCJSW_NNT33   = 0
++DCJSWG_NNT33    = 0          DCGDO_NNT33   = 0            DCGSO_NNT33   = 0
++DPVTH0_NNT33    = 0
+
+.INC 'mos_diode.model' 
+.ENDL  TT
+
+.LIB FF
+.PARAM
+*1.8V core NMOS 
++DTOX_N18      = -1.0E-10     DXL_N18       = -1.0E-8      DXW_N18       = 2.2E-8 
++DVTH_N18      = -0.04        DCJ_N18       = -4.84E-5     DCJSW_N18     = -3.975E-12
++DCJSWG_N18    = -2.09E-11    DCGDO_N18     = 1.85E-11     DCGSO_N18     = 1.85E-11
++DPVTH0_N18    = -3e-15
+
+*1.8V core PMOS
++DTOX_P18      = -1.0E-10     DXL_P18       = -1.0E-8      DXW_P18       = 2.2E-8 
++DVTH_P18      = 0.02         DCJ_P18       = -5.35E-5     DCJSW_P18     = -4.945E-12
++DCJSWG_P18    = -2.535E-11   DCGDO_P18     = 2.1E-11      DCGSO_P18     = 2.1E-11
++DPVTH0_P18    = 1e-15
+
+*3.3V IO NMOS  
++DTOX_N33      = -3.0E-10     DXL_N33       = -1.4E-8      DXW_N33       = 2.2E-8 
++DVTH_N33      = -0.05        DCJ_N33       = -4.225E-5    DCJSW_N33     = -4.575E-12
++DCJSWG_N33    = -1.705E-11   DCGDO_N33     = 1.93E-11     DCGSO_N33     = 1.93E-11
++DPVTH0_N33    = -3.5e-15
+
+*3.3V IO PMOS
++DTOX_P33      = -3.0E-10     DXL_P33       = -1.4E-8      DXW_P33       = 2.2E-8 
++DVTH_P33      = 0.04	      DCJ_P33       = -5.05E-5     DCJSW_P33     = -4.48E-12
++DCJSWG_P33    = -1.595E-11   DCGDO_P33     = 1.615E-11    DCGSO_P33     = 1.615E-11
++DPVTH0_P33    = 2e-15
+
+*1.8V CORE NATIVE NMOS 
++DTOX_NNT18      = -1.0E-10   DXL_NNT18     = -1.0E-8      DXW_NNT18     = 2.2E-8 
++DVTH_NNT18      = -0.095     DCJ_NNT18     = -7.25e-6     DCJSW_NNT18   = -8.15E-12
++DCJSWG_NNT18    = -5.0E-12   DCGDO_NNT18   = 1.33E-11     DCGSO_NNT18   = 1.33E-11
++DPVTH0_NNT18    = -1e-15
+
+*3.3V IO NATIVE NMOS    
++DTOX_NNT33      = -3.0E-10   DXL_NNT33     = -1.4E-8      DXW_NNT33     = 2.5E-8 
++DVTH_NNT33      = -0.093     DCJ_NNT33     = -7.4E-6      DCJSW_NNT33   = -1.08E-11
++DCJSWG_NNT33    = -6.0E-12   DCGDO_NNT33   = 6.7E-12      DCGSO_NNT33   = 6.7E-12
++DPVTH0_NNT33    = -6e-15
+
+.INC 'mos_diode.model' 
+.ENDL  FF
+
+.LIB SS
+.PARAM
+*1.8V core NMOS 
++DTOX_N18      = 1.0E-10      DXL_N18       = 1.0E-8       DXW_N18       = -2.2E-8 
++DVTH_N18      = 0.045        DCJ_N18       = 4.84E-5      DCJSW_N18     = 3.975E-12
++DCJSWG_N18    = 2.09E-11     DCGDO_N18     = -1.85E-11    DCGSO_N18     = -1.85E-11
++DPVTH0_N18    = 3e-15
+
+*1.8V core PMOS
++DTOX_P18      = 1.0E-10      DXL_P18       = 1.0E-8       DXW_P18       = -2.2E-8 
++DVTH_P18      = -0.02        DCJ_P18       = 5.35E-5      DCJSW_P18     = 4.945E-12
++DCJSWG_P18    = 2.535E-11    DCGDO_P18     = -2.1E-11     DCGSO_P18     = -2.1E-11
++DPVTH0_P18    = -1e-15
+
+*3.3V IO NMOS  
++DTOX_N33      = 3.0E-10      DXL_N33       = 1.4E-8       DXW_N33       = -2.2E-8 
++DVTH_N33      = 0.05         DCJ_N33       = 4.225E-5     DCJSW_N33     = 4.575E-12
++DCJSWG_N33    = 1.705E-11    DCGDO_N33     = -1.93E-11    DCGSO_N33     = -1.93E-11
++DPVTH0_N33    = 3.5e-15
+
+*3.3V IO PMOS
++DTOX_P33      = 3.0E-10      DXL_P33       = 1.4E-8       DXW_P33       = -2.2E-8 
++DVTH_P33      = -0.04	      DCJ_P33       = 5.05E-5      DCJSW_P33     = 4.48E-12
++DCJSWG_P33    = 1.595E-11    DCGDO_P33     = -1.615E-11   DCGSO_P33     = -1.615E-11
++DPVTH0_P33    = -2e-15
+
+*1.8V CORE NATIVE NMOS 
++DTOX_NNT18      = 1.0E-10    DXL_NNT18     = 1.0E-8       DXW_NNT18     = -2.2E-8 
++DVTH_NNT18      = 0.095      DCJ_NNT18     = 7.25e-6      DCJSW_NNT18   = 8.15E-12
++DCJSWG_NNT18    = 5.0E-12    DCGDO_NNT18   = -1.33E-11    DCGSO_NNT18   = -1.33E-11
++DPVTH0_NNT18    = 1e-15
+
+*3.3V IO NATIVE NMOS    
++DTOX_NNT33      = 3.0E-10    DXL_NNT33     = 1.4E-8       DXW_NNT33     = -2.5E-8 
++DVTH_NNT33      = 0.093      DCJ_NNT33     = 7.4E-6       DCJSW_NNT33   = 1.08E-11
++DCJSWG_NNT33    = 6.0E-12    DCGDO_NNT33   = -6.7E-12     DCGSO_NNT33   = -6.7E-12
++DPVTH0_NNT33    = 6e-15
+
+.INC 'mos_diode.model' 
+.ENDL  SS
+
+.LIB FNSP
+.PARAM
+*1.8V core NMOS 
++DTOX_N18      = 0            DXL_N18       = -1.00E-8     DXW_N18       = 1.8E-8 
++DVTH_N18      = -0.04        DCJ_N18       = -4.84E-5     DCJSW_N18     = -3.975E-12
++DCJSWG_N18    = -2.09E-11    DCGDO_N18     = 0            DCGSO_N18     = 0
++DPVTH0_N18    = -3e-15
+
+*1.8V core PMOS
++DTOX_P18      = 0            DXL_P18       = 1.00E-8      DXW_P18       = -1.8E-8 
++DVTH_P18      = -0.02        DCJ_P18       = 5.35E-5      DCJSW_P18     = 4.945E-12
++DCJSWG_P18    = 2.535E-11    DCGDO_P18     = 0            DCGSO_P18     = 0
++DPVTH0_P18    = -1e-15
+
+*3.3V IO NMOS  
++DTOX_N33      = 0            DXL_N33       = -1.15E-8     DXW_N33       = 1.8E-8 
++DVTH_N33      = -0.05        DCJ_N33       = -4.225E-5    DCJSW_N33     = -4.575E-12
++DCJSWG_N33    = -1.705E-11   DCGDO_N33     = 0            DCGSO_N33     = 0
++DPVTH0_N33    = -3.5e-15
+
+*3.3V IO PMOS
++DTOX_P33      = 0            DXL_P33       = 1.15E-8      DXW_P33       = -1.8E-8 
++DVTH_P33      = -0.04	      DCJ_P33       = 5.05E-5      DCJSW_P33     = 4.48E-12
++DCJSWG_P33    = 1.595E-11    DCGDO_P33     = 0            DCGSO_P33     = 0 
++DPVTH0_P33    = -2e-15
+
+*1.8V core NATIVE NMOS 
++DTOX_NNT18      = 0          DXL_NNT18       = -1.00E-8   DXW_NNT18       = 1.8E-8 
++DVTH_NNT18      = -0.095    DCJ_NNT18       = -7.25E-6   DCJSW_NNT18     = -8.15E-12
++DCJSWG_NNT18    = -5E-12     DCGDO_NNT18     = 0          DCGSO_NNT18     = 0
++DPVTH0_NNT18    = -1e-15
+
+*3.3V IO NATIVE NMOS    
++DTOX_NNT33      = 0          DXL_NNT33     = -1.15E-8     DXW_NNT33     = 1.8E-8 
++DVTH_NNT33      = -0.093     DCJ_NNT33     = -7.4E-6      DCJSW_NNT33   = -1.08E-11
++DCJSWG_NNT33    = -6.0E-12   DCGDO_NNT33   = 0            DCGSO_NNT33   = 0
++DPVTH0_NNT33    = -6e-15
+
+.INC 'mos_diode.model' 
+.ENDL  FNSP
+
+.LIB SNFP
+.PARAM
+*1.8V core NMOS 
++DTOX_N18      = 0            DXL_N18       = 1.00E-8      DXW_N18       = -1.8E-8 
++DVTH_N18      = 0.045        DCJ_N18       = 4.84E-5      DCJSW_N18     = 3.975E-12
++DCJSWG_N18    = 2.09E-11     DCGDO_N18     = 0            DCGSO_N18     = 0
++DPVTH0_N18    = 3e-15
+
+*1.8V core PMOS
++DTOX_P18      = 0            DXL_P18       = -1.00E-8     DXW_P18       = 1.8E-8 
++DVTH_P18      = 0.02         DCJ_P18       = -5.35E-5     DCJSW_P18     = -4.945E-12
++DCJSWG_P18    = -2.535E-11   DCGDO_P18     = 0            DCGSO_P18     = 0
++DPVTH0_P18    = 1e-15
+
+*3.3V IO NMOS  
++DTOX_N33      = 0            DXL_N33       = 1.15E-8      DXW_N33       = -1.8E-8 
++DVTH_N33      = 0.05         DCJ_N33       = 4.225E-5     DCJSW_N33     = 4.575E-12
++DCJSWG_N33    = 1.705E-11    DCGDO_N33     = 0            DCGSO_N33     = 0
++DPVTH0_N33    = 3.5e-15
+
+*3.3V IO PMOS
++DTOX_P33      = 0            DXL_P33       = -1.15E-8     DXW_P33       = 1.8E-8 
++DVTH_P33      = 0.04	      DCJ_P33       = -5.05E-5     DCJSW_P33     = -4.48E-12
++DCJSWG_P33    = -1.595E-11   DCGDO_P33     = 0            DCGSO_P33     = 0
++DPVTH0_P33    = 2e-15
+
+*1.8V core NATIVE NMOS 
++DTOX_NNT18      = 0          DXL_NNT18       = 1.00E-8    DXW_NNT18       = -1.8E-8 
++DVTH_NNT18      = 0.095      DCJ_NNT18       = 7.25E-6    DCJSW_NNT18     = 8.15E-12
++DCJSWG_NNT18    = 5E-12      DCGDO_NNT18     = 0          DCGSO_NNT18     = 0
++DPVTH0_NNT18    = 1e-15
+
+*3.3V IO NATIVE NMOS    
++DTOX_NNT33      = 0          DXL_NNT33     = 1.15E-8      DXW_NNT33     = -1.8E-8 
++DVTH_NNT33      = 0.093      DCJ_NNT33     = 7.4E-6       DCJSW_NNT33   = 1.08E-11
++DCJSWG_NNT33    = 6.0E-12    DCGDO_NNT33   = 0            DCGSO_NNT33   = 0
++DPVTH0_NNT33    = 6e-15
+
+.INC 'mos_diode.model' 
+.ENDL  SNFP
+
+*******************
+* BJT Corner model
+*******************
+
+.LIB BJT_TT
+.PARAM
+*1.8V CORE PNP
++DBF_PNP18A100     = 0.00      DIS_PNP18A100       = 0.00      DNF_PNP18A100       = 0.00         
++DBF_PNP18A25      = 0.00      DIS_PNP18A25        = 0.00      DNF_PNP18A25        = 0.00         
++DBF_PNP18A4       = 0.00      DIS_PNP18A4         = 0.00      DNF_PNP18A4         = 0.00         
++DCJE_PNP18A100    = 0.00      DCJE_PNP18A25       = 0.00      DCJE_PNP18A4        = 0.00            
++DCJC_PNP18A100    = 0.00      DCJC_PNP18A25       = 0.00      DCJC_PNP18A4        = 0.00 
+
+*3.3V IO PNP
++DBF_PNP33A100     = 0.00      DIS_PNP33A100       = 0.00      DNF_PNP33A100       = 0.00         
++DBF_PNP33A25      = 0.00      DIS_PNP33A25        = 0.00      DNF_PNP33A25        = 0.00         
++DBF_PNP33A4       = 0.00      DIS_PNP33A4         = 0.00      DNF_PNP33A4         = 0.00
++DCJE_PNP33A100    = 0.00      DCJE_PNP33A25       = 0.00      DCJE_PNP33A4        = 0.00            
++DCJC_PNP33A100    = 0.00      DCJC_PNP33A25       = 0.00      DCJC_PNP33A4        = 0.00 
+
+.INC 'BJT.model' 
+.ENDL BJT_TT
+
+.LIB BJT_FF
+.PARAM
+*1.8V CORE PNP
++DBF_PNP18A100     = 4.20E-1   DIS_PNP18A100       = -1.756E-18  DNF_PNP18A100       = 0.008         
++DBF_PNP18A25      = 5.20E-1   DIS_PNP18A25        = -7.751E-19  DNF_PNP18A25        = 0.008         
++DBF_PNP18A4       = 6.90E-1   DIS_PNP18A4         = -1.950E-19  DNF_PNP18A4         = 0.008         
++DCJC_PNP18A100    = -3.46E-15 DCJC_PNP18A25       = -1.98E-15   DCJC_PNP18A4        = -1.26E-15
++DCJE_PNP18A100    = -5.55E-15 DCJE_PNP18A25       = -1.44E-15   DCJE_PNP18A4        = -2.54E-16
+
+*3.3V IO PNP
++DBF_PNP33A100     = 4.20E-1    DIS_PNP33A100       = -1.756E-18  DNF_PNP33A100       = 0.008         
++DBF_PNP33A25      = 5.20E-1    DIS_PNP33A25        = -7.751E-19  DNF_PNP33A25        = 0.008         
++DBF_PNP33A4       = 6.90E-1    DIS_PNP33A4         = -1.950E-19  DNF_PNP33A4         = 0.008
++DCJC_PNP33A100    = -3.46E-15  DCJC_PNP33A25       = -1.98E-15   DCJC_PNP33A4        = -1.26E-15
++DCJE_PNP33A100    = -5.23E-15  DCJE_PNP33A25       = -1.35E-15   DCJE_PNP33A4        = -2.38E-16
+
+.INC 'BJT.model' 
+.ENDL BJT_FF
+
+.LIB BJT_SS
+.PARAM
+*1.8V CORE PNP
++DBF_PNP18A100     = -4.20E-1   DIS_PNP18A100       = 1.756E-18  DNF_PNP18A100       = -0.008         
++DBF_PNP18A25      = -5.20E-1   DIS_PNP18A25        = 7.751E-19  DNF_PNP18A25        = -0.008         
++DBF_PNP18A4       = -6.90E-1   DIS_PNP18A4         = 1.950E-19  DNF_PNP18A4         = -0.008         
++DCJC_PNP18A100    = 3.46E-15   DCJC_PNP18A25       = 1.98E-15   DCJC_PNP18A4        = 1.26E-15
++DCJE_PNP18A100    = 5.55E-15   DCJE_PNP18A25       = 1.44E-15   DCJE_PNP18A4        = 2.54E-16
+
+*3.3V IO PNP
++DBF_PNP33A100     = -4.20E-1    DIS_PNP33A100       = 1.756E-18  DNF_PNP33A100       = -0.008         
++DBF_PNP33A25      = -5.20E-1    DIS_PNP33A25        = 7.751E-19  DNF_PNP33A25        = -0.008         
++DBF_PNP33A4       = -6.90E-1    DIS_PNP33A4         = 1.950E-19  DNF_PNP33A4         = -0.008
++DCJC_PNP33A100    = 3.46E-15    DCJC_PNP33A25       = 1.98E-15   DCJC_PNP33A4        = 1.26E-15
++DCJE_PNP33A100    = 5.23E-15    DCJE_PNP33A25       = 1.35E-15   DCJE_PNP33A4        = 2.38E-16
+
+.INC 'BJT.model' 
+.ENDL BJT_SS
+
+*******************
+* RES Corner model
+*******************
+
+.LIB RES_TT
+.PARAM
+*Resistor
++DRSH_RNDIF         = 0            DRSH_RPDIF           = 0            DRSH_RNPO          = 0    
++DRSH_RNPO_3T       = 0            DRSH_RPPO            = 0            DRSH_RPPO_3T       = 0     
++DRSH_RNWSTI        = 0            DRSH_RNWAA           = 0            DRSH_RNDIFSAB      = 0            
++DRSH_RPDIFSAB      = 0            DRSH_RNPOSAB         = 0            DRSH_RNPOSAB_3T    = 0
++DRSH_RPPOSAB       = 0            DRSH_RPPOSAB_3T      = 0            DRSH_RM1           = 0            
++DRSH_RM2           = 0            DRSH_RM3             = 0            DRSH_RM4           = 0            
++DRSH_RM5           = 0            DRSH_RM6             = 0            DRSH_RPDIFSAB_NSTD = 0            
++DRSH_RNPOSAB_NSTD  = 0            DRSH_RNPOSAB_NSTD_3T = 0            DRSH_RNDIFSAB_NSTD = 0            
++DRSH_RPPOSAB_NSTD  = 0            DRSH_RPPOSAB_NSTD_3T = 0
++DDW_RNDIF          = 0            DDW_RPDIF            = 0            DDW_RNPO           = 0    
++DDW_RNPO_3T        = 0            DDW_RPPO             = 0            DDW_RPPO_3T        = 0        
++DDW_RNWSTI         = 0            DDW_RNWAA            = 0            DDW_RNDIFSAB       = 0            
++DDW_RPDIFSAB       = 0            DDW_RNPOSAB          = 0            DDW_RNPOSAB_3T     = 0
++DDW_RPPOSAB        = 0            DDW_RPPOSAB_3T       = 0            DDW_RM1            = 0            
++DDW_RM2            = 0            DDW_RM3              = 0            DDW_RM4            = 0            
++DDW_RM5            = 0            DDW_RM6              = 0            DDW_RPDIFSAB_NSTD  = 0            
++DDW_RNPOSAB_NSTD   = 0            DDW_RNPOSAB_NSTD_3T  = 0            DDW_RNDIFSAB_NSTD  = 0            
++DDW_RPPOSAB_NSTD   = 0            DDW_RPPOSAB_NSTD_3T  = 0
+ 
+.INC 'res.model'
+.ENDL RES_TT
+
+.LIB RES_FF
+.PARAM
+*Resistor
++DRSH_RNDIF         = -2.78        DRSH_RPDIF           = -3.63        DRSH_RNPO          = -2.34   
++DRSH_RNPO_3T       = -2.34        DRSH_RPPO            = -2.88        DRSH_RPPO_3T       = -2.88    
++DRSH_RNWSTI        = -95          DRSH_RNWAA           = -101         DRSH_RNDIFSAB      = -20.6         
++DRSH_RPDIFSAB      = -40.1        DRSH_RNPOSAB         = -38.1        DRSH_RNPOSAB_3T    = -38.1
++DRSH_RPPOSAB       = -48.7        DRSH_RPPOSAB_3T      = -48.7        DRSH_RM1           = -0.023       
++DRSH_RM2           = -0.023       DRSH_RM3             = -0.023       DRSH_RM4           = -0.023       
++DRSH_RM5           = -0.023       DRSH_RM6             = -0.009       DRSH_RPDIFSAB_NSTD = -40.1          
++DRSH_RNPOSAB_NSTD  = -38.1        DRSH_RNPOSAB_NSTD_3T = -38.1        DRSH_RNDIFSAB_NSTD = -20.6         
++DRSH_RPPOSAB_NSTD  = -48.7        DRSH_RPPOSAB_NSTD_3T = -48.7
++DDW_RNDIF          = 0            DDW_RPDIF            = 0            DDW_RNPO           = 0   
++DDW_RNPO_3T        = 0            DDW_RPPO             = 0            DDW_RPPO_3T        = 0        
++DDW_RNWSTI         = 0            DDW_RNWAA            = 0            DDW_RNDIFSAB       = 0            
++DDW_RPDIFSAB       = 0            DDW_RNPOSAB          = 0            DDW_RNPOSAB_3T     = 0
++DDW_RPPOSAB        = 0            DDW_RPPOSAB_3T       = 0            DDW_RM1            = 0            
++DDW_RM2            = 0            DDW_RM3              = 0            DDW_RM4            = 0            
++DDW_RM5            = 0            DDW_RM6              = 0            DDW_RPDIFSAB_NSTD  = 0            
++DDW_RNPOSAB_NSTD   = 0            DDW_RNPOSAB_NSTD_3T  = 0            DDW_RNDIFSAB_NSTD  = 0            
++DDW_RPPOSAB_NSTD   = 0            DDW_RPPOSAB_NSTD_3T  = 0
+
+.INC 'res.model'
+.ENDL RES_FF
+
+.LIB RES_SS
+.PARAM
+*Resistor
++DRSH_RNDIF         = 2.22         DRSH_RPDIF           = 2.37         DRSH_RNPO          = 1.66    
++DRSH_RNPO_3T       = 1.66         DRSH_RPPO            = 2.12         DRSH_RPPO_3T       = 2.12   
++DRSH_RNWSTI        = 169          DRSH_RNWAA           = 99           DRSH_RNDIFSAB      = 20.5          
++DRSH_RPDIFSAB      = 40           DRSH_RNPOSAB         = 38.1         DRSH_RNPOSAB_3T    = 38.1
++DRSH_RPPOSAB       = 48.6         DRSH_RPPOSAB_3T      = 48.6         DRSH_RM1           = 0.023        
++DRSH_RM2           = 0.023        DRSH_RM3             = 0.023        DRSH_RM4           = 0.023        
++DRSH_RM5           = 0.023        DRSH_RM6             = 0.009        DRSH_RPDIFSAB_NSTD = 40           
++DRSH_RNPOSAB_NSTD  = 38.1         DRSH_RNPOSAB_NSTD_3T = 38.1         DRSH_RNDIFSAB_NSTD = 20.5          
++DRSH_RPPOSAB_NSTD  = 48.6         DRSH_RPPOSAB_NSTD_3T = 48.6
++DDW_RNDIF          = 0            DDW_RPDIF            = 0            DDW_RNPO           = 0    
++DDW_RNPO_3T        = 0            DDW_RPPO             = 0            DDW_RPPO_3T        = 0      
++DDW_RNWSTI         = 0            DDW_RNWAA            = 0            DDW_RNDIFSAB       = 0            
++DDW_RPDIFSAB       = 0            DDW_RNPOSAB          = 0            DDW_RNPOSAB_3T     = 0
++DDW_RPPOSAB        = 0            DDW_RPPOSAB_3T       = 0            DDW_RM1            = 0            
++DDW_RM2            = 0            DDW_RM3              = 0            DDW_RM4            = 0            
++DDW_RM5            = 0            DDW_RM6              = 0            DDW_RPDIFSAB_NSTD  = 0            
++DDW_RNPOSAB_NSTD   = 0            DDW_RNPOSAB_NSTD_3T  = 0            DDW_RNDIFSAB_NSTD  = 0            
++DDW_RPPOSAB_NSTD   = 0            DDW_RPPOSAB_NSTD_3T  = 0
+
+.INC 'res.model'
+.ENDL RES_SS
+
+******************************
+* MIM capacitance Corner model
+******************************
+
+.LIB MIM_TT
+.PARAM
+*MIM
++DMIM   = 0
+
+.INC 'mim.model' 
+.ENDL MIM_TT
+
+.LIB MIM_FF
+.PARAM
+*MIM
++DMIM   = -2E-4
+
+.INC 'mim.model' 
+.ENDL MIM_FF
+
+.LIB MIM_SS
+.PARAM
+*MIM
++DMIM   = 2E-4
+
+.INC 'mim.model' 
+.ENDL MIM_SS
+
+***********************
+* Varactor Corner model
+***********************
+
+.LIB VAR_TT
+.PARAM
+*1.8V Varactor
++DTOX_PVAR18      = 0             DVTH_PVAR18      = 0	      
+
+*3.3V Varactor
++DTOX_PVAR33      = 0             DVTH_PVAR33      = 0
+
+.ENDL VAR_TT
+
+
+.LIB VAR_FF
+.PARAM
+*1.8V Varactor
++DTOX_PVAR18      = 1E-10         DVTH_PVAR18      = 0.02	      
+
+*3.3V Varactor
++DTOX_PVAR33      = 2E-10         DVTH_PVAR33      = 0.04
+
+.ENDL VAR_FF
+
+
+.LIB VAR_SS
+.PARAM
+*1.8V Varactor
++DTOX_PVAR18      = -1E-10        DVTH_PVAR18      = -0.02	      
+
+*3.3V Varactor
++DTOX_PVAR33      = -2E-10        DVTH_PVAR33      = -0.04
+        
+.ENDL VAR_SS

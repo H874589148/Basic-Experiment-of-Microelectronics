@@ -1,0 +1,22 @@
+R
+[cdl]
+>R? <PLUS> <MINUS> [@r] $[rpdif] [@effw:$W=%] [@effl:$L=%] [@m:M=%]
+
+[pspice]
+>R^@REFDES %PLUS %MINUS rpdif @r ?m|M=@m|
+
+[hspice]
+>R? <PLUS> <MINUS> rpdif [@r:%] [@m:M=%]
+
+
+
+
+
+
+
+
+
+
+
+
+

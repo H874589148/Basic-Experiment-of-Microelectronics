@@ -1,0 +1,21 @@
+###1: exit
+exit
+e -file /tmp/plotU2TAKB
+cross_probe -file /tmp/plotU2TAKB OK
+###2: cross_probe -file /tmp/acG8TZTU
+cross_probe -file /tmp/acG8TZTU OK
+###3: open_file /home/user1/simulation/user1/opamp_opamp_openloop_config_ALPS/opamp_opamp_openloop_config_Nominal.sp.sim/opamp_opamp_openloop_config_Nominal.sp.ac0
+open_file opamp_opamp_openloop_config_Nominal.sp.ac0: OK
+###4: calc db(&f<0>::s<v(out)>&)
+calc db("f<0>::s<v(out)>") :91
+###5: add_panel -1
+add_panel :0
+###6: calc phase(&f<0>::s<v(out)>&)
+calc phase("f<0>::s<v(out)>") :91
+###7: open_wave -group Doc_Not_Found,0,_calc_wfs_\(0\)
+###8: chaxis Log10
+db("f<0>::s<v(out)>")     _calc_wfs_(0)   Nominal datas:
+###9: open_wave -group Doc_Not_Found,0,_calc_wfs_\(1\)
+phase("f<0>::s<v(out)>")     _calc_wfs_(1)   Nominal datas:
+###10: exit
+exit

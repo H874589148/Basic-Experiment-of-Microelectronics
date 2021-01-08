@@ -1,0 +1,92 @@
+# design layer <--> tech layer
+
+#Conducting_layers
+
+GT	poly
+AA 	AA
+
+M1	metal1
+M2 	metal2
+M3	metal3
+M4	metal4
+M5	metal5
+MIM	metal6
+mimcap	metal5
+M6	metal6
+
+metal1 metal1
+metal2 metal2
+metal3 metal3
+metal4 metal4
+metal5 metal5
+metal6 metal6
+
+# via layers 
+
+Via_layers
+V1	via1
+V2	via2
+V3	via3
+V4	via4
+via5b	via5a
+via5a	via5a
+CT 	polyCont
+CT	dfCont
+
+
+polycont polyCont
+dfcont dfCont
+
+nsd AA 
+psd AA
+ntd AA
+ptd AA
+ndio18 AA
+ndio33 AA
+nndio18 AA
+nndio33 AA
+pdio18  AA
+pdio33 AA
+
+pnpemit18 AA
+pnpemit33 AA
+npnemit18 AA
+npnemit33 AA
+
+nsdrfd AA
+psdrfd AA
+psdrf AA
+
+poly poly
+n18rfgt poly
+p18rfgt poly
+n33rfgt poly
+p33rfgt poly
+dnw18rfgt poly
+dnw33rfgt poly
+cn18rfgtw10l1 poly
+cn18rfgtw10ld5 poly
+cn18rfgtw5l1 poly
+cn18rfgtw5ld5 poly
+cn33rfgtw10l1 poly
+cn33rfgtw10ld5 poly
+cn18vargt  poly
+cn33vargt poly
+
+
+pgate18  poly
+pgate33 poly
+ngate18 poly
+ngate33 poly
+cngate18 poly
+cngate33 poly
+ngmedium18 poly
+ngmedium33 poly
+pgmedium18 poly
+ngnative18 poly
+ngnative33 poly
+pmcap poly
+
+
+
+

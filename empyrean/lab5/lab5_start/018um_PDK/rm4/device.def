@@ -1,0 +1,12 @@
+R
+[cdl]
+>R? <PLUS> <MINUS> [@r] $[rm4] [@effw:$W=%] [@effl:$L=%] [@m:M=%]
+
+[pspice]
+>R^@REFDES %PLUS %MINUS rm4 @r ?m|M=@m|
+
+
+[hspice]
+>R? <PLUS> <MINUS> rm4 [@r:%] [@m:M=%]
+
+

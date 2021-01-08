@@ -1,0 +1,561 @@
+*
+************************************************************************************ 
+*            Silicide N+ diffusion resistor subcircuit netlist                     * 
+************************************************************************************
+.subckt rndif_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '7.57+drsh_rndif' tc1r = 3.12E-03 tc2r = 3.022E-08 dw = '-4.14E-08+ddw_rndif'
+*+vc1 = 2.16E-05 vc2 = 1.06E-04
++jc1a = 9.10E-06 jc1b = 6.25E-09
++jc2a = 4.72E-08 jc2b = 2.79E-12
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2.0*dw'
+
+D1 sub n2 ndio18 area='weff*l/5' pj='weff+2*l/5'
+R1 n2 na 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D2 sub na ndio18 area='weff*l/5' pj='2*l/5'
+R2 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D3 sub nb ndio18 area='weff*l/5' pj='2*l/5'
+R3 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D4 sub nc ndio18 area='weff*l/5' pj='2*l/5'
+R4 nc n1 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D5 sub n1 ndio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rndif_ckt
+
+************************************************************************************ 
+*               Silicide P+ diffusion resistor subcircuit netlist                  * 
+************************************************************************************
+.subckt rpdif_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '6.75+drsh_rpdif' tc1r = 3.08E-03 tc2r = 7.034E-07 dw = '-2.80E-08+ddw_rpdif'
+*+vc1 = 4.94E-05 vc2 = 9.67E-05
++jc1a = 6.40E-05 jc1b = -7.34E-09
++jc2a = 4.40E-08 jc2b = 2.16E-12
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2.0*dw'
+
+D1 n2 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+R1 n2 na 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D2 na sub pdio18 area='weff*l/5' pj='2*l/5'
+R2 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D3 nb sub pdio18 area='weff*l/5' pj='2*l/5'
+R3 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D4 nc sub pdio18 area='weff*l/5' pj='2*l/5'
+R4 nc n1 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 1.10)'
+D5 n1 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rpdif_ckt
+
+************************************************************************************ 
+*               Silicide N+ poly resistor subcircuit netlist                       * 
+************************************************************************************
+.subckt rnpo_ckt n2 n1 l=lr w=wr
+
+.param
++rsh = '7.87+drsh_rnpo' tc1r = 3.07E-03 tc2r = -5.36E-08 dw = '-1.89E-08+ddw_rnpo'
+*+vc1 = 1.39E-04 vc2 = 2.72E-04
++jc1a = -1.16E-04 jc1b = 1.28E-07
++jc2a = 9.63E-08 jc2b = 1.98E-11
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
+
+R1 n2 n1 'rsh*l/weff*tcoef(temper)*min(1.0+rvc1*abs(v(n2,n1))+rvc2*v(n2,n1)*v(n2,n1), 1.15)'
+
+.ends rnpo_ckt
+
+************************************************************************************ 
+*          Silicide N+ poly resistor subcircuit netlist (three terminal)           * 
+************************************************************************************
+.subckt rnpo_3t_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '7.87+drsh_rnpo_3t' tc1r = 3.07E-03 tc2r = -5.36E-08 dw = '-1.89E-08+ddw_rnpo_3t'
+*+vc1 = 1.39E-04 vc2 = 2.72E-04
++jc1a = -1.16E-04 jc1b = 1.28E-07
++jc2a = 9.63E-08 jc2b = 1.98E-11
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++dl = '-1.89E-08+ddw_rnpo_3t'   weff = 'w-2*dw'    leff = 'l-2*dl' 
++cox = 1.01E-04    capsw = 8.92E-11
+
+C1 n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+R1 n2 n1 'rsh*l/weff*tcoef(temper)*min(1.0+rvc1*abs(v(n2,n1))+rvc2*v(n2,n1)*v(n2,n1), 1.15)'
+C2 n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rnpo_3t_ckt
+
+************************************************************************************ 
+*               Silicide P+ poly resistor subcircuit netlist                       * 
+************************************************************************************
+.subckt rppo_ckt n2 n1 l=lr w=wr
+
+.param
++rsh = '9.78+drsh_rppo' tc1r = 2.92E-03 tc2r = -2.30E-08 dw = '-1.35E-08+ddw_rppo'
+*+vc1 = 8.48E-05 vc2 = 2.27E-04
++jc1a = -4.67E-05 jc1b = 6.58E-08
++jc2a = 8.88E-08 jc2b = 1.23E-11
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
+
+R1 n2 n1 'rsh*l/weff*tcoef(temper)*min(1.0+rvc1*abs(v(n2,n1))+rvc2*v(n2,n1)*v(n2,n1), 1.15)'
+
+.ends rppo_ckt
+
+************************************************************************************ 
+*          Silicide P+ poly resistor subcircuit netlist (three terminal)           * 
+************************************************************************************
+.subckt rppo_3t_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '9.78+drsh_rppo_3t' tc1r = 2.92E-03 tc2r = -2.30E-08 dw = '-1.35E-08+ddw_rppo_3t'
+*+vc1 = 8.48E-05 vc2 = 2.27E-04
++jc1a = -4.67E-05 jc1b = 6.58E-08
++jc2a = 8.88E-08 jc2b = 1.23E-11
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++dl = '-1.35E-08+ddw_rppo_3t'   weff = 'w-2*dw'    leff = 'l-2*dl' 
++cox = 1.01E-04    capsw = 8.92E-11
+
+C1 n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+R1 n2 n1 'rsh*l/weff*tcoef(temper)*min(1.0+rvc1*abs(v(n2,n1))+rvc2*v(n2,n1)*v(n2,n1), 1.15)'
+C2 n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rppo_3t_ckt
+
+******************************************************************
+*                     Non-Silicide Resistors                     * 
+******************************************************************
+*
+************************************************************************************ 
+*                 NWell resistor under AA subcircuit netlist                       * 
+************************************************************************************
+.subckt rnwaa_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '441+drsh_rnwaa' tc1r = 3.02E-03 tc2r = 8.06E-06 dw = '7.25E-08+ddw_rnwaa'
+*+vc1 = 2.39E-02 vc2 = 1.87E-04
++jc1a = -3.89E-03 jc1b = 3.34E-07
++jc2a = -1.85E-08 jc2b = 2.49E-13
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2.0*dw'
+
+D1 sub n2 nwdio area='weff*l/5' pj='weff+2*l/5'
+R1 n2 na 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.8), 1.2)'
+D2 sub na nwdio area='weff*l/5' pj='2*l/5'
+R2 na nb 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.8), 1.2)'
+D3 sub nb nwdio area='weff*l/5' pj='2*l/5'
+R3 nb nc 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.8), 1.2)'
+D4 sub nc nwdio area='weff*l/5' pj='2*l/5'
+R4 nc n1 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.8), 1.2)'
+D5 sub n1 nwdio area='weff*l/5' pj='weff+2*l/5'
+
+.ends rnwaa_ckt
+
+************************************************************************************ 
+*               NWell resistor under STI subcircuit netlist                        * 
+************************************************************************************
+.subckt rnwsti_ckt n2 n1 sub l=lr w=wr
+
+.param
++rsh = '890+drsh_rnwsti' tc1r = 2.73E-03 tc2r = 1.65E-06 dw = '1.83E-07+ddw_rnwsti'
+*+vc1 = 2.20E-02 vc2 = 1.06E-03
++jc1a = 1.10E-03 jc1b = 3.01E-07
++jc2a = -6.61E-09 jc2b = 3.16E-13
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2.0*dw'
+
+D1 sub n2 nwdio area='weff*l/5' pj='weff+2*l/5'
+R1 n2 na 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.887), 1.2)'
+D2 sub na nwdio area='weff*l/5' pj='2*l/5'
+R2 na nb 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.887), 1.2)'
+D3 sub nb nwdio area='weff*l/5' pj='2*l/5'
+R3 nb nc 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.887), 1.2)'
+D4 sub nc nwdio area='weff*l/5' pj='2*l/5'
+R4 nc n1 'rsh*l/4/weff*tcoef(temper)*min(max(1.0+rvc1*v(n2,n1)+rvc2*v(n2,n1)*v(n2,n1), 0.887), 1.2)'
+D5 sub n1 nwdio area='weff*l/5' pj='weff+2*l/5'
+
+.ends rnwsti_ckt
+
+******************************************************************
+*              Non-Silicide N+ Diffusion Resistance              *
+******************************************************************
+.subckt rndifsab_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '57.5+drsh_rndifsab' tc1r = 1.51E-03 tc2r = 4.22E-07 dw = '-2.62E-08+ddw_rndifsab'
++rintc = 12.25 rint0 = 2.18E-05 rint1 = 0.00E+00
++rinttc1 = 1.81E-03 rinttc2 = 7.75E-07
+*+vc1 = 1.86E-04 vc2 = 2.05E-04
++jc1a = 2.13E-04 jc1b = -2.64E-09
++jc2a = 1.75E-08 jc2b = 2.04E-13
++rintjc1a = -1.56E-03 rintjc1b = 7.95E+2
++rintjc2a = 4.07E-02 rintjc2b = 2.44E+4
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+D1 sub n2 ndio18 area='weff*l/5' pj='weff+2*l/5'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(n2,na)+rintvc2*v(n2,na)*v(n2,na), 1.13)'
+R1 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D2 sub nb ndio18 area='weff*l/5' pj='2*l/5'
+R2 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D3 sub nc ndio18 area='weff*l/5' pj='2*l/5'
+R3 nc nd 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D4 sub nd ndio18 area='weff*l/5' pj='2*l/5'
+R4 nd ne 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+Rintb ne n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(ne,n1)+rintvc2*v(ne,n1)*v(ne,n1), 1.13)'
+D5 sub n1 ndio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rndifsab_ckt
+
+******************************************************************
+*      Non-Silicide N+ Diffusion Resistance (non-standard)       *
+******************************************************************
+.subckt rndifsab_nstd_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '57.5+drsh_rndifsab_nstd' tc1r = 1.51E-03 tc2r = 4.22E-07 dw = '-2.62E-08+ddw_rndifsab_nstd'
++rintc = 12.25 rint0 = 2.18E-05 rint1 = 0.00E+00
++rinttc1 = 1.81E-03 rinttc2 = 7.75E-07
+*+vc1 = 1.86E-04 vc2 = 2.05E-04
++jc1a = 2.13E-04 jc1b = -2.64E-09
++jc2a = 1.75E-08 jc2b = 2.04E-13
++rintjc1a = -1.56E-03 rintjc1b = 7.95E+2
++rintjc2a = 4.07E-02 rintjc2b = 2.44E+4
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+D1 sub n2 ndio18 area='weff*l/5' pj='weff+2*l/5'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(n2,na)+rintvc2*v(n2,na)*v(n2,na), 1.13)'
+R1 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D2 sub nb ndio18 area='weff*l/5' pj='2*l/5'
+R2 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D3 sub nc ndio18 area='weff*l/5' pj='2*l/5'
+R3 nc nd 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+D4 sub nd ndio18 area='weff*l/5' pj='2*l/5'
+R4 nd ne 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.15)'
+Rintb ne n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(ne,n1)+rintvc2*v(ne,n1)*v(ne,n1), 1.13)'
+D5 sub n1 ndio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rndifsab_nstd_ckt
+
+******************************************************************
+*              Non-Silicide P+ Diffusion Resistance              *
+******************************************************************
+.subckt rpdifsab_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '116.2+drsh_rpdifsab' tc1r = 1.41E-03 tc2r = 6.87E-07 dw = '-1.37E-09+ddw_rpdifsab'
++rintc = 15.446 rint0 = 4.37E-05 rint1 = 0.00E+00
++rinttc1 = 1.38E-03 rinttc2 = 6.47E-07
+*+vc1 = -6.92E-06 vc2 = 1.08E-04
++jc1a = -6.82E-06 jc1b = -8.98E-12
++jc2a = 9.85E-09 jc2b = 5.20E-14
++rintjc1a = 9.03E-04 rintjc1b = -4.74E+2
++rintjc2a = 1.00E-02 rintjc2b = 1.74E+4
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+D1 n2 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(n2,na)+rintvc2*v(n2,na)*v(n2,na), 1.11)'
+R1 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D2 nb sub pdio18 area='weff*l/5' pj='2*l/5'
+R2 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D3 nc sub pdio18 area='weff*l/5' pj='2*l/5'
+R3 nc nd 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D4 nd sub pdio18 area='weff*l/5' pj='2*l/5'
+R4 nd ne 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+Rintb ne n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(ne,n1)+rintvc2*v(ne,n1)*v(ne,n1), 1.11)'
+D5 n1 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rpdifsab_ckt
+
+******************************************************************
+*      Non-Silicide P+ Diffusion Resistance (non-standard)       *
+******************************************************************
+.subckt rpdifsab_nstd_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '129+drsh_rpdifsab_nstd' tc1r = 1.41E-03 tc2r = 6.87E-07 dw = '-4.90E-08+ddw_rpdifsab_nstd'
++rintc = 15.446 rint0 = 4.37E-05 rint1 = 0.00E+00
++rinttc1 = 1.38E-03 rinttc2 = 6.47E-07
+*+vc1 = -6.92E-06 vc2 = 1.08E-04
++jc1a = -6.82E-06 jc1b = -8.98E-12
++jc2a = 9.85E-09 jc2b = 5.20E-14
++rintjc1a = 9.03E-04 rintjc1b = -4.74E+2
++rintjc2a = 1.00E-02 rintjc2b = 1.74E+4
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+D1 n2 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(n2,na)+rintvc2*v(n2,na)*v(n2,na), 1.11)'
+R1 na nb 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D2 nb sub pdio18 area='weff*l/5' pj='2*l/5'
+R2 nb nc 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D3 nc sub pdio18 area='weff*l/5' pj='2*l/5'
+R3 nc nd 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+D4 nd sub pdio18 area='weff*l/5' pj='2*l/5'
+R4 nd ne 'rsh*l/4/weff*tcoef(temper)*min(1.0+rvc1*v(na,ne)+rvc2*v(na,ne)*v(na,ne), 1.12)'
+Rintb ne n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*min(1.0+rintvc1*v(ne,n1)+rintvc2*v(ne,n1)*v(ne,n1), 1.11)'
+D5 n1 sub pdio18 area='weff*l/5' pj='weff+2*l/5'
+
+.ends rpdifsab_nstd_ckt
+
+******************************************************************
+*                Non-Silicide N+ Poly Resistance                 *
+******************************************************************
+.subckt rnposab_ckt n2 n1 l=lr w=wr
+.param
++rsh = '271.6+drsh_rnposab' tc1r = -1.35E-03 tc2r = 2.29E-06 dw = '4.71E-08+ddw_rnposab'
++rintc = 23.415 rint0 = 9.5E-05 rint1 = 0.00E+00
++rinttc1 = -9.76E-04 rinttc2 = 1.70E-06
+*+vc1 = 3.70E-04 vc2 = -1.74E-04
++jc1a = 8.23E-04 jc1b = -4.36E-08
++jc2a = -1.45E-08 jc2b = -2.17E-13
++rintjc1a = 1.20E-03 rintjc1b = -9.43E+2
++rintjc2a = -4.78E-02 rintjc2b = -8.34E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++weff = 'w-2*dw'    
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.86)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.84)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.86)'
+
+.ends rnposab_ckt
+
+******************************************************************
+*        Non-Silicide N+ Poly Resistance (three terminal)        *
+******************************************************************
+.subckt rnposab_3t_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '271.6+drsh_rnposab_3t' tc1r = -1.35E-03 tc2r = 2.29E-06 dw = '4.71E-08+ddw_rnposab_3t'
++rintc = 23.415 rint0 = 9.5E-05 rint1 = 0.00E+00
++rinttc1 = -9.76E-04 rinttc2 = 1.70E-06
+*+vc1 = 3.70E-04 vc2 = -1.74E-04
++jc1a = 8.23E-04 jc1b = -4.36E-08
++jc2a = -1.45E-08 jc2b = -2.17E-13
++rintjc1a = 1.20E-03 rintjc1b = -9.43E+2
++rintjc2a = -4.78E-02 rintjc2b = -8.34E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++dl = '4.71E-08+ddw_rnposab_3t'  weff = 'w-2*dw'          leff = 'l-2*dl'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
++cox = 1.01E-04    capsw = 8.92E-11
+
+C1    n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.86)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.84)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.86)'
+C2    n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rnposab_3t_ckt
+
+******************************************************************
+*         Non-Silicide N+ Poly Resistance (non-standard)         *
+******************************************************************
+.subckt rnposab_nstd_ckt n2 n1 l=lr w=wr
+.param
++rsh = '273+drsh_rnposab_nstd' tc1r = -1.35E-03 tc2r = 2.29E-06 dw = '9.86E-09+ddw_rnposab_nstd'
++rintc = 23.415 rint0 = 9.5E-05 rint1 = 0.00E+00
++rinttc1 = -9.76E-04 rinttc2 = 1.70E-06
+*+vc1 = 3.70E-04 vc2 = -1.74E-04
++jc1a = 8.23E-04 jc1b = -4.36E-08
++jc2a = -1.45E-08 jc2b = -2.17E-13
++rintjc1a = 1.20E-03 rintjc1b = -9.43E+2
++rintjc2a = -4.78E-02 rintjc2b = -8.34E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++weff = 'w-2*dw'         
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.86)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.84)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.86)'
+
+.ends rnposab_nstd_ckt
+
+******************************************************************
+* Non-Silicide N+ Poly Resistance (non-standard)(three terminal) *
+******************************************************************
+.subckt rnposab_nstd_3t_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '273+drsh_rnposab_nstd_3t' tc1r = -1.35E-03 tc2r = 2.29E-06 dw = '9.86E-09+ddw_rnposab_nstd_3t'
++rintc = 23.415 rint0 = 9.5E-05 rint1 = 0.00E+00
++rinttc1 = -9.76E-04 rinttc2 = 1.70E-06
+*+vc1 = 3.70E-04 vc2 = -1.74E-04
++jc1a = 8.23E-04 jc1b = -4.36E-08
++jc2a = -1.45E-08 jc2b = -2.17E-13
++rintjc1a = 1.20E-03 rintjc1b = -9.43E+2
++rintjc2a = -4.78E-02 rintjc2b = -8.34E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++dl = '9.86E-09+ddw_rnposab_nstd_3t'  weff = 'w-2*dw'          leff = 'l-2*dl'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
++cox = 1.01E-04  capsw = 8.92E-11
+   
+C1    n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.86)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.84)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.86)'
+C2    n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rnposab_nstd_3t_ckt
+
+******************************************************************
+*                Non-Silicide P+ Poly Resistance                 *
+******************************************************************
+.subckt rpposab_ckt n2 n1 l=lr w=wr
+.param
++rsh = '311.3+drsh_rpposab' tc1r = -1.63E-04 tc2r = 7.46E-07 dw = '2.73E-08+ddw_rpposab'
++rintc = 29.965 rint0 = 1.1786E-04 rint1 = 0.00E+00
++rinttc1 = -2.76E-04 rinttc2 = 3.25E-07
+*+vc1 = 2.52E-05 vc2 = -1.62E-05
++jc1a = 1.09E-04 jc1b = -8.08E-09
++jc2a = -1.27E-09 jc2b = -2.73E-14
++rintjc1a = 2.63E-04 rintjc1b = -2.60E+2
++rintjc2a = 4.74E-03 rintjc2b = -5.30E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.88)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.89)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.88)'
+
+.ends rpposab_ckt
+
+******************************************************************
+*        Non-Silicide P+ Poly Resistance (three terminal)        *
+******************************************************************
+.subckt rpposab_3t_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '311.3+drsh_rpposab_3t' tc1r = -1.63E-04 tc2r = 7.46E-07 dw = '2.73E-08+ddw_rpposab_3t'
++rintc = 29.965 rint0 = 1.1786E-04 rint1 = 0.00E+00
++rinttc1 = -2.76E-04 rinttc2 = 3.25E-07
+*+vc1 = 2.52E-05 vc2 = -1.62E-05
++jc1a = 1.09E-04 jc1b = -8.08E-09
++jc2a = -1.27E-09 jc2b = -2.73E-14
++rintjc1a = 2.63E-04 rintjc1b = -2.60E+2
++rintjc2a = 4.74E-03 rintjc2b = -5.30E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++dl = '2.73E-08+ddw_rpposab_3t'  weff = 'w-2*dw'          leff = 'l-2*dl'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
++cox = 1.01E-04  capsw = 8.92E-11
+   
+C1    n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.88)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.89)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.88)'
+C2    n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rpposab_3t_ckt
+
+******************************************************************
+*        Non-Silicide P+ Poly Resistance (non-standard)          *
+******************************************************************
+.subckt rpposab_nstd_ckt n2 n1 l=lr w=wr
+.param
++rsh = '311.3+drsh_rpposab_nstd' tc1r = -1.63E-04 tc2r = 7.46E-07 dw = '2.73E-08+ddw_rpposab_nstd'
++rintc = 29.965 rint0 = 1.1786E-04 rint1 = 0.00E+00
++rinttc1 = -2.76E-04 rinttc2 = 3.25E-07
+*+vc1 = 2.52E-05 vc2 = -1.62E-05
++jc1a = 1.09E-04 jc1b = -8.08E-09
++jc2a = -1.27E-09 jc2b = -2.73E-14
++rintjc1a = 2.63E-04 rintjc1b = -2.60E+2
++rintjc2a = 4.74E-03 rintjc2b = -5.30E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++weff = 'w-2*dw'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.88)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.89)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.88)'
+
+.ends rpposab_nstd_ckt
+
+******************************************************************
+* Non-Silicide P+ Poly Resistance (non-standard)(three terminal) *
+******************************************************************
+.subckt rpposab_nstd_3t_ckt n2 n1 sub l=lr w=wr
+.param
++rsh = '311.3+drsh_rpposab_nstd_3t' tc1r = -1.63E-04 tc2r = 7.46E-07 dw = '2.73E-08+ddw_rpposab_nstd_3t'
++rintc = 29.965 rint0 = 1.1786E-04 rint1 = 0.00E+00
++rinttc1 = -2.76E-04 rinttc2 = 3.25E-07
+*+vc1 = 2.52E-05 vc2 = -1.62E-05
++jc1a = 1.09E-04 jc1b = -8.08E-09
++jc2a = -1.27E-09 jc2b = -2.73E-14
++rintjc1a = 2.63E-04 rintjc1b = -2.60E+2
++rintjc2a = 4.74E-03 rintjc2b = -5.30E+4
++tcoef(temper) = '1.0+(temper-25.0)*(tc1r+tc2r*(temper-25.0))'
++rvc1 = 'jc1a + jc1b / l' rvc2 = '(jc2a + jc2b / l) / l'
++dl = '2.73E-08+ddw_rpposab_nstd_3t'  weff = 'w-2*dw'          leff = 'l-2*dl'
++rintvc1 = 'rintjc1a + rintjc1b * weff' rintvc2 = 'rintjc2a + rintjc2b * weff'
++rinttcoef(temper) = '1.0+(temper-25.0)*(rinttc1+rinttc2*(temper-25.0))'
++cox = 1.01E-04  capsw = 8.92E-11
+   
+C1    n2 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+Rinta n2 na '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(n2,na))+rintvc2*v(n2,na)*v(n2,na), 0.88)'
+R1 na nb 'rsh*l/weff*tcoef(temper)*max(1.0+rvc1*abs(v(na,nb))+rvc2*v(na,nb)*v(na,nb), 0.89)'
+Rintb nb n1 '(rintc+rint0/weff+rint1/(weff*weff))*rinttcoef(temper)*max(1.0+rintvc1*abs(v(nb,n1))+rintvc2*v(nb,n1)*v(nb,n1), 0.88)'
+C2    n1 sub 'cox*weff*leff/2+capsw*weff+capsw*leff'
+
+.ends rpposab_nstd_3t_ckt
+
+**************************************
+* 1.8V Thin oxide N+/NW MOS Varactor
+**************************************
+* 1=port1(gate), 2=port2(S/D)
+* Area=wr*lr*nf
+.subckt pvar18_ckt 1 2 lr=l wr=w nf=finger
+* mos varactor scalable model parameters
+MAIN 2 1 2 2 pvar18 L=lr W='wr*nf' AD=0 AS=0 PD=0 PS=0
+* MOS Varactor Model
+.MODEL pvar18 PMOS
++level   = 49           version = 3.24           capmod  = 3
++binunit = 2            tnom    = 25             tox     = '4.2e-009+DTOX_PVAR18'
++toxm    = 4.2e-009     dlc     = 3.68e-008      vth0    = '-1.448+DVTH_PVAR18'          
++k1      = 0.723        k2      = 0              nch     = 1.0e+017       
++acde    = 1.162        voffcv  = 1.25           kt1     = 0.02           
++acm     = 12           calcacm = 1
+
+.ends pvar18_ckt
+
+**************************************
+* 3.3V Thick oxide N+/NW MOS Varactor
+**************************************
+* 1=port1(gate), 2=port2(S/D)
+* Area=wr*lr*nf
+.subckt pvar33_ckt 1 2 lr=l wr=w nf=finger 
+* mos varactor scalable model parameters
+MAIN 2 1 2 2 pvar33 L=lr W='wr*nf' AD=0 AS=0 PD=0 PS=0
+* MOS Varactor Model
+.MODEL pvar33 PMOS
++level   = 49           version = 3.24           capmod  = 3
++binunit = 2            tnom    = 25             tox     = '6.85e-009+DTOX_PVAR33'
++toxm    = 6.85e-009    dlc     = 4.52e-008      vth0    = '-1.673+DVTH_PVAR33'          
++k1      = 1.02         k2      = 0              nch     = 2.7e+017         
++acde    = 1.28         voffcv  = 2.22           kt1     = 0.02           
++acm     = 12           calcacm = 1
+
+.ends pvar33_ckt

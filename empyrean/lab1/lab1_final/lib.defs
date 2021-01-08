@@ -1,0 +1,3 @@
+INCLUDE ${PANDA_HOME}/lib/lib.defs
+DEFINE 018um_PDK ../../input_files/018um_PDK
+DEFINE opamp ./opamp

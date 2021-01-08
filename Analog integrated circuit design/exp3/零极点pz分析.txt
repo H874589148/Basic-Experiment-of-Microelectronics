@@ -1,0 +1,22 @@
+                      Poles (Hz)
+
+           Real                       Imaginary                 Qfactor
+
+   1   -1.62912e+06                  0.00000e+00              5.00000e-01 
+
+                      Zeros (Hz)
+                      at V(Vout,0)/V1
+
+           Real                       Imaginary                 Qfactor
+
+   1    2.73943e+10                  0.00000e+00              -5.00000e-01
+
+Constant factor =  6.14027e-04
+
+DC gain =  1.03251e+01
+
+Accumulated DC solution time = 3.03558 s.
+Intrinsic pz analysis time =              -4.55133 s.
+Total time required for pz analysis `pz': CPU = 2.999 ms, elapsed = 4.884 ms.
+Time accumulated: CPU = 402.937 ms, elapsed = 1.88384 s.
+Peak resident memory used = 45.4 Mbytes.

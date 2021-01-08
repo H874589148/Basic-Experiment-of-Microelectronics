@@ -1,0 +1,11 @@
+Q
+[cdl]
+>Q? <C> <B> <E> pnp18a100 AREA=100p
+[hspice]
+>Q? <C> <B> <E> pnp18a100
+[pspice]
+>Q^@REFDES %C %B %E pnp18a100 
+
+
+
+

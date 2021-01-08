@@ -1,0 +1,3 @@
+bandwidth   1.631E6
+phaseMargin -84.39
+totalNoise  317.0E-9

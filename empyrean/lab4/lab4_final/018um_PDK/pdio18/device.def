@@ -1,0 +1,9 @@
+D
+[cdl]
+>D? <PLUS> <MINUS> [@model] [@m:M=%] [@area:AREA=%] [@pj:PJ=%]
+
+[hspice]
+>D? <PLUS> <MINUS> [@model] [@area:AREA=%] [@Width:W=%] [@Length:L=%] [@pj:PJ=%] [@m:M=%]
+
+[pspice]
+>D^@REFDES %PLUS %MINUS @model ?area|AREA=@area| ?Width|W=@Width| ?Length|L=@Length| ?pj|PJ=@pj| ?m|M=@m| 

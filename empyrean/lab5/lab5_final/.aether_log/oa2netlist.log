@@ -1,0 +1,24 @@
+
+                        Empyrean oa2netlist
+          Version 2019.06.sp1(optNAT), Build on 09/03/2019
+                        For [linux26-x86_64]
+                      Copyright (c) 2009-2019
+                  Huada Empyrean Software Co.,Ltd.
+                        ALL RIGHTS RESERVED
+
+OpenAccess 2.2 is loaded from /home/user1/empyrean_2019.06.sp1/openaccess/lib/linux_rhel50_gcc48x_64/opt
+*****************************
+*  Aether Netlist Exporter  *
+*****************************
+
+Load initialize file 'emyLibInit.tcl' for library 'analog'.
+	#######################################
+	PDK Library Name	: 018um_PDK
+	PDK Version		: 2.0 (ePDK)
+	PDK Release Date	: 9-Jan 2012 
+	#######################################
+
+Load initialize file 'emyLibInit.tcl' for library '018um_PDK'.
+Load OA TCL shared library (1) successfully.
+
+Successfully exported design opamp/opamp_openloop/schematic!

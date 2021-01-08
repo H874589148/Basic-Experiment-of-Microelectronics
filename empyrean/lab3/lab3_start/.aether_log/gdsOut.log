@@ -1,0 +1,184 @@
+
+                          Empyrean gdsOut
+          Version 2019.06.sp1(optNAT), Build on 09/03/2019
+                        For [linux26-x86_64]
+                      Copyright (c) 2009-2019
+                  Huada Empyrean Software Co.,Ltd.
+                        ALL RIGHTS RESERVED
+
+OpenAccess 2.2 is loaded from /home/user1/empyrean_2019.06.sp2.pr/openaccess/lib/linux_rhel50_gcc48x_64/opt
+*****************************************************************************
+Tool:		gdsOut              22.50.080
+*****************************************************************************
+Running: gdsOut -logFile gdsOut.log -lib opamp -gds /home/user1/Aether_Tutorial/labs/lab3/lab2_final/opamp.gds -cell opamp -donutNumSides 32 -ellipseNumSides 32 -hierDepth 50 -layerMap "/home/user1/Aether_Tutorial/labs/lab3/lab2_final/018um_PDK/gds.map" -labelDepth 50 -rectAsBoundary -view layout -text cdba -maxVertex 2000 -scaleUUperDBU 0.001
+Started: Mon Nov 11 12:57:00 2019 (Hostname: veri1-vm)
+Load initialize file 'emyLibInit.tcl' for library 'analog'.
+	#######################################
+	PDK Library Name	: 018um_PDK
+	PDK Version		: 2.0 (ePDK)
+	PDK Release Date	: 9-Jan 2012 
+	#######################################
+
+Load initialize file 'emyLibInit.tcl' for library '018um_PDK'.
+INFO: (OASTRM-80035): Summary of Options:
+Library:                      		opamp
+Cell:                         		opamp
+View:                         		layout
+Tech Library:                 		YES
+Cell Case:                    		Preserve
+Cell Map:                     		NO
+Layer Map:                    		YES
+Via Map:                      		NO
+Property Map:                 		NO
+Property Value Only:          		NO
+Export Reference Libraries:   		YES
+Output Routes:                		YES
+Output Blockages:             		YES
+Output TextDisplays:          		YES
+Output unplaced instances:    		YES
+Convert Paths to Polygons:    		NO
+Output 32 Character Names:    		NO
+Output Zero Path/Line:        		YES
+Version:                      		5
+Hier Depth:                   		50
+Aref Min Cuts:                		15
+Ellipse Sides:                		32
+Donut Sides:                  		32
+Text Namespace:               		cdba
+Log File:                     		gdsOut.log
+Label Map:                    		NO
+Label Depth:                  		1
+UU/DBU:                       		0.001
+Smash VCell:                  		NO
+
+
+INFO: (OASTRM-80033): Translating design 018um_PDK/M1_GT/layout as "M1_GT_0_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_1_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M3_M2/layout as "M3_M2_2_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M3_M2/layout as "M3_M2_3_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_4_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_5_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_6_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M1_GT/layout as "M1_GT_7_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_8_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_9_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_10_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_11_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_12_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M1_NW/layout as "M1_NW_13_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M2_M1/layout as "M2_M1_14_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/M1_NW/layout as "M1_NW_15_0".
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_0" parameter(0u_0u_0u_0u_1_1_1_0_0_0_0.6u_0.18u_1_0.23u_None_Mid_None_None_None_0_0_0_0_0).
+INFO: (OASTRM-80033): Translating design 018um_PDK/p18/layout as "p18_1" parameter(0_0_0_0_1_1u_0.18u_1_0.23u_None_Mid_None_None_None_0_0_0_0_1_1_0_0_0_0).
+INFO: (OASTRM-80033): Translating design opamp/inv/layout as "inv".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_0".
+INFO: (OASTRM-80117): Instance(018um_PDK/p18/layout) will be converted to "p18_1".
+INFO: (OASTRM-80033): Translating design 018um_PDK/rppo/layout as "rppo_2" parameter(10u_Series_1_0_0_0_0_1u_10).
+INFO: (OASTRM-80033): Translating design 018um_PDK/p18/layout as "p18_3" parameter(0.23u_Mid_None_None_0_0_0_0_0_0_0_1_1_1_0_0_0_0_6u_600n_20_Bottom_Both_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_4" parameter(0.23u_Mid_None_None_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_4u_600n_2_Top_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_5" parameter(0.23u_Mid_None_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_13u_2u_8_Top_Both_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_6" parameter(Mid_None_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_4u_4u_8_500n_Top_Both_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/p18/layout as "p18_7" parameter(0.23u_Mid_None_None_0_0_0_0_0_0_0_1_1_1_0_0_0_0_8u_600n_4_Top_Both_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/p18/layout as "p18_8" parameter(0.18u_1_0.23u_None_Mid_None_None_None_0_0_0_0_0_0_0_1_1_1_0_0_0_0_500n_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_9" parameter(0.23u_Mid_None_None_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_13u_2u_4_Bottom_1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_10" parameter(Mid_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_4u_4u_8_500n_Bottom_Both_Switch_1).
+INFO: (OASTRM-80033): Translating design analog/contTemp/layout as "contTemp_11" parameter(0_220_220_50_-1).
+INFO: (OASTRM-80033): Translating design 018um_PDK/n18/layout as "n18_12" parameter(0.18u_1_0.23u_Mid_None_None_None_0_0_0_0u_0u_0u_0u_1_1_1_0_0_0_0_500n_Top_1).
+INFO: (OASTRM-80033): Translating design opamp/opamp/layout as "opamp".
+WARNING: (OASTRM-80068): Path length 0.38 at location (65.16,42.325) on layer 61 is less than 1/2 of path width 17.73.
+INFO: (OASTRM-80117): Instance(018um_PDK/rppo/layout) will be converted to "rppo_2".
+INFO: (OASTRM-80117): Instance(018um_PDK/p18/layout) will be converted to "p18_3".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_4".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_5".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_6".
+INFO: (OASTRM-80117): Instance(018um_PDK/p18/layout) will be converted to "p18_7".
+INFO: (OASTRM-80117): Instance(018um_PDK/p18/layout) will be converted to "p18_8".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_9".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_10".
+INFO: (OASTRM-80117): Instance(analog/contTemp/layout) will be converted to "contTemp_11".
+INFO: (OASTRM-80117): Instance(018um_PDK/n18/layout) will be converted to "n18_12".
+
+INFO: (OASTRM-80036): Statistics Information:
+Layer Summary
+Layer Name          	 Rectangle	   Polygon	      Path	     Label	     Total
+AA.drawing(10.0)    	       129	         3	         0	         0	       132
+NW.drawing(14.0)    	         7	         1	         0	         0	         8
+GT.drawing(30.0)    	       154	         0	         2	         1	       157
+SN.drawing(40.0)    	         9	         1	         0	         0	        10
+SP.drawing(43.0)    	         5	         2	         0	         0	         7
+CT.drawing(50.0)    	      1222	         0	         0	         0	      1222
+M1.drawing(61.0)    	       199	         3	        49	         0	       251
+M2.drawing(62.0)    	        15	         0	        16	         0	        31
+M3.drawing(63.0)    	         2	         0	         4	         0	         6
+V1.drawing(70.0)    	        41	         0	         0	         0	        41
+V2.drawing(71.0)    	         6	         0	         0	         0	         6
+RESP1.drawing(96.0) 	         1	         0	         0	         0	         1
+M1TXT.drawing(141.0)	         0	         0	         0	         4	         4
+M2TXT.drawing(142.0)	         0	         0	         0	         6	         6
+
+Cell Summary
+Cell Name      	 Rectangle	   Polygon	      Path	     Label	  Instance	     Total
+M1_GT_0_0      	         3	         0	         0	         0	         0	         3
+M1_GT_7_0      	         3	         0	         0	         0	         0	         3
+M1_NW220x220C50	         1	         0	         0	         0	         0	         1
+M1_NW_13_0     	         4	         0	         0	         0	         0	         4
+M1_NW_15_0     	         4	         0	         0	         0	         0	         4
+M2_M1260x260C70	         1	         0	         0	         0	         0	         1
+M2_M1_10_0     	        14	         0	         0	         0	         0	        14
+M2_M1_11_0     	         2	         0	         0	         0	         0	         2
+M2_M1_12_0     	         3	         0	         0	         0	         0	         3
+M2_M1_14_0     	         2	         0	         0	         0	         0	         2
+M2_M1_1_0      	         4	         0	         0	         0	         0	         4
+M2_M1_4_0      	         5	         0	         0	         0	         0	         5
+M2_M1_5_0      	         4	         0	         0	         0	         0	         4
+M2_M1_6_0      	        12	         0	         0	         0	         0	        12
+M2_M1_8_0      	        11	         0	         0	         0	         0	        11
+M2_M1_9_0      	         3	         0	         0	         0	         0	         3
+M3_M2_2_0      	         5	         0	         0	         0	         0	         5
+M3_M2_3_0      	         5	         0	         0	         0	         0	         5
+contTemp_11    	         1	         0	         0	         0	         0	         1
+inv            	         8	         7	         4	         4	         2	        25
+n18_0          	         9	         0	         0	         0	         0	         9
+n18_10         	       208	         0	         0	         0	         0	       208
+n18_12         	        13	         0	         0	         0	         0	        13
+n18_4          	        42	         0	         0	         0	         0	        42
+n18_5          	       341	         0	         0	         0	         0	       341
+n18_6          	       208	         0	         0	         0	         0	       208
+n18_9          	       180	         0	         0	         0	         0	       180
+opamp          	         7	         3	        67	         7	        25	       109
+p18_1          	        12	         0	         0	         0	         0	        12
+p18_3          	       428	         0	         0	         0	         0	       428
+p18_7          	       126	         0	         0	         0	         0	       126
+p18_8          	        10	         0	         0	         0	         0	        10
+rppo_2         	       111	         0	         0	         0	         0	       111
+
+Object Summary
+Scalar Instances:        		        19
+Array Instances:         		         8
+Polygons:                		        10
+Paths:                   		        71
+Rectangles:              		      1790
+Lines:                   		         0
+Arcs:                    		         0
+Donuts:                  		         0
+Dots:                    		         0
+Ellipses:                		         0
+Blockages:               		         0
+Routes:                  		         0
+Text:                    		         7
+Text Displays:           		
+	PropDisplay:             	         0
+	AttrDisplay:             	         4
+	TextOverride:            	         0
+PathSeg:                 		         0
+StdVia:                  		        55
+CustomVia:               		         0
+Cells:                   		        33
+
+
+Finished:        gdsOut
+Time elapsed:        4.65 seconds
+CPU Time:        1.06284 seconds
+System Time:        0.084987 seconds
+Peak VM:        11542528 bytes
+Messages:        0 errors, 1 warning

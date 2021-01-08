@@ -1,0 +1,320 @@
+
+*
+******************************************************************
+*                         Resistor Model                         *
+****************************************************************** 
+*
+******************************************************************
+*                       Silicide Resistors                       *
+******************************************************************
+*
+******************************************************************
+*                Silicide N+ Diffusion Resistance                *
+******************************************************************
+.model rndif r
+*diffusion resistor dio_mod=ndio18 
+*+VC1 = 2.16E-05   VC2 = 1.06E-04
+*+JC1A = 9.10E-06  JC1B = 6.25E-09
+*+JC2A = 4.72E-08  JC2B = 2.79E-12
++TC1R = 3.12E-03   TC2R = 3.022E-08        DW = '-4.14E-08+DDW_RNDIF'
++TREF = 25.0       RSH = '7.57+DRSH_RNDIF'    
+*  
+******************************************************************
+*                Silicide P+ Diffusion Resistance                *
+******************************************************************
+.model rpdif r
+*diffusion resistor dio_mod=pdio18
+*+VC1 = 4.94E-05   VC2 = 9.67E-05
+*+JC1A = 6.40E-05  JC1B = -7.34E-09
+*+JC2A = 4.40E-08  JC2B = 2.16E-12
++TC1R = 3.08E-03   TC2R = 7.034E-07        DW = '-2.80E-08+DDW_RPDIF'
++TREF = 25.0       RSH = '6.75+DRSH_RPDIF'        
+*
+******************************************************************
+*                  Silicide N+ Poly Resistance                   *
+******************************************************************
+.model rnpo r
+*poly resistor 
+*+VC1 = 1.39E-04    VC2 = 2.72E-04
+*+JC1A = -1.16E-04  JC1B = 1.28E-07
+*+JC2A = 9.63E-08   JC2B = 1.98E-11
++TC1R = 3.07E-03    TC2R = -5.36E-08       DW = '-1.89E-08+DDW_RNPO'
++TREF = 25.0        RSH = '7.87+DRSH_RNPO'
+*
+******************************************************************
+*          Silicide N+ Poly Resistance (three terminal)          *
+******************************************************************
+.model rnpo_3t r
+*poly resistor 
+*+VC1 = 1.39E-04    VC2 = 2.72E-04
+*+JC1A = -1.16E-04  JC1B = 1.28E-07
+*+JC2A = 9.63E-08   JC2B = 1.98E-11
++TC1R = 3.07E-03    TC2R = -5.36E-08       DW = '-1.89E-08+DDW_RNPO_3T'
++TREF = 25.0        RSH = '7.87+DRSH_RNPO_3T'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*
+******************************************************************
+*                  Silicide P+ Poly Resistance                   *
+******************************************************************
+.model rppo r
+*poly resistor 
+*+VC1 = 8.48E-05    VC2 = 2.27E-04
+*+JC1A = -4.67E-05  JC1B = 6.58E-08
+*+JC2A = 8.88E-08   JC2B = 1.23E-11
++TC1R = 2.92E-03    TC2R = -2.30E-08       DW = '-1.35E-08+DDW_RPPO'
++TREF = 25.0        RSH = '9.78+DRSH_RPPO'
+*
+******************************************************************
+*          Silicide P+ Poly Resistance (three terminal)          *
+******************************************************************
+.model rppo_3t r
+*poly resistor 
+*+VC1 = 8.48E-05    VC2 = 2.27E-04
+*+JC1A = -4.67E-05  JC1B = 6.58E-08
+*+JC2A = 8.88E-08   JC2B = 1.23E-11
++TC1R = 2.92E-03    TC2R = -2.30E-08       DW = '-1.35E-08+DDW_RPPO_3T'
++TREF = 25.0        RSH = '9.78+DRSH_RPPO_3T'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*
+******************************************************************
+*                     Non-Silicide Resistors                     * 
+******************************************************************
+*
+******************************************************************
+*                   NWELL Resistance under AA                    *
+******************************************************************
+.model rnwaa r
+*diffusion resistor dio_mod=nwdio
+*+VC1 = 2.39E-02    VC2 = 8.06E-06
+*+JC1A = -3.89E-03  JC1B = 3.34E-07
+*+JC2A = -1.85E-08  JC2B = 2.49E-13
++TC1R = 3.02E-03    TC2R = 8.06E-06        DW = '7.25E-08+DDW_RNWAA'
++TREF = 25.0        RSH = '441+DRSH_RNWAA' 
+*
+******************************************************************
+*                   NWELL Resistance under STI                   *
+******************************************************************
+.model rnwsti r
+*diffusion resistor dio_mod=nwdio
+*+VC1 = 2.20E-02    VC2 = 1.06E-03
+*+JC1A = 1.10E-03   JC1B = 3.01E-07
+*+JC2A = -6.61E-09  JC2B = 3.16E-13
++TC1R = 2.73E-03    TC2R = 1.65E-06         DW = '1.83E-07+DDW_RNWSTI'
++TREF = 25.0        RSH = '890+DRSH_RNWSTI'     
+*
+******************************************************************
+*              Non-Silicide N+ Diffusion Resistance              *
+******************************************************************
+.model rndifsab r
+*+VC1 = 1.86E-04 VC2 = 2.05E-04
+*+JC1A = 2.13E-04 JC1B = -2.64E-09
+*+JC2A = 1.75E-08 JC2B = 2.04E-13
++TC1R = 1.51E-03 TC2R = 4.22E-07 DW = '-2.62E-08+ddw_rndifsab'
++TREF = 25.0 RSH = '57.5+drsh_rndifsab'
+*+RINTC = 12.25 RINT0 = 2.18E-05 RINT1 = 0.00E+00
+*+RINTTC1 = 1.81E-03 RINTTC2 = 7.75E-07
+*+RINTJC1A = -1.56E-03 RINTJC1B = 7.95E+2
+*+RINTJC2A = 4.07E-02 RINTJC2B = 2.44E+4
+*
+******************************************************************
+*      Non-Silicide N+ Diffusion Resistance (non-standard)       *
+******************************************************************
+.model rndifsab_nstd r
+*+VC1 = 1.86E-04 VC2 = 2.05E-04
+*+JC1A = 2.13E-04 JC1B = -2.64E-09
+*+JC2A = 1.75E-08 JC2B = 2.04E-13
++TC1R = 1.51E-03 TC2R = 4.22E-07 DW = '-2.62E-08+ddw_rndifsab_nstd'
++TREF = 25.0 RSH = '57.5+drsh_rndifsab_nstd'
+*+RINTC = 12.25 RINT0 = 2.18E-05 RINT1 = 0.00E+00
+*+RINTTC1 = 1.81E-03 RINTTC2 = 7.75E-07
+*+RINTJC1A = -1.56E-03 RINTJC1B = 7.95E+2
+*+RINTJC2A = 4.07E-02 RINTJC2B = 2.44E+4
+******************************************************************
+*              Non-Silicide P+ Diffusion Resistance              *
+******************************************************************
+.model rpdifsab r
+*+VC1 = -6.92E-06 VC2 = 1.08E-04
+*+JC1A = -6.82E-06 JC1B = -8.98E-12
+*+JC2A = 9.85E-09 JC2B = 5.20E-14
++TC1R = 1.41E-03 TC2R = 6.87E-07 DW = '-1.37E-09+ddw_rpdifsab'
++TREF = 25.0 RSH = '116.2+drsh_rpdifsab'
+*+RINTC = 15.446 RINT0 = 4.37E-05 RINT1 = 0.00E+00
+*+RINTTC1 = 1.38E-03 RINTTC2 = 6.47E-07
+*+RINTJC1A = 9.03E-04 RINTJC1B = -4.74E+2
+*+RINTJC2A = 1.00E-02 RINTJC2B = 1.74E+4
+*
+******************************************************************
+*      Non-Silicide P+ Diffusion Resistance (non-standard)       *
+******************************************************************
+.model rpdifsab_nstd r
+*+VC1 = -6.92E-06 VC2 = 1.08E-04
+*+JC1A = -6.82E-06 JC1B = -8.98E-12
+*+JC2A = 9.85E-09 JC2B = 5.20E-14
++TC1R = 1.41E-03 TC2R = 6.87E-07 DW = '-4.90E-08+ddw_rpdifsab_nstd'
++TREF = 25.0 RSH = '129+drsh_rpdifsab_nstd'
+*+RINTC = 15.446 RINT0 = 4.37E-05 RINT1 = 0.00E+00
+*+RINTTC1 = 1.38E-03 RINTTC2 = 6.47E-07
+*+RINTJC1A = 9.03E-04 RINTJC1B = -4.74E+2
+*+RINTJC2A = 1.00E-02 RINTJC2B = 1.74E+4
+*
+******************************************************************
+*                Non-Silicide N+ Poly Resistance                 *
+******************************************************************
+.model rnposab r
+*+VC1 = 3.70E-04 VC2 = -1.74E-04
+*+JC1A = 8.23E-04 JC1B = -4.36E-08
+*+JC2A = -1.45E-08 JC2B = -2.17E-13
++TC1R = -1.35E-03 TC2R = 2.29E-06 DW = '4.71E-08+ddw_rnposab'
++TREF = 25.0 RSH = '271.6+drsh_rnposab'
+*+RINTC = 23.415 RINT0 = 9.5E-05 RINT1 = 0.00E+00
+*+RINTTC1 = -9.76E-04 RINTTC2 = 1.70E-06
+*+RINTJC1A = 1.20E-03 RINTJC1B = -9.43E+2
+*+RINTJC2A =  -4.78E-02 RINTJC2B = -8.34E+4
+*******************************************************************
+*         Non-Silicide N+ Poly Resistance (three terminal)        *
+*******************************************************************
+.model rnposab_3t r
+*+VC1 = 3.70E-04 VC2 = -1.74E-04
+*+JC1A = 8.23E-04 JC1B = -4.36E-08
+*+JC2A = -1.45E-08 JC2B = -2.17E-13
++TC1R = -1.35E-03 TC2R = 2.29E-06 DW = '4.71E-08+ddw_rnposab_3t'
++TREF = 25.0 RSH = '271.6+drsh_rnposab_3t'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*+RINTC = 23.415 RINT0 = 9.5E-05 RINT1 = 0.00E+00
+*+RINTTC1 = -9.76E-04 RINTTC2 = 1.70E-06
+*+RINTJC1A = 1.20E-03 RINTJC1B = -9.43E+2
+*+RINTJC2A =  -4.78E-02 RINTJC2B = -8.34E+4
+*
+******************************************************************
+*        Non-Silicide N+ Poly Resistance (non-standard)          *
+******************************************************************
+.model rnposab_nstd r
+*+VC1 = 3.70E-04 VC2 = -1.74E-04
+*+JC1A = 8.23E-04 JC1B = -4.36E-08
+*+JC2A = -1.45E-08 JC2B = -2.17E-13
++TC1R = -1.35E-03 TC2R = 2.29E-06 DW = '9.86E-09+ddw_rnposab_nstd'
++TREF = 25.0 RSH = '273+drsh_rnposab_nstd'
+*+RINTC = 23.415 RINT0 = 9.5E-05 RINT1 = 0.00E+00
+*+RINTTC1 = -9.76E-04 RINTTC2 = 1.70E-06
+*+RINTJC1A = 1.20E-03 RINTJC1B = -9.43E+2
+*+RINTJC2A =  -4.78E-02 RINTJC2B = -8.34E+4
+*
+******************************************************************
+* Non-Silicide N+ Poly Resistance (non-standard)(three terminal) *
+******************************************************************
+.model rnposab_nstd_3t r
+*+VC1 = 3.70E-04 VC2 = -1.74E-04
+*+JC1A = 8.23E-04 JC1B = -4.36E-08
+*+JC2A = -1.45E-08 JC2B = -2.17E-13
++TC1R = -1.35E-03 TC2R = 2.29E-06 DW = '9.86E-09+ddw_rnposab_nstd_3t'
++TREF = 25.0 RSH = '273+drsh_rnposab_nstd_3t'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*+RINTC = 23.415 RINT0 = 9.5E-05 RINT1 = 0.00E+00
+*+RINTTC1 = -9.76E-04 RINTTC2 = 1.70E-06
+*+RINTJC1A = 1.20E-03 RINTJC1B = -9.43E+2
+*+RINTJC2A =  -4.78E-02 RINTJC2B = -8.34E+4
+*
+******************************************************************
+*                Non-Silicide P+ Poly Resistance                 *
+******************************************************************
+.model rpposab r
+*+VC1 = 2.52E-05 VC2 = -1.62E-05
+*+JC1A = 1.09E-04 JC1B = -8.08E-09
+*+JC2A = -1.27E-09 JC2B = -2.73E-14
++TC1R = -1.63E-04 TC2R = 7.46E-07 DW = '2.73E-08+ddw_rpposab'
++TREF = 25.0 RSH = '311.3+drsh_rpposab'
+*+RINTC = 29.965 RINT0 = 1.1786E-04 RINT1 = 0.00E+00
+*+RINTTC1 = -2.76E-04 RINTTC2 = 3.25E-07
+*+RINTJC1A = 2.63E-04 RINTJC1B = -2.60E+2
+*+RINTJC2A = 4.74E-03 RINTJC2B = -5.30E+4
+*
+******************************************************************
+*        Non-Silicide P+ Poly Resistance (three terminal)        *
+******************************************************************
+.model rpposab_3t r
+*+VC1 = 2.52E-05 VC2 = -1.62E-05
+*+JC1A = 1.09E-04 JC1B = -8.08E-09
+*+JC2A = -1.27E-09 JC2B = -2.73E-14
++TC1R = -1.63E-04 TC2R = 7.46E-07 DW = '2.73E-08+ddw_rpposab_3t'
++TREF = 25.0 RSH = '311.3+drsh_rpposab_3t'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*+RINTC = 29.965 RINT0 = 1.1786E-04 RINT1 = 0.00E+00
+*+RINTTC1 = -2.76E-04 RINTTC2 = 3.25E-07
+*+RINTJC1A = 2.63E-04 RINTJC1B = -2.60E+2
+*+RINTJC2A = 4.74E-03 RINTJC2B = -5.30E+4
+*
+******************************************************************
+*          Non-Silicide P+ Poly Resistance (non-standard)        *
+******************************************************************
+.model rpposab_nstd r
+*+VC1 = 2.52E-05 VC2 = -1.62E-05
+*+JC1A = 1.09E-04 JC1B = -8.08E-09
+*+JC2A = -1.27E-09 JC2B = -2.73E-14
++TC1R = -1.63E-04 TC2R = 7.46E-07 DW = '2.73E-08+ddw_rpposab_nstd'
++TREF = 25.0 RSH = '311.3+drsh_rpposab_nstd'
+*+RINTC = 29.965 RINT0 = 1.1786E-04 RINT1 = 0.00E+00
+*+RINTTC1 = -2.76E-04 RINTTC2 = 3.25E-07
+*+RINTJC1A = 2.63E-04 RINTJC1B = -2.60E+2
+*+RINTJC2A = 4.74E-03 RINTJC2B = -5.30E+4
+*******************************************************************
+* Non-Silicide P+ Poly Resistance (non-standard)(three terminal)  *
+*******************************************************************
+.model rpposab_nstd_3t r
+*+VC1 = 2.52E-05 VC2 = -1.62E-05
+*+JC1A = 1.09E-04 JC1B = -8.08E-09
+*+JC2A = -1.27E-09 JC2B = -2.73E-14
++TC1R = -1.63E-04 TC2R = 7.46E-07 DW = '2.73E-08+ddw_rpposab_nstd_3t'
++TREF = 25.0 RSH = '311.3+drsh_rpposab_nstd_3t'
++COX = 1.01E-04     CAPSW = 8.92E-11
+*+RINTC = 29.965 RINT0 = 1.1786E-04 RINT1 = 0.00E+00
+*+RINTTC1 = -2.76E-04 RINTTC2 = 3.25E-07
+*+RINTJC1A = 2.63E-04 RINTJC1B = -2.60E+2
+*+RINTJC2A = 4.74E-03 RINTJC2B = -5.30E+4
+*
+******************************************************************
+*                        Metal Resistors                         * 
+******************************************************************
+*
+******************************************************************
+*                      Metal 1 resistance                        * 
+******************************************************************
+.model rm1 r
+*metal resistor
++TC1R = 3.49E-03      TC2R = 6.93E-07              DW = '-4.93E-09+DDW_RM1'
++TREF = 25            RSH  = '0.078+DRSH_RM1' 
+******************************************************************
+*                      Metal 2 resistance                        * 
+******************************************************************
+.model rm2 r
+*metal resistor
++TC1R = 3.60E-03      TC2R = 7.60E-07               DW = '6.0E-09+DDW_RM2'
++TREF = 25            RSH  = '0.078+DRSH_RM2' 
+******************************************************************
+*                      Metal 3 resistance                        * 
+******************************************************************
+.model rm3 r
+*metal resistor
++TC1R = 3.60E-03      TC2R = 7.60E-07               DW = '6.0E-09+DDW_RM3'
++TREF = 25            RSH  = '0.078+DRSH_RM3' 
+******************************************************************
+*                      Metal 4 resistance                        * 
+******************************************************************
+.model rm4 r
+*metal resistor
++TC1R = 3.60E-03      TC2R = 7.60E-07               DW = '6.0E-09+DDW_RM4'
++TREF = 25            RSH  = '0.078+DRSH_RM4' 
+******************************************************************
+*                      Metal 5 resistance                        * 
+******************************************************************
+.model rm5 r
+*metal resistor
++TC1R = 3.60E-03      TC2R = 7.60E-07               DW = '6.0E-09+DDW_RM5'
++TREF = 25            RSH  = '0.078+DRSH_RM5' 
+******************************************************************
+*                      Metal 6 resistance                        * 
+******************************************************************
+.model rm6 r
+*metal resistor
++TC1R = 3.89E-03      TC2R = 1.01E-06               DW = '-4.41E-08+DDW_RM6'
++TREF = 25            RSH  = '0.036+DRSH_RM6'
+*

@@ -1,0 +1,8 @@
+TDMCHECKPOINT="1.0"
+018um_PDK/Bipolar.Cat type="category"
+018um_PDK/Diode.Cat type="category"
+018um_PDK/Mos.Cat type="category"
+018um_PDK/Primitives.Cat type="category"
+018um_PDK/Res.Cat type="category"
+018um_PDK/Via.Cat type="category"
+018um_PDK/Capacitor.Cat type="category"

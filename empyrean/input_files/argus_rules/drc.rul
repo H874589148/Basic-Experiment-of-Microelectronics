@@ -1,0 +1,2755 @@
+// This rule file will check MT 6 as Top Metal
+//	MT  -- "Top Metal" ==> for layout using Regular-Top-Metal DRC check
+//	MTT -- "Thick Top Metal" ==> for layout using Thick-Top-Metal DRC check
+//*****************************************************************************************
+//   User Choice !  ( Recommended to make some useful choices to speed DRC running time! )
+//*****************************************************************************************
+drc_ignore_rule( by_name GMS )
+//; Open the mark is NOT to check Mix-rules
+//; For Logic-User, can open the mark
+//; For Mix-User, should mark this command 
+// DRC UNSELECT CHECK GPD		//; Pattern-Density checking choice !
+//; Open the mark is NOT to check Pattern-Density
+drc_ignore_rule( by_name MIM_9b MIM_9c )
+//; Open the mark is NOT to check guidelines 
+//; MIM.9b, MIM.9c are guidelines, user can decide follow or not
+drc_ignore_rule( by_name GGR )
+//; Open the mark is NOT to check guidelines
+//; "Poly Resistor" rule are guidelines, user can decide follow or not
+drc_ignore_rule( by_name DG_3b )
+//; Open the mark is NOT to check "pick-up AA" to DG spacing
+//; If user want to check all "AA" to DG space, mark this command
+//*************************************
+//     DIRECTIVE SECTION  
+//*************************************
+layout_input( top_cell "topcell" )
+layout_input( path "*.gds" )
+layout_input( format gds )
+drc_result( db "cal_drc.out" text_format )
+drc_summary( "cal_drc.sum" )
+precision( 1000  )
+resolution( db 5  )
+print_log( acute_edge yes )
+print_log( nonsimple_polygon yes )
+//FLAG OFFGRID YES
+print_log( skew_edge yes )
+
+RULE skew_edge_check { 
+; Skew edge check
+check_original_layer( skew_edge )
+}
+// does not check layers that do not appear in other rule
+// checks used in the run
+label_level( text top_cell )
+lvs_power( "?VDD?" "?VCC?" )
+layout_connect_layer( M6i V5i M5i V4i M4i V3i M3i V2i M2i V1i M1i )
+//************************************                
+//    INPUT LAYER STATEMENTS
+//************************************                
+layer( AAi 10 12 13 )
+layer( NWi 14 )
+layer( DGi 29 )
+layer( GTi 30 )
+layer( NLLi 35 )
+layer( NLHi 36 )
+layer( PLHi 37 )
+layer( PLLi 38 )
+layer( SNi 40 )
+layer( ESDi 41 42 )
+layer( SPi 43 )
+layer( SABi 48 )
+layer( CTi 50 )
+layer( M1i 61 )
+layer( M2i 62 )
+layer( M3i 63 )
+layer( M4i 64 )
+layer( M5i 65 )
+layer( M6i 66 )
+layer( V1i 70 )
+layer( V2i 71 )
+layer( V3i 72 )
+layer( V4i 73 )
+layer( V5i 74 )
+layer( PAi 80 )
+layer( FUSE 81 )
+layer( PI 82 )
+layer( RESNW 95 )
+layer_map( 96  datatype 0  350  )
+layer( RESP1 350 )
+layer_map( 96  datatype 1  300  )
+layer( RESP3T 300 )
+layer( RESAA 97 )
+layer( OPCBA 100 )
+layer( OPCBP 101 )
+layer( OPCBM 102 )
+layer( EXCLU 132 )
+layer( CAPBP 137 )
+layer( DNWi 19 )
+layer( MVNi 45 )
+layer( MVPi 44 )
+layer( HRPi 39 )
+layer( MIMi 58 )
+layer( PSUBi 85 )
+layer( HRPDMY 210 )
+layer( MIMDMY 211 )
+layer( INDMY 212 )
+layer( VARMOS 93 )
+layer( VARJUNC 94 )
+AAO = geom_not(  AAi EXCLU )
+NW = geom_not(  NWi EXCLU )
+DG = geom_not(  DGi EXCLU )
+GTO = geom_not(  GTi EXCLU )
+NLL = geom_not(  NLLi EXCLU )
+NLH = geom_not(  NLHi EXCLU )
+PLH = geom_not(  PLHi EXCLU )
+PLL = geom_not(  PLLi EXCLU )
+SN = geom_not(  SNi EXCLU )
+ESD = geom_not(  ESDi EXCLU )
+SP = geom_not(  SPi EXCLU )
+SAB = geom_not(  SABi EXCLU )
+CTO = geom_not(  CTi EXCLU )
+M1O = geom_not(  M1i EXCLU )
+M2 = geom_not(  M2i EXCLU )
+M3 = geom_not(  M3i EXCLU )
+M4 = geom_not(  M4i EXCLU )
+M5 = geom_not(  M5i EXCLU )
+M6 = geom_not(  M6i EXCLU )
+V1O = geom_not(  V1i EXCLU )
+V2 = geom_not(  V2i EXCLU )
+V3 = geom_not(  V3i EXCLU )
+V4 = geom_not(  V4i EXCLU )
+V5 = geom_not(  V5i EXCLU )
+PA = geom_not(  PAi EXCLU )
+DNW = geom_not(  DNWi EXCLU )
+MVN = geom_not(  MVNi EXCLU )
+MVP = geom_not(  MVPi EXCLU )
+HRP = geom_not(  HRPi EXCLU )
+PSUB = geom_not(  PSUBi EXCLU )
+MIM = geom_not(  MIMi EXCLU )
+pvrs_tmp_layer_1 = geom_or(  RESP1 HRPDMY )
+GT0 = geom_not(  GTi pvrs_tmp_layer_1 )
+label_layer( text 61 141 )
+label_layer( text 62 142 )
+label_layer( text 63 143 )
+label_layer( text 64 144 )
+label_layer( text 65 145 )
+label_layer( text 66 146 )
+attach( 141 M1i )
+attach( 142 M2i )
+attach( 143 M3i )
+attach( 144 M4i )
+attach( 145 M5i )
+attach( 146 M6i )
+attach( 61 M1i )
+attach( 62 M2i )
+attach( 63 M3i )
+attach( 64 M4i )
+attach( 65 M5i )
+attach( 66 M6i )
+DRC:1 = geom_get_boundary( )
+BULK = geom_size( DRC:1 by 1  )
+pvrs_tmp_layer_2 = geom_not(  BULK NW )
+PW = geom_not(  pvrs_tmp_layer_2 PSUB )
+connect( M6i M5i by V5i )
+connect( M5i M4i by V4i )
+connect( M4i M3i by V3i )
+connect( M3i M2i by V2i )
+connect( M2i M1i by V1i )
+connect( M1i GT0 NTAPi PTAPi PSDi NSDi 
+by CTi )
+connect( NTAPi PSDi )
+connect( PTAPi NSDi )
+uniconnect( NTAPi NWi )
+attach_order( M6i M5i M4i M3i M2i M1i NTAPi PTAPi NSDi PSDi GT0 NWi )
+virtual_connect( name "?VDD?" "?VCC?" "?VSS?" "?GND?" )
+virtual_connect( colon  yes )
+//*******************************************       
+//    LAYER DERIVATIONS AND OPERATIONS
+//*******************************************       
+AA = geom_not(  AAO OPCBA )
+GT = geom_not(  GTO OPCBP )
+CT = geom_not(  CTO OPCBM )
+M1 = geom_not(  M1O OPCBM )
+V1 = geom_not(  V1O OPCBM )
+//==================
+// For Connectivity
+//==================
+PACTi = geom_and(  SPi AAi )
+NACTi = geom_and(  SNi AAi )
+PTAPi = geom_not(  PACTi NWi )
+NTAPi = geom_and(  NACTi NWi )
+PGATEi = geom_and(  PACTi GTi )
+NGATEi = geom_and(  NACTi GTi )
+pvrs_tmp_layer_3 = geom_not(  PACTi PGATEi )
+PSDi = geom_adjacent(  pvrs_tmp_layer_3 PGATEi )
+pvrs_tmp_layer_4 = geom_not(  NACTi NGATEi )
+NSDi = geom_adjacent(  pvrs_tmp_layer_4 NGATEi )
+PACT = geom_and(  SP AA )
+NACT = geom_and(  SN AA )
+ACT = geom_or(  PACT NACT )
+AA_GATE_EDGE = edge_inside(  AA GT )
+AA_OUT_EDGE = ~edge_inside(  AA GT )
+MOSP = geom_and(  PACT NW )
+PTAP = geom_not(  PACT NW )
+MOSN = geom_not(  NACT NW )
+NTAP = geom_and(  NACT NW )
+TAP = geom_or(  PTAP NTAP )
+MOSAA = geom_or(  MOSP MOSN )
+GT_NACT_EDGE = edge_inside(  GT NACT )
+GT_PACT_EDGE = edge_inside(  GT PACT )
+GT_AA_EDGE = edge_inside(  GT AA )
+//This is for NLL_8_12 and NLH_8_12 SN_7_17
+EX_GT_NACT_EDGE = geom_edge_to_rect( GT_NACT_EDGE inside 0.32  outside 0.32  fill_corner )
+NGATE_NACT_EDGE = edge_coincident( both_side  NGATE NACT )
+EX_NGATE_NACT_EDGE = geom_edge_to_rect( NGATE_NACT_EDGE outside 0.35  extend 0.32  )
+EX_NGATE = geom_or(  EX_GT_NACT_EDGE EX_NGATE_NACT_EDGE )
+//This is for PLL_8_12 ans PLH_8_12  SP_7_17
+EX_GT_PACT_EDGE = geom_edge_to_rect( GT_PACT_EDGE inside 0.32  outside 0.32  fill_corner )
+PGATE_PACT_EDGE = edge_coincident( both_side  PGATE PACT )
+EX_PGATE_PACT_EDGE = geom_edge_to_rect( PGATE_PACT_EDGE outside 0.35  extend 0.32  )
+EX_PGATE = geom_or(  EX_GT_PACT_EDGE EX_PGATE_PACT_EDGE )
+NTAPBUT = geom_adjacent(  NTAP PACT )
+PTAPBUT = geom_adjacent(  PTAP NACT )
+NTAPBUT_EDGE = edge_coincident( both_side  NTAP PACT )
+NTAPNOBUT_EDGE = ~edge_coincident( both_side  NTAP PACT )
+PTAPBUT_EDGE = edge_coincident( both_side  PTAP NACT )
+PTAPNOBUT_EDGE = ~edge_coincident( both_side  PTAP NACT )
+PGATE = geom_and(  MOSP GT )
+NGATE = geom_and(  MOSN GT )
+GATE = geom_and(  AA GT )
+pvrs_tmp_layer_5 = geom_not(  MOSP PGATE )
+PSD = geom_adjacent(  pvrs_tmp_layer_5 PGATE )
+pvrs_tmp_layer_6 = geom_not(  MOSN NGATE )
+NSD = geom_adjacent(  pvrs_tmp_layer_6 NGATE )
+SD = geom_or(  PSD NSD )
+pvrs_tmp_layer_7 = geom_and(  NACT GT )
+NGATE_CAP = geom_and(  pvrs_tmp_layer_7 NW )
+MOSN_CAP = geom_interact(  NACT NGATE_CAP )
+GT_MOSCAP = geom_interact(  GT NGATE_CAP )
+pvrs_tmp_layer_8 = geom_not(  MOSN_CAP GT_MOSCAP )
+NSD_CAP = geom_adjacent(  pvrs_tmp_layer_8 NGATE_CAP )
+HVAA = geom_and(  AA DG )
+LVAA = geom_not(  AA DG )
+HPGATE = geom_and(  PGATE DG )
+HNGATE = geom_and(  NGATE DG )
+HGATE = geom_and(  GATE DG )
+LGATE = geom_not(  GATE DG )
+NLLAA = geom_and(  AA NLL )
+NLHAA = geom_and(  AA NLH )
+PLLAA = geom_and(  AA PLL )
+PLHAA = geom_and(  AA PLH )
+INTERGT = geom_not(  GT GATE )
+pvrs_tmp_layer_9 = geom_inside(  NW AA )
+NR = geom_interact(  pvrs_tmp_layer_9 RESNW )
+AAR = geom_interact(  AA NR )
+SNR = geom_interact(  SN NR )
+pvrs_tmp_layer_10 = ~geom_interact(  GT HRP )
+GTR = geom_interact(  pvrs_tmp_layer_10 RESP1 )
+RESP3T_HRP = geom_interact(  RESP3T HRP )
+GTR_3T = geom_interact(  GT_HRP RESP3T_HRP )
+GTR_N3T = geom_not(  GT_HRP GTR_3T )
+NWDEV = geom_not(  NW NR )
+NW_USIZE = geom_size( NW by - 0.43  )
+PW_USIZE = geom_size( PW by - 0.43  )
+ACT_CT = geom_and(  CT ACT )
+INTERCT = geom_and(  CT INTERGT )
+PSUB_AA = geom_and(  AA PSUB )
+PSUB_GT = geom_and(  GT PSUB )
+PSUB_GATE = geom_and(  GATE PSUB )
+PSUB_GATE_WID = edge_inside(  PSUB_GATE AA )
+PSUB_HGATE = geom_and(  HGATE PSUB )
+PSUB_HGATE_WID = edge_inside(  PSUB_HGATE AA )
+NOMI_AA = geom_not(  AA PSUB_AA )
+GT_HRP = geom_interact(  GT HRP )
+HR_GT = geom_and(  GT_HRP HRPDMY )
+SAB_GT = geom_and(  GT_HRP SAB )
+Res1 = geom_or(  RESP1 RESAA )
+POLY = geom_outside(  GT Res1 )
+GATEI = geom_and(  POLY AA )
+NMOS = geom_enclose(  NACT GATEI )
+PMOS = geom_enclose(  PACT GATEI )
+//********************************************
+//         CHECK GROUP DEFINITIONS
+//********************************************
+//=================
+//   Logic Part 
+//=================
+group_rule( GLG GNW GNR GPSUB GAA GDG GGT GGR GNLL GPLL GNLH GPLH GSN GSP GSAB GCT GM1 GM2 GM3 GM4 GM5 GMT GV1 GV2 GV3 GV4 GVT GFUSE GPI GPD GConvention )
+//===================
+//  Mix-Signal Part
+//===================
+group_rule( GMS GDNW GMVN GMVP GHRP GMIM )
+//=====================
+//  NW - Nwell DRC
+//=====================
+group_rule( GNW NW_? )
+//NW_OPCB {
+//@ Minimum space between OPC block and NW is 0.3um
+//  OPCB = (OPCBA OR OPCBP) OR OPCBM
+//  EXT NW OPCB < 0.30 ABUT<90 SINGULAR REGION
+//  X = NW INTERACT OPCB
+//  X NOT INSIDE OPCB
+//}
+
+RULE NW_1 { 
+;  Minimum width of an NW region is 0.86um
+width(  NW < 0.86  adjacent < 90  point_touch region )
+}
+
+RULE NW_2a { 
+;  Minimum space between two NW regions with the same potential is 0.60um
+;  Merge if space is less than 0.6um
+space(  NW < 0.60  adjacent < 90  point_touch region same_net )
+}
+
+RULE NW_2b { 
+;  Minimum space between two NW with different potential is 1.40um
+space(  NW < 1.40  adjacent < 90  point_touch region diff_net )
+}
+
+RULE NW_3 { 
+;  Minimum dimension of an NW region not connected to the most
+;  positive power supply is 2.10um.
+;  Need to be changed depending on your power supply name
+;  In this case the most positive voltage
+NWwoMPV = ~geom_net( by_layer NW ?VDD? ?VCC? )
+RESULT1 = width(  NWwoMPV < 2.1  adjacent < 90  point_touch region )
+A = geom_with_label( M1 ?VDD? )
+B = geom_with_label( M1 ?VCC? )
+VDD_M1a = check_nar( M1 A >= 1  )
+VDD_M1b = check_nar( M1 B >= 1  )
+VDD_M1 = geom_or(  VDD_M1a VDD_M1b )
+VDD_CT = geom_and(  CT VDD_M1 )
+VDD_NTAP = geom_interact(  NTAP VDD_CT )
+NO_VDD_NW = ~geom_interact(  NW VDD_NTAP )
+RESULT2 = width(  NO_VDD_NW < 2.1  adjacent < 90  point_touch region )
+geom_and(  RESULT1 RESULT2 )
+}
+//============================
+//  NR - Nwell Resister DRC
+//============================
+group_rule( GNR NR_? )
+
+RULE NR_1 { 
+;  Minimum enclosure of AA beyond an NW is 1.0
+extension(  NR AA < 1  adjacent < 90  point_touch region )
+}
+
+RULE NR_2 { 
+;  Minimum enclosure of salicide NW to CT is 0.3
+extension(  CT NR < 0.3  adjacent < 90  point_touch region )
+}
+
+RULE NR_3 { 
+;  Minimum space from SAB to related NW is 0.3
+space(  NR SAB < 0.3  adjacent < 90  point_touch region )
+}
+
+RULE NR_4 { 
+;  Minimum space from SAB to related AA is 0.22
+X = edge_inside(  AAR SAB )
+extension(  X SAB < 0.22  adjacent < 90  region )
+}
+
+RULE NR_5 { 
+;  Minimum overlap of SN to SAB inside NW is 0.4
+width(  SNR SAB < 0.4  adjacent < 90  point_touch region )
+}
+
+RULE NR_6 { 
+;  Minimum space from SAB to related CT in SAB hole is 0.3
+X = geom_and(  CT NR )
+space(  X SAB < 0.3  adjacent < 90  point_touch region )
+}
+
+RULE NR_7 { 
+;  Min. NW space is 1.4
+space(  NR < 1.4  adjacent < 90  point_touch region )
+}
+
+RULE NR_8 { 
+;  LDD,SN and SP implant inside NW resistance region is not allowed
+X = geom_and(  pvrs_tmp_layer_11 RESNW )
+geom_and(  SN X )
+geom_and(  SP X )
+geom_and(  NLL X )
+geom_and(  NLH X )
+geom_and(  PLL X )
+geom_and(  PLH X )
+pvrs_tmp_layer_11 = geom_interact(  NR SAB )
+}
+//==========================
+//  PSUB - NN Native Device DRC
+//==========================
+group_rule( GPSUB PSUB_? )
+
+RULE PSUB_1 { 
+;  PSUB.1
+;  PSUB inside or cross over a N-Well is not allowed
+geom_and(  PSUB NW )
+}
+
+RULE PSUB_2 { 
+;  PSUB.2
+;  PSUB inside or cross over a Deep N-Well is not allowed
+geom_and(  PSUB DNW )
+}
+
+RULE PSUB_3 { 
+;  PSUB.3
+;  Minimum dimension of PUSB region is 0.84
+width(  PSUB < 0.84  adjacent < 90  point_touch region )
+}
+
+RULE PSUB_4 { 
+;  PSUB.4
+;  Minimum space between 2 PSUB regions in same potential is 0.84
+space(  PSUB < 0.84  adjacent < 90  point_touch region same_polygon )
+}
+
+RULE PSUB_5 { 
+;  PSUB.5
+;  Minimum Gate dimension of 1.8V native device is 0.5
+width(  PSUB_GATE_WID < 0.5  adjacent < 90  region )
+}
+
+RULE PSUB_5a { 
+;  PSUB.5a
+;  Minimum Gate dimension of 3.3V native device is 1.2
+width(  PSUB_HGATE_WID < 1.2  adjacent < 90  region )
+}
+
+RULE PSUB_6 { 
+;  PSUB.6
+;  Minimum and Maximum PSUB extension beyond SN(N+) AA region is 0.26
+NACT_PSUB = geom_interact(  NACT PSUB )
+SIZE_NACT = geom_size( NACT_PSUB by 0.26  )
+PSUB_NACT = geom_interact(  PSUB NACT_PSUB )
+geom_xor(  PSUB_NACT SIZE_NACT )
+~geom_interact(  PSUB AA )
+}
+
+RULE PSUB_7 { 
+;  PSUB.7
+;  Minimum clearance from PSUB region to a nominal AA region is 0.52
+space(  PSUB NOMI_AA < 0.52  adjacent < 90  point_touch region )
+}
+
+RULE PSUB_8 { 
+;  PSUB.8
+;  Minimum clearance from PSUB region to N-Well edge is 1.62
+space(  PSUB NW < 1.62  adjacent < 90  point_touch region )
+}
+
+RULE PSUB_9 { 
+;  PSUB.9
+;  Bent Gate Poly is not allowed to put in PSUB region
+width(  PSUB_GATE_WID < 0.005  adjacent < 180  region )
+}
+
+RULE PSUB_10 { 
+;  PSUB.10
+;  P+ region is not allowed to put in PSUB region
+geom_and(  SP PSUB )
+}
+
+RULE PSUB_11 { 
+;  PSUB.11
+;  Only one AA region is allowed to put in PSUB region
+geom_interact(  PSUB MOSN > 1  )
+}
+//===========================
+//  AA - Active area DRC
+//===========================
+group_rule( GAA AA_? )
+
+RULE AA_1_2 { 
+;  Minimum width of an active region for interconnect is 0.22um
+;  Minimum width of an active region to define the width of MOS is 0.22um
+width(  AA < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE AA_3 { 
+;  Minimum space between N+ AA and N+ AA or P+ AA and P+ AA is 0.28um
+;  (both regions are either inside or outside NW)
+space(  AA < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE AA_4 { 
+;  Minimum enclosure from NW edge to an N-well pick-up is 0.12um
+extension(  NTAP pvrs_tmp_layer_13 < 0.12  adjacent < 90  point_touch region )
+pvrs_tmp_layer_12 = geom_interact(  NW RESNW )
+pvrs_tmp_layer_13 = geom_not(  NW pvrs_tmp_layer_12 )
+}
+
+RULE AA_5 { 
+;  Minimum space between N-Well edge and an N+ AA region is 0.43um
+space(  NW NACT < 0.43  adjacent < 90  point_touch region )
+}
+
+RULE AA_6 { 
+;  Minimum space between N-Well edge and a P+ AA region is 0.43um
+extension(  PACT NW < 0.43  adjacent < 90  point_touch region )
+}
+
+RULE AA_7 { 
+;  Minimum space between N-Well edge and a P+ AA region is 0.12um
+space(  NW PTAP < 0.12  adjacent < 90  point_touch region )
+}
+
+RULE AA_8 { 
+;  Minimum space between poly edge and edge of a butted diffusion AA region is 0.32um
+space(  GATE TAP < 0.32  adjacent < 90  point_touch region )
+}
+
+RULE AA_9 { 
+;  Minimum space between N+ AA and P+ AA for butted diffusion is 0.00um
+geom_and(  PACT NACT )
+}
+
+RULE AA_10a { 
+;  Minimum area of a butted diffusion AA is 0.176um2. At lease
+;  one segment(AA.10) of the consecutive SN/SP edge of butted
+;  diffusion AA should be longer than 0.42um.
+geom_area ( NTAPBUT < 0.176  )
+geom_area ( PTAPBUT < 0.176  )
+}
+
+RULE AA_10b { 
+Y = edge_length(  NTAPBUT_EDGE >= 0.42  )
+~geom_with_edge( NTAPBUT Y >= 1  )
+B = edge_length(  PTAPBUT_EDGE >= 0.42  )
+~geom_with_edge( PTAPBUT B >= 1  )
+}
+
+RULE AA_11 { 
+;  Minimum area of a stand-along AA region is 0.20um
+geom_area ( AA < 0.20  )
+}
+
+RULE AA_12 { 
+;  For the situation where N-well and P-well pick-ups are put
+;  head-to-head across the well boundary, the space between N-
+;  pick-up and P-pick-up should be 0.36um in order to meet
+;  the implant layout rules
+space(  NTAP PTAP < 0.36  adjacent < 90  point_touch region )
+}
+//==========================
+//  DG - Dual Gate DRC
+//==========================
+group_rule( GDG DG_? )
+
+RULE DG_1 { 
+;  Minimum enclosure of DG beyond the active AA region is 0.32um
+extension(  AA DG < 0.32  adjacent < 90  point_touch region )
+}
+
+RULE DG_2 { 
+;  Minimum DG space between two DG regions is 0.45, merge if space <0.45
+space(  DG < 0.45  adjacent < 90  point_touch region )
+}
+
+RULE DG_3a { 
+;  Minimum space between DG edge and AA region is 0.32um (For MOS AA)
+X = geom_enclose(  MOSAA GATE )
+space(  DG X < 0.32  adjacent < 90  point_touch region )
+}
+
+RULE DG_3b { 
+;  Minimum space between DG edge and AA region is 0.32um (for pick-up AA)
+space(  DG NTAPNOBUT_EDGE < 0.32  adjacent < 90  region )
+space(  DG PTAPNOBUT_EDGE < 0.32  adjacent < 90  region )
+}
+
+RULE DG_4 { 
+;  Minimum space between DG region and 1.8V transistor gate is 0.40um
+X = ~edge_adjacent( both_side  LGATE AA )
+space(  DG X < 0.40  adjacent < 90  )
+}
+
+RULE DG_5 { 
+;  Minimum enclosure of DG region beyond 3.3V transistor gate is 0.40um
+X = ~edge_adjacent( both_side  HGATE AA )
+extension(  X DG < 0.40  opposite adjacent < 90  )
+}
+//========================
+//  GT - Poly 1 Gate DRC
+//========================
+group_rule( GGT GT_? )
+
+RULE GT_1 { 
+;  Minimum width of a GT region for interconnects is 0.18um
+width(  INTERGT < 0.18  adjacent < 90  point_touch region )
+}
+
+RULE GT_2a&b { 
+;  Minimum width of a GT region for channel length of 1.8V MOS is 0.18um
+width(  GT_AA_EDGE < 0.18  adjacent < 90  region )
+}
+
+RULE GT_3 { 
+;  Minimum space between two GT regions on AA with no contact is 0.25um
+space(  GATE < 0.25  adjacent < 90  point_touch region )
+}
+
+RULE GT_4 { 
+;  Minimum space between two GT regions on field oxide area is 0.25um
+X = ~edge_coincident( both_side  INTERGT GATE )
+space(  X < 0.25  adjacent < 90  region )
+}
+
+RULE GT_5 { 
+;  Extension beyond diffusion to form poly end cap is 0.22um
+extension(  AA_GATE_EDGE GT < 0.22  adjacent < 90  region )
+}
+
+RULE GT_6 { 
+;  Minimum extension from AA region to GT is 0.32um
+extension(  GT AA < 0.32  adjacent < 90  point_touch region )
+}
+
+RULE GT_7 { 
+;  Minimum space between field interconnect poly and AA is 0.10um
+space(  AA_OUT_EDGE INTERGT < 0.10  adjacent < 90  region )
+}
+
+RULE GT_8 { 
+;  Minimum width of a GT region for 3.3V PMOS is 0.30um
+X = edge_inside(  GT pvrs_tmp_layer_14 )
+width(  X < 0.30  adjacent < 90  region )
+pvrs_tmp_layer_14 = geom_not(  HVAA SN )
+}
+
+RULE GT_9 { 
+;  Minimum width of GT region for channel length of 3.3V NMOS is 0.35um
+//  INT HNGATE < 0.35 ABUT<90 SINGULAR REGION
+X = edge_inside(  GT pvrs_tmp_layer_15 )
+width(  X < 0.35  adjacent < 90  region )
+pvrs_tmp_layer_15 = geom_and(  HVAA SN )
+}
+
+RULE GT_10ab { 
+;  Maximum length of poly between two contacts is 50um when poly width <=0.24
+;  Maximum length of poly between 1 contact and poly line is 50um when poly width <=0.24
+//  X = INTERGT ENCLOSE CT > 1
+//  Y = SIZE INTERCT BY 25 INSIDE OF X STEP 0.35
+//  X NOT Y 
+//  A = INTERGT ENCLOSE CT == 1
+//  B = SIZE INTERCT BY 50 INSIDE OF A STEP 0.35
+//  A NOT B
+Thin_poly_a = geom_interact(  INTERGT pvrs_tmp_layer_16 )
+Thin_poly = geom_area ( Thin_poly_a >= 9  )
+POLY = geom_enclose(  Thin_poly CT > 0  )
+X = geom_size( INTERCT by 25  inside_of_layer POLY delta 0.25  )
+geom_interact(  POLY X > 1  )
+Y = geom_size( X by 25  inside_of_layer POLY delta 0.25  )
+geom_not(  POLY Y )
+pvrs_tmp_layer_16 = geom_with_width( INTERGT <= 0.24  )
+}
+
+RULE GT_11a { 
+;  90 degree bent gate is not allowed
+width(  GT_AA_EDGE < 0.01  adjacent == 90  region )
+space(  GT_AA_EDGE < 0.01  adjacent == 90  region )
+}
+//GT_11b { @ GT must enter AA perpendicularly 
+//	   => Covered by GT.6 }
+//GT_12 { @ Minimum GT density must be greater than 15%
+//        Covered by PD.GT }
+
+RULE GT_13 { 
+;  Minimum space between two GT's with CT on active area is 0.375um
+X = geom_interact(  pvrs_tmp_layer_17 CT )
+Y = edge_coincident( both_side  GATE X )
+space(  Y < 0.375  adjacent < 90  region )
+pvrs_tmp_layer_17 = geom_or(  SD NSD_CAP )
+}
+
+RULE GT_14 { 
+;  Min. channel length of 1.8V device poly gate on AA with 45 bent is 0.21 
+X = edge_angle(  GATE == 45  )
+width(  X < 0.21  adjacent < 90  region )
+}
+//==========================
+//  GR - Poly Resistor DRC
+//==========================
+group_rule( GGR GR_? )
+
+RULE GR_1 { 
+;  The resistor width is larger than 2.0um
+width(  pvrs_tmp_layer_18 < 2  adjacent < 90  region )
+pvrs_tmp_layer_18 = edge_inside(  GTR SAB )
+}
+
+RULE GR_2 { 
+;  The separation from SAB to contact on poly must be equal to 0.22um
+X = geom_interact(  pvrs_tmp_layer_19 CT )
+Y = geom_interact(  SAB X )
+Z = geom_inside(  CT X )
+EXPCT = geom_size( Z by 0.22  delta 0.05  inside_of_layer X )
+~geom_adjacent(  EXPCT Y )
+pvrs_tmp_layer_19 = geom_interact(  GTR SAB )
+}
+
+RULE GR_3 { 
+;  The space from an un-related SAB to a resistor poly must be larger than 0.3um
+X = ~geom_interact(  SAB GTR )
+space(  GTR X < 0.30  adjacent < 90  region )
+}
+
+RULE GR_4a { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  SN RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+
+RULE GR_4b { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  SP RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+
+RULE GR_4c { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  NLL RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+
+RULE GR_4d { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  NLH RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+
+RULE GR_4e { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  PLL RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+
+RULE GR_4f { 
+;  The Min. separation between resistors with un-related implant region is 0.26um
+X = ~geom_interact(  PLH RESP1 )
+space(  GTR X < 0.26  adjacent < 90  region )
+}
+//Skip GR_5 { The contact to pick-up poly resistor should be a single column }
+//Skip GR_6 { Can not use dog-bone at the end of poly resistor for contact pick-up }
+
+RULE GR_7 { 
+;  LDD implant are not allowed in N or P poly resistor
+geom_and(  NLL pvrs_tmp_layer_21 )
+geom_and(  NLH pvrs_tmp_layer_23 )
+geom_and(  PLL pvrs_tmp_layer_25 )
+geom_and(  PLH pvrs_tmp_layer_27 )
+pvrs_tmp_layer_20 = geom_or(  SN SP )
+pvrs_tmp_layer_21 = geom_interact(  GTR pvrs_tmp_layer_20 )
+pvrs_tmp_layer_22 = geom_or(  SN SP )
+pvrs_tmp_layer_23 = geom_interact(  GTR pvrs_tmp_layer_22 )
+pvrs_tmp_layer_24 = geom_or(  SN SP )
+pvrs_tmp_layer_25 = geom_interact(  GTR pvrs_tmp_layer_24 )
+pvrs_tmp_layer_26 = geom_or(  SN SP )
+pvrs_tmp_layer_27 = geom_interact(  GTR pvrs_tmp_layer_26 )
+}
+//====================================
+//  NLL - 1.8V NLDD Implantation DRC
+//====================================
+group_rule( GNLL NLL_? )
+
+RULE NLL_1 { 
+;  Minimum width of an NLL region is 0.44um
+width(  NLL < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE NLL_2 { 
+;  Minimum space between two NLL regions is 0.44um
+;  Merge if the space is less than 0.44um
+space(  NLL < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE NLL_3 { 
+;  Minimum space between an NLL region and a P+ AA region is 0.26um
+X = ~edge_adjacent( both_side  MOSP NLL )
+space(  NLL X < 0.26  adjacent < 90  region )
+}
+
+RULE NLL_4 { 
+;  Minimum space between an NLL region and a P+ pick-up AA region is 0.10um
+space(  NLL PTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+}
+
+RULE NLL_5 { 
+;  Minimum overlap from an NLL edge to an AA is 0.23um
+width(  NLL NACT < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE NLL_6 { 
+;  Minimum enclosure of an NLL region over SN active region is 0.18um
+// X = AA CUT NLL
+// Y = X AND NLL
+// Z = Y NOT TOUCH EDGE NLL
+// ENC Z NLL < 0.18 ABUT<90 REGION
+X = ~edge_coincident( both_side  pvrs_tmp_layer_28 PACT )
+extension(  X NLL < 0.18  adjacent < 90  region )
+pvrs_tmp_layer_28 = geom_not(  MOSN SNR )
+}
+
+RULE NLL_7 { 
+;  Minimum space between an NLL region and an NLH AA region is 0.21um
+X = ~edge_adjacent( both_side  NLHAA NLLAA )
+space(  NLL X < 0.21  adjacent < 90  region )
+}
+
+RULE NLL_8_12 { 
+;  Minimum enclosure of an NLL region to an N-channel poly gate is 0.32um
+;  Minimum enclosure of an NLL region over N-channel
+;  along the direction of poly gate is 0.35
+geom_not(  pvrs_tmp_layer_29 NLL )
+pvrs_tmp_layer_29 = geom_interact(  EX_NGATE NLL )
+}
+
+RULE NLL_9 { 
+;  Minimum area of an NLL region is 0.40um
+geom_area ( NLL < 0.40  )
+}
+
+RULE NLL_10 { 
+;  Separation from an NLL to a butted edge of a butted diffustion P+AA is 0
+geom_and(  NLL PTAP )
+}
+
+RULE NLL_11_NLH_11 { 
+;  Minimum space between NLL and NLH if two AAs are overlapped is 0
+X = geom_and(  NLL NLH )
+geom_interact(  X AA )
+}
+//NLL_12 {
+//@ Minimum enclosure of an NLL region over N-channel
+//@ along the direction of poly gate is 0.35
+//  X = NACT INSIDE EDGE GT
+//  ENC X NLL < 0.35 ABUT<90 REGION
+//}
+//NLL_13 {
+//@ Minimum NLL area for a N-channel poly gate must follow NLL.8 and NLL.12
+//}
+
+RULE NLL_14 { 
+;  NLL is not allowed in Non-salicide AA/poly resistor 
+geom_and(  NLL pvrs_tmp_layer_31 )
+geom_and(  NLL pvrs_tmp_layer_32 )
+pvrs_tmp_layer_30 = geom_interact(  AA RESAA )
+pvrs_tmp_layer_31 = geom_and(  pvrs_tmp_layer_30 SAB )
+pvrs_tmp_layer_32 = geom_and(  GTR SAB )
+}
+//======================================
+//  PLL - 1.8V PLDD Implantation DRC
+//======================================
+group_rule( GPLL PLL_? )
+
+RULE PLL_1 { 
+;  Minimum width of a PLL region is 0.44um
+width(  PLL < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE PLL_2 { 
+;  Minimum space between two PLL regions is 0.44um
+;  Merge if the space is less than 0.44um
+space(  PLL < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE PLL_3 { 
+;  Minimum space from a PLL region to an N+ AA region is 0.26um
+X = ~edge_adjacent( both_side  MOSN PLL )
+space(  PLL X < 0.26  adjacent < 90  region )
+}
+
+RULE PLL_4 { 
+;  Minimum space from a PLL region to an N+ pick-up AA region is 0.10um
+space(  PLL NTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+}
+
+RULE PLL_5 { 
+;  Minimum enclosure from a PLL edge to an AA is 0.23um
+width(  PLL PACT < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE PLL_6 { 
+;  Minimum enclosure of a PLL region beyond a SP active region is 0.18um
+// X = AA CUT PLL
+// Y = X AND PLL
+// Z = Y NOT TOUCH EDGE PLL
+// ENC Z PLL < 0.18 ABUT<90 REGION
+X = ~edge_coincident( both_side  MOSP NACT )
+extension(  X PLL < 0.18  adjacent < 90  region )
+}
+
+RULE PLL_7 { 
+;  Minimum space of a PLL region to a PLH AA region is 0.21um
+X = ~edge_adjacent( both_side  PLHAA PLLAA )
+space(  PLL X < 0.21  adjacent < 90  region )
+}
+
+RULE PLL_8_12 { 
+;  Minimum enclosure of an PLL region to an P-channel poly gate is 0.32um
+;  Minimum enclosure of an PLL region over P-channel
+;  along the direction of poly gate is 0.35
+geom_not(  pvrs_tmp_layer_33 PLL )
+pvrs_tmp_layer_33 = geom_interact(  EX_PGATE PLL )
+}
+
+RULE PLL_9 { 
+;  Minimum area of a PLL region is 0.40um
+geom_area ( PLL < 0.40  )
+}
+
+RULE PLL_10 { 
+;  Separation from a PLL to a butted edge of a butted diffustion N+ AA is 0.00um
+geom_and(  PLL NTAP )
+}
+
+RULE PLL_11_PLH_11 { 
+;  Minimum space between PLL and PLH if two AAs are overlapped is 0.00um
+X = geom_and(  PLL PLH )
+geom_interact(  X AA )
+}
+//PLL_12 {
+//@ Minimum enclosure of a PLL region of P-channel
+//@ along the direction of poly gate is 0.35
+//  X = PACT INSIDE EDGE GT
+//  ENC X PLL < 0.35 ABUT<90 REGION
+//}
+//PLL_13 {
+//@ Minimum PLL area for a P-channel poly gate must follow PLL.8 and PLL.12
+//}
+
+RULE PLL_14 { 
+;  PLL implant is not allowed in Non-salicide AA/poly resistor 
+geom_and(  PLL pvrs_tmp_layer_35 )
+geom_and(  PLL pvrs_tmp_layer_36 )
+pvrs_tmp_layer_34 = geom_interact(  AA RESAA )
+pvrs_tmp_layer_35 = geom_and(  pvrs_tmp_layer_34 SAB )
+pvrs_tmp_layer_36 = geom_and(  GTR SAB )
+}
+//=====================================
+//  NLH - 3.3V NLDD Implantation DRC
+//=====================================
+group_rule( GNLH NLH_? )
+
+RULE NLH_1 { 
+;  Minimum width of an NLH region is 0.44um
+width(  NLH < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE NLH_2 { 
+;  Minimum space between two NLH regions is 0.44um
+;  Merge if the space is less than 0.44um
+space(  NLH < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE NLH_3 { 
+;  Minimum space between an NLH region and a P+ AA region is 0.26um
+X = ~edge_adjacent( both_side  MOSP NLH )
+space(  NLH X < 0.26  adjacent < 90  region )
+}
+
+RULE NLH_4 { 
+;  Minimum space between an NLH region and a Pwell pick-up P+ AA is 0.10um
+space(  NLH PTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+}
+
+RULE NLH_5 { 
+;  Minimum overlap from an NLH edge to an AA is 0.23um
+width(  NLH NACT < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE NLH_6 { 
+;  Minimum enclosure of an NLH region beyond an NP active region is 0.18um
+// X = AA CUT NLH
+// Y = X AND NLH
+// Z = Y NOT TOUCH EDGE NLH
+// ENC Z NLH < 0.18 ABUT<90 REGION
+X = ~edge_coincident( both_side  pvrs_tmp_layer_37 PACT )
+extension(  X NLH < 0.18  adjacent < 90  region )
+pvrs_tmp_layer_37 = geom_not(  MOSN SNR )
+}
+
+RULE NLH_7 { 
+;  Minimum space between an NLH region and an NLL AA region is 0.21um
+X = ~edge_adjacent( both_side  NLLAA NLHAA )
+space(  NLH X < 0.21  adjacent < 90  region )
+}
+
+RULE NLH_8_12 { 
+;  Minimum enclosure of an NLH region to an N-channel poly gate is 0.32um
+;  Minimum enclosure of an NLH region over N-channel
+;  along the direction of poly gate is 0.35
+geom_not(  pvrs_tmp_layer_38 NLH )
+pvrs_tmp_layer_38 = geom_interact(  EX_NGATE NLH )
+}
+
+RULE NLH_9 { 
+;  Minimum area of an NLH region is 0.40um
+geom_area ( NLH < 0.40  )
+}
+
+RULE NLH_10 { 
+;  Separation from an NLH to a butted edge of a butted diffustion P+ AA is 0.00um
+geom_and(  NLH PACT )
+}
+//NLH_12 {
+//@ Minimum enclosure of an NLH region to N-channel
+//@ along the direction of poly gate is 0.35um
+//  X = NACT INSIDE EDGE GT
+//  ENC X NLH < 0.35 ABUT<90 REGION
+//}
+//NLH_13 {
+//@ Minimum NLH area for a N-channel poly gate must follow NLH.8 and NLH.12
+//}
+
+RULE NLH_14 { 
+;  NLH is not allowed in Non-salicide AA/poly resistor 
+geom_and(  NLH pvrs_tmp_layer_40 )
+geom_and(  NLH pvrs_tmp_layer_41 )
+pvrs_tmp_layer_39 = geom_interact(  AA RESAA )
+pvrs_tmp_layer_40 = geom_and(  pvrs_tmp_layer_39 SAB )
+pvrs_tmp_layer_41 = geom_and(  GTR SAB )
+}
+//====================================
+//  PLH - 3.3V PLDD Implantation DRC
+//====================================
+group_rule( GPLH PLH_? )
+
+RULE PLH_1 { 
+;  Minimum width of a PLH region is 0.44um
+width(  PLH < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE PLH_2 { 
+;  Minimum space between two PLH regions is less than 0.44um
+space(  PLH < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE PLH_3 { 
+;  Minimum space between a PLH region and an N+ AA is 0.26um
+X = ~edge_adjacent( both_side  MOSN PLH )
+space(  PLH X < 0.26  adjacent < 90  region )
+}
+
+RULE PLH_4 { 
+;  Minimum space between a PLH region and an N+ pick-up AA region is 0.10um
+space(  PLH NTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+}
+
+RULE PLH_5 { 
+;  Minimum overlap from a PLH edge to an AA is 0.23um
+width(  PLH PACT < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE PLH_6 { 
+;  Minimum enclosure of a PLH region beyond a SP active region is 0.18um
+// X = AA CUT PLH
+// Y = X AND PLH
+// Z = Y NOT TOUCH EDGE PLH
+// ENC Z PLH < 0.18 ABUT<90 REGION
+X = ~edge_coincident( both_side  MOSP NACT )
+extension(  X PLH < 0.18  adjacent < 90  region )
+}
+
+RULE PLH_7 { 
+;  Minimum space between a PLH region and a PLL AA region is 0.21um
+X = ~edge_adjacent( both_side  PLLAA PLHAA )
+space(  PLH X < 0.21  adjacent < 90  region )
+}
+
+RULE PLH_8_12 { 
+;  Minimum enclosure of an PLH region to an P-channel poly gate is 0.32um
+;  Minimum enclosure of an PLH region over P-channel
+;  along the direction of poly gate is 0.35
+geom_not(  pvrs_tmp_layer_42 PLH )
+pvrs_tmp_layer_42 = geom_interact(  EX_PGATE PLH )
+}
+
+RULE PLH_9 { 
+;  Minimum area of a PLH region is 0.40um
+geom_area ( PLH < 0.40  )
+}
+
+RULE PLH_10 { 
+;  Separation from a PLH to butted edge of a butted N+ AA
+geom_and(  PLH NTAP )
+}
+//PLH_12 {
+//@ Minimum enclosure of an PLH region to P-channel
+//@ along the direction of poly gate is 0.35um
+//  X = PACT INSIDE EDGE GT
+//  ENC X PLH < 0.35 ABUT<90 REGION
+//}
+//PLH_13 {
+//@ Minimum PLH area for a P-channel poly gate must follow PLH.8 and PLH.12
+//}
+
+RULE PLH_14 { 
+;  PLH is not allowed in Non-salicide AA/poly resistor 
+geom_and(  PLH pvrs_tmp_layer_44 )
+geom_and(  PLH pvrs_tmp_layer_45 )
+pvrs_tmp_layer_43 = geom_interact(  AA RESAA )
+pvrs_tmp_layer_44 = geom_and(  pvrs_tmp_layer_43 SAB )
+pvrs_tmp_layer_45 = geom_and(  GTR SAB )
+}
+//=============================
+//  SN - N+ Implantation DRC
+//=============================
+group_rule( GSN SN_? )
+
+RULE SN_1 { 
+;  Minimum width of a SN region is 0.44um
+width(  SN < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE SN_2 { 
+;  Minimum space between two SN regions is less than 0.44um
+space(  SN < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE SN_3 { 
+;  Minimum space between a SN region and a P+ AA is 0.26um
+X = ~edge_adjacent( both_side  MOSP SN )
+space(  SN X < 0.26  adjacent < 90  region )
+}
+
+RULE SN_4 { 
+;  Minimum space between a SN region and of P+ pick-up AA region is 0.10um
+X = space(  SN PTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+Y = ~geom_interact(  PTAP CT )
+~geom_interact(  X Y )
+}
+
+RULE SN_5 { 
+;  Minimum space between a SN region and a non-butted edge of P-well pick-up
+;  P+ AA region if the distance between P+ AA and N-well<0.43um is 0.18um
+NW_over = geom_size( NWDEV by 0.425  )
+tmp = geom_not(  NW_over NWDEV )
+Y = geom_and(  PTAP NW_over )
+Z = geom_not(  PTAP NW_over )
+X = ~edge_inside(  SN AA )
+A = space(  Y X < 0.18  opposite adjacent < 90  region )
+B = space(  Z X < 0.10  opposite adjacent < 90  region )
+C = ~geom_interact(  PTAP CT )
+~geom_interact(  A C )
+~geom_interact(  B C )
+}
+
+RULE SN_6 { 
+;  Minimum space from a SN edge to a P-channel Poly gate is 0.32um
+X = ~edge_adjacent( both_side  PGATE AA )
+space(  SN X < 0.32  opposite adjacent < 90  )
+}
+
+RULE SN_7_17 { 
+;  Minimum enclosure of a SN edge to an N-channel Poly gate is 0.32um
+;  Minimum space from a SN edge to a N-channel Poly gate
+;  along the direction of poly gate is 0.35
+extension(  GT_AA_EDGE SN < 0.32  adjacent < 90  )
+E2 = edge_inside(  AA GT )
+R = extension(  E2 SN < 0.35  adjacent < 90  region )
+geom_and(  R EX_NGATE )
+}
+
+RULE SN_8 { 
+;  Minimum overlap from a SN edge to an AA is 0.23um
+X = ~edge_adjacent( both_side  SN AA )
+width(  AA X < 0.23  adjacent < 90  region )
+}
+
+RULE SN_9 { 
+;  Minimum enclosure of a SN region beyond a SN active region is 0.18um
+//  X = (MOSN NOT SNR) NOT COIN EDGE PACT
+X = ~edge_adjacent( both_side  pvrs_tmp_layer_46 PACT )
+extension(  X SN < 0.18  adjacent < 90  region )
+pvrs_tmp_layer_46 = geom_not(  MOSN SNR )
+}
+
+RULE SN_10&11 { 
+;  Minimum enclosure of a SN region beyond an N+ pick-up AA region is 0.02um
+;  if the distance between N+ AA and P-well>=0.43um
+;  a. To obey this rule and SN.3 simultaneously, the minimum space
+;  between N+ pick-up AA and SP active AA should be increased to 0.44um
+;  b. To obey this rule and SN.5 simultaneously, the minimum space
+;  between N+ pick-up AA and SP active AA should be increased to 0.36um
+NTAP1 = geom_inside(  pvrs_tmp_layer_47 NW_USIZE )
+NTAP2 = ~geom_inside(  pvrs_tmp_layer_48 NW_USIZE )
+X = ~edge_adjacent( both_side  NTAP1 SP )
+Y = geom_not(  NTAP2 NW_USIZE )
+Z = geom_and(  NTAP2 NW_USIZE )
+A = extension(  X SN < 0.02  adjacent < 90  region )
+B = extension(  pvrs_tmp_layer_50 SN < 0.18  opposite adjacent < 90  region )
+C = extension(  pvrs_tmp_layer_52 SN < 0.02  opposite adjacent < 90  region )
+D = ~geom_interact(  NTAP CT )
+~geom_interact(  A D )
+~geom_interact(  B D )
+~geom_interact(  C D )
+pvrs_tmp_layer_47 = geom_not(  NTAP AAR )
+pvrs_tmp_layer_48 = geom_not(  NTAP AAR )
+pvrs_tmp_layer_49 = ~edge_coincident( both_side  Y Z )
+pvrs_tmp_layer_50 = ~edge_coincident( both_side  pvrs_tmp_layer_49 SP )
+pvrs_tmp_layer_51 = ~edge_coincident( both_side  Z Y )
+pvrs_tmp_layer_52 = ~edge_coincident( both_side  pvrs_tmp_layer_51 SP )
+}
+
+RULE SN_12&SP_12 { 
+;  Separation from a SN region to butted edge of a butted diffusion SP AA is 0.00um
+geom_and(  MOSN PTAP )
+X = ~edge_coincident( both_side  NTAPBUT PACT )
+~edge_coincident( both_side  pvrs_tmp_layer_53 pvrs_tmp_layer_54 )
+Y = ~edge_coincident( both_side  PTAPBUT NACT )
+~edge_coincident( both_side  pvrs_tmp_layer_55 pvrs_tmp_layer_56 )
+pvrs_tmp_layer_53 = edge_adjacent( both_side  X SP )
+pvrs_tmp_layer_54 = ~geom_interact(  NTAP CT )
+pvrs_tmp_layer_55 = edge_adjacent( both_side  Y SN )
+pvrs_tmp_layer_56 = ~geom_interact(  PTAP CT )
+}
+
+RULE SN_13&SP_13 { 
+;  Minimum extension of a SN region along the edge of a butted diffusion N+ AA/P+ AA is 0.00um
+geom_and(  MOSP NTAP )
+}
+
+RULE SN_14 { 
+;  Minimum area of a SN region is 0.40um
+geom_area ( SN < 0.38  )
+}
+
+RULE SN_15 { 
+;  Minimum extension of a SN region beyond a poly as a resistor
+;  SAB poly without SN or SP is not allowed
+extension(  GTR SN < 0.18  adjacent < 90  point_touch region )
+geom_not(  pvrs_tmp_layer_58 SP )
+pvrs_tmp_layer_57 = geom_interact(  GTR SAB )
+pvrs_tmp_layer_58 = geom_not(  pvrs_tmp_layer_57 SN )
+}
+
+RULE SN_16 { 
+;  Minimum space from a SN edge to a P-channel Poly gate
+;  along the direction of poly gate is 0.35
+X = edge_inside(  MOSP GT )
+space(  X SN < 0.35  adjacent < 90  region )
+}
+//SN_17 {
+//@ Minimum space from a SN edge to a N-channel Poly gate
+//@ along the direction of poly gate is 0.35
+//  X = MOSN INSIDE EDGE GT
+//  ENC X SN < 0.35 ABUT<90 REGION
+//}
+
+RULE SN_18&SP_18 { 
+;  SN is not allowed to overlap with SP
+geom_and(  SN SP )
+}
+//==============================
+//  SP - P+ Implantation DRC
+//==============================
+group_rule( GSP SP_? )
+
+RULE SP_1 { 
+;  Minimum width of a SP region is 0.44um
+width(  SP < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE SP_2 { 
+;  Minimum space between two SP regions is 0.44um
+;  Merge if the space is less than 0.44um
+space(  SP < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE SP_3 { 
+;  Minimum space between a SP region and a N+ AA is 0.26um
+X = ~edge_adjacent( both_side  MOSN SP )
+space(  SP X < 0.26  adjacent < 90  region )
+}
+
+RULE SP_4 { 
+;  Minimum space between a SP region and a N+ pick-up AA region is 0.10um
+space(  SP NTAPNOBUT_EDGE < 0.10  adjacent < 90  region )
+}
+
+RULE SP_5 { 
+;  Minimum space between a SP region and a non-butted edge of N-well pick-up
+;  N+AA region if the distance between N+ AA and P-well<0.43um is 0.18um
+PB_over = geom_size( PW by 0.425  )
+tmp = geom_not(  PB_over PW )
+Y = geom_and(  NTAP PB_over )
+Z = geom_not(  NTAP PB_over )
+X = ~edge_inside(  SP AA )
+space(  Y X < 0.18  opposite adjacent < 90  region )
+space(  Z X < 0.10  opposite adjacent < 90  region )
+}
+
+RULE SP_6 { 
+;  Minimum space from a SP edge to N-channel Poly gate is 0.32um
+space(  SP GT_AA_EDGE < 0.32  opposite adjacent < 90  )
+}
+
+RULE SP_7_17 { 
+;  Minimum enclosure of a SP edge to P-channel Poly gate is 0.32um
+;  Minimum space from a SP edge to a P-channel Poly gate
+;  along the direction of poly gate is 0.35
+extension(  GT_AA_EDGE SP < 0.32  adjacent < 90  )
+E2 = edge_inside(  AA GT )
+R = extension(  E2 SP < 0.35  adjacent < 90  region )
+geom_and(  R EX_PGATE )
+}
+
+RULE SP_8 { 
+;  Minimum overlap from a SP edge to an AA is 0.23um
+X = ~edge_adjacent( both_side  SP AA )
+width(  AA X < 0.23  adjacent < 90  region )
+}
+
+RULE SP_9 { 
+;  Minimum enclosure of a SP region beyond a SP active region is 0.18um
+//  X = MOSP NOT COIN EDGE NACT
+X = ~edge_adjacent( both_side  MOSP NACT )
+extension(  X SP < 0.18  adjacent < 90  region )
+}
+
+RULE SP_10&11 { 
+;  Minimum extension of an SP region beyond a P+ pick-up AA region is 0.02um
+;  if the distance between P+AA and Nwell>=0.43um
+;  c. To obey this rule and SP.3 simultaneously,
+;  P+ pick-up AA to SN active AA minimum spacing must be increased to 0.44um
+;  d. To obey this rule and SP.5 simultaneously,
+;  P+ pick-up AA to SN pick-up AA minimum spacing must be increased to 0.36um
+PTAP1 = geom_inside(  PTAP PW_USIZE )
+PTAP2 = ~geom_inside(  PTAP PW_USIZE )
+X = ~edge_adjacent( both_side  PTAP1 SN )
+Y = geom_not(  PTAP2 PW_USIZE )
+Z = geom_and(  PTAP2 PW_USIZE )
+extension(  X SP < 0.02  opposite adjacent < 90  region )
+extension(  pvrs_tmp_layer_60 SP < 0.18  opposite adjacent < 90  region )
+extension(  pvrs_tmp_layer_62 SP < 0.02  opposite adjacent < 90  region )
+pvrs_tmp_layer_59 = ~edge_coincident( both_side  Y Z )
+pvrs_tmp_layer_60 = ~edge_coincident( both_side  pvrs_tmp_layer_59 SN )
+pvrs_tmp_layer_61 = ~edge_coincident( both_side  Z Y )
+pvrs_tmp_layer_62 = ~edge_coincident( both_side  pvrs_tmp_layer_61 SN )
+}
+
+RULE SP_14 { 
+;  Minimum area of a SP region is 0.40um
+geom_area ( SP < 0.38  )
+}
+
+RULE SP_15 { 
+;  Minimum extension of a SP region beyond a poly as a resistor
+GTRes = geom_or(  GTR GTR_N3T )
+extension(  GTRes SP < 0.18  adjacent < 90  point_touch region )
+geom_not(  pvrs_tmp_layer_64 SP )
+geom_not(  pvrs_tmp_layer_65 SP )
+pvrs_tmp_layer_63 = geom_interact(  GTR SAB )
+pvrs_tmp_layer_64 = geom_not(  pvrs_tmp_layer_63 SN )
+pvrs_tmp_layer_65 = geom_not(  GTR_N3T HR_GT )
+}
+
+RULE SP_16 { 
+;  Minimum space from a SP edge to a N-channel Poly gate
+;  along the direction of poly gate is 0.35
+X = edge_inside(  MOSN GT )
+space(  X SP < 0.35  adjacent < 90  region )
+}
+//SP_17 {
+//@ Minimum space from a SP edge to a P-channel Poly gate
+//@ along the direction of poly gate is 0.35
+//  X = MOSP INSIDE EDGE GT
+//  ENC X SP < 0.35 ABUT<90 REGION
+//}
+//SP_19 {
+//@ It is prohibited that SP is generated by the reverse tone of SN,
+//@ since this operation might violated SP.3 and SP.4
+//}
+//SP_20 {
+//@ Minimum SP area for a P-channel poly gate must follow SP.7 and SP.17
+//}
+//==============================
+//  SAB - Salicide Block DRC
+//==============================
+group_rule( GSAB SAB_? )
+
+RULE SAB_1 { 
+;  Minimum width is 0.43um
+width(  SAB < 0.43  adjacent < 90  point_touch region )
+}
+
+RULE SAB_2 { 
+;  Minimum space is 0.43um
+space(  SAB < 0.43  adjacent < 90  point_touch region )
+}
+
+RULE SAB_3 { 
+;  Minimum space to unrelated diffusion is 0.22um
+space(  SAB AA < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE SAB_4 { 
+;  Minimum space to contact is 0.22um
+space(  SAB CT < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE SAB_5 { 
+;  Minimum space to poly on diffusion is 0.45um
+space(  SAB GATE < 0.45  adjacent < 90  point_touch region )
+}
+
+RULE SAB_6 { 
+;  Minimum extension over related diffusion is 0.22um
+extension(  AA SAB < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE SAB_7 { 
+;  Minimum extension of an diffusion over related SAB is 0.22um
+extension(  SAB AA < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE SAB_8 { 
+;  Minimum extension of SAB over related poly on field oxide is 0.22um
+//  X = SAB NOT COINCIDENT EDGE INTERGT
+//  ENC INTERGT X < 0.22 ABUT<90 REGION
+X = geom_interact(  GT RESP1 )
+extension(  X SAB < 0.22  adjacent < 90  region )
+}
+
+RULE SAB_9 { 
+;  Minimum space of SAB to unrelated poly on field oxide is 0.30um
+space(  SAB INTERGT < 0.30  adjacent < 90  point_touch region )
+}
+
+RULE SAB_10 { 
+;  Minimum area of SAB is 2.00um
+geom_area ( SAB < 2  )
+}
+//====================
+//  CT - Contact DRC
+//====================
+group_rule( GCT CT_? )
+
+RULE CT_1 { 
+;  Mininmum/Maximum contact size is 0.22um
+~geom_rectangle( CT == 0.22  by == 0.22  )
+}
+
+RULE CT_2 { 
+;  Minimum space between two contacts is 0.25um
+space(  CT < 0.25  adjacent < 90  point_touch region )
+}
+
+RULE CT_3 { 
+;  Minimum space between two contacts in a contact array
+;  with row and column numbers are both greater than 3 is 0.28um
+X = geom_size( CT by 0.155  out_in )
+Y = geom_size( X by 0.814  in_out )
+Z = geom_inside(  CT Y )
+space(  Z < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE CT_4 { 
+;  Minimum space between poly contact to AA is 0.20um
+space(  INTERCT AA < 0.20  adjacent < 90  point_touch region )
+}
+
+RULE CT_5 { 
+;  Minimum space between poly to diffusion contact is 0.16um
+space(  GATE ACT_CT < 0.16  adjacent < 90  point_touch region )
+}
+
+RULE CT_6_7 { 
+;  Minimum enclosure of an AA region beyond an AA CT region is 0.10um
+;  Minimum enclosure of a poly region beyond a poly CT region is 0.10um
+Y = geom_not(  pvrs_tmp_layer_66 OPCBA )
+Y1 = geom_interact(  Y GT )
+Y2 = geom_interact(  Y AA )
+extension(  Y1 GT < 0.10  adjacent < 90  overlapped point_touch )
+extension(  Y2 AA < 0.10  adjacent < 90  overlapped point_touch )
+geom_not(  pvrs_tmp_layer_67 AA )
+pvrs_tmp_layer_66 = geom_not(  CT OPCBP )
+pvrs_tmp_layer_67 = geom_not(  Y GT )
+}
+
+RULE CT_8 { 
+;  Minimum enclosure of a SP region beyond an AA CT region is 0.12um
+extension(  ACT_CT SP < 0.12  adjacent < 90  point_touch region )
+}
+
+RULE CT_9 { 
+;  Minimum enclosure of an SN region beyond an AA CT region is 0.12um
+extension(  ACT_CT SN < 0.12  adjacent < 90  point_touch region )
+}
+
+RULE CT_10 { 
+;  CT on gate region is forbidden
+geom_and(  GATE CT )
+}
+
+RULE CT_11 { 
+;  AA contact located on SN/SP boundary is not allowed
+PACT_CT = geom_and(  SP ACT_CT )
+NACT_CT = geom_and(  SN ACT_CT )
+~geom_rectangle( NACT_CT == 0.22  by == 0.22  )
+~geom_rectangle( PACT_CT == 0.22  by == 0.22  )
+}
+
+RULE CT_12 { 
+;  Non-salicided contacts are not allowed
+geom_and(  SAB CT )
+}
+//====================
+//  M1 - Metal 1 DRC
+//====================
+//--* Find Wide Metal *--//
+//M1OVER10 = M1 WITH WIDTH > 10
+//WIDE_M1 = M1 INTERACT M1OVER10   // wide metal
+pvrs_tmp_layer_68 = geom_size( M1 by - 5  )
+WIDE_M1 = geom_interact(  M1 pvrs_tmp_layer_68 )
+// begin shrink
+WDM1_45 = edge_angle(  WIDE_M1 > 0  < 90  )
+WDM1_90 = ~edge_angle(  WIDE_M1 > 0  < 90  )
+WDM1_EXP_45 = geom_edge_to_rect( WDM1_45 inside 5 * 1.414213562  )
+WDM1_EXP_90 = geom_edge_to_rect( WDM1_90 inside 5  extend 5  )
+pvrs_tmp_layer_69 = geom_or(  WDM1_EXP_45 WDM1_EXP_90 )
+THIN_M1_TMP = geom_not(  WIDE_M1 pvrs_tmp_layer_69 )
+THIN_M1 = geom_snap( THIN_M1_TMP 1  )
+// begin grow
+TNM1_45 = edge_angle(  THIN_M1 > 0  < 90  )
+TNM1_90 = ~edge_angle(  THIN_M1 > 0  < 90  )
+TNM1_EXP_45_TMP = geom_edge_to_rect( TNM1_45 outside 5 * 1.414213562  )
+TNM1_EXP_45 = geom_snap( TNM1_EXP_45_TMP 1  )
+TNM1_EXP_90 = geom_edge_to_rect( TNM1_90 outside 5  extend 5  )
+TNM1_EXP = geom_or(  TNM1_EXP_45 TNM1_EXP_90 )
+WDM1_PRE = geom_or(  TNM1_EXP THIN_M1 )
+WDM1_PRE_FILL = space(  WDM1_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M1OVER10 = geom_or(  WDM1_PRE WDM1_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GM1 M1_? )
+
+RULE M1_1 { 
+;  Minimum width of M1 region is 0.23um
+width(  M1 < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE M1_2 { 
+;  Minimum space between two M1 regions is 0.23um
+space(  M1 < 0.23  adjacent < 90  point_touch region )
+}
+
+RULE M1_3&4 { 
+;  Minimum enclosure of M1 region over CT region is 0.005um
+;  Minimum enclosure of M1 line end region beyond CT region is 0.06um
+;  For CT at 90 degree corner, one side must be considered as line end
+X = enc_rect( CT M1 adjacent < 90  outside_also correct 0.005  opposite 0.06  opposite 0.005  opposite 0.06  opposite )
+extension(  X M1 < 0.005  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M1 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+
+RULE M1_5 { 
+;  Minimum space between M1 lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+;  The minimum space must be maintained between a metal line and a
+;  small piece of metal(<10) that is connected to the wide metal
+;  within 1.0um range from the wide metal
+X = geom_size( M1OVER10 by 1  delta 0.148  inside_of_layer WIDE_M1 )
+A = space(  X M1 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M1 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE M1_6 { 
+;  Minimum area of M1 region is 0.20um
+geom_area ( M1 < 0.20  )
+}
+//M1_7 { @ Minimum density of M1 area is 30%
+// 	 Covered by PD.M1 }
+//M1_8 {
+//@ Dummy metal spacing to be larger than 1.0um and there should be
+//@ no active device underneath dummy metal pattern.
+//}
+//====================
+//  M2 - Metal 2 DRC
+//====================
+//--* Find Wide Metal *--//
+pvrs_tmp_layer_70 = geom_size( M2 by - 5  )
+WIDE_M2 = geom_interact(  M2 pvrs_tmp_layer_70 )
+// begin shrink
+WDM2_45 = edge_angle(  WIDE_M2 > 0  < 90  )
+WDM2_90 = ~edge_angle(  WIDE_M2 > 0  < 90  )
+WDM2_EXP_45 = geom_edge_to_rect( WDM2_45 inside 5 * 1.414213562  )
+WDM2_EXP_90 = geom_edge_to_rect( WDM2_90 inside 5  extend 5  )
+pvrs_tmp_layer_71 = geom_or(  WDM2_EXP_45 WDM2_EXP_90 )
+THIN_M2_TMP = geom_not(  WIDE_M2 pvrs_tmp_layer_71 )
+THIN_M2 = geom_snap( THIN_M2_TMP 1  )
+// begin grow
+TNM2_45 = edge_angle(  THIN_M2 > 0  < 90  )
+TNM2_90 = ~edge_angle(  THIN_M2 > 0  < 90  )
+TNM2_EXP_45_TMP = geom_edge_to_rect( TNM2_45 outside 5 * 1.414213562  )
+TNM2_EXP_45 = geom_snap( TNM2_EXP_45_TMP 1  )
+TNM2_EXP_90 = geom_edge_to_rect( TNM2_90 outside 5  extend 5  )
+TNM2_EXP = geom_or(  TNM2_EXP_45 TNM2_EXP_90 )
+WDM2_PRE = geom_or(  TNM2_EXP THIN_M2 )
+WDM2_PRE_FILL = space(  WDM2_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M2OVER10 = geom_or(  WDM2_PRE WDM2_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GM2 M2_? )
+
+RULE M2_1 { 
+;  Minimum width of an M2 region is 0.28um
+width(  M2 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M2_2 { 
+;  Minimum space between two M2 regions is 0.28um
+space(  M2 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M2_3_4 { 
+;  Minimum extension of M2 region beyond V1 region is 0.01
+;  Minimum extension of M2 line end region beyond V1 region is 0.06
+X = enc_rect( V1 M2 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M2 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M2 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+
+RULE M2_5 { 
+;  Minimum space between M2 lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+;  The minimum space must be maintained between a metal line and a
+;  small piece of metal(<10) that is connected to the wide metal
+;  within 1.0um range from the wide metal
+X = geom_size( M2OVER10 by 1  delta 0.148  inside_of_layer WIDE_M2 )
+A = space(  X M2 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M2 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE M2_6 { 
+;  Minimum area of a M2 region is 0.20um
+geom_area ( M2 < 0.20  )
+}
+//M2_7 { @ Minimum density of M2 area is 30%
+//	  Covered by PD.M2 }
+//====================
+//  M3 - Metal 3 DRC
+//====================
+//--* Find Wide Metal *--//
+pvrs_tmp_layer_72 = geom_size( M3 by - 5  )
+WIDE_M3 = geom_interact(  M3 pvrs_tmp_layer_72 )
+// begin shrink
+WDM3_45 = edge_angle(  WIDE_M3 > 0  < 90  )
+WDM3_90 = ~edge_angle(  WIDE_M3 > 0  < 90  )
+WDM3_EXP_45 = geom_edge_to_rect( WDM3_45 inside 5 * 1.414213562  )
+WDM3_EXP_90 = geom_edge_to_rect( WDM3_90 inside 5  extend 5  )
+pvrs_tmp_layer_73 = geom_or(  WDM3_EXP_45 WDM3_EXP_90 )
+THIN_M3_TMP = geom_not(  WIDE_M3 pvrs_tmp_layer_73 )
+THIN_M3 = geom_snap( THIN_M3_TMP 1  )
+// begin grow
+TNM3_45 = edge_angle(  THIN_M3 > 0  < 90  )
+TNM3_90 = ~edge_angle(  THIN_M3 > 0  < 90  )
+TNM3_EXP_45_TMP = geom_edge_to_rect( TNM3_45 outside 5 * 1.414213562  )
+TNM3_EXP_45 = geom_snap( TNM3_EXP_45_TMP 1  )
+TNM3_EXP_90 = geom_edge_to_rect( TNM3_90 outside 5  extend 5  )
+TNM3_EXP = geom_or(  TNM3_EXP_45 TNM3_EXP_90 )
+WDM3_PRE = geom_or(  TNM3_EXP THIN_M3 )
+WDM3_PRE_FILL = space(  WDM3_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M3OVER10 = geom_or(  WDM3_PRE WDM3_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GM3 M3_? )
+
+RULE M3_1 { 
+;  Minimum width of an M3 region is 0.28um
+width(  M3 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M3_2 { 
+;  Minimum space between two M3 regions is 0.28um
+space(  M3 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M3_3_4 { 
+;  Minimum extension of M3 region beyond V2 region is 0.01
+;  Minimum extension of M3 line end region beyond V2 region is 0.06
+X = enc_rect( V2 M3 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M3 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M3 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+
+RULE M3_5 { 
+;  Minimum space between M3 lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+;  The minimum space must be maintained between a metal line and a
+;  small piece of metal(<10) that is connected to the wide metal
+;  within 1.0um range from the wide metal
+X = geom_size( M3OVER10 by 1  delta 0.148  inside_of_layer WIDE_M3 )
+A = space(  X M3 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M3 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE M3_6 { 
+;  Minimum area of a M3 region is 0.20um
+geom_area ( M3 < 0.20  )
+}
+//M3_7 { @ Minimum density of M3 area is 30%
+//	  Covered by PD.M3 }
+//====================
+//  M4 - Metal 4 DRC
+//====================
+//--* Find Wide Metal *--//
+pvrs_tmp_layer_74 = geom_size( M4 by - 5  )
+WIDE_M4 = geom_interact(  M4 pvrs_tmp_layer_74 )
+// begin shrink
+WDM4_45 = edge_angle(  WIDE_M4 > 0  < 90  )
+WDM4_90 = ~edge_angle(  WIDE_M4 > 0  < 90  )
+WDM4_EXP_45 = geom_edge_to_rect( WDM4_45 inside 5 * 1.414213562  )
+WDM4_EXP_90 = geom_edge_to_rect( WDM4_90 inside 5  extend 5  )
+pvrs_tmp_layer_75 = geom_or(  WDM4_EXP_45 WDM4_EXP_90 )
+THIN_M4_TMP = geom_not(  WIDE_M4 pvrs_tmp_layer_75 )
+THIN_M4 = geom_snap( THIN_M4_TMP 1  )
+// begin grow
+TNM4_45 = edge_angle(  THIN_M4 > 0  < 90  )
+TNM4_90 = ~edge_angle(  THIN_M4 > 0  < 90  )
+TNM4_EXP_45_TMP = geom_edge_to_rect( TNM4_45 outside 5 * 1.414213562  )
+TNM4_EXP_45 = geom_snap( TNM4_EXP_45_TMP 1  )
+TNM4_EXP_90 = geom_edge_to_rect( TNM4_90 outside 5  extend 5  )
+TNM4_EXP = geom_or(  TNM4_EXP_45 TNM4_EXP_90 )
+WDM4_PRE = geom_or(  TNM4_EXP THIN_M4 )
+WDM4_PRE_FILL = space(  WDM4_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M4OVER10 = geom_or(  WDM4_PRE WDM4_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GM4 M4_? )
+
+RULE M4_1 { 
+;  Minimum width of an M4 region is 0.28um
+width(  M4 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M4_2 { 
+;  Minimum space between two M4 regions is 0.28um
+space(  M4 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M4_3_4 { 
+;  Minimum extension of M4 region beyond V3 region is 0.01
+;  Minimum extension of M4 line end region beyond V3 region is 0.06
+X = enc_rect( V3 M4 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M4 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M4 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+
+RULE M4_5 { 
+;  Minimum space between M4 lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+;  The minimum space must be maintained between a metal line and a
+;  small piece of metal(<10) that is connected to the wide metal
+;  within 1.0um range from the wide metal
+X = geom_size( M4OVER10 by 1  delta 0.148  inside_of_layer WIDE_M4 )
+A = space(  X M4 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M4 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE M4_6 { 
+;  Minimum area of a M4 region is 0.20um
+geom_area ( M4 < 0.20  )
+}
+//M4_7 { @ Minimum density of M4 area is 30%
+//	  Covered by PD.M4 }
+//====================
+//  M5 - Metal 5 DRC
+//====================
+//--* Find Wide Metal *--//
+pvrs_tmp_layer_76 = geom_size( M5 by - 5  )
+WIDE_M5 = geom_interact(  M5 pvrs_tmp_layer_76 )
+// begin shrink
+WDM5_45 = edge_angle(  WIDE_M5 > 0  < 90  )
+WDM5_90 = ~edge_angle(  WIDE_M5 > 0  < 90  )
+WDM5_EXP_45 = geom_edge_to_rect( WDM5_45 inside 5 * 1.414213562  )
+WDM5_EXP_90 = geom_edge_to_rect( WDM5_90 inside 5  extend 5  )
+pvrs_tmp_layer_77 = geom_or(  WDM5_EXP_45 WDM5_EXP_90 )
+THIN_M5_TMP = geom_not(  WIDE_M5 pvrs_tmp_layer_77 )
+THIN_M5 = geom_snap( THIN_M5_TMP 1  )
+// begin grow
+TNM5_45 = edge_angle(  THIN_M5 > 0  < 90  )
+TNM5_90 = ~edge_angle(  THIN_M5 > 0  < 90  )
+TNM5_EXP_45_TMP = geom_edge_to_rect( TNM5_45 outside 5 * 1.414213562  )
+TNM5_EXP_45 = geom_snap( TNM5_EXP_45_TMP 1  )
+TNM5_EXP_90 = geom_edge_to_rect( TNM5_90 outside 5  extend 5  )
+TNM5_EXP = geom_or(  TNM5_EXP_45 TNM5_EXP_90 )
+WDM5_PRE = geom_or(  TNM5_EXP THIN_M5 )
+WDM5_PRE_FILL = space(  WDM5_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M5OVER10 = geom_or(  WDM5_PRE WDM5_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GM5 M5_? )
+
+RULE M5_1 { 
+;  Minimum width of an M5 region is 0.28um
+width(  M5 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M5_2 { 
+;  Minimum space between two M5 regions is 0.28um
+space(  M5 < 0.28  adjacent < 90  point_touch region )
+}
+
+RULE M5_3_4 { 
+;  Minimum extension of M5 region beyond V4 region is 0.01
+;  Minimum extension of M5 line end region beyond V4 region is 0.06
+X = enc_rect( V4 M5 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M5 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M5 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+
+RULE M5_5 { 
+;  Minimum space between M5 lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+;  The minimum space must be maintained between a metal line and a
+;  small piece of metal(<10) that is connected to the wide metal
+;  within 1.0um range from the wide metal
+X = geom_size( M5OVER10 by 1  delta 0.148  inside_of_layer WIDE_M5 )
+A = space(  X M5 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M5 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE M5_6 { 
+;  Minimum area of a M5 region is 0.20um
+geom_area ( M5 < 0.20  )
+}
+//M5_7 { @ Minimum density of M5 area is 30%
+//	  Covered by PD.M5 }
+//====================
+//  MT - Metal 6 DRC
+//====================
+//--* Find Wide Metal *--//
+//M6OVER10    = M6 WITH WIDTH > 10
+//WIDE_M6     = M6 INTERACT M6OVER10   // wide metal
+pvrs_tmp_layer_78 = geom_size( M6 by - 5  )
+WIDE_M6 = geom_interact(  M6 pvrs_tmp_layer_78 )
+// begin shrink
+WDM6_45 = edge_angle(  WIDE_M6 > 0  < 90  )
+WDM6_90 = ~edge_angle(  WIDE_M6 > 0  < 90  )
+WDM6_EXP_45 = geom_edge_to_rect( WDM6_45 inside 5 * 1.414213562  )
+WDM6_EXP_90 = geom_edge_to_rect( WDM6_90 inside 5  extend 5  )
+pvrs_tmp_layer_79 = geom_or(  WDM6_EXP_45 WDM6_EXP_90 )
+THIN_M6_TMP = geom_not(  WIDE_M6 pvrs_tmp_layer_79 )
+THIN_M6 = geom_snap( THIN_M6_TMP 1  )
+// begin grow
+TNM6_45 = edge_angle(  THIN_M6 > 0  < 90  )
+TNM6_90 = ~edge_angle(  THIN_M6 > 0  < 90  )
+TNM6_EXP_45_TMP = geom_edge_to_rect( TNM6_45 outside 5 * 1.414213562  )
+TNM6_EXP_45 = geom_snap( TNM6_EXP_45_TMP 1  )
+TNM6_EXP_90 = geom_edge_to_rect( TNM6_90 outside 5  extend 5  )
+TNM6_EXP = geom_or(  TNM6_EXP_45 TNM6_EXP_90 )
+WDM6_PRE = geom_or(  TNM6_EXP THIN_M6 )
+WDM6_PRE_FILL = space(  WDM6_PRE < 5  adjacent > 0  < 90  intersecting_only region )
+M6OVER10 = geom_or(  WDM6_PRE WDM6_PRE_FILL )
+//--* End of Finding Wide Metal *--//
+group_rule( GMT MT_? )
+
+RULE MT_1 { 
+;  Minimum width of a top metal is 0.44um
+width(  M6 < 0.44  adjacent < 90  point_touch region )
+}
+
+RULE MT_2 { 
+;  Minimum space between two top metal regions is 0.46um
+space(  M6 < 0.46  adjacent < 90  point_touch region )
+}
+
+RULE MT_3 { 
+;  Minimum extension of MT region over V5 region is 0.09
+extension(  V5 M6 < 0.09  adjacent < 90  point_touch region overlapped outside_also )
+}
+
+RULE MT_4 { 
+;  Minimum space between top metal lines with one or both metal line width
+;  and length are greater than 10um is 0.60um
+X = geom_size( M6OVER10 by 1  delta 0.148  inside_of_layer WIDE_M6 )
+A = space(  X M6 < 0.60  adjacent < 90  point_touch region )
+A1 = geom_size( A by 0.001  clip 0.001  )
+A2 = geom_and(  A1 M6 )
+B = geom_adjacent(  A A2 == 1  )
+geom_not(  A B )
+}
+
+RULE MT_5 { 
+;  Minimum area of an MT region is 0.56um
+geom_area ( M6 < 0.56  )
+}
+//MT_6 { @ Minimum density of MT area is 30%
+//	 Covered by PD.MT }
+TMP = geom_size( PA by 5  )
+PADM1 = geom_and(  M1 TMP )
+PADM2 = geom_and(  M2 TMP )
+PADM3 = geom_and(  M3 TMP )
+PADM4 = geom_and(  M4 TMP )
+PADM5 = geom_and(  M5 TMP )
+PADM6 = geom_and(  M6 TMP )
+PADV1 = geom_and(  V1 PADM1 )
+PADV2 = geom_and(  V2 PADM2 )
+PADV3 = geom_and(  V3 PADM3 )
+PADV4 = geom_and(  V4 PADM4 )
+PADV5 = geom_and(  V5 PADM5 )
+//===================
+//  V1 - Via 1 DRC
+//===================
+group_rule( GV1 V1_? )
+
+RULE V1_1 { 
+;  Minimum/maximum size of a V1 is 0.26um 
+~geom_rectangle( pvrs_tmp_layer_80 == 0.26  by == 0.26  )
+pvrs_tmp_layer_80 = geom_not(  V1 M1FUSE_RING )
+}
+
+RULE V1_2 { 
+;  Minimum space between two V1 is 0.26um
+space(  V1 < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE V1_3_4 { 
+;  Minimum metal 1 enclosure for a V1 is 0.01um
+;  If Metal 1 line end beyond V1, 0.06um
+;  For V1 located at the 90 degree corner, one side of metal extension
+;  must be treated as end-of-line and the other side follows V1.3
+X = enc_rect( V1 M1 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M1 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M1 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+//===================
+//  V2 - Via 2 DRC
+//===================
+group_rule( GV2 V2_? )
+
+RULE V2_1 { 
+;  Minimum/maximum size of a V2 is 0.26um 
+~geom_rectangle( pvrs_tmp_layer_81 == 0.26  by == 0.26  )
+pvrs_tmp_layer_81 = geom_not(  V2 M2FUSE_RING )
+}
+
+RULE V2_2 { 
+;  Minimum space between two V2 is 0.26um
+space(  V2 < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE V2_3_4 { 
+;  Minimum metal 2 enclosure for a V2 is 0.01um
+;  If Metal 2 line end beyond V2, 0.06um
+;  For V2 located at the 90 degree corner, one side of metal extension
+;  must be treated as end-of-line and the other side follows V2.3
+X = enc_rect( V2 M2 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M2 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M2 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+//===================
+//  V3 - Via 3 DRC
+//===================
+group_rule( GV3 V3_? )
+
+RULE V3_1 { 
+;  Minimum/maximum size of a V3 is 0.26um 
+~geom_rectangle( pvrs_tmp_layer_82 == 0.26  by == 0.26  )
+pvrs_tmp_layer_82 = geom_not(  V3 M3FUSE_RING )
+}
+
+RULE V3_2 { 
+;  Minimum space between two V3 is 0.26um
+space(  V3 < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE V3_3_4 { 
+;  Minimum metal 3 enclosure for a V3 is 0.01um
+;  If Metal 3 line end beyond V3, 0.06um
+;  For V3 located at the 90 degree corner, one side of metal extension
+;  must be treated as end-of-line and the other side follows V3.3
+X = enc_rect( V3 M3 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M3 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M3 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+//===================
+//  V4 - Via 4 DRC
+//===================
+group_rule( GV4 V4_? )
+
+RULE V4_1 { 
+;  Minimum/maximum size of a V4 is 0.26um 
+~geom_rectangle( pvrs_tmp_layer_83 == 0.26  by == 0.26  )
+pvrs_tmp_layer_83 = geom_not(  V4 M4FUSE_RING )
+}
+
+RULE V4_2 { 
+;  Minimum space between two V4 is 0.26um
+space(  V4 < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE V4_3_4 { 
+;  Minimum metal 4 enclosure for a V4 is 0.01um
+;  If Metal 4 line end beyond V4, 0.06um
+;  For V4 located at the 90 degree corner, one side of metal extension
+;  must be treated as end-of-line and the other side follows V4.3
+X = enc_rect( V4 M4 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M4 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M4 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+//==================
+//  VT - Via 5 DRC
+//==================
+group_rule( GVT VT_? )
+
+RULE VT_1 { 
+;  Minimum/maximum size of a VT is 0.36um
+~geom_rectangle( pvrs_tmp_layer_84 == 0.36  by == 0.36  )
+pvrs_tmp_layer_84 = geom_not(  V5 M5FUSE_RING )
+}
+
+RULE VT_2 { 
+;  Minimum space between two VT is 0.35um
+space(  V5 < 0.35  adjacent < 90  point_touch region )
+}
+
+RULE VT_3_4 { 
+;  Minimum M5 enclosure for VT is 0.01um
+;  Minimum enclosure of M5 over VT along metal line direction is 0.06um
+X = enc_rect( V5 M5 adjacent < 90  outside_also correct 0.01  opposite 0.06  opposite 0.01  opposite 0.06  opposite )
+extension(  X M5 < 0.01  adjacent < 90  point_touch overlapped outside_also )
+Y = extension(  [x] M5 < 0.06  opposite )
+width(  Y < 0.01  adjacent == 90  intersecting_only )
+}
+//=============================================
+//  FUSE Guideline for metal fuse design minima
+//=============================================
+group_rule( GFUSE FUSE_? )
+M5FUSE = geom_and(  FUSE M5 )
+pvrs_tmp_layer_85 = geom_interact(  PI FUSE )
+PIFUSE_RING = geom_not(  pvrs_tmp_layer_85 FUSE )
+M1FUSE_RING = geom_and(  PIFUSE_RING M1 )
+AM1 = geom_holes( M1FUSE_RING )
+BM1 = geom_adjacent(  M1FUSE_RING AM1 )
+M2FUSE_RING = geom_and(  PIFUSE_RING M2 )
+AM2 = geom_holes( M2FUSE_RING )
+BM2 = geom_adjacent(  M2FUSE_RING AM2 )
+M3FUSE_RING = geom_and(  PIFUSE_RING M3 )
+AM3 = geom_holes( M3FUSE_RING )
+BM3 = geom_adjacent(  M3FUSE_RING AM3 )
+M4FUSE_RING = geom_and(  PIFUSE_RING M4 )
+AM4 = geom_holes( M4FUSE_RING )
+BM4 = geom_adjacent(  M4FUSE_RING AM4 )
+M5FUSE_RING = geom_and(  PIFUSE_RING M5 )
+AM5 = geom_holes( M5FUSE_RING )
+BM5 = geom_adjacent(  M5FUSE_RING AM5 )
+TMFUSE_RING = geom_and(  PIFUSE_RING M6 )
+ATM = geom_holes( TMFUSE_RING )
+BTM = geom_adjacent(  TMFUSE_RING ATM )
+V1FUSE_RING = geom_inside(  V1 BM1 )
+V2FUSE_RING = geom_inside(  V2 BM2 )
+V3FUSE_RING = geom_inside(  V3 BM3 )
+V4FUSE_RING = geom_inside(  V4 BM4 )
+V5FUSE_RING = geom_inside(  V5 BM5 )
+
+RULE FUSE_1 { 
+;  Width of metal fuse is 0.80
+~geom_enclose_rectangle( M5FUSE 0.8  4  )
+}
+
+RULE FUSE_2 { 
+;  Minimum space of metal fuse is 4.00
+space(  M5FUSE < 4  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_3 { 
+;  Minimum length of metal fuse is 4.00
+X = edge_length(  M5FUSE >= 4  )
+~geom_with_edge( M5FUSE X >= 2  )
+}
+
+RULE FUSE_4 { 
+;  Max.metal fuse length is 10
+edge_length(  M5FUSE > 10  )
+}
+
+RULE FUSE_5 { 
+; Min.extension from GT to CT
+CT_FUSE = geom_and(  pvrs_tmp_layer_86 CT )
+extension(  CT_FUSE GT < 0.3  adjacent < 90  point_touch region )
+pvrs_tmp_layer_86 = geom_interact(  PI FUSE )
+}
+
+RULE FUSE_6 { 
+;  CT enclosure by M1 is 0.3
+CT_FUSE = geom_and(  pvrs_tmp_layer_87 CT )
+extension(  CT_FUSE M1 < 0.3  adjacent < 90  point_touch region )
+pvrs_tmp_layer_87 = geom_interact(  PI FUSE )
+}
+
+RULE FUSE_7 { 
+;  CT/Vn enclosure by M1 to MT-1 for stacked via is 0.3
+CT_FUSE = geom_and(  pvrs_tmp_layer_88 CT )
+V1_FUSE = geom_and(  pvrs_tmp_layer_89 V1 )
+V2_FUSE = geom_and(  pvrs_tmp_layer_90 V2 )
+V3_FUSE = geom_and(  pvrs_tmp_layer_91 V3 )
+V4_FUSE = geom_and(  pvrs_tmp_layer_92 V4 )
+V5_FUSE = geom_and(  pvrs_tmp_layer_93 V5 )
+extension(  CT_FUSE M1 < 0.3  adjacent < 90  point_touch region )
+extension(  V1_FUSE M2 < 0.3  adjacent < 90  point_touch region )
+extension(  V2_FUSE M2 < 0.3  adjacent < 90  point_touch region )
+extension(  V2_FUSE M3 < 0.3  adjacent < 90  point_touch region )
+extension(  V3_FUSE M3 < 0.3  adjacent < 90  point_touch region )
+extension(  V3_FUSE M4 < 0.3  adjacent < 90  point_touch region )
+extension(  V4_FUSE M4 < 0.3  adjacent < 90  point_touch region )
+extension(  V4_FUSE M5 < 0.3  adjacent < 90  point_touch region )
+extension(  V5_FUSE M5 < 0.3  adjacent < 90  point_touch region )
+extension(  V5_FUSE M6 < 0.3  adjacent < 90  point_touch region )
+pvrs_tmp_layer_88 = geom_interact(  PI FUSE )
+pvrs_tmp_layer_89 = geom_interact(  PI FUSE )
+pvrs_tmp_layer_90 = geom_interact(  PI FUSE )
+pvrs_tmp_layer_91 = geom_interact(  PI FUSE )
+pvrs_tmp_layer_92 = geom_interact(  PI FUSE )
+pvrs_tmp_layer_93 = geom_interact(  PI FUSE )
+}
+
+RULE FUSE_8 { 
+;  Space between fuse edge and PW edge is 8
+space(  FUSE NW < 8  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_9 { 
+;  Space between fuse and fuse window is 3.5
+extension(  M5FUSE FUSE < 3.5  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_10 { 
+;  Space between fuse window and protection ring is 1.5
+space(  BM1 FUSE < 1.5  adjacent < 90  point_touch region )
+space(  BM2 FUSE < 1.5  adjacent < 90  point_touch region )
+space(  BM3 FUSE < 1.5  adjacent < 90  point_touch region )
+space(  BM4 FUSE < 1.5  adjacent < 90  point_touch region )
+space(  BM5 FUSE < 1.5  adjacent < 90  point_touch region )
+space(  BTM FUSE < 1.5  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_11a { 
+;  V1 and Vn-1 width in protection ring is 0.26
+;  Vn width in protection ring is 0.36
+width(  V1FUSE_RING < 0.26  adjacent < 90  point_touch region )
+width(  V2FUSE_RING < 0.26  adjacent < 90  point_touch region )
+width(  V3FUSE_RING < 0.26  adjacent < 90  point_touch region )
+width(  V4FUSE_RING < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_11b { 
+;  Width of Vx-1 in protection ring is 0.36
+width(  V5FUSE_RING < 0.36  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_12 { 
+;  Min.extension from M1~Mx to V1~Vx-1 in protection ring is 0.40
+extension(  V1FUSE_RING BM2 < 0.4  adjacent < 90  point_touch region )
+extension(  V2FUSE_RING BM2 < 0.4  adjacent < 90  point_touch region )
+extension(  V2FUSE_RING BM3 < 0.4  adjacent < 90  point_touch region )
+extension(  V3FUSE_RING BM3 < 0.4  adjacent < 90  point_touch region )
+extension(  V3FUSE_RING BM4 < 0.4  adjacent < 90  point_touch region )
+extension(  V4FUSE_RING BM4 < 0.4  adjacent < 90  point_touch region )
+extension(  V4FUSE_RING BM5 < 0.4  adjacent < 90  point_touch region )
+extension(  V5FUSE_RING BM5 < 0.4  adjacent < 90  point_touch region )
+extension(  V5FUSE_RING BTM < 0.4  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_13 { 
+;  Fuse window width is 5
+width(  FUSE < 5  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_14 { 
+;  Fuse window length is 20.00
+X = edge_length(  FUSE >= 20  )
+~geom_with_edge( FUSE X >= 2  )
+}
+
+RULE FUSE_15 { 
+;  Min.width of polymide openuing is 30
+width(  PI < 30  adjacent < 90  point_touch region )
+}
+
+RULE FUSE_16 { 
+;  Passivation window enclosure by polymide window is 12
+X = geom_interact(  PI PA )
+extension(  FUSE X < 12  adjacent < 90  point_touch region )
+}
+//FUSE_17: Min.seperation from via's inside protection ring is 0.00
+//FUSE_18: Space between metal island and protection ring is 1.0
+//***************************************
+//         Mix-Signal Rules
+//***************************************
+//=========================
+//  DNW - Deep N-Well DRC
+//=========================
+group_rule( GDNW DNW_? )
+HOLE_INNW = geom_holes( NW )
+NW_HOLE = geom_adjacent(  NW HOLE_INNW )
+
+RULE DNW_1 { 
+;  DNW.1
+;  DNW must be surrounded by NW
+//  DNW NOT ENCLOSE HOLE_INNW
+edge_outside(  DNW NW )
+Y = geom_not(  DNW NW )
+Z = geom_interact(  DNW Y )
+geom_not(  DNW Z )
+}
+
+RULE DNW_2 { 
+;  DNW.2
+;  It's not allowed to use DNW layer as resistor
+geom_and(  RESNW DNW )
+}
+
+RULE DNW_3 { 
+;  DNW.3
+;  3.3V PMOS is not allowed in the NW connected to DNW
+HVPMOS = geom_interact(  pvrs_tmp_layer_94 HPGATE )
+NW_DNW = geom_interact(  NW DNW )
+geom_and(  HVPMOS NW_DNW )
+pvrs_tmp_layer_94 = geom_or(  AA GT )
+}
+
+RULE DNW_4 { 
+;  DNW.4
+;  Minimum extension of NW beyond DNW is 1.5um
+extension(  DNW NW_HOLE < 1.5  adjacent < 90  )
+}
+
+RULE DNW_5 { 
+;  DNW.5
+;  Minimum overlap of NW onto DNW is 2.00um
+extension(  HOLE_INNW DNW < 2  adjacent < 90  point_touch region )
+}
+
+RULE DNW_6 { 
+;  DNW.6
+;  Minimum clearance from DNW to NW is 3.50
+X = ~edge_coincident( both_side  NW DNW )
+space(  X DNW < 3.50  adjacent < 90  region )
+}
+
+RULE DNW_7 { 
+;  DNW.7
+;  Minimum width of a DNW region is 3.00
+width(  DNW < 3  adjacent < 90  point_touch region )
+}
+
+RULE DNW_8 { 
+;  DNW.8
+;  Minimum space between 2 DNW region is 5.00
+space(  DNW < 5  adjacent < 90  point_touch region )
+}
+
+RULE DNW_9 { 
+;  DNW.9
+;  Minimum clearance from NW edge to a N+ AA region is outside a NW when DNW
+;  is implemented is 0.5
+NACT_INHOLE = geom_inside(  NACT pvrs_tmp_layer_95 )
+extension(  NACT_INHOLE HOLE_INNW < 0.5  adjacent < 90  outside_also point_touch region )
+pvrs_tmp_layer_95 = geom_interact(  HOLE_INNW DNW )
+}
+
+RULE DNW_11 { 
+;  DNW.11
+;  It's not allowed to use NW connect to DNW as resistor
+X = geom_interact(  NW DNW )
+geom_and(  X RESNW )
+}
+//================
+//   MVN DRC
+//================
+group_rule( GMVN MVN_? )
+
+RULE MVN_1 { 
+;  MVN.1
+;  MVN inside or cross over Nwell or PSUB is not allowed
+geom_interact(  MVN NW )
+geom_interact(  MVN PSUB )
+}
+
+RULE MVN_2 { 
+;  MVN.2
+;  MVN inside or cross over Deep NWell is not allowed
+geom_interact(  MVN DNW )
+}
+
+RULE MVN_3 { 
+;  MVN.3
+;  A bent GATE is not allowed put in MVN region
+MVN_PO = geom_and(  GATE MVN )
+TMP = geom_not(  MVN MVN_PO )
+X = edge_coincident( both_side  MVN_PO TMP )
+space(  X < 0.01  adjacent < 180  region )
+}
+
+RULE MVN_4 { 
+;  MVN.4
+;  Minimum dimension of MVN region is 0.72
+width(  MVN < 0.72  adjacent < 90  point_touch region )
+}
+
+RULE MVN_5 { 
+;  MVN.5
+;  Minimum dimension of a GATE area of a 1.8V Medium NMOS device is 0.30
+LGT_MVN = geom_interact(  pvrs_tmp_layer_96 MVN )
+width(  LGT_MVN < 0.30  adjacent < 90  point_touch region )
+pvrs_tmp_layer_96 = geom_not(  GATE DG )
+}
+
+RULE MVN_5a { 
+;  MVN.5a
+;  Minimum dimension of a GATE area of a 3.3V Medium NMOS device is 0.60
+HGT_MVN = geom_and(  pvrs_tmp_layer_97 MVN )
+width(  HGT_MVN < 0.60  adjacent < 90  point_touch region )
+pvrs_tmp_layer_97 = geom_and(  GATE DG )
+}
+
+RULE MVN_6 { 
+;  MVN.6
+;  Minimum clearance from a MVN region to a SN(N+) AA region is 0.70
+space(  MVN NACT < 0.70  adjacent < 90  point_touch region )
+}
+
+RULE MVN_7 { 
+;  MVN.7
+;  Minimum clearance from a MVN region to a Nwell edge is 0.42
+space(  MVN NW < 0.42  adjacent < 90  point_touch region )
+}
+
+RULE MVN_8 { 
+;  MVN.8
+;  Minimum extension from a MVN region beyond SN(N+) AA region is 0.25
+extension(  NACT MVN < 0.25  adjacent < 90  point_touch region )
+}
+
+RULE MVN_9 { 
+;  MVN.9
+;  Minimum space between two MVN regions. Merge if less than 0.42
+space(  MVN > 0  < 0.42  adjacent < 90  point_touch region )
+}
+
+RULE MVN_10 { 
+;  MVN.10
+;  A SP(P+) region is not allowed in a MVN region
+geom_and(  SP MVN )
+}
+//================
+//   MVP DRC
+//================
+group_rule( GMVP MVP_? )
+
+RULE MVP_1 { 
+;  MVP.1
+;  MVP inside or cros over Pwell or PSUB is not allowed
+geom_interact(  MVP PW )
+geom_interact(  MVP PSUB )
+}
+
+RULE MVP_2 { 
+;  MVP.2
+;  MVP inside or cross over Deep NWell is not allowed
+geom_interact(  MVP DNW )
+}
+
+RULE MVP_3 { 
+;  MVP.3
+;  A bent GATE is not allowed put in MVP region
+MVP_PO = geom_and(  GATE MVP )
+TMP = geom_not(  MVP MVP_PO )
+X = edge_coincident( both_side  MVP_PO TMP )
+space(  X < 0.01  adjacent < 180  region )
+}
+
+RULE MVP_4 { 
+;  MVP.4
+;  Minimum dimension of MVP region is 0.72
+width(  MVP < 0.72  adjacent < 90  point_touch region )
+}
+
+RULE MVP_5 { 
+;  MVP.5
+;  Minimum dimension of a GATE area of a 1.8V Medium PMOS device is 0.25
+LGT_MVP = geom_interact(  pvrs_tmp_layer_98 MVP )
+width(  LGT_MVP < 0.25  adjacent < 90  point_touch region )
+pvrs_tmp_layer_98 = geom_not(  GATE DG )
+}
+
+RULE MVP_6 { 
+;  MVP.6
+;  Minimum clearance from a MVP region to a SP(P+) AA region is 0.70
+space(  MVP PACT < 0.70  adjacent < 90  point_touch region )
+}
+
+RULE MVP_7 { 
+;  MVP.7
+;  Minimum extension from a NWell region beyond MVP region is 0.42
+extension(  MVP NW < 0.42  adjacent < 90  point_touch region )
+}
+
+RULE MVP_8 { 
+;  MVP.8
+;  Minimum extension from a MVP region beyond SP(P+) AA region is 0.25
+extension(  PACT MVP < 0.25  adjacent < 90  point_touch region )
+}
+
+RULE MVP_9 { 
+;  MVP.9
+;  Minimum space between two MVP regions. Merge if less than 0.42
+space(  MVP > 0  < 0.42  adjacent < 90  point_touch region )
+}
+
+RULE MVP_10 { 
+;  MVP.10
+;  A SN(N+) region is not allowed in a MVP region
+geom_and(  SN MVP )
+}
+//==================================
+//  HRP - High Resistance Poly DRC
+//==================================
+group_rule( GHRP HRP_? )
+
+RULE HRP_2 { 
+;  HRP.2
+;  Minimum extension from HRP region beyond a GATE resistor region is 0.26
+extension(  GT_HRP HRP < 0.26  adjacent < 90  point_touch region )
+}
+
+RULE HRP_3_4 { 
+;  HRP.3 ; HRP.4
+;  Minimum clearance from HRP region to Polygate of NMOS/PMOS is 0.32
+GT_MOS = geom_interact(  GT GATE )
+space(  HRP GT_MOS < 0.32  adjacent < 90  point_touch region )
+}
+
+RULE HRP_5 { 
+;  HRP.5
+;  Minimum and maximum P+ implant for pickup oerlap with SAB is 0.30
+SP_HRP = geom_interact(  SP HRP )
+SAB_HRP = geom_interact(  SAB HRP )
+width(  SP_HRP SAB_HRP < 0.30  adjacent < 90  point_touch region )
+SIZE_SP = geom_size( SP_HRP by - 0.30  )
+geom_and(  SIZE_SP SAB_HRP )
+}
+
+RULE HRP_6 { 
+;  HRP.6
+;  Minimum extension from SAB region beyond a GATE resistor region is 0.22
+extension(  GT_HRP SAB < 0.22  adjacent < 90  point_touch region )
+}
+
+RULE HRP_7 { 
+;  HRP.7
+;  Minimum width of Poly region for high resistance poly resistor is 2.00
+width(  HR_GT < 2  adjacent < 90  point_touch region )
+}
+
+RULE HRP_8 { 
+;  HRP.8
+;  Dummy layer "HRPDMY" is needed for DRC for high resistance Poly region
+SAB_HRP = geom_interact(  SAB HRP )
+~geom_interact(  SAB_HRP HRPDMY )
+}
+
+RULE HRP_10 { 
+; it is not allowed to receive S/D-SN,and all LDD implant in the HRP region
+geom_and(  HR_GT SP )
+geom_and(  HR_GT SN )
+}
+//=================================== 
+//  MIM - Metal-Insulator-Metal DRC
+//===================================
+CAP_MIM = geom_interact(  MIM V5 )
+DMY_MIM = geom_not(  MIM CAP_MIM )
+pvrs_tmp_layer_99 = geom_size( M5 by 2  in_out )
+M5_CAPMIM = geom_interact(  pvrs_tmp_layer_99 CAP_MIM )
+M5_DMYMIM = geom_interact(  M5 DMY_MIM )
+/*
+CAPMIM_M5 = SIZE CAP_MIM BY 1 INSIDE OF M5 STEP 0.25
+M5_CAPMIM = M5 AND CAPMIM_M5
+M5_CAPMIM_CO = SIZE M5_CAPMIM BY 5 UNDEROVER
+*/
+V5_MIM = geom_and(  V5 CAP_MIM )
+pvrs_tmp_layer_100 = geom_and(  V5 M5_CAPMIM )
+V5_CAPM5 = geom_not(  pvrs_tmp_layer_100 V5_MIM )
+group_rule( GMIM MIM_? )
+
+RULE MIM_1 { 
+;  MIM.1
+;  Minimum width of MIM region as top plate is 4.00
+width(  CAP_MIM < 4  adjacent < 90  point_touch region )
+}
+
+RULE MIM_2 { 
+;  MIM.2
+;  Minimum space between two MIM region as top plate is 1.20
+space(  CAP_MIM < 1.20  adjacent < 90  point_touch region )
+}
+
+RULE MIM_3 { 
+;  MIM.3
+;  Minimum extension of MIM region beyond a Via which connect
+;  to this MIM is 0.24
+X = geom_and(  V5 MIM )
+extension(  X MIM < 0.24  adjacent < 90  point_touch region )
+}
+
+RULE MIM_4 { 
+;  MIM.4
+;  Minimum extension of bottom plate(Mn) region on a MIM region is 0.4
+extension(  CAP_MIM M5_CAPMIM < 0.40  adjacent < 90  outside_also point_touch region )
+}
+
+RULE MIM_5 { 
+;  MIM.5
+;  MIM region cross bottom plate (Mn) Metal region is not allowed
+~geom_inside(  MIM M5 )
+}
+
+RULE MIM_6 { 
+;  MIM.6
+;  Both active and passive devices under MIM region are not allowed
+X = geom_or(  pvrs_tmp_layer_101 RESNW )
+geom_and(  X CAP_MIM )
+pvrs_tmp_layer_101 = geom_or(  AA GT )
+}
+
+RULE MIM_7 { 
+;  MIM.7
+;  Maximum dimension of a MIM region as capacitor top metal is 30.0
+geom_size( CAP_MIM by 15  in_out )
+}
+
+RULE MIM_8 { 
+;  MIM.8
+;  Maximum dimension of a bottom metal (Mn) region in capacitor is 35
+;  If capacitor larger than 35*35,please use combination of smaller capacitor
+geom_size( M5_CAPMIM by 17.5  in_out )
+}
+
+RULE MIM_9a { 
+;  MIM.9a
+;  Min. density of MIM pattern is 3 %
+check_density( MIMi < 0.03  )
+}
+
+RULE MIM_9b { 
+;  MIM.9b (GuideLine, could be controled by User)
+;  Dummy MIM pattern suggested 2*5 um*um
+X = width(  DMY_MIM == 2  region )
+Y = edge_length(  X == 5  )
+~geom_with_edge( DMY_MIM Y )
+}
+
+RULE MIM_9c { 
+;  MIM.9c (GuideLine, could be controled by User)
+;  Dummy MIM pattern suggested 2*5 um*um with space 1.5 um
+X = width(  DMY_MIM == 2  region )
+Y = edge_length(  X == 5  )
+Z = geom_with_edge( DMY_MIM Y )
+space(  Z < 1.5  adjacent < 90  point_touch region )
+}
+
+RULE MIM_10 { 
+;  MIM.10
+;  No Via and metal layers under MIM region are allowed.
+;  One DRC dummy layer "MIMDMY" is needed to separate MIM region from metal interconnection
+Vn = geom_or(  pvrs_tmp_layer_103 V4 )
+Mn = geom_or(  pvrs_tmp_layer_105 M4 )
+geom_and(  Vn CAP_MIM )
+geom_and(  Mn CAP_MIM )
+pvrs_tmp_layer_102 = geom_or(  V1 V2 )
+pvrs_tmp_layer_103 = geom_or(  pvrs_tmp_layer_102 V3 )
+pvrs_tmp_layer_104 = geom_or(  M1 M2 )
+pvrs_tmp_layer_105 = geom_or(  pvrs_tmp_layer_104 M3 )
+}
+
+RULE MIM_11 { 
+;  MIM.11
+;  Minimum extension of capacitor bottom metal beyond Via connect to Mn is 0.12
+extension(  V5_CAPM5 M5_CAPMIM < 0.12  adjacent < 90  point_touch region )
+}
+
+RULE MIM_12 { 
+;  MIM.12
+;  Minimum clearance of a top Via to MIM region is 0.40
+space(  CAP_MIM V5_CAPM5 < 0.40  adjacent < 90  point_touch region )
+}
+
+RULE MIM_13 { 
+;  MIM.13
+;  Minimum space between two Via on MIM is 2.00
+X = space(  V5_MIM < 2  adjacent < 90  point_touch region )
+geom_inside(  X MIM )
+}
+
+RULE MIM_14 { 
+;  MIM.14
+;  Minimum space between two Via on bottom metal(Mn) is 4.0
+X = space(  pvrs_tmp_layer_108 < 4  adjacent < 90  point_touch region )
+geom_inside(  X M5_CAPMIM )
+pvrs_tmp_layer_106 = geom_size( M5_CAPMIM by 2  in_out )
+pvrs_tmp_layer_107 = geom_not(  pvrs_tmp_layer_106 CAP_MIM )
+pvrs_tmp_layer_108 = geom_and(  V5_CAPM5 pvrs_tmp_layer_107 )
+}
+
+RULE MIM_15 { 
+;  MIM.15
+;  Minimum width of dummy MIM region is 0.40
+width(  DMY_MIM < 0.4  adjacent < 90  point_touch region )
+}
+
+RULE MIM_16 { 
+;  MIM.16
+;  Minimum space of dummy MIM to MIM region is 0.80
+space(  DMY_MIM CAP_MIM < 0.80  adjacent < 90  point_touch region )
+}
+
+RULE MIM_17 { 
+;  MIM.17
+;  Minimum space of dummy Mn to Mn is 0.80
+space(  M5_CAPMIM M5_DMYMIM < 0.8  adjacent < 90  point_touch region )
+}
+
+RULE MIM_18 { 
+;  MIM.18
+;  Minimum space of MiM cap bottom Metal(Mn) with Via to below all Metal layers is 2.0
+;  Below metal inside Cap bottom is not allowed
+X = geom_or(  pvrs_tmp_layer_110 M4 )
+space(  M5_CAPMIM X < 2  adjacent < 90  point_touch region )
+geom_and(  M5_CAPMIM X )
+pvrs_tmp_layer_109 = geom_or(  M1 M2 )
+pvrs_tmp_layer_110 = geom_or(  pvrs_tmp_layer_109 M3 )
+}
+//MIM_19 {
+//@The MIM structure is placed within top metal and next 1 metal.
+// include in check MIM.10
+//}
+//==========================================
+//  PI - Guidline for polymide layout minima
+//==========================================
+group_rule( GPI PI_? )
+
+RULE PI_1 { 
+;  Space between two polymide open area is 15
+space(  PI < 15  adjacent < 90  point_touch region )
+}
+
+RULE PI_2 { 
+;  Minimum space between polyimide open area to chip edge is 15
+extension(  PI BULK < 15  adjacent < 90  point_touch region )
+}
+//========================
+//  PD - Density Check
+//========================
+group_rule( GPD PD_? )
+
+RULE PD_GT { 
+;  Min. Poly GDS pattern density is 14%
+check_density( GTi < 0.14  output_log density_report_GT.log )
+}
+
+RULE PD_M1 { 
+;  Min. Metal 1 GDS pattern density is 30%
+check_density( M1i < 0.30  output_log density_report_M1.log )
+}
+
+RULE PD_M2 { 
+;  Min. Metal 2 GDS pattern density is 30%
+check_density( M2i < 0.30  output_log density_report_M2.log )
+}
+
+RULE PD_M3 { 
+;  Min. Metal 3 GDS pattern density is 30%
+check_density( M3i < 0.30  output_log density_report_M3.log )
+}
+
+RULE PD_M4 { 
+;  Min. Metal 4 GDS pattern density is 30%
+check_density( M4i < 0.30  output_log density_report_M4.log )
+}
+
+RULE PD_M5 { 
+;  Min. Metal 5 GDS pattern density is 30%
+check_density( M5i < 0.30  output_log density_report_M5.log )
+}
+
+RULE PD_M6 { 
+;  Min. Metal 6 GDS pattern density is 30%
+check_density( M6i < 0.30  output_log density_report_M6.log )
+}
+//============================
+//    Conventional Check
+//============================
+group_rule( GConvention Convention_? )
+
+RULE Convention_FLT_NW { 
+;  NW without N+ pick up
+~geom_interact(  NW NTAPi )
+}
+
+RULE Convention_BPMO { 
+;  Pmos in PW
+PGT = geom_and(  PACT GT )
+geom_and(  PW PGT )
+}
+
+RULE Convention_BAD_IMP { 
+;  AA area without any implant
+X = ~geom_interact(  AA RESNW )
+geom_not(  pvrs_tmp_layer_111 SP )
+pvrs_tmp_layer_111 = geom_not(  X SN )
+}
+pvrs_tmp_layer_112 = ~geom_interact(  PMOS CAPBP )
+PMOS1 = ~geom_interact(  pvrs_tmp_layer_112 RESP1 )
+
+RULE Convention_LAT_3a1 { 
+; Convention_Lat_3a1: Maximum space from any point within Source/Drain region to the nearest pick up AA region in side the same well for I/O and internal circuits 
+A = width(  NTAP < 0.005  adjacent intersecting_only region )
+B = geom_not(  pvrs_tmp_layer_113 A )
+C = width(  B < 0.001  adjacent intersecting_only region )
+D = geom_not(  pvrs_tmp_layer_114 C )
+NW_MINUS_NTAP = geom_size( D by 35  inside_of_layer NW delta 0.6  )
+X = geom_and(  PMOS1 NW )
+edge_outside(  X NW_MINUS_NTAP )
+pvrs_tmp_layer_113 = geom_interact(  NTAP A )
+pvrs_tmp_layer_114 = geom_interact(  B C )
+}
+pvrs_tmp_layer_115 = ~geom_interact(  NMOS CAPBP )
+NMOS1 = ~geom_interact(  pvrs_tmp_layer_115 RESP1 )
+
+RULE Convention_LAT_3b1 { 
+; Convention_Lat_3b1: Maximum space from any point within Source/Drain region to the nearest pickup AAregion inside the same well for I/O and internal circuits
+A = width(  PTAP < 0.005  adjacent intersecting_only region )
+B = geom_not(  pvrs_tmp_layer_116 A )
+C = width(  B < 0.001  adjacent intersecting_only region )
+D = geom_not(  pvrs_tmp_layer_117 C )
+PW_MINUS_PTAP = geom_size( D by 35  inside_of_layer PW delta 0.6  )
+X = geom_and(  NMOS1 PW )
+edge_outside(  X PW_MINUS_PTAP )
+pvrs_tmp_layer_116 = geom_interact(  PTAP A )
+pvrs_tmp_layer_117 = geom_interact(  B C )
+}

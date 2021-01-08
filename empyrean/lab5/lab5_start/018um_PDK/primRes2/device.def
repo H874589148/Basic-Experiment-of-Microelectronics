@@ -1,0 +1,3 @@
+R
+[hspice]
+>R? <PLUS> <MINUS> [@model] [@rprim] [@scaleprim:SCALE=%] [@m:M=%] [@lprim:L=%] [@wprim:W=%]

@@ -1,0 +1,23 @@
+LC_Check out license DM version 1.0...
+
+                          Empyrean Aether
+          Version 2019.06.sp1(optNAT), Build on 09/03/2019
+                        For [linux26-x86_64]
+                      Copyright (c) 2009-2019
+                  Huada Empyrean Software Co.,Ltd.
+                        ALL RIGHTS RESERVED
+
+OpenAccess 2.2 is loaded from /home/user1/empyrean_2019.06.sp2.pr/openaccess/lib/linux_rhel50_gcc48x_64/opt
+Load OA TCL shared library (1) successfully.
+
+Load initialize file 'emyLibInit.tcl' for library 'analog'.
+	#######################################
+	PDK Library Name	: 018um_PDK
+	PDK Version		: 2.0 (ePDK)
+	PDK Release Date	: 9-Jan 2012 
+	#######################################
+
+Load initialize file 'emyLibInit.tcl' for library '018um_PDK'.
+Load '/home/user1/empyrean_2019.06.sp2.pr/tools/aether/data/display.drf'.
+Load 'display.drf'.
+Load setting file '/home/user1/empyrean_2019.06.sp2.pr/tools/aether/data/aether.ini'.

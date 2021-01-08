@@ -1,0 +1,2402 @@
+///////////////////////////////////////////////////////////////////////////////////
+// Device Formula                                                                //
+//                                                                               //
+// NGATE  = AA*GT*SN-NW; PGATE  = AA*GT*SP*NW; CNGATE = AA*GT*SN*NW              //
+//                                                                               //
+// ----------- ----------------------------- ----------------------------------- //
+// Name        Description                   Device Layer Operation              //
+// ----------- ----------------------------- ----------------------------------- //
+//                                                                               //
+// ----------------------------------------------------------------------------- //
+// *Mix Signal Devices:                                                          //
+// ----------------------------------------------------------------------------- //
+//                                                                               //
+// MOSFET Type:                                                                  //
+//                                                                               //
+// N18         1.8V NMOS                     (NGATE-DG-MVN-PSUB)                 //
+// N33         3.3V NMOS                     (NGATE*DG-MVN-PSUB)                 //
+// P18         1.8V PMOS                     (PGATE-DG-MVN-PSUB)                 //
+// P33         3.3V PMOS                     (PGATE*DG-MVN-PSUB)                 //
+// NNT18       1.8V Native NMOS              (NGATE-DG-MVN*PSUB)                 //
+// NNT33       3.3V Native NMOS              (NGATE*DG-MVN*PSUB)                 //
+// NMVT18      1.8V Medium NMOS              (NGATE-DG*MVN)                      //
+// NMVT33      3.3V Medium NMOS              (NGATE*DG*MVN)                      //
+// PMVT18      1.8V Medium PMOS              (PGATE-DG*MVP)                      //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// Resistor Type:                                                                //
+//                                                                               //
+// RNWSTI      NWELL Resistor under STI      (RESNW*NW)                          //
+// RNWAA       NWELL Resistor under AA       (RESNW*NW*AA*SAB)                   //
+// RNDIFSAB    N+diff resistor w/o Salicide  (RESAA*SN*AA*SAB)                   //
+// RNDIF       N+diff resistor w/i Salicide  (RESAA*SN*AA-SAB)                   //
+// RPDIFSAB    P+diff resistor w/o Salicide  (RESAA*SP*AA*SAB)                   //
+// RPDIF       P+diff resistor w/i Salicide  (RESAA*SP*AA-SAB)                   //
+// RPPOSAB     P+poly resistor w/o Salicide  (RESP1-RESP3T*SP*GT*SAB)            //
+// RPPO        P+poly resistor w/i Salicide  (RESP1-RESP3T*SP*GT-SAB)            //
+// RNPOSAB     N+poly resistor w/o Salicide  (RESP1-RESP3T*SN*GT*SAB)            //
+// RNPO        N+poly resistor w/i Salicide  (RESP1-RESP3T*SN*GT-SAB)            //
+// RHRPO       Hign Poly Resistor            (HRPDMY*HRP*GT*SAB-RESP3T)          //
+// RM1         Metal1 Resistor               (M1R*M1)                            //
+// RM2         Metal2 Resistor               (M2R*M2)                            //
+// RM3         Metal3 Resistor               (M3R*M3)                            //
+// RM4         Metal4 Resistor               (M4R*M4)                            //
+// RM5         Metal5 Resistor               (M5R*M5)                            //
+// RM6         Metal6 Resistor               (M6R*M6)                            //
+//                                                                               //
+// RNPO_3T     N+Poly resistor w/i Salicide(3T)   (RESP1*RESP3T*SN*GT-SAB)       //
+// RPPO_3T     P+poly resistor w/i Salicide(3T)   (RESP1*RESP3T*SP*GT-SAB)       //
+// RNPOSAB_3T  N+poly resistor w/o Salicide(3T)   (RESP1*RESP3T*SN*GT*SAB)       //
+// RPPOSAB_3T  P+poly resistor w/o Salicide(3T)   (RESP1*RESP3T*SP*GT*SAB)       //
+// RHRPO_3T    High Poly Rsistor(3T)              (HRPDMY*HRP*GT*SAB*RESP3T)     //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// DIODE Type:                                                                   //
+//                                                                               //
+// NDIO18      1.8V diode N+/PW              (DSTR*AA*SN-DG-PSUB)                //
+// NDIO33      3.3V diode N+/PW              (DSTR*AA*SN*DG-PSUB)                //
+// NNDIO18     Native N+/PW Diode            (DSTR*AA*SN-DG*PSUB)                //
+// NNDIO33     Native N+/PW Diode            (DSTR*AA*SN*DG*PSUB)                //
+// PDIO18      1.8V diode P+/NW              (DSTR*AA*SP-DG*NW)                  //
+// PDIO33      3.3V diode P+/NW              (DSTR*AA*SP*DG*NW)                  //
+// NWDIO       NW/PW DIODE                   (DSTR*NW)                           //
+// DIOBPW      Buried PWELL/Deep NWELL Diode (DSTR*SP*DNW)                       //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// BJT Type:                                                                     //
+//                                                                               //
+// PNP18A4     1.8V PNP BJT                  (DMPNP*SP*AA*NW-DG)                 //
+// PNP18A25    1.8V PNP BJT                  (DMPNP*SP*AA*NW-DG)                 //
+// PNP18A100   1.8V PNP BJT                  (DMPNP*SP*AA*NW-DG)                 //
+// PNP33A4     3.3V PNP BJT                  (DMPNP*SP*AA*NW*DG)                 //
+// PNP33A25    3.3V PNP BJT                  (DMPNP*SP*AA*NW*DG)                 //
+// PNP33A100   3.3V PNP BJT                  (DMPNP*SP*AA*NW*DG)                 //
+// NPN18A4     1.8V NPN BJT                  (DMPNP*SN*AA*DNW-DG)                //
+// NPN18A25    1.8V NPN BJT                  (DMPNP*SN*AA*DNW-DG)                //
+// NPN18A100   1.8V NPN BJT                  (DMPNP*SN*AA*DNW-DG)                //
+// NPN33A4     3.3V NPN BJT                  (DMPNP*SN*AA*DNW*DG)                //
+// NPN33A25    3.3V NPN BJT                  (DMPNP*SN*AA*DNW*DG)                //
+// NPN33A100   3.3V NPN BJT                  (DMPNP*SN*AA*DNW*DG)                //
+//                                                                               //
+//-------------------------------------------------------------------------------//
+//                                                                               //
+//                                                                               //
+// NPD         Sram cell pull down           (NGATE*NC*OPC)                      //
+// NPG         Sram Cell pass gate           (NGATE*NC*OPC)                      //
+// PL          Sram cell pull up             (PGATE*PC*OPC)                      //
+//                                                                               //
+//-------------------------------------------------------------------------------//
+//                                                                               //
+// MOS Varactor                                                                  //
+//                                                                               //
+// pvar18_ckt  MOSFET Varactor subckt        (CNGATE-DG*VARMOS-RFDEV)            //
+// pvar33_ckt  MOSFET Varactor subckt        (CNGATE*DG*VARMOS-RFDEV)            //
+//                                                                               //
+//-------------------------------------------------------------------------------//
+//                                                                               //
+// Special Capacitor                                                             //
+//                                                                               //
+// C1          1.8V NMOS in nwell            (CNGATE-DG)                         //
+// C2          3.3V NMOS in nwell            (CNGATE*DG)                         //
+// CPM         Metal1/poly Capacitor         (M1*GT*CAPBP)                       //
+// MIM         MIM Capacitor                 (MIM*M5[M4,M3,M2]*V5[V4,V3,V2])     // 
+// mim_ckt     MIM subckt                    (MIM*M5[M4,M3,M2]*V5[V4,V3,V2])     // 
+//                                                                               //
+// ----------------------------------------------------------------------------- //
+// *RF Devices:                                                                  //
+// ----------------------------------------------------------------------------- //
+//                                                                               //
+// MOSFET subckt:                                                                //
+//                                                                               //
+// n18_ckt_rf       1.8V RF NMOS subckt            (NGATE-DG*RFDEV*RFMOSD)       //
+// n33_ckt_rf       3.3V RF NMOS subckt            (NGATE*DG*RFDEV*RFMOSD)       //
+// dnw18_ckt_rf     1.8V RF DNW MOS subckt         (NGATE-DG*RFDEV*RFMOSD*DNW)   //
+// dnw33_ckt_rf     3.3V RF DNW MOS subckt         (NGATE*DG*RFDEV*RFMOSD*DNW)   //
+// p18_ckt_rf       1.8V RF PMOS subckt            (PGATE-DG*RFDEV*RFMOSD)       //
+// p33_ckt_rf       3.3V RF PMOS subckt            (PGATE*DG*RFDEV*RFMOSD)       //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// Resistor subckt:                                                              //
+//                                                                               //
+// rndifsab_ckt_rf  SAB N+ Diff Resistor subckt    (RESAA*SN*AA*SAB*RFDEV)       //
+// rpdifsab_ckt_rf  SAB P+ Diff Resistor subckt    (RESAA*SP*AA*SAB*RFDEV)       //
+// rnposab_ckt_rf   SAB N+ Poly Resistor subckt    (RESP1*SN*GT*SAB*RFDEV)       //
+// rpposab_ckt_rf   SAB P+ Poly Resistor subckt    (RESP1*SP*GT*SAB*RFDEV)       //
+// rhrpo_ckt_rf     RF HRP Poly Resistor subckt    (HRPDMY*HRP*GT*SAB*RFDEV)     //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// Varactor:                                                                     //
+//                                                                               //
+// pvar18w10l1_ckt_rf  MOSFET Varactor subckt      (CNGATE-DG*VARMOS*RFDEV)      //
+// pvar18w10ld5_ckt_rf MOSFET Varactor subckt      (CNGATE-DG*VARMOS*RFDEV)      //
+// pvar18w5l1_ckt_rf   MOSFET Varactor subckt      (CNGATE-DG*VARMOS*RFDEV)      //
+// pvar18w5ld5_ckt_rf  MOSFET Varactor subckt      (CNGATE-DG*VARMOS*RFDEV)      //
+// pvar33w10l1_ckt_rf  MOSFET Varactor subckt      (CNGATE*DG*VARMOS*RFDEV)      //
+// pvar33w10ld5_ckt_rf MOSFET Varactor subckt      (CNGATE*DG*VARMOS*RFDEV)      //
+//                                                                               //
+// pvardio18_ckt_rf Junction Diode Varactor subckt (NW*AA*SN*SP-DG*VARJUN*RFDEV) //
+// pvardio33_ckt_rf Junction Diode Varactor subckt (NW*AA*SN*SP*DG*VARJUN*RFDEV) //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// MIM Capacitor:                                                                //
+//                                                                               //
+// mim1_rf          RF MIM Capacitor subckt        (MIM*M5*V5*RFDEV)             //
+//                                                                               //
+//------------------------------------------------------------------------------ //
+//                                                                               //
+// Inductor:                                                                     //
+//                                                                               //
+// ind_rf           RF inductor subckt             (M6*M5*V5*INDUMY*RFDEV)       //
+// diff_ind_rf      RF inductor subckt             (M6*M5*V5*INDUMY*RFDEV)       //
+// diff_ind_3t_rf   RF 3T inductor subckt          (M6*M5*V5*INDUMY*RFDEV)       //
+// ----------------------------------------------------------------------------- //
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+//                             Environment Setting                               //
+///////////////////////////////////////////////////////////////////////////////////
+//---------------------------------------------------------------------------------
+//*OPTION 1: Define TOP Metal. The value can be 6, 5, 4, 3
+#DEFINE TOPMETAL 6 
+//----------------------------------------------------------------------------------
+//*OPTION 2: Define ERC Check or Not. The value can be TRUE or FALSE(Upper Case).
+#DEFINE ERCCHECK TRUE 
+//----------------------------------------------------------------------------------
+//*OPTION 3: Define RF Process Top Metal. The value can be TRUE or FALSE.
+//* TRUE(Upper Case): Sheet Resistance of Top Metal is 0.0145 ohm/sq.
+//* FALSE(Upper Case) : Sheet Resistance of Top Metal is 0.036 ohm/sq.
+#DEFINE THICK_RF_TM TRUE 
+//----------------------------------------------------------------------------------
+//*OPTION 4: Define Property of resistor. The value can be WL or R.
+//* WL(Upper Case): Using W & L as the property of Resistor.
+//* R(Upper Case) : Using R as the property of Resistor.
+#DEFINE RES_PROPERTY  R 
+//----------------------------------------------------------------------------------
+//*OPTION 5: Define interface resistance or not. The value can be TRUE or FALSE.
+//*TRUE(Upper Case)  : Total resistance R = Rsh*L/(W-2*DW)+2*Rint
+//*FALSE(Upper Case) : Total resistance R = Rsh*L/(W-2*DW)
+#DEFINE ADD_RINT FALSE  
+//----------------------------------------------------------------------------------
+//*OPTION 6: Define Model name of the Memory for Virage or Artisan Library.
+//*TRUE(Upper Case): Model name of sram device is N18, P18.
+//*FALSE(Upper Case):Model name of sram device is NPG, NPD, PL.
+#DEFINE VIR_ART TRUE //*Can be TRUE or FALSE 
+//----------------------------------------------------------------------------------
+//*OPTION 7: Define  different model of mim.The value can be C or SUBCKT.
+//*C (Upper Case):the model name of mim is mim and the property is C.
+//*SUBCKT(Upper Case):the model name of mim is mim_ckt and the property is LR&WR.
+#DEFINE MIM   C     
+//-----------------------------------------------------------------------------------
+schematic_input( path "xxx" )
+schematic_input( top_cell "xxx" )
+schematic_input( format spice )
+layout_input( path "xxx.gds" )
+layout_input( top_cell "xxx" )
+layout_input( format gds )
+lvs_report( db "lvs.rep" )
+lvs_report( option connection short_open missing_net missing_instance show_uniconnect )
+unit( cap FF )
+unit( res OHM )
+unit( len U )
+erc_max_result( 100  )
+erc_result( db erc.db )
+lvs_db( "svdb" )
+print_log( skew_edge yes )
+print_log( offgrid_vertex yes )
+erc_find_short( yes )
+spice( use_subcell_pin  yes )
+lvs_identify_gate( all )
+quit( power_ground_error  no )
+device_pin_swap( cap  yes )
+lvs_ignore_port( top_cell  yes )
+lvs_check_top_cell_port(  yes )
+device_merge( parallel_bjt yes )
+device_merge( parallel_mos yes )
+device_merge( parallel_dio yes )
+device_merge( parallel_cap yes )
+device_merge( parallel_res yes )
+device_merge( series_res yes )
+device_merge( series_cap yes )
+device_merge( split_gate yes )
+device_filter_option( connected_gsd connected_r connected_c connected_d )
+lvs_check_property_radius( 65536  )
+layout_connect_layer( M1 V1 M2 V2 M3 V3 M4 V4 M5 V5 M6 )
+virtual_connect( colon  yes )
+lvs_ground( "VSS" "SAVSS?" "gnd" "GND" "?VSS?" "?vss?" )
+lvs_power( "VDD" "SAVDD?" "VCC?" "?VDD?" "?VCC?" "?vcc?" "?vdd?" )
+//////////////////////////////////////////////
+// Layer Mapping                            //  
+//////////////////////////////////////////////
+layer( AA 10 12 13 )
+layer( NW 14 )
+layer( iPC 16 )
+layer( iNC 21 )
+layer( DNW 19 )
+layer( DG 29 )
+layer( GT 30 )
+layer( HRP 39 )
+layer( SN 40 )
+layer( SP 43 )
+layer( MVP 44 )
+layer( MVN 45 )
+layer( SAB 48 )
+layer( CT 50 )
+layer( MIM 58 )
+layer( M1 61 )
+layer( M2 62 )
+layer( IGNORE 363 )
+layer_map( 63  texttype 63  363  )
+layer( M3 63 )
+layer( M4 64 )
+layer( M5 65 )
+layer( M6 66 )
+layer( M1TXT 141 )
+layer( M2TXT 142 )
+layer( M3TXT 143 )
+layer( M4TXT 144 )
+layer( M5TXT 145 )
+layer( M6TXT 146 )
+layer( V1 70 )
+layer( V2 71 )
+layer( V3 72 )
+layer( V4 73 )
+layer( V5 74 )
+layer( PSUB 85 )
+layer( RESNW 95 )
+layer_map( 96  datatype 0  960  )
+layer( RESP1 960 )
+layer_map( 96  datatype 1  961  )
+layer( RESP3T 961 )
+layer( RESAA 97 )
+layer( SUBD 300 )
+layer_map( 131  datatype 1  300  )
+layer( OPCBA 100 )
+layer( OPCBP 101 )
+layer( OPCBM 102 )
+layer( DMPNP 134 )
+layer( CAPBP 137 )
+layer( DSTR 138 )
+layer( M1R 171 )
+layer( M2R 172 )
+layer( M3R 173 )
+layer( M4R 174 )
+layer( M5R 175 )
+layer( M6R 176 )
+layer( RFDEV 181 )
+layer( RFMOSD 182 )
+layer( VARMOS 93 )
+layer( VARJUN 183 94 )
+layer( HRPDMY 210 )
+layer( MIMDMY 211 )
+layer( INDUMY 212 )
+#IFDEF TOPMETAL 6  
+label_layer( text 146 )
+attach( 146 metal6 )
+label_layer( port 146 )
+label_layer( text 66 )
+attach( 66 metal6 )
+label_layer( port 66 )
+label_layer( text 145 )
+attach( 145 metal5 )
+label_layer( port 145 )
+label_layer( text 65 )
+attach( 65 metal5 )
+label_layer( port 65 )
+label_layer( text 144 )
+attach( 144 metal4 )
+label_layer( port 144 )
+label_layer( text 64 )
+attach( 64 metal4 )
+label_layer( port 64 )
+label_layer( text 143 )
+attach( 143 metal3 )
+label_layer( port 143 )
+label_layer( text 63 )
+attach( 63 metal3 )
+label_layer( port 63 )
+label_layer( text 142 )
+attach( 142 metal2 )
+label_layer( port 142 )
+label_layer( text 62 )
+attach( 62 metal2 )
+label_layer( port 62 )
+#ENDIF 
+#IFDEF TOPMETAL 5 
+label_layer( text 145 )
+attach( 145 metal5 )
+label_layer( port 145 )
+label_layer( text 65 )
+attach( 65 metal5 )
+label_layer( port 65 )
+label_layer( text 144 )
+attach( 144 metal4 )
+label_layer( port 144 )
+label_layer( text 64 )
+attach( 64 metal4 )
+label_layer( port 64 )
+label_layer( text 143 )
+attach( 143 metal3 )
+label_layer( port 143 )
+label_layer( text 63 )
+attach( 63 metal3 )
+label_layer( port 63 )
+label_layer( text 142 )
+attach( 142 metal2 )
+label_layer( port 142 )
+label_layer( text 62 )
+attach( 62 metal2 )
+label_layer( port 62 )
+#ENDIF 
+#IFDEF TOPMETAL 4 
+label_layer( text 144 )
+attach( 144 metal4 )
+label_layer( port 144 )
+label_layer( text 64 )
+attach( 64 metal4 )
+label_layer( port 64 )
+label_layer( text 143 )
+attach( 143 metal3 )
+label_layer( port 143 )
+label_layer( text 63 )
+attach( 63 metal3 )
+label_layer( port 63 )
+label_layer( text 142 )
+attach( 142 metal2 )
+label_layer( port 142 )
+label_layer( text 62 )
+attach( 62 metal2 )
+label_layer( port 62 )
+#ENDIF 
+#IFDEF TOPMETAL 3 
+label_layer( text 143 )
+attach( 143 metal3 )
+label_layer( port 143 )
+label_layer( text 63 )
+attach( 63 metal3 )
+label_layer( port 63 )
+label_layer( text 142 )
+attach( 142 metal2 )
+label_layer( port 142 )
+label_layer( text 62 )
+attach( 62 metal2 )
+label_layer( port 62 )
+#ENDIF 
+//*Define OPC
+pvrs_tmp_layer_1 = geom_or(  OPCBA OPCBP )
+OPCB = geom_or(  pvrs_tmp_layer_1 OPCBM )
+label_layer( text 141 )
+attach( 141 metal1 )
+label_layer( port 141 )
+label_layer( text 61 )
+attach( 61 metal1 )
+label_layer( port 61 )
+//////////////////////////////////////////////
+// Loigc Operation                          //
+//////////////////////////////////////////////
+//*Form Bulk layer
+DRC:1 = geom_get_boundary( )
+BULK = geom_size( DRC:1 by 1  )
+//*Define Pwell layer
+scut = geom_size( SUBD by 0.005  )
+cutring = geom_not(  scut SUBD )
+wella = geom_or(  cutring NW )
+pwell = geom_not(  BULK wella )
+//*Define original P/N diffusion Area
+pdifi = geom_and(  AA SP )
+ndifi = geom_and(  AA SN )
+//*Divide Resistor DUMMY for SAB
+hresd = geom_and(  RESAA SAB )
+hresdd = geom_interact(  RESAA SAB )
+lresd = geom_not(  RESAA hresdd )
+hresp = geom_and(  RESP1 SAB )
+hrespd = geom_interact(  RESP1 SAB )
+lresp = geom_not(  RESP1 hrespd )
+//*Define P+ Diffusion resistor
+pdrsab1 = geom_and(  pdifi hresd )
+pdrnosab = geom_and(  pdifi lresd )
+pdrsab = geom_not(  pdrsab1 RFDEV )
+pdrsabrf = geom_not(  pdrsab1 pdrsab )
+pdr = geom_or(  pdrsab1 pdrnosab )
+pdif = geom_not(  pdifi pdr )
+//*Define N+ Diffusion resistor
+ndrsab1 = geom_and(  ndifi hresd )
+ndrnosab = geom_and(  ndifi lresd )
+ndrsab = geom_not(  ndrsab1 RFDEV )
+ndrsabrf = geom_not(  ndrsab1 ndrsab )
+ndr = geom_or(  ndrsab1 ndrnosab )
+ndif = geom_not(  ndifi ndr )
+//*Define P+ Poly resistor
+ppoly = geom_and(  GT SP )
+pvrs_tmp_layer_2 = geom_and(  ppoly hresp )
+pprsab1 = geom_not(  pvrs_tmp_layer_2 RESP3T )
+pvrs_tmp_layer_3 = geom_and(  ppoly lresp )
+pprnosab = geom_not(  pvrs_tmp_layer_3 RESP3T )
+pvrs_tmp_layer_4 = geom_and(  ppoly hresp )
+pprsab_3t = geom_and(  pvrs_tmp_layer_4 RESP3T )
+pvrs_tmp_layer_5 = geom_and(  ppoly lresp )
+pprnosab_3t = geom_and(  pvrs_tmp_layer_5 RESP3T )
+pprsab_3t_nw = geom_and(  pprsab_3t nwell )
+pprsab_3t_pw = geom_not(  pprsab_3t nwell )
+pprnosab_3t_nw = geom_and(  pprnosab_3t nwell )
+pprnosab_3t_pw = geom_not(  pprnosab_3t nwell )
+pprsab = geom_not(  pprsab1 RFDEV )
+pprsabrf = geom_not(  pprsab1 pprsab )
+ppr1 = geom_or(  pprsab1 pprnosab )
+ppr2 = geom_or(  pprsab_3t pprnosab_3t )
+ppr = geom_or(  ppr1 ppr2 )
+//*Define N+ Poly resistor
+npoly = geom_and(  GT SN )
+pvrs_tmp_layer_6 = geom_and(  npoly hresp )
+nprsab1 = geom_not(  pvrs_tmp_layer_6 RESP3T )
+pvrs_tmp_layer_7 = geom_and(  npoly lresp )
+nprnosab = geom_not(  pvrs_tmp_layer_7 RESP3T )
+pvrs_tmp_layer_8 = geom_and(  npoly hresp )
+nprsab_3t = geom_and(  pvrs_tmp_layer_8 RESP3T )
+pvrs_tmp_layer_9 = geom_and(  npoly lresp )
+nprnosab_3t = geom_and(  pvrs_tmp_layer_9 RESP3T )
+nprsab_3t_nw = geom_and(  nprsab_3t nwell )
+nprsab_3t_pw = geom_not(  nprsab_3t nwell )
+nprnosab_3t_nw = geom_and(  nprnosab_3t nwell )
+nprnosab_3t_pw = geom_not(  nprnosab_3t nwell )
+nprsab = geom_not(  nprsab1 RFDEV )
+nprsabrf = geom_not(  nprsab1 nprsab )
+npr1 = geom_or(  nprsab1 nprnosab )
+npr2 = geom_or(  nprsab_3t nprnosab_3t )
+npr = geom_or(  npr1 npr2 )
+//*Define HRP poly resisitor
+hrppoly = geom_and(  GT HRP )
+hrpdums = geom_and(  HRPDMY SAB )
+pvrs_tmp_layer_10 = geom_and(  hrppoly hrpdums )
+hrppo1 = geom_not(  pvrs_tmp_layer_10 RESP3T )
+hrpporf = geom_and(  hrppo1 RFDEV )
+hrppo = geom_not(  hrppo1 hrpporf )
+pvrs_tmp_layer_11 = geom_and(  hrppoly hrpdums )
+hrppo_3t = geom_and(  pvrs_tmp_layer_11 RESP3T )
+hrppo_3t_nw = geom_and(  hrppo_3t nwell )
+hrppo_3t_pw = geom_not(  hrppo_3t nwell )
+//*subtract Poly used as resistor
+rpoly = geom_or(  ppr npr )
+pvrs_tmp_layer_12 = geom_or(  rpoly hrppo1 )
+rpoly_1 = geom_or(  pvrs_tmp_layer_12 hrppo_3t )
+poly1 = geom_not(  GT rpoly_1 )
+//*Define Nwell Resistor
+nwr = geom_and(  NW RESNW )
+sabaa = geom_and(  aa sab )
+nwraa = geom_and(  nwr sabaa )
+nwrsti = geom_not(  nwr sabaa )
+nwell = geom_not(  NW nwr )
+//*Define Metal Resistor
+#IFDEF TOPMETAL 6 
+rm1 = geom_and(  M1 M1R )
+metal1 = geom_not(  M1 M1R )
+rm2 = geom_and(  M2 M2R )
+metal2 = geom_not(  M2 M2R )
+rm3 = geom_and(  M3 M3R )
+metal3 = geom_not(  M3 M3R )
+rm4 = geom_and(  M4 M4R )
+metal4a = geom_not(  M4 M4R )
+rm5 = geom_and(  M5 M5R )
+metal5a = geom_not(  M5 M5R )
+rm6 = geom_and(  M6 M6R )
+metal6a = geom_not(  M6 M6R )
+#ENDIF 
+#IFDEF TOPMETAL 5 
+rm1 = geom_and(  M1 M1R )
+metal1 = geom_not(  M1 M1R )
+rm2 = geom_and(  M2 M2R )
+metal2 = geom_not(  M2 M2R )
+rm3 = geom_and(  M3 M3R )
+metal3a = geom_not(  M3 M3R )
+rm4 = geom_and(  M4 M4R )
+metal4a = geom_not(  M4 M4R )
+rm5 = geom_and(  M5 M5R )
+metal5a = geom_not(  M5 M5R )
+#ENDIF 
+#IFDEF TOPMETAL 4 
+rm1 = geom_and(  M1 M1R )
+metal1 = geom_not(  M1 M1R )
+rm2 = geom_and(  M2 M2R )
+metal2a = geom_not(  M2 M2R )
+rm3 = geom_and(  M3 M3R )
+metal3a = geom_not(  M3 M3R )
+rm4 = geom_and(  M4 M4R )
+metal4a = geom_not(  M4 M4R )
+#ENDIF 
+#IFDEF TOPMETAL 3 
+rm1 = geom_and(  M1 M1R )
+metal1a = geom_not(  M1 M1R )
+rm2 = geom_and(  M2 M2R )
+metal2a = geom_not(  M2 M2R )
+rm3 = geom_and(  M3 M3R )
+metal3a = geom_not(  M3 M3R )
+#ENDIF 
+//*Define Metal1/Poly Capacitor
+pmcp1 = geom_and(  poly1 metal1 )
+pmcap = geom_and(  pmcp1 CAPBP )
+poly2 = geom_not(  poly1 pmcap )
+//*Define MIM Capacitor and Inductor
+diff_ind = geom_with_label( INDUMY "diff_ind_rf" )
+diff_ind_3t = geom_with_label( INDUMY "diff_ind_3t_rf" )
+spri_ind = ~geom_with_label( INDUMY "?" )
+#IFDEF TOPMETAL 6 
+pvrs_tmp_layer_13 = geom_enclose(  MIM V5 )
+mimcap1 = geom_and(  metal5a pvrs_tmp_layer_13 )
+mimcaprf = geom_and(  mimcap1 RFDEV )
+mimcap = geom_not(  mimcap1 mimcaprf )
+metal5b = geom_not(  metal5a mimcap1 )
+via5a = geom_and(  V5 MIM )
+via5b = geom_not(  V5 via5a )
+indrfdumy = geom_and(  INDUMY RFDEV )
+m6_ind = geom_and(  metal6a indrfdumy )
+m5_ind = geom_and(  metal5b indrfdumy )
+m4_ind = geom_and(  metal4a indrfdumy )
+metal_ind = geom_or(  m6_ind m5_ind )
+m6ind_hole1 = geom_holes( metal_ind inner_most hollow )
+m6ind_hole2 = geom_size( m6ind_hole1 by 3.5  in_out )
+m6ind_hole = geom_get_boundaries( m6ind_hole2 )
+ind_pin6 = geom_size( M6TXT by 4  inside_of_layer m6_ind delta 1  )
+ind_pin4 = geom_size( M4TXT by 4  inside_of_layer m4_ind delta 1  )
+pvrs_tmp_layer_14 = ~geom_interact(  m5_ind ind_pin6 )
+m_ind_touch = geom_and(  m6_ind pvrs_tmp_layer_14 )
+dind_pm6 = geom_and(  m6_ind ind_pin6 )
+dind_pm4 = geom_and(  m4_ind ind_pin4 )
+metal6 = geom_not(  metal6a m6_ind )
+metal5 = geom_not(  metal5b m5_ind )
+metal4 = geom_not(  metal4a m4_ind )
+#ENDIF 
+#IFDEF TOPMETAL 5 
+pvrs_tmp_layer_15 = geom_enclose(  MIM V4 )
+mimcap1 = geom_and(  metal4a pvrs_tmp_layer_15 )
+mimcaprf = geom_and(  mimcap1 RFDEV )
+mimcap = geom_not(  mimcap1 mimcaprf )
+metal4b = geom_not(  metal4a mimcap1 )
+via4a = geom_and(  V4 MIM )
+via4b = geom_not(  V4 via4a )
+indrfdumy = geom_and(  INDUMY RFDEV )
+m5_ind = geom_and(  metal5a indrfdumy )
+m4_ind = geom_and(  metal4b indrfdumy )
+m3_ind = geom_and(  metal3a indrfdumy )
+metal_ind = geom_or(  m5_ind m4_ind )
+m5ind_hole1 = geom_holes( metal_ind inner_most hollow )
+m5ind_hole2 = geom_size( m5ind_hole1 by 3.5  in_out )
+m5ind_hole = geom_get_boundaries( m5ind_hole2 )
+ind_pin5 = geom_size( M5TXT by 4  inside_of_layer m5_ind delta 1  )
+ind_pin3 = geom_size( M3TXT by 4  inside_of_layer m3_ind delta 1  )
+pvrs_tmp_layer_16 = ~geom_interact(  m4_ind ind_pin5 )
+m_ind_touch = geom_and(  m5_ind pvrs_tmp_layer_16 )
+dind_pm5 = geom_and(  m5_ind ind_pin5 )
+dind_pm3 = geom_and(  m3_ind ind_pin3 )
+metal5 = geom_not(  metal5a m5_ind )
+metal4 = geom_not(  metal4b m4_ind )
+metal3 = geom_not(  metal3a m3_ind )
+#ENDIF 
+#IFDEF TOPMETAL 4 
+pvrs_tmp_layer_17 = geom_enclose(  MIM V3 )
+mimcap1 = geom_and(  metal3a pvrs_tmp_layer_17 )
+mimcaprf = geom_and(  mimcap1 RFDEV )
+mimcap = geom_not(  mimcap1 mimcaprf )
+metal3b = geom_not(  metal3a mimcap1 )
+via3a = geom_and(  V3 MIM )
+via3b = geom_not(  V3 via3a )
+indrfdumy = geom_and(  INDUMY RFDEV )
+m4_ind = geom_and(  metal4a indrfdumy )
+m3_ind = geom_and(  metal3b indrfdumy )
+m2_ind = geom_and(  metal2a indrfdumy )
+metal_ind = geom_or(  m4_ind m3_ind )
+m4ind_hole1 = geom_holes( metal_ind inner_most hollow )
+m4ind_hole2 = geom_size( m4ind_hole1 by 3.5  in_out )
+m4ind_hole = geom_get_boundaries( m4ind_hole2 )
+ind_pin4 = geom_size( M4TXT by 4  inside_of_layer m4_ind delta 1  )
+ind_pin2 = geom_size( M2TXT by 4  inside_of_layer m2_ind delta 1  )
+pvrs_tmp_layer_18 = ~geom_interact(  m3_ind ind_pin4 )
+m_ind_touch = geom_and(  m4_ind pvrs_tmp_layer_18 )
+dind_pm4 = geom_and(  m4_ind ind_pin4 )
+dind_pm2 = geom_and(  m2_ind ind_pin2 )
+metal4 = geom_not(  metal4a m4_ind )
+metal3 = geom_not(  metal3b m3_ind )
+metal2 = geom_not(  metal2a m2_ind )
+#ENDIF 
+#IFDEF TOPMETAL 3 
+pvrs_tmp_layer_19 = geom_enclose(  MIM V2 )
+mimcap1 = geom_and(  metal2a pvrs_tmp_layer_19 )
+mimcaprf = geom_and(  mimcap1 RFDEV )
+mimcap = geom_not(  mimcap1 mimcaprf )
+metal2b = geom_not(  metal2a mimcap1 )
+via2a = geom_and(  V2 MIM )
+via2b = geom_not(  V2 via2a )
+indrfdumy = geom_and(  INDUMY RFDEV )
+m3_ind = geom_and(  metal3a indrfdumy )
+m2_ind = geom_and(  metal2b indrfdumy )
+m1_ind = geom_and(  metal1a indrfdumy )
+metal_ind = geom_or(  m3_ind m2_ind )
+m3ind_hole1 = geom_holes( metal_ind inner_most hollow )
+m3ind_hole2 = geom_size( m3ind_hole1 by 3.5  in_out )
+m3ind_hole = geom_get_boundaries( m3ind_hole2 )
+ind_pin3 = geom_size( M3TXT by 4  inside_of_layer m3_ind delta 1  )
+ind_pin1 = geom_size( M1TXT by 4  inside_of_layer m3_ind delta 1  )
+pvrs_tmp_layer_20 = ~geom_interact(  m2_ind ind_pin3 )
+m_ind_touch = geom_and(  m3_ind pvrs_tmp_layer_20 )
+dind_pm3 = geom_and(  m3_ind ind_pin3 )
+dind_pm1 = geom_and(  m1_ind ind_pin1 )
+metal3 = geom_not(  metal3a m3_ind )
+metal2 = geom_not(  metal2b m2_ind )
+metal1 = geom_not(  metal1a m1_ind )
+#ENDIF 
+//*Define MOS Device
+ntd1 = geom_and(  ndif nwell )
+ptd = geom_and(  pdif pwell )
+ndiff = geom_and(  ndif pwell )
+pdiff = geom_and(  pdif nwell )
+ngate = geom_and(  poly2 ndiff )
+pgate = geom_and(  poly2 pdiff )
+cngate = geom_and(  poly2 ntd1 )
+poly3 = geom_not(  poly2 ngate )
+poly4 = geom_not(  poly3 pgate )
+poly = geom_not(  poly4 cngate )
+nsd1 = geom_not(  ndiff ngate )
+psd1 = geom_not(  pdiff pgate )
+ntd = geom_not(  ntd1 cngate )
+//*Define Diode terminal.
+// Define N+/PW diode
+dio_np = geom_inside(  nsd1 DSTR )
+ndio = geom_not(  dio_np PSUB )
+ndio18 = geom_not(  ndio DG )
+ndio33 = geom_and(  ndio DG )
+nndio = geom_and(  dio_np PSUB )
+nndio18 = geom_not(  nndio DG )
+nndio33 = geom_and(  nndio DG )
+nsd2 = geom_not(  nsd1 dio_np )
+// Define P+/NW Diode 
+dio_pn = geom_inside(  psd1 DSTR )
+pdio18 = geom_not(  dio_pn DG )
+pdio33 = geom_and(  dio_pn DG )
+//*Define Buried PW/Deep NW Diode
+diopsub = geom_and(  pwell DNW )
+diobpw = geom_and(  diopsub DSTR )
+// Define NW/PW diode
+dio_nw = geom_and(  nwell DSTR )
+dionw1 = ~geom_interact(  dio_nw dio_pn )
+dionw = ~geom_interact(  dionw1 DNW )
+psd2 = geom_not(  psd1 dio_pn )
+//*Define PNP Device
+pnpemit = geom_and(  psd2 DMPNP )
+pnpbase = geom_interact(  nwell pnpemit )
+collsur = geom_adjacent(  pwell pnpbase )
+coll = geom_or(  collsur pnpbase )
+pnpcoll = geom_transfer_netid( coll by pwell )
+pnpemit18 = geom_not(  pnpemit DG )
+pnpemit18a4 = geom_area ( pnpemit18 > 3.9  < 4.1  )
+pnpemit18a25 = geom_area ( pnpemit18 > 24.9  < 25.1  )
+pnpemit18a100 = geom_area ( pnpemit18 > 99.9  < 100.1  )
+pnpemit33 = geom_and(  pnpemit DG )
+pnpemit33a4 = geom_area ( pnpemit33 > 3.9  < 4.1  )
+pnpemit33a25 = geom_area ( pnpemit33 > 24.9  < 25.1  )
+pnpemit33a100 = geom_area ( pnpemit33 > 99.9  < 100.1  )
+psd3 = geom_not(  psd2 pnpemit )
+psdrf = geom_and(  psd3 RFDEV )
+psdrfd = geom_and(  psdrf RFMOSD )
+psd = geom_not(  psd3 psdrfd )
+#IFDEF VIR_ART FALSE 
+//* Logic operation for NC,PC
+nwellup = geom_size( NW by 2.15  )
+lognc = geom_and(  nwellup SN )
+NC = geom_or(  iNC lognc )
+spnwell = geom_and(  NW SP )
+ncszup = geom_size( NC by 0.6  )
+sramnc = geom_and(  spnwell ncszup )
+PC = geom_or(  iPC sramnc )
+//*Gate extraction to distinguish 1.8 and 3.3 V transistor
+ngate18a = geom_not(  ngate DG )
+pvrs_tmp_layer_21 = geom_and(  ngate18a NC )
+nsramgate18 = geom_and(  pvrs_tmp_layer_21 OPCB )
+pgate18a = geom_not(  pgate DG )
+pvrs_tmp_layer_22 = geom_and(  pgate18a PC )
+psramgate18 = geom_and(  pvrs_tmp_layer_22 OPCB )
+pgat18 = geom_not(  pgate18a psramgate18 )
+//*Define Sram cell(NPG,NPD) based on sram document(TD-SM18-CL-2002V3P.doc)
+npgd18ps = geom_area ( nsramgate18 >= 0.0638  < 0.064  )
+npgd18pd = geom_area ( nsramgate18 >= 0.045  < 0.046  )
+pvrs_tmp_layer_23 = geom_not(  ngate18a npgd18ps )
+ngat18 = geom_not(  pvrs_tmp_layer_23 npgd18pd )
+#ENDIF 
+#IFDEF VIR_ART TRUE 
+//*Gate extraction to distinguish 1.8 and 3.3 V transistor
+pgat18 = geom_not(  pgate DG )
+ngat18 = geom_not(  ngate DG )
+#ENDIF 
+//*Define RF Juction varactor
+pvrs_tmp_layer_24 = geom_and(  nwell RFDEV )
+jvar1 = geom_and(  pvrs_tmp_layer_24 VARJUN )
+pvrs_tmp_layer_25 = geom_interact(  jvar1 psdrf )
+jvar2 = geom_interact(  pvrs_tmp_layer_25 ntd )
+jvar33 = geom_and(  jvar2 DG )
+jvar18 = geom_not(  jvar2 jvar33 )
+//*Define NPN Device
+dnwnpn = geom_and(  DNW DMPNP )
+npnemit = geom_interact(  nsd2 dnwnpn )
+nwell1 = geom_interact(  nwell DNW )
+dnw1 = geom_or(  DNW nwell1 )
+dnwell = geom_transfer_netid( dnw1 by nwell )
+npnemit18 = geom_not(  npnemit DG )
+npnemit18a4 = geom_area ( npnemit18 > 3.9  < 4.1  )
+npnemit18a25 = geom_area ( npnemit18 > 24.9  < 25.1  )
+npnemit18a100 = geom_area ( npnemit18 > 99.9  < 100.1  )
+npnemit33 = geom_and(  npnemit DG )
+npnemit33a4 = geom_area ( npnemit33 > 3.9  < 4.1  )
+npnemit33a25 = geom_area ( npnemit33 > 24.9  < 25.1  )
+npnemit33a100 = geom_area ( npnemit33 > 99.9  < 100.1  )
+nsd3 = geom_not(  nsd2 npnemit )
+nsdrf = geom_and(  nsd3 RFDEV )
+nsdrfd = geom_and(  nsdrf RFMOSD )
+nsd = geom_not(  nsd3 nsdrfd )
+//nsdrf   = nsd3 AND RFDEV
+//nsd     = nsd3 NOT nsdrf
+//*Gate extraction to distinguish 1.8 and 3.3 V transistor
+ngat33 = geom_and(  ngate DG )
+pgat33 = geom_and(  pgate DG )
+//*Gate for Normal 1.8V and 3.3V MOS
+/*
+ngnormal33 = ngat33 AND DNW
+ngnormal18 = ngat18 AND DNW
+
+ngat33a    = ngat33 NOT ngnormal33
+ngat18a    = ngat18 NOT ngnormal18
+*/
+//*Gate for Medium 1.8V and 3.3V MOS
+//ngmedium33 = ngat33a AND MVN
+ngmedium33 = geom_and(  ngat33 MVN )
+pgmedium33 = geom_and(  pgat33 MVP )
+//ngmedium18 = ngat18a AND MVN
+ngmedium18 = geom_and(  ngat18 MVN )
+pgmedium18 = geom_and(  pgat18 MVP )
+//ngat33b    = ngat33a NOT ngmedium33
+//ngat18b    = ngat18a NOT ngmedium18
+ngat33b = geom_not(  ngat33 ngmedium33 )
+ngat18b = geom_not(  ngat18 ngmedium18 )
+pgat33a = geom_not(  pgat33 pgmedium33 )
+pgat18a = geom_not(  pgat18 pgmedium18 )
+pgate33 = geom_not(  pgat33a RFDEV )
+pgate33_rf = geom_not(  pgat33a pgate33 )
+pgate18 = geom_not(  pgat18a RFDEV )
+pgate18_rf = geom_not(  pgat18a pgate18 )
+//*Gate for Native NMOS
+ngnative33 = geom_and(  ngat33b PSUB )
+ngnative18 = geom_and(  ngat18b PSUB )
+ngat33c = geom_not(  ngat33b ngnative33 )
+ngat18c = geom_not(  ngat18b ngnative18 )
+ngate18 = geom_not(  ngat18c RFDEV )
+ngate18_rf = geom_not(  ngat18c ngate18 )
+ngate33 = geom_not(  ngat33c RFDEV )
+ngate33_rf = geom_not(  ngat33c ngate33 )
+//*Define RF MODFET device layer.
+n18rfgt1 = geom_enclose(  GT ngate18_rf )
+dnw18rfgt = geom_interact(  n18rfgt1 DNW )
+n18rfgt = geom_not(  n18rfgt1 dnw18rfgt )
+n33rfgt1 = geom_enclose(  GT ngate33_rf )
+dnw33rfgt = geom_interact(  n33rfgt1 DNW )
+n33rfgt = geom_not(  n33rfgt1 dnw33rfgt )
+p18rfgt = geom_enclose(  GT pgate18_rf )
+p33rfgt = geom_enclose(  GT pgate33_rf )
+dnwngate18_rf = geom_interact(  ngate18_rf DNW )
+dnwngate33_rf = geom_interact(  ngate33_rf DNW )
+dnwngate = geom_or(  dnwngate18_rf dnwngate33_rf )
+ndifd = geom_and(  ndiff DNW )
+dnwwdedge = edge_adjacent( both_side  ndifd dnwngate )
+dnwwaddrec = extension(  dnwwdedge DNW < 1000  opposite region )
+//* Gate for NMOS in Nwell
+cngate18a = geom_not(  cngate DG )
+cngate33a = geom_and(  cngate DG )
+pvrs_tmp_layer_26 = geom_and(  cngate18a RFDEV )
+cngate18_rf = geom_and(  pvrs_tmp_layer_26 VARMOS )
+cngate18w10l1_rf = geom_area ( cngate18_rf > 9.9  < 10.1  )
+cngate18w10ld5w5l1_rf = geom_area ( cngate18_rf > 4.9  < 5.1  )
+cngate18w10ld5_rf = geom_perimeter ( cngate18w10ld5w5l1_rf > 20  < 22  )
+cngate18w5l1_rf = geom_perimeter ( cngate18w10ld5w5l1_rf > 11  < 13  )
+cngate18w5ld5_rf = geom_area ( cngate18_rf > 2.4  < 2.6  )
+pvrs_tmp_layer_27 = geom_and(  cngate33a RFDEV )
+cngate33_rf = geom_and(  pvrs_tmp_layer_27 VARMOS )
+cngate33w10l1_rf = geom_area ( cngate33_rf > 9.9  < 10.1  )
+cngate33w10ld5_rf = geom_area ( cngate33_rf > 4.9  < 5.1  )
+pvrs_tmp_layer_28 = geom_and(  cngate18a VARMOS )
+cngate18_va = geom_not(  pvrs_tmp_layer_28 RFDEV )
+pvrs_tmp_layer_29 = geom_or(  cngate18_rf cngate18_va )
+cngate18 = geom_not(  cngate18a pvrs_tmp_layer_29 )
+cn18rfgtw10l1 = geom_enclose(  GT cngate18w10l1_rf )
+cn18rfgtw10ld5 = geom_enclose(  GT cngate18w10ld5_rf )
+cn18rfgtw5l1 = geom_enclose(  GT cngate18w5l1_rf )
+cn18rfgtw5ld5 = geom_enclose(  GT cngate18w5ld5_rf )
+cn33rfgtw10l1 = geom_enclose(  GT cngate33w10l1_rf )
+cn33rfgtw10ld5 = geom_enclose(  GT cngate33w10ld5_rf )
+cn18vargt = geom_enclose(  GT cngate18_va )
+pvrs_tmp_layer_30 = geom_and(  cngate33a VARMOS )
+cngate33_va = geom_not(  pvrs_tmp_layer_30 RFDEV )
+cn33vargt = geom_enclose(  GT cngate33_va )
+pvrs_tmp_layer_31 = geom_or(  cngate33_rf cngate33_va )
+cngate33 = geom_not(  cngate33a pvrs_tmp_layer_31 )
+//*Divide the cont into polycont and dfcont
+polycont = geom_and(  CT GT )
+dfcont = geom_not(  CT polycont )
+//*Define well contact
+nplug = geom_and(  ntd nwell )
+pplug = geom_and(  ptd pwell )
+//*Define layer for ERC check
+rnwell = geom_adjacent(  nwell nwr )
+bnwell = geom_interact(  nwell DMPNP )
+ntap1 = geom_not(  ntd rnwell )
+ntap2 = geom_not(  ntap1 bnwell )
+ntap = geom_transfer_netid( ntap2 by ntd )
+ptap1 = copy( ptd )
+ptap = geom_transfer_netid( ptap1 by ptd )
+////////////////////////////////////////////
+//*Connect Section                        //
+////////////////////////////////////////////
+#IFDEF TOPMETAL 6 
+connect( metal6 metal5 by via5b )
+connect( metal6 MIM by via5a )
+connect( metal5 mimcap )
+connect( metal5 mimcaprf )
+connect( dind_pm6 m6_ind )
+connect( dind_pm6 m5_ind by via5b )
+connect( dind_pm4 m5_ind by V4 )
+connect( m5_ind m4_ind by V4 )
+connect( m6_ind metal6 )
+connect( m5_ind metal5 )
+connect( m4_ind metal4 )
+connect( metal5 metal4 by V4 )
+connect( metal4 metal3 by V3 )
+connect( metal3 metal2 by V2 )
+connect( metal2 metal1 by V1 )
+#ENDIF 
+#IFDEF TOPMETAL 5 
+connect( metal5 metal4 by via4b )
+connect( metal5 MIM by via4a )
+connect( metal4 mimcap )
+connect( metal4 mimcaprf )
+connect( dind_pm5 m5_ind )
+connect( dind_pm5 m4_ind by via4b )
+connect( dind_pm3 m4_ind by V3 )
+connect( m4_ind m3_ind by V3 )
+connect( m5_ind metal5 )
+connect( m4_ind metal4 )
+connect( m3_ind metal3 )
+connect( metal4 metal3 by V3 )
+connect( metal3 metal2 by V2 )
+connect( metal2 metal1 by V1 )
+#ENDIF 
+#IFDEF TOPMETAL 4 
+connect( metal4 metal3 by via3b )
+connect( metal4 MIM by via3a )
+connect( metal3 mimcap )
+connect( metal3 mimcaprf )
+connect( dind_pm4 m4_ind )
+connect( dind_pm4 m3_ind by via3b )
+connect( dind_pm2 m3_ind by V2 )
+connect( m3_ind m2_ind by V2 )
+connect( m4_ind metal4 )
+connect( m3_ind metal3 )
+connect( m2_ind metal2 )
+connect( metal3 metal2 by V2 )
+connect( metal2 metal1 by V1 )
+#ENDIF 
+#IFDEF TOPMETAL 3 
+connect( metal3 metal2 by via2b )
+connect( metal3 MIM by via2a )
+connect( metal2 mimcap )
+connect( metal2 mimcaprf )
+connect( dind_pm3 m3_ind )
+connect( dind_pm3 m2_ind by via2b )
+connect( dind_pm1 m2_ind by V1 )
+connect( m2_ind m1_ind by V1 )
+connect( m3_ind metal3 )
+connect( m2_ind metal2 )
+connect( m1_ind metal1 )
+connect( metal2 metal1 by V1 )
+#ENDIF 
+#IFDEF VIR_ART FALSE 
+connect( poly npgd18pd )
+connect( poly npgd18ps )
+connect( poly psramgate18 )
+#ENDIF 
+//CONNECT poly pgate18 pgate33 ngate18 ngate33 cngate18 cngate33 ngnormal18 ngnormal33 ngmedium18 
+connect( poly pgate18 pgate33 ngate18 ngate33 cngate18 cngate33 ngmedium18 )
+connect( poly ngmedium33 pgmedium18 ngnative18 ngnative33 pmcap )
+//CONNECT poly ngmedium33 pgmedium18 pgmedium33 ngnative18 ngnative33 pmcap
+connect( metal1 nsd psd ntd ptd ndio18 ndio33 nndio18 nndio33 pdio18 pdio33 by dfcont )
+connect( metal1 pnpemit18 pnpemit33 npnemit18 npnemit33 by dfcont )
+connect( metal1 n18rfgt p18rfgt n33rfgt p33rfgt dnw18rfgt dnw33rfgt cn18rfgtw10l1 cn18rfgtw10ld5 cn18rfgtw5l1 cn18rfgtw5ld5 cn33rfgtw10l1 
+cn33rfgtw10ld5 cn18vargt cn33vargt by polycont )
+connect( metal1 poly by polycont )
+connect( metal1 nsdrfd psdrfd psdrf by dfcont )
+connect( psd ntd )
+connect( nsd ptd )
+uniconnect( ntd nwell by nplug )
+uniconnect( ptd pwell by pplug )
+////////////////////////////////////////////////////////////////////////
+//*Define Devices                                                     //
+////////////////////////////////////////////////////////////////////////
+#IFDEF VIR_ART FALSE 
+device( MN ( NPG ) npgd18ps npgd18ps ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(npgd18ps,nsd)/2 
+L = AREA(npgd18ps)/W 
+ ] )
+device( MN ( NPD ) npgd18pd npgd18pd ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(npgd18pd,nsd)/2 
+L = AREA(npgd18pd)/W 
+ ] )
+device( MP ( PL ) psramgate18 psramgate18 ( G ) psd ( S ) psd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(psramgate18,psd)/2 
+L = AREA(psramgate18)/W 
+ ] )
+#ENDIF 
+device( MN ( N18 ) ngate18 ngate18 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngate18,nsd)/2 
+L = AREA(ngate18)/W 
+ ] )
+device( MN ( N33 ) ngate33 ngate33 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngate33,nsd)/2 
+L = AREA(ngate33)/W 
+ ] )
+device( MN ( NNT18 ) ngnative18 ngnative18 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngnative18,nsd)/2 
+L = AREA(ngnative18)/W 
+ ] )
+device( MN ( NNT33 ) ngnative33 ngnative33 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngnative33,nsd)/2 
+L = AREA(ngnative33)/W 
+ ] )
+device( MP ( P18 ) pgate18 pgate18 ( G ) psd ( S ) psd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(pgate18,psd)/2 
+L = AREA(pgate18)/W 
+ ] )
+device( MP ( P33 ) pgate33 pgate33 ( G ) psd ( S ) psd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(pgate33,psd)/2 
+L = AREA(pgate33)/W 
+ ] )
+device( MN ( NMVT18 ) ngmedium18 ngmedium18 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngmedium18,nsd)/2 
+L = AREA(ngmedium18)/W 
+ ] )
+device( MN ( NMVT33 ) ngmedium33 ngmedium33 ( G ) nsd ( S ) nsd ( D ) pwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(ngmedium33,nsd)/2 
+L = AREA(ngmedium33)/W 
+ ] )
+device( MP ( PMVT18 ) pgmedium18 pgmedium18 ( G ) psd ( S ) psd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(pgmedium18,psd)/2 
+L = AREA(pgmedium18)/W 
+ ] )
+device( M ( C1 ) cngate18 cngate18 ( G ) ntd ( S ) ntd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(cngate18,ntd)/2 
+L = AREA(cngate18)/W 
+ ] )
+device( M ( C2 ) cngate33 cngate33 ( G ) ntd ( S ) ntd ( D ) nwell ( B ) [ 
+PROPERTY W, L 
+W = common_length(cngate33,ntd)/2 
+L = AREA(cngate33)/W 
+ ] )
+device( pvar18_ckt cn18vargt cn18vargt ( PLUS ) nwell ( MINUS ) < cngate18_va  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate18_va) 
+WR = common_length(cngate18_va,ntd)/(2*NF) 
+LR = AREA(cngate18_va)/(WR*NF) 
+ ] )
+device_merge( user_define pvar18_ckt parallel yes [ 
+effective LR,WR,NF 
+LR = sum ( LR*NF )/sum( NF ) 
+WR = sum ( WR*NF )/sum (NF ) 
+NF = sum ( NF ) 
+ ] )
+device( pvar33_ckt cn33vargt cn33vargt ( PLUS ) nwell ( MINUS ) < cngate33_va  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate33_va) 
+WR = common_length(cngate33_va,ntd)/(2*NF) 
+LR = AREA(cngate33_va)/(WR*NF) 
+ ] )
+device_merge( user_define pvar33_ckt parallel yes [ 
+effective LR,WR,NF 
+LR = sum ( LR*NF )/sum( NF ) 
+WR = sum ( WR*NF )/sum (NF ) 
+NF = sum ( NF ) 
+ ] )
+//DEVICE MN(NN) ngnormal18 ngnormal18(G) nsd(S) nsd(D) pwell(B)
+//	[ PROPERTY W, L
+//	W = PERIM_CO(ngnormal18,nsd)/2
+//	L = AREA(ngnormal18)/W  ]
+//
+//DEVICE MN(ND) ngnormal33 ngnormal33(G) nsd(S) nsd(D) pwell(B)
+//	[ PROPERTY W, L
+//	W = PERIM_CO(ngnormal33,nsd)/2
+//	L = AREA(ngnormal33)/W  ]
+//
+//DEVICE M(MD) pgmedium33 pgmedium33(G) psd(S) psd(D) nwell(B)
+//	[ PROPERTY W, L
+//	W = PERIM_CO(pgmedium33,psd)/2
+//	L = AREA(pgmedium33)/W ]
+device( Q ( PNP18A4 ) pnpemit18a4 pnpcoll nwell pnpemit18a4 [ 
+PROPERTY A 
+A = AREA(pnpemit18a4) 
+ ] )
+device( Q ( PNP18A25 ) pnpemit18a25 pnpcoll nwell pnpemit18a25 [ 
+PROPERTY A 
+A = AREA(pnpemit18a25) 
+ ] )
+device( Q ( PNP18A100 ) pnpemit18a100 pnpcoll nwell pnpemit18a100 [ 
+PROPERTY A 
+A = AREA(pnpemit18a100) 
+ ] )
+device( Q ( PNP33A4 ) pnpemit33a4 pnpcoll nwell pnpemit33a4 [ 
+PROPERTY A 
+A = AREA(pnpemit33a4) 
+ ] )
+device( Q ( PNP33A25 ) pnpemit33a25 pnpcoll nwell pnpemit33a25 [ 
+PROPERTY A 
+A = AREA(pnpemit33a25) 
+ ] )
+device( Q ( PNP33A100 ) pnpemit33a100 pnpcoll nwell pnpemit33a100 [ 
+PROPERTY A 
+A = AREA(pnpemit33a100) 
+ ] )
+device( Q ( NPN18A4 ) npnemit18a4 dnwell pwell npnemit18a4 [ 
+PROPERTY A 
+A = AREA(npnemit18a4) 
+ ] )
+device( Q ( NPN18A25 ) npnemit18a25 dnwell pwell npnemit18a25 [ 
+PROPERTY A 
+A = AREA(npnemit18a25) 
+ ] )
+device( Q ( NPN18A100 ) npnemit18a100 dnwell pwell npnemit18a100 [ 
+PROPERTY A 
+A = AREA(npnemit18a100) 
+ ] )
+device( Q ( NPN33A4 ) npnemit33a4 dnwell pwell npnemit33a4 [ 
+PROPERTY A 
+A = AREA(npnemit33a4) 
+ ] )
+device( Q ( NPN33A25 ) npnemit33a25 dnwell pwell npnemit33a25 [ 
+PROPERTY A 
+A = AREA(npnemit33a25) 
+ ] )
+device( Q ( NPN33A100 ) npnemit33a100 dnwell pwell npnemit33a100 [ 
+PROPERTY A 
+A = AREA(npnemit33a100) 
+ ] )
+device( D ( PDIO18 ) pdio18 pdio18 nwell )
+device( D ( PDIO33 ) pdio33 pdio33 nwell )
+device( D ( NDIO18 ) ndio18 pwell ndio18 )
+device( D ( NDIO33 ) ndio33 pwell ndio33 )
+device( D ( NNDIO18 ) nndio18 pwell nndio18 )
+device( D ( NNDIO33 ) nndio33 pwell nndio33 )
+device( D ( NWDIO ) dionw pwell nwell )
+device( D ( DIOBPW ) diobpw diobpw dnwell )
+//*--------------------------------------------------------
+#IFDEF RES_PROPERTY WL 
+device( rnwaa_ckt nwraa nwell ( PLUS ) nwell ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W, L 
+W = common_length(nwraa,nwell)/2 
+L = AREA(nwraa)/W 
+ ] )
+device_merge( user_define rnwaa_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnwaa_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnwsti_ckt nwrsti nwell ( PLUS ) nwell ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(nwrsti,nwell)/2 
+L = AREA(nwrsti)/W 
+ ] )
+device_merge( user_define rnwsti_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnwsti_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpdif_ckt pdrnosab psd ( PLUS ) psd ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pdrnosab,psd)/2 
+L = AREA(pdrnosab)/W 
+ ] )
+device_merge( user_define rpdif_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpdif_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rndif_ckt ndrnosab nsd ( PLUS ) nsd ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(ndrnosab,nsd)/2 
+L = AREA(ndrnosab)/W 
+ ] )
+device_merge( user_define rndif_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rndif_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rppo_ckt pprnosab poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY W,L 
+W = common_length(pprnosab,poly)/2 
+L = AREA(pprnosab)/W 
+ ] )
+device_merge( user_define rppo_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rppo_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rppo_3t_ckt pprnosab_3t_nw poly ( PLUS ) poly ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pprnosab_3t_nw,poly)/2 
+L = AREA(pprnosab_3t_nw)/W 
+ ] )
+device( rppo_3t_ckt pprnosab_3t_pw poly ( PLUS ) poly ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pprnosab_3t_pw,poly)/2 
+L = AREA(pprnosab_3t_pw)/W 
+ ] )
+device_merge( user_define rppo_3t_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rppo_3t_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnpo_ckt nprnosab poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY W,L 
+W = common_length(nprnosab,poly)/2 
+L = AREA(nprnosab)/W 
+ ] )
+device_merge( user_define rnpo_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnpo_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnpo_3t_ckt nprnosab_3t_pw poly ( PLUS ) poly ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(nprnosab_3t_pw,poly)/2 
+L = AREA(nprnosab_3t_pw)/W 
+ ] )
+device( rnpo_3t_ckt nprnosab_3t_nw poly ( PLUS ) poly ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(nprnosab_3t_nw,poly)/2 
+L = AREA(nprnosab_3t_nw)/W 
+ ] )
+device_merge( user_define rnpo_3t_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnpo_3t_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpdifsab_ckt pdrsab psd ( PLUS ) psd ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pdrsab,psd)/2 
+L = AREA(pdrsab)/W 
+ ] )
+device_merge( user_define rpdifsab_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpdifsab_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rndifsab_ckt ndrsab nsd ( PLUS ) nsd ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(ndrsab,nsd)/2 
+L = AREA(ndrsab)/W 
+ ] )
+device_merge( user_define rndifsab_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rndifsab_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpposab_ckt pprsab poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY W,L 
+W = common_length(pprsab,poly)/2 
+L = AREA(pprsab)/W 
+ ] )
+device_merge( user_define rpposab_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpposab_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpposab_3t_ckt pprsab_3t_nw poly ( PLUS ) poly ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pprsab_3t_nw,poly)/2 
+L = AREA(pprsab_3t_nw)/W 
+ ] )
+device( rpposab_3t_ckt pprsab_3t_pw poly ( PLUS ) poly ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(pprsab_3t_pw,poly)/2 
+L = AREA(pprsab_3t_pw)/W 
+ ] )
+device_merge( user_define rpposab_3t_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpposab_3t_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnposab_ckt nprsab poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY W,L 
+W = common_length(nprsab,poly)/2 
+L = AREA(nprsab)/W 
+ ] )
+device_merge( user_define rnposab_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnposab_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnposab_3t_ckt nprsab_3t_pw poly ( PLUS ) poly ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(nprsab_3t_pw,poly)/2 
+L = AREA(nprsab_3t_pw)/W 
+ ] )
+device( rnposab_3t_ckt nprsab_3t_nw poly ( PLUS ) poly ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(nprsab_3t_nw,poly)/2 
+L = AREA(nprsab_3t_nw)/W 
+ ] )
+device_merge( user_define rnposab_3t_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnposab_3t_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rhrpo_ckt hrppo poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY W,L 
+W = common_length(hrppo,poly)/2 
+L = AREA(hrppo)/W 
+ ] )
+device_merge( user_define rhrpo_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rhrpo_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rhrpo_3t_ckt hrppo_3t_nw poly ( PLUS ) poly ( MINUS ) nwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(hrppo_3t_nw,poly)/2 
+L = AREA(hrppo_3t_nw)/W 
+ ] )
+device( rhrpo_3t_ckt hrppo_3t_pw poly ( PLUS ) poly ( MINUS ) pwell ( SUB ) [ 
+PROPERTY W,L 
+W = common_length(hrppo_3t_pw,poly)/2 
+L = AREA(hrppo_3t_pw)/W 
+ ] )
+device_merge( user_define rhrpo_3t_ckt series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rhrpo_3t_ckt parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+#ENDIF 
+#IFDEF RES_PROPERTY R 
+device( R ( RNWAA ) nwraa nwell nwell [ 
+PROPERTY R 
+RS    = 441 
+DW    = 7.25E-08 
+W     = common_length(nwraa,nwell)/2 
+L     = AREA(nwraa)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RNWSTI ) nwrsti nwell nwell [ 
+PROPERTY R 
+RS    = 890 
+DW    = 1.83E-07 
+W     = common_length(nwrsti,nwell)/2 
+L     = AREA(nwrsti)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RPDIF ) pdrnosab psd psd [ 
+PROPERTY R 
+RS    = 6.75 
+DW    = -2.80E-08 
+W     = common_length(pdrnosab,psd)/2 
+L     = AREA(pdrnosab)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RNDIF ) ndrnosab nsd nsd [ 
+PROPERTY R 
+RS    = 7.57 
+DW    = -4.14E-08 
+W     = common_length(ndrnosab,nsd)/2 
+L     = AREA(ndrnosab)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RPPO ) pprnosab poly poly [ 
+PROPERTY R 
+RS    = 9.78 
+DW    = -1.35E-08 
+W     = common_length(pprnosab,poly)/2 
+L     = AREA(pprnosab)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RPPO_3T ) pprnosab_3t poly poly [ 
+PROPERTY R 
+RS    = 9.78 
+DW    = -1.35E-08 
+W     = common_length(pprnosab_3t,poly)/2 
+L     = AREA(pprnosab_3t)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+//DEVICE R(RPPO_3T) pprnosab_3t_pw poly poly pwell
+//                [
+//                PROPERTY R
+//                RS    = 9.78
+//                DW    = -1.35E-08
+//                W     = PERIM_CO(pprnosab_3t_pw,poly)/2
+//                L     = AREA(pprnosab_3t_pw)/W
+//                R0    = (L*RS)/(W-2*DW)
+//                R     = R0
+//                ]
+device( R ( RNPO ) nprnosab poly poly [ 
+PROPERTY R 
+RS    = 7.87 
+DW    = -1.89E-08 
+W     = common_length(nprnosab,poly)/2 
+L     = AREA(nprnosab)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+device( R ( RNPO_3T ) nprnosab_3t poly poly [ 
+PROPERTY R 
+RS    = 7.87 
+DW    = -1.89E-08 
+W     = common_length(nprnosab_3t,poly)/2 
+L     = AREA(nprnosab_3t)/W 
+R0    = (L*RS)/(W-2*DW) 
+R     = R0 
+ ] )
+//DEVICE R(RNPO_3T) nprnosab_3t_nw poly poly nwell
+//                [
+//                PROPERTY R
+//                RS    = 7.87
+//                DW    = -1.89E-08
+//                W     = PERIM_CO(nprnosab_3t_nw,poly)/2
+//                L     = AREA(nprnosab_3t_nw)/W
+//                R0    = (L*RS)/(W-2*DW)
+//                R     = R0
+//                ]
+device( R ( RPDIFSAB ) pdrsab psd psd [ 
+PROPERTY R 
+RS=116.2 
+Rintc = 15.446 
+Rint0 = 4.37E-05 
+Rint1 = 0 
+DW    = -1.37E-09 
+W = common_length(pdrsab,psd)/2 
+L = AREA(pdrsab)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0   =  (L*RS)/(W-2*DW) 
+#IFDEF ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+device( R ( RNDIFSAB ) ndrsab nsd nsd [ 
+PROPERTY R 
+RS=57.5 
+Rintc = 12.25 
+Rint0 = 2.18E-05 
+Rint1 = 0 
+DW    = -2.62E-08 
+W = common_length(ndrsab,nsd)/2 
+L = AREA(ndrsab)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF  ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+device( R ( RPPOSAB ) pprsab poly poly [ 
+PROPERTY R 
+RS=311.3 
+Rintc = 29.965 
+Rint0 = 1.18E-04 
+Rint1 = 0 
+DW    = 2.73E-08 
+W = common_length(pprsab,poly)/2 
+L = AREA(pprsab)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF  ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+device( R ( RPPOSAB_3T ) pprsab_3t poly poly [ 
+PROPERTY R 
+RS=311.3 
+Rintc = 29.965 
+Rint0 = 1.18E-04 
+Rint1 = 0 
+DW    = 2.73E-08 
+W = common_length(pprsab_3t,poly)/2 
+L = AREA(pprsab_3t)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF  ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+//DEVICE R(RPPOSAB_3T)  pprsab_3t_pw poly poly pwell
+//                [
+//                PROPERTY R
+//                RS=311.3
+//                Rintc = 29.965
+//                Rint0 = 1.18E-04
+//                Rint1 = 0
+//                DW    = 2.73E-08
+//                W = PERIM_CO(pprsab_3t_pw,poly)/2
+//                L = AREA(pprsab_3t_pw)/W
+//                Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW))
+//                R0 = (L*RS)/(W-2*DW)
+//                #IFDEF  ADD_RINT TRUE
+//                         R = R0 + 2*Rint
+//                #ELSE
+//                         R = R0
+//                #ENDIF
+//                ]
+device( R ( RNPOSAB ) nprsab poly poly [ 
+PROPERTY R 
+RS=271.6 
+Rintc = 23.415 
+Rint0 = 9.50E-05 
+Rint1 = 0 
+DW    = 4.71E-08 
+W = common_length(nprsab,poly)/2 
+L = AREA(nprsab)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+device( R ( RNPOSAB_3T ) nprsab_3t poly poly [ 
+PROPERTY R 
+RS=271.6 
+Rintc = 23.415 
+Rint0 = 9.50E-05 
+Rint1 = 0 
+DW    = 4.71E-08 
+W = common_length(nprsab_3t,poly)/2 
+L = AREA(nprsab_3t)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+//DEVICE R(RNPOSAB_3T)  nprsab_3t_nw poly poly nwell
+//                [
+//                PROPERTY R
+//                RS=271.6
+//                Rintc = 23.415
+//                Rint0 = 9.50E-05
+//                Rint1 = 0
+//                DW    = 4.71E-08
+//                W = PERIM_CO(nprsab_3t_nw,poly)/2
+//                L = AREA(nprsab_3t_nw)/W
+//                Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW))
+//                R0 = (L*RS)/(W-2*DW)
+//                #IFDEF ADD_RINT TRUE
+//                        R = R0 + 2*Rint
+//                #ELSE
+//                        R = R0
+//                #ENDIF
+//                ]
+device( R ( RHRPO ) hrppo poly poly [ 
+PROPERTY R 
+RS=995 
+Rintc = 7.88 
+Rint0 = 3.96E-05 
+Rint1 = 0 
+DW    = -6.0E-09 
+W = common_length(hrppo,poly)/2 
+L = AREA(hrppo)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF  ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+device( R ( RHRPO_3T ) hrppo_3t poly poly [ 
+PROPERTY R 
+RS=995 
+Rintc = 7.88 
+Rint0 = 3.96E-05 
+Rint1 = 0 
+DW    = -6.0E-09 
+W = common_length(hrppo_3t,poly)/2 
+L = AREA(hrppo_3t)/W 
+Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW)) 
+R0 = (L*RS)/(W-2*DW) 
+#IFDEF  ADD_RINT TRUE
+R = R0 + 2*Rint 
+#ELSE
+R = R0 
+#ENDIF
+ ] )
+//DEVICE R(RHRPO_3T)    hrppo_3t_pw    poly poly pwell
+//                [
+//                PROPERTY R
+//                RS=995
+//                Rintc = 7.88
+//                Rint0 = 3.96E-05
+//                Rint1 = 0
+//                DW    = -6.0E-09
+//                W = PERIM_CO(hrppo_3t_pw,poly)/2
+//                L = AREA(hrppo_3t_pw)/W
+//                Rint  = Rintc + (Rint0)/(W-2*DW) + (Rint1)/((W-2*DW)*(W-2*DW))
+//                R0 = (L*RS)/(W-2*DW)
+//                #IFDEF  ADD_RINT TRUE
+//                         R = R0 + 2*Rint
+//                #ELSE
+//                         R = R0
+//                #ENDIF
+//                ]
+#ENDIF 
+device( R ( RM1 ) rm1 metal1 metal1 [ 
+PROPERTY R 
+RS= 0.078 
+DW= -4.93E-09 
+W = common_length(rm1,metal1)/2 
+L = AREA(rm1)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#IFDEF TOPMETAL 6 
+device( R ( RM2 ) rm2 metal2 metal2 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm2,metal2)/2 
+L = AREA(rm2)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM3 ) rm3 metal3 metal3 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm3,metal3)/2 
+L = AREA(rm3)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM4 ) rm4 metal4 metal4 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm4,metal4)/2 
+L = AREA(rm4)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM5 ) rm5 metal5 metal5 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm5,metal5)/2 
+L = AREA(rm5)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#IFDEF THICK_RF_TM FALSE 
+device( R ( RM6 ) rm6 metal6 metal6 [ 
+PROPERTY R 
+RS= 0.036 
+DW= -4.41E-08 
+W = common_length(rm6,metal6)/2 
+L = AREA(rm6)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+device( R ( RM6_RF ) rm6 metal6 metal6 [ 
+PROPERTY R 
+RS= 0.0145 
+DW= -5.6494E-09 
+W = common_length(rm6,metal6)/2 
+L = AREA(rm6)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 5 
+device( R ( RM2 ) rm2 metal2 metal2 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm2,metal2)/2 
+L = AREA(rm2)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM3 ) rm3 metal3 metal3 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm3,metal3)/2 
+L = AREA(rm3)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM4 ) rm4 metal4 metal4 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm4,metal4)/2 
+L = AREA(rm4)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#IFDEF THICK_RF_TM FALSE 
+device( R ( RM5 ) rm5 metal5 metal5 [ 
+PROPERTY R 
+RS= 0.036 
+DW= -4.41E-08 
+W = common_length(rm5,metal5)/2 
+L = AREA(rm5)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+device( R ( RM5_RF ) rm5 metal5 metal5 [ 
+PROPERTY R 
+RS= 0.0145 
+DW= -5.6494E-09 
+W = common_length(rm5,metal5)/2 
+L = AREA(rm5)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 4 
+device( R ( RM2 ) rm2 metal2 metal2 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm2,metal2)/2 
+L = AREA(rm2)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+device( R ( RM3 ) rm3 metal3 metal3 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm3,metal3)/2 
+L = AREA(rm3)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#IFDEF THICK_RF_TM FALSE 
+device( R ( RM4 ) rm4 metal4 metal4 [ 
+PROPERTY R 
+RS= 0.036 
+DW= -4.41E-08 
+W = common_length(rm4,metal4)/2 
+L = AREA(rm4)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+device( R ( RM4_RF ) rm4 metal4 metal4 [ 
+PROPERTY R 
+RS= 0.0145 
+DW= -5.6494E-09 
+W = common_length(rm4,metal4)/2 
+L = AREA(rm4)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 3 
+device( R ( RM2 ) rm2 metal2 metal2 [ 
+PROPERTY R 
+RS= 0.078 
+DW= 6.0E-09 
+W = common_length(rm2,metal2)/2 
+L = AREA(rm2)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#IFDEF THICK_RF_TM FALSE 
+device( R ( RM3 ) rm3 metal3 metal3 [ 
+PROPERTY R 
+RS= 0.036 
+DW= -4.41E-08 
+W = common_length(rm3,metal3)/2 
+L = AREA(rm3)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+device( R ( RM3_RF ) rm3 metal3 metal3 [ 
+PROPERTY R 
+RS= 0.0145 
+DW= -5.6494E-09 
+W = common_length(rm3,metal3)/2 
+L = AREA(rm3)/W 
+R0= (L*RS)/(W-2*DW) 
+R = R0 
+ ] )
+#ENDIF 
+#ENDIF 
+device( C ( CPM ) pmcap metal1 pmcap [ 
+6.760E-2 0 ] )
+#IFDEF MIM C 
+device( C ( MIM ) mimcap MIM mimcap [ 
+0.971 0 ] )
+#ENDIF 
+#IFDEF MIM SUBCKT 
+device( mim_ckt mimcap MIM ( PLUS ) mimcap ( MINUS ) [ 
+PROPERTY LR,WR 
+P = PERIMETER(mimcap) 
+A = AREA(mimcap) 
+LR = (P+SQRT(abs(P*P-16*A)))/4 
+WR = (P-SQRT(abs(P*P-16*A)))/4 
+ ] )
+#ENDIF 
+device( n18_ckt_rf n18rfgt nsdrfd ( DRN ) n18rfgt ( GATE ) nsd ( SRC ) pwell ( BULK ) < ngate18_rf  >< nsdrf  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(ngate18_rf) 
+WR = common_length(ngate18_rf,nsdrf)/(2*NF) 
+LR = AREA(ngate18_rf)/(WR*NF) 
+ ] )
+device( dnw18_ckt_rf dnw18rfgt nsdrfd ( DRN ) dnw18rfgt ( GATE ) nsd ( SRC ) pwell ( BULK ) dnwell ( T ) < ngate18_rf  >< nsdrf  >< ndifd  >< DNW  >< dnwwaddrec  >
+[ 
+PROPERTY LR,WR,NF,LADDR,WADDR 
+NF = COUNT(ngate18_rf) 
+WR = common_length(ngate18_rf,nsdrf)/(2*NF) 
+LR = AREA(ngate18_rf)/(WR*NF) 
+DP = PERIMETER(DNW) 
+RA = AREA(dnwwaddrec)/2 
+NP = PERIMETER(ndifd) 
+NL = NP/2-WR 
+WADDR = RA/NL 
+LADDR = DP/4-WADDR-WR/2-NL/2 
+ ] )
+device( p18_ckt_rf p18rfgt psdrfd ( DRN ) p18rfgt ( GATE ) psd ( SRC ) nwell ( BULK ) < pgate18_rf  >< psdrf  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(pgate18_rf) 
+WR = common_length(pgate18_rf,psdrf)/(2*NF) 
+LR = AREA(pgate18_rf)/(WR*NF) 
+ ] )
+device( n33_ckt_rf n33rfgt nsdrfd ( DRN ) n33rfgt ( GATE ) nsd ( SRC ) pwell ( BULK ) < ngate33_rf  >< nsdrf  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(ngate33_rf) 
+WR = common_length(ngate33_rf,nsdrf)/(2*NF) 
+LR = AREA(ngate33_rf)/(WR*NF) 
+ ] )
+device( dnw33_ckt_rf dnw33rfgt nsdrfd ( DRN ) dnw33rfgt ( GATE ) nsd ( SRC ) pwell ( BULK ) dnwell ( T ) < ngate33_rf  >< nsdrf  >< ndifd  >< DNW  >< dnwwaddrec  >
+[ 
+PROPERTY LR,WR,NF,LADDR,WADDR 
+NF = COUNT(ngate33_rf) 
+WR = common_length(ngate33_rf,nsdrf)/(2*NF) 
+LR = AREA(ngate33_rf)/(WR*NF) 
+DP = PERIMETER(DNW) 
+RA = AREA(dnwwaddrec)/2 
+NP = PERIMETER(ndifd) 
+NL = NP/2-WR 
+WADDR = RA/NL 
+LADDR = DP/4-WADDR-WR/2-NL/2 
+ ] )
+device( p33_ckt_rf p33rfgt psdrfd ( DRN ) p33rfgt ( GATE ) psd ( SRC ) nwell ( BULK ) < pgate33_rf  >< psdrf  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(pgate33_rf) 
+WR = common_length(pgate33_rf,psdrf)/(2*NF) 
+LR = AREA(pgate33_rf)/(WR*NF) 
+ ] )
+device( pvar18w10l1_ckt_rf cn18rfgtw10l1 cn18rfgtw10l1 ( PLUS ) nwell ( MINUS ) < cngate18w10l1_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate18w10l1_rf) 
+WR = common_length(cngate18w10l1_rf,ntd)/(2*NF) 
+LR = AREA(cngate18w10l1_rf)/(WR*NF) 
+ ] )
+device( pvar18w10ld5_ckt_rf cn18rfgtw10ld5 cn18rfgtw10ld5 ( PLUS ) nwell ( MINUS ) < cngate18w10ld5_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate18w10ld5_rf) 
+WR = common_length(cngate18w10ld5_rf,ntd)/(2*NF) 
+LR = AREA(cngate18w10ld5_rf)/(WR*NF) 
+ ] )
+device( pvar18w5l1_ckt_rf cn18rfgtw5l1 cn18rfgtw5l1 ( PLUS ) nwell ( MINUS ) < cngate18w5l1_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate18w5l1_rf) 
+WR = common_length(cngate18w5l1_rf,ntd)/(2*NF) 
+LR = AREA(cngate18w5l1_rf)/(WR*NF) 
+ ] )
+device( pvar18w5ld5_ckt_rf cn18rfgtw5ld5 cn18rfgtw5ld5 ( PLUS ) nwell ( MINUS ) < cngate18w5ld5_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate18w5ld5_rf) 
+WR = common_length(cngate18w5ld5_rf,ntd)/(2*NF) 
+LR = AREA(cngate18w5ld5_rf)/(WR*NF) 
+ ] )
+device( pvar33w10l1_ckt_rf cn33rfgtw10l1 cn33rfgtw10l1 ( PLUS ) nwell ( MINUS ) < cngate33w10l1_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate33w10l1_rf) 
+WR = common_length(cngate33w10l1_rf,ntd)/(2*NF) 
+LR = AREA(cngate33w10l1_rf)/(WR*NF) 
+ ] )
+device( pvar33w10ld5_ckt_rf cn33rfgtw10ld5 cn33rfgtw10ld5 ( PLUS ) nwell ( MINUS ) < cngate33w10ld5_rf  >< ntd  >[ 
+PROPERTY LR,WR,NF 
+NF = COUNT(cngate33w10ld5_rf) 
+WR = common_length(cngate33w10ld5_rf,ntd)/(2*NF) 
+LR = AREA(cngate33w10ld5_rf)/(WR*NF) 
+ ] )
+device( pvardio18_ckt_rf jvar18 psdrf ( PLUS ) ntd ( MINUS ) [ 
+PROPERTY LR,WR,NF 
+P  = PERIMETER(psdrf) 
+A  = AREA(psdrf) 
+NF = COUNT(psdrf) 
+WR = (P-(SQRT(P*P-16*A*NF)))/(4*NF) 
+LR = (P+(SQRT(P*P-16*A*NF)))/(4*NF) 
+ ] )
+device( pvardio33_ckt_rf jvar33 psdrf ( PLUS ) ntd ( MINUS ) [ 
+PROPERTY LR,WR,NF 
+P  = PERIMETER(psdrf) 
+A  = AREA(psdrf) 
+NF = COUNT(psdrf) 
+WR = (P-(SQRT(P*P-16*A*NF)))/(4*NF) 
+LR = (P+(SQRT(P*P-16*A*NF)))/(4*NF) 
+ ] )
+device( rndifsab_ckt_rf ndrsabrf nsd ( PLUS ) nsd ( MINUS ) [ 
+PROPERTY L,W 
+W = common_length(ndrsabrf,nsd)/2 
+L = AREA(ndrsabrf)/W 
+ ] )
+device_merge( user_define rndifsab_ckt_rf series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rndifsab_ckt_rf parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpdifsab_ckt_rf pdrsabrf psd ( PLUS ) psd ( MINUS ) [ 
+PROPERTY L,W 
+W = common_length(pdrsabrf,psd)/2 
+L = AREA(pdrsabrf)/W 
+ ] )
+device_merge( user_define rpdifsab_ckt_rf series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpdifsab_ckt_rf parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rnposab_ckt_rf nprsabrf poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY L,W 
+W = common_length(nprsabrf,poly)/2 
+L = AREA(nprsabrf)/W 
+ ] )
+device_merge( user_define rnposab_ckt_rf series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rnposab_ckt_rf parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rpposab_ckt_rf pprsabrf poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY L,W 
+W = common_length(pprsabrf,poly)/2 
+L = AREA(pprsabrf)/W 
+ ] )
+device_merge( user_define rpposab_ckt_rf series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rpposab_ckt_rf parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( rhrpo_ckt_rf hrpporf poly ( PLUS ) poly ( MINUS ) [ 
+PROPERTY L,W 
+W = common_length(hrpporf,poly)/2 
+L = AREA(hrpporf)/W 
+ ] )
+device_merge( user_define rhrpo_ckt_rf series PLUS MINUS yes [ 
+effective L,W 
+L = sum(L) 
+W = sum (W)/count() 
+ ] )
+device_merge( user_define rhrpo_ckt_rf parallel yes [ 
+effective L,W 
+L = sum(L)/count() 
+W = sum (W) 
+ ] )
+device( mim1_rf mimcaprf MIM ( PLUS ) mimcaprf ( MINUS ) [ 
+PROPERTY LR,WR 
+//  LR=PERIMETER(mimcaprf)/4 
+//  WR=AREA(mimcaprf)/LR] 
+P = PERIMETER(mimcaprf) 
+A = AREA(mimcaprf) 
+LR = (P+SQRT(abs(P*P-16*A)))/4 
+WR = (P-SQRT(abs(P*P-16*A)))/4 
+ ] )
+#IFDEF TOPMETAL 6 
+device( ind_rf spri_ind m6_ind ( PLUS ) m6_ind ( MINUS ) < m6ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m6ind_hole)-(19E-6))/8 
+N=COUNT(m_ind_touch)-1.5 
+ ] )
+device( diff_ind_rf diff_ind dind_pm6 ( PLUS ) dind_pm6 ( MINUS ) < m6ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m6ind_hole))/8 
+N=(COUNT(m_ind_touch))/3+1 
+ ] )
+device( diff_ind_3t_rf diff_ind_3t dind_pm6 ( PLUS ) dind_pm6 ( MINUS ) dind_pm4 ( B ) < m6ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m6ind_hole))/8 
+N=((COUNT(m_ind_touch))-1)/3+1 
+ ] )
+#ENDIF 
+#IFDEF TOPMETAL 5 
+device( ind_rf spri_ind m5_ind ( PLUS ) m5_ind ( MINUS ) < m5ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m5ind_hole)-(19E-6))/8 
+N=COUNT(m_ind_touch)-1.5 
+ ] )
+device( diff_ind_rf diff_ind dind_pm5 ( PLUS ) dind_pm5 ( MINUS ) < m5ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m5ind_hole))/8 
+N=(COUNT(m_ind_touch))/3+1 
+ ] )
+device( diff_ind_3t_rf diff_ind_3t dind_pm5 ( PLUS ) dind_pm5 ( MINUS ) dind_pm3 ( B ) < m5ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m5ind_hole))/8 
+N=((COUNT(m_ind_touch))-1)/3+1 
+ ] )
+#ENDIF 
+#IFDEF TOPMETAL 4 
+device( ind_rf spri_ind m4_ind ( PLUS ) m4_ind ( MINUS ) < m4ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m4ind_hole)-(19E-6))/8 
+N=COUNT(m_ind_touch)-1.5 
+ ] )
+device( diff_ind_rf diff_ind dind_pm4 ( PLUS ) dind_pm4 ( MINUS ) < m4ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m4ind_hole))/8 
+N=(COUNT(m_ind_touch))/3+1 
+ ] )
+device( diff_ind_3t_rf diff_ind_3t dind_pm4 ( PLUS ) dind_pm4 ( MINUS ) dind_pm2 ( B ) < m4ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m4ind_hole))/8 
+N=((COUNT(m_ind_touch))-1)/3+1 
+ ] )
+#ENDIF 
+#IFDEF TOPMETAL 3 
+device( ind_rf spri_ind m3_ind ( PLUS ) m3_ind ( MINUS ) < m3ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m3ind_hole)-(19E-6))/8 
+N=COUNT(m_ind_touch)-1.5 
+ ] )
+device( diff_ind_rf diff_ind dind_pm3 ( PLUS ) dind_pm3 ( MINUS ) < m3ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m3ind_hole))/8 
+N=(COUNT(m_ind_touch))/3+1 
+ ] )
+device( diff_ind_3t_rf diff_ind_3t dind_pm3 ( PLUS ) dind_pm3 ( MINUS ) dind_pm1 ( B ) < m3ind_hole  >< m_ind_touch  >[ 
+PROPERTY R,N 
+R=(PERIMETER(m3ind_hole))/8 
+N=((COUNT(m_ind_touch))-1)/3+1 
+ ] )
+#ENDIF 
+//////////////////////////////////////////////////////////
+//*Define property check tolerance                      // 
+//////////////////////////////////////////////////////////
+#IFDEF VIR_ART FALSE 
+check_property( MN( NPG ) L L 5  )
+check_property( MN( NPG ) W W 5  )
+check_property( MN( NPD ) L L 5  )
+check_property( MN( NPD ) W W 5  )
+check_property( MP( PL ) L L 5  )
+check_property( MP( PL ) W W 5  )
+#ENDIF 
+check_property( MN( N18 ) L L 5  )
+check_property( MN( N18 ) W W 5  )
+check_property( MN( N33 ) L L 5  )
+check_property( MN( N33 ) W W 5  )
+check_property( MP( P18 ) L L 5  )
+check_property( MP( P18 ) W W 5  )
+check_property( MP( P33 ) L L 5  )
+check_property( MP( P33 ) W W 5  )
+check_property( MN( NNT18 ) L L 5  )
+check_property( MN( NNT18 ) W W 5  )
+check_property( MN( NNT33 ) L L 5  )
+check_property( MN( NNT33 ) W W 5  )
+check_property( MN( NMVT18 ) L L 5  )
+check_property( MN( NMVT18 ) W W 5  )
+check_property( MN( NMVT33 ) L L 5  )
+check_property( MN( NMVT33 ) W W 5  )
+check_property( MP( PMVT18 ) L L 5  )
+check_property( MP( PMVT18 ) W W 5  )
+check_property( M( C1 ) L L 5  )
+check_property( M( C1 ) W W 5  )
+check_property( M( C2 ) L L 5  )
+check_property( M( C2 ) W W 5  )
+check_property( pvar18_ckt WR WR 5  )
+check_property( pvar18_ckt LR LR 5  )
+check_property( pvar18_ckt NF NF 0  )
+check_property( pvar33_ckt WR WR 5  )
+check_property( pvar33_ckt LR LR 5  )
+check_property( pvar33_ckt NF NF 0  )
+//TRACE PROPERTY MN(NN)     L L 5
+//TRACE PROPERTY MN(NN)     W W 5
+//TRACE PROPERTY MN(ND)     L L 5
+//TRACE PROPERTY MN(ND)     W W 5
+//TRACE PROPERTY M(MD)      L L 5
+//TRACE PROPERTY M(MD)      W W 5
+check_property( D( PDIO18 ) A A 5  )
+check_property( D( PDIO33 ) A A 5  )
+check_property( D( NDIO18 ) A A 5  )
+check_property( D( NDIO33 ) A A 5  )
+check_property( D( NNDIO18 ) A A 5  )
+check_property( D( NNDIO33 ) A A 5  )
+check_property( D( NWDIO ) A A 5  )
+check_property( D( DIOBPW ) A A 5  )
+check_property( Q( PNP18A4 ) A A 5  )
+check_property( Q( PNP18A25 ) A A 5  )
+check_property( Q( PNP18A100 ) A A 5  )
+check_property( Q( PNP33A4 ) A A 5  )
+check_property( Q( PNP33A25 ) A A 5  )
+check_property( Q( PNP33A100 ) A A 5  )
+check_property( Q( NPN18A4 ) A A 5  )
+check_property( Q( NPN18A25 ) A A 5  )
+check_property( Q( NPN18A100 ) A A 5  )
+check_property( Q( NPN33A4 ) A A 5  )
+check_property( Q( NPN33A25 ) A A 5  )
+check_property( Q( NPN33A100 ) A A 5  )
+#IFDEF RES_PROPERTY WL 
+check_property( rnwaa_ckt W W 5  )
+check_property( rnwaa_ckt L L 5  )
+check_property( rnwsti_ckt W W 5  )
+check_property( rnwsti_ckt L L 5  )
+check_property( rpdif_ckt W W 5  )
+check_property( rpdif_ckt L L 5  )
+check_property( rndif_ckt W W 5  )
+check_property( rndif_ckt L L 5  )
+check_property( rppo_ckt W W 5  )
+check_property( rppo_ckt L L 5  )
+check_property( rppo_3t_ckt W W 5  )
+check_property( rppo_3t_ckt L L 5  )
+check_property( rnpo_ckt W W 5  )
+check_property( rnpo_ckt L L 5  )
+check_property( rnpo_3t_ckt W W 5  )
+check_property( rnpo_3t_ckt L L 5  )
+check_property( rpdifsab_ckt W W 5  )
+check_property( rpdifsab_ckt L L 5  )
+check_property( rndifsab_ckt W W 5  )
+check_property( rndifsab_ckt L L 5  )
+check_property( rpposab_ckt W W 5  )
+check_property( rpposab_ckt L L 5  )
+check_property( rpposab_3t_ckt W W 5  )
+check_property( rpposab_3t_ckt L L 5  )
+check_property( rnposab_ckt W W 5  )
+check_property( rnposab_ckt L L 5  )
+check_property( rnposab_3t_ckt W W 5  )
+check_property( rnposab_3t_ckt L L 5  )
+check_property( rhrpo_ckt W W 5  )
+check_property( rhrpo_ckt L L 5  )
+check_property( rhrpo_3t_ckt W W 5  )
+check_property( rhrpo_3t_ckt L L 5  )
+#ENDIF 
+#IFDEF RES_PROPERTY R 
+check_property( R( RNWAA ) R R 5  )
+check_property( R( RNWSTI ) R R 5  )
+check_property( R( RNDIF ) R R 5  )
+check_property( R( RNDIFSAB ) R R 5  )
+check_property( R( RPDIF ) R R 5  )
+check_property( R( RPDIFSAB ) R R 5  )
+check_property( R( RNPO ) R R 5  )
+check_property( R( RNPO_3T ) R R 5  )
+check_property( R( RNPOSAB ) R R 5  )
+check_property( R( RNPOSAB_3T ) R R 5  )
+check_property( R( RPPO ) R R 5  )
+check_property( R( RPPO_3T ) R R 5  )
+check_property( R( RPPOSAB ) R R 5  )
+check_property( R( RPPOSAB_3T ) R R 5  )
+check_property( R( RHRPO ) R R 5  )
+check_property( R( RHRPO_3T ) R R 5  )
+#ENDIF 
+check_property( R( RM1 ) R R 5  )
+check_property( R( RM2 ) R R 5  )
+#IFDEF TOPMETAL 6 
+check_property( R( RM3 ) R R 5  )
+check_property( R( RM4 ) R R 5  )
+check_property( R( RM5 ) R R 5  )
+#IFDEF THICK_RF_TM FALSE 
+check_property( R( RM6 ) R R 5  )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+check_property( R( RM6_RF ) R R 5  )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 5 
+check_property( R( RM3 ) R R 5  )
+check_property( R( RM4 ) R R 5  )
+#IFDEF THICK_RF_TM FALSE 
+check_property( R( RM5 ) R R 5  )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+check_property( R( RM5_RF ) R R 5  )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 4 
+check_property( R( RM3 ) R R 5  )
+#IFDEF THICK_RF_TM FALSE 
+check_property( R( RM4 ) R R 5  )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+check_property( R( RM4_RF ) R R 5  )
+#ENDIF 
+#ENDIF 
+#IFDEF TOPMETAL 3 
+#IFDEF THICK_RF_TM FALSE 
+check_property( R( RM3 ) R R 5  )
+#ENDIF 
+#IFDEF THICK_RF_TM TRUE 
+check_property( R( RM3_RF ) R R 5  )
+#ENDIF 
+#ENDIF 
+check_property( C( CPM ) C C 5  )
+#IFDEF MIM C 
+check_property( C( MIM ) C C 5  )
+#ENDIF 
+#IFDEF MIM SUBCKT 
+check_property( mim_ckt WR WR 5  )
+check_property( mim_ckt LR LR 5  )
+#ENDIF 
+//*For RF Devices
+check_property( n18_ckt_rf WR WR 5  )
+check_property( n18_ckt_rf LR LR 5  )
+check_property( n18_ckt_rf NF NF 0  )
+check_property( dnw18_ckt_rf WR WR 5  )
+check_property( dnw18_ckt_rf LR LR 5  )
+check_property( dnw18_ckt_rf NF NF 0  )
+check_property( dnw18_ckt_rf LADDR LADDR 5  )
+check_property( dnw18_ckt_rf WADDR WADDR 5  )
+check_property( dnw33_ckt_rf WR WR 5  )
+check_property( dnw33_ckt_rf LR LR 5  )
+check_property( dnw33_ckt_rf NF NF 0  )
+check_property( dnw33_ckt_rf LADDR LADDR 5  )
+check_property( dnw33_ckt_rf WADDR WADDR 5  )
+check_property( p18_ckt_rf WR WR 5  )
+check_property( p18_ckt_rf LR LR 5  )
+check_property( p18_ckt_rf NF NF 0  )
+check_property( n33_ckt_rf WR WR 5  )
+check_property( n33_ckt_rf LR LR 5  )
+check_property( n33_ckt_rf NF NF 0  )
+check_property( p33_ckt_rf WR WR 5  )
+check_property( p33_ckt_rf LR LR 5  )
+check_property( p33_ckt_rf NF NF 0  )
+check_property( pvar18w10l1_ckt_rf WR WR 5  )
+check_property( pvar18w10l1_ckt_rf LR LR 5  )
+check_property( pvar18w10l1_ckt_rf NF NF 0  )
+check_property( pvar18w10ld5_ckt_rf WR WR 5  )
+check_property( pvar18w10ld5_ckt_rf LR LR 5  )
+check_property( pvar18w10ld5_ckt_rf NF NF 0  )
+check_property( pvar18w5l1_ckt_rf WR WR 5  )
+check_property( pvar18w5l1_ckt_rf LR LR 5  )
+check_property( pvar18w5l1_ckt_rf NF NF 0  )
+check_property( pvar18w5ld5_ckt_rf WR WR 5  )
+check_property( pvar18w5ld5_ckt_rf LR LR 5  )
+check_property( pvar18w5ld5_ckt_rf NF NF 0  )
+check_property( pvar33w10l1_ckt_rf WR WR 5  )
+check_property( pvar33w10l1_ckt_rf LR LR 5  )
+check_property( pvar33w10l1_ckt_rf NF NF 0  )
+check_property( pvar33w10ld5_ckt_rf WR WR 5  )
+check_property( pvar33w10ld5_ckt_rf LR LR 5  )
+check_property( pvar33w10ld5_ckt_rf NF NF 0  )
+check_property( pvardio18_ckt_rf WR WR 5  )
+check_property( pvardio18_ckt_rf LR LR 5  )
+check_property( pvardio18_ckt_rf NF NF 0  )
+check_property( pvardio33_ckt_rf WR WR 5  )
+check_property( pvardio33_ckt_rf LR LR 5  )
+check_property( pvardio33_ckt_rf NF NF 0  )
+check_property( rndifsab_ckt_rf L L 5  )
+check_property( rndifsab_ckt_rf W W 5  )
+check_property( rpdifsab_ckt_rf L L 5  )
+check_property( rpdifsab_ckt_rf W W 5  )
+check_property( rnposab_ckt_rf L L 5  )
+check_property( rnposab_ckt_rf W W 5  )
+check_property( rpposab_ckt_rf L L 5  )
+check_property( rpposab_ckt_rf W W 5  )
+check_property( rhrpo_ckt_rf L L 5  )
+check_property( rhrpo_ckt_rf W W 5  )
+check_property( mim1_rf LR LR 5  )
+check_property( mim1_rf WR WR 5  )
+check_property( ind_rf R R 5  )
+check_property( ind_rf N N 0  )
+check_property( diff_ind_rf R R 5  )
+check_property( diff_ind_rf N N 0  )
+check_property( diff_ind_3t_rf R R 5  )
+check_property( diff_ind_3t_rf N N 0  )
+#IFDEF ERCCHECK TRUE 
+//////////////////////////////////////////////////////////
+//* ERC Check                                           //
+//////////////////////////////////////////////////////////
+//*Report regions on nwell or pwell that connect to more than one node.
+uniconnect_check( nwell via_layer )
+uniconnect_check( pwell via_layer )
+//*Report nodes with a path to power but not ground
+erc_path_check( grounded && !powered ignore_floatting )
+//*Report nodes with a path to ground but not power
+erc_path_check( powered && !grounded ignore_floatting )
+//*Report nodes without a path to both power and ground
+erc_path_check( !powered && !grounded ignore_floatting )
+erc_path_check( !labeled ignore_floatting )
+//*Select pwell pick-up layer ptd connect to power nets.
+
+RULE ptd_to_power { 
+;  Pwell pick-up layer ptd texted with power net.
+geom_net( by_layer ptap "?VDD?" "?VCC?" )
+}
+//*Select nwell pick-up layer ntd connect to ground nets.
+
+RULE ntd_to_ground { 
+;  Nwell pick-up layer ntd texted with ground net.
+geom_net( by_layer ntap "?VSS?" "?GND?" )
+}
+// NMOS S/D connect to both Power and Ground nets
+nsdtoground = geom_net( by_layer nsd "?VSS?" "?GND?" )
+T1nsd = geom_adjacent(  ngate18 nsdtoground )
+nsdtopower = geom_net( by_layer nsd "?VDD?" "?VCC?" )
+T2nsd = geom_adjacent(  ngate18 nsdtopower )
+
+RULE mntopg { 
+;  NMOS connect to both Power and Ground.
+geom_and(  T1nsd T2nsd )
+}
+// PMOS S/D connect to both Power and Ground Nets.
+psdtoground = geom_net( by_layer psd "?VSS?" "?GND?" )
+T1psd = geom_adjacent(  pgate18 psdtoground )
+psdtopower = geom_net( by_layer psd "?VDD?" "?VCC?" )
+T2psd = geom_adjacent(  pgate18 psdtopower )
+
+RULE mptopg { 
+;  PMOS connect to both Power and Ground.
+geom_and(  T1psd T2psd )
+}
+erc_select_rule( by_name ptd_to_power ntd_to_ground mptopg mntopg )
+#ENDIF 
+//*END//

@@ -1,0 +1,10 @@
+M
+[cdl]
+>M? <D> <G> <S> <B>  p18 [@w:W=%] [@Length:L=%] [@m:m=%]
+
+[hspice]
+>M? <D> <G> <S> <B> p18 [@Length:L=%] [@Single_Width:W=%] [@ad:AD=%] [@as:AS=%] [@pd:PD=%] [@ps:PS=%] [@simM:M=%]
+
+
+[pspice]
+>M^@REFDES %D %G %S %B p18 ?Length|L=@Length| ?Single_Width|w=@Single_Width|  ?simM|M=@simM|

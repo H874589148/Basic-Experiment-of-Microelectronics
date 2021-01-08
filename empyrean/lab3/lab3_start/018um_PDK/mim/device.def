@@ -1,0 +1,14 @@
+C
+[cdl]
+>C? <PLUS> <MINUS> [@c] $[mim] [@m:M=%]
+
+[hspice]
+>C? <PLUS> <MINUS> [@model] [@Width:w=%] [@Length:l=%] [@m:m=%]
+
+
+[pspice]
+>C^@REFDES %PLUS %MINUS @c ?m|M=@m| 
+
+
+
+

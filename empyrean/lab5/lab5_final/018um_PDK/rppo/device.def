@@ -1,0 +1,12 @@
+R
+[cdl]
+>R? <PLUS> <MINUS> [@r] $[rppo] [@effw:$W=%] [@effl:$L=%] [@m:M=%]
+
+[pspice]
+>R^@REFDES %PLUS %MINUS rppo @r ?m|M=@m|
+
+[hspice]
+>R? <PLUS> <MINUS> rppo [@r:%] [@m:M=%]
+
+
+
