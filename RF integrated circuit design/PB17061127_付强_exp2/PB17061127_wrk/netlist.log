@@ -1,0 +1,40 @@
+; Top Design: "PB17061127_lib:SA_LCBandpassDT1_fq:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="PB17061127_lib:SA_LCBandpassDT1_fq:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+; Library Name: PB17061127_lib
+; Cell Name: DA_LCBandpassDT1_fq
+; View Name: schematic
+define DA_LCBandpassDT1_fq ( P1  P2 ) 
+parameters  Fs1=.5 GHz  Fp1=1 GHz  Fp2=2 GHz  Fs2=2.5 GHz  Ap=3 dB  As=20 dB  N=0  ResponseType=1  MinLorC=4  Rg=50 Ohm  Rl=50 Ohm  MaxRealizations=25 
+L:L1  P1 0 L=2.710887 nH R=1e-12 Ohm Noise=yes  
+C:C1  P1 0 C=11.450873 pF 
+L:L2  P1 N__3 L=74.946939 nH R=1e-12 Ohm Noise=yes  
+C:C2  N__3 N__4 C=414.186753 fF 
+L:L3  N__4 0 L=837.710305 pH R=1e-12 Ohm Noise=yes  
+C:C3  N__4 0 C=37.055805 pF 
+L:L4  N__4 N__7 L=74.946939 nH R=1e-12 Ohm Noise=yes  
+C:C4  N__7 P2 C=414.186752 fF 
+L:L5  P2 0 L=2.710887 nH R=1e-12 Ohm Noise=yes  
+C:C5  P2 0 C=11.450873 pF 
+end DA_LCBandpassDT1_fq
+
+aele Fs1=700 MHz;Fp1=850 MHz;Fp2=960 MHz;Fs2=1100 MHz;Ap=0.05 dB;As=30 dB;N=5;ResponseType=1;MinLorC=4;Rg=50 Ohm;Rl=50 Ohm;MaxRealizations=25;
+DA_LCBandpassDT1_fq:DA_LCBandpassDT1  N__0 N__1 Fs1=700 MHz Fp1=850 MHz Fp2=960 MHz Fs2=1100 MHz Ap=0.05 dB As=30 dB N=5 ResponseType=1 MinLorC=4 Rg=50 Ohm Rl=50 Ohm MaxRealizations=25 
+Port:Term1  N__0 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__1 0 Num=2 Z=50 Ohm Noise=yes 
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no CalcGroupDelay=yes GroupDelayAperture=1e-4 \
+FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=100 MHz Stop=1.6 GHz Step=10 MHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2

@@ -1,0 +1,4 @@
+INCLUDE $HPEESOF_DIR/oalibs/analog_rf.defs
+INCLUDE $HPEESOF_DIR/oalibs/dsp.defs
+DEFINE PB17061127_lib PB17061127_lib
+ASSIGN PB17061127_lib libMode shared

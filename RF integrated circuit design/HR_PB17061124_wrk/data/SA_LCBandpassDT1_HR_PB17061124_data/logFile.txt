@@ -1,0 +1,12 @@
+
+hpeesofsim (*) 471.update1.0 Jul 13 2018, MINT version 4
+    (64-bit windows built: Sat Jul 14, 2018 02:39:51 +0000)
+Copyright 1989 - 2017 Keysight Technologies.
+
+
+SP SP1[1] <HR_PB17061124_lib:SA_LCBandpassDT1_HR_PB17061124:schematic>   freq=(100 MHz->1.6 GHz)
+
+
+Resource usage:
+  Total stopwatch time     =     1.20 seconds.
+

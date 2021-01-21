@@ -1,0 +1,36 @@
+; Top Design: "HR_PB17061124_lib:SA_LCBandpassDT1_HR_PB17061124:schematic"
+; Netlisted using Hierarchy Policy: "Standard"
+
+Options ResourceUsage=yes UseNutmegFormat=no EnableOptim=no TopDesignName="HR_PB17061124_lib:SA_LCBandpassDT1_HR_PB17061124:schematic" DcopOutputNodeVoltages=yes DcopOutputPinCurrents=yes DcopOutputAllSweepPoints=no DcopOutputDcopType=0
+; Library Name: HR_PB17061124_lib
+; Cell Name: DA_LCBandpassDT1_HR_PB17061124
+; View Name: schematic
+define DA_LCBandpassDT1_HR_PB17061124 ( P1  P2 ) 
+parameters  Fs1=.5 GHz  Fp1=1 GHz  Fp2=2 GHz  Fs2=2.5 GHz  Ap=3 dB  As=20 dB  N=0  ResponseType=1  MinLorC=4  Rg=50 Ohm  Rl=50 Ohm  MaxRealizations=25 
+C:C3  P2 0 C=20.379571 pF 
+L:L3  P2 0 L=1.523193 nH R=1e-12 Ohm Noise=yes  
+C:C2  N__0 P2 C=304.638699 fF 
+L:L2  P1 N__0 L=101.897853 nH R=1e-12 Ohm Noise=yes  
+C:C1  P1 0 C=20.379571 pF 
+L:L1  P1 0 L=1.523193 nH R=1e-12 Ohm Noise=yes  
+end DA_LCBandpassDT1_HR_PB17061124
+
+aele Fs1=0.7 GHz;Fp1=0.85 GHz;Fp2=0.96 GHz;Fs2=1.248 GHz;Ap=0.5 dB;As=20 dB;N=3;ResponseType=1;MinLorC=4;Rg=50 Ohm;Rl=50 Ohm;MaxRealizations=25;
+DA_LCBandpassDT1_HR_PB17061124:DA_LCBandpassDT1  N__0 N__1 Fs1=0.7 GHz Fp1=0.85 GHz Fp2=0.96 GHz Fs2=1.248 GHz Ap=0.5 dB As=20 dB N=3 ResponseType=1 MinLorC=4 Rg=50 Ohm Rl=50 Ohm MaxRealizations=25 
+Port:Term1  N__0 0 Num=1 Z=50 Ohm Noise=yes 
+Port:Term2  N__1 0 Num=2 Z=50 Ohm Noise=yes 
+S_Param:SP1 CalcS=yes CalcY=no CalcZ=no CalcGroupDelay=yes GroupDelayAperture=1e-4 \
+FreqConversion=no FreqConversionPort=1 StatusLevel=2 CalcNoise=no SortNoise=0 BandwidthForNoise=1.0 Hz DevOpPtLevel=0 \
+SweepVar="freq" SweepPlan="SP1_stim" OutputPlan="SP1_Output" 
+
+SweepPlan: SP1_stim Start=100 MHz Stop=1.6 GHz Step=10 MHz 
+
+OutputPlan:SP1_Output \
+      Type="Output" \
+      UseEquationNestLevel=yes \
+      EquationNestLevel=2 \
+      UseSavedEquationNestLevel=yes \
+      SavedEquationNestLevel=2
+
+#load "python","LinearCollapse"
+Component Module="LinearCollapse" Type="ModelExtractor" NetworkRepresentation=2
